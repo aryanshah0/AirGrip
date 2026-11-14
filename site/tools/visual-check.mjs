@@ -1,15 +1,16 @@
-// Real-browser check of the built site against the locked design, using headless Chrome over the DevTools protocol.
-//   node tools/browser-check.mjs [siteOrigin] [designOrigin]
-// For every page: console errors / React hydration warnings, text of <main> equal to the design page's <main>,
-// and no horizontal overflow at 390 px. Needs `npm run preview` (or any static server on dist/) and the design
-// server (python3 -m http.server 5174 in ../design).
+// Before/after check of the built site, in headless Chrome over the DevTools protocol.
+//   node tools/visual-check.mjs [siteOrigin] [referenceOrigin] [--pixels]
+// Reference = an earlier build served on another port (e.g. `git worktree` of the last commit, built, then
+// `python3 -m http.server 4180 --directory dist`). For every page: console errors / React hydration warnings, text of
+// <main> equal to the reference, no horizontal overflow at 390 px, and with --pixels full-page screenshots at
+// 1440 and 390 px compared pixel by pixel. Use it to prove a refactor changed nothing, or to list what a fix changed.
 import { spawn } from "node:child_process";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 
 const SITE = process.argv[2] || "http://127.0.0.1:4173";
-const DESIGN = process.argv[3] || "http://127.0.0.1:5174";
+const REF = process.argv[3] || "http://127.0.0.1:4180";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const { routes } = await import("./routes-for-check.mjs");
 
@@ -74,10 +75,11 @@ const MAIN_TEXT = `(() => { const m = document.querySelector('main'); if (!m) re
 let fails = 0;
 for (const r of routes) {
   const out = [];
-  // design first (localStorage cleared per origin so the quote list / consent start empty)
-  await load(`${DESIGN}/${r.name}.html`, 1440);
+  // reference first (localStorage cleared per origin so the quote list / consent start empty)
+  const refUrl = REF + (r.name === "404" ? "/404.html" : r.path);
+  await load(refUrl, 1440);
   await evalJs("localStorage.clear(); sessionStorage.clear()");
-  await load(`${DESIGN}/${r.name}.html`, 1440);
+  await load(refUrl, 1440);
   const dText = norm(await evalJs(MAIN_TEXT));
   const siteUrl = SITE + (r.name === "404" ? "/404.html" : r.path);
   await load(siteUrl, 1440);
@@ -89,11 +91,11 @@ for (const r of routes) {
   if (errs.length) out.push("console: " + errs.slice(0, 3).map((x) => String(x).slice(0, 200)).join(" | "));
   if (dText !== sText) {
     let i = 0; while (i < dText.length && dText[i] === sText[i]) i++;
-    out.push(`text differs at ${i}: design «${dText.slice(Math.max(0, i - 40), i + 60)}» site «${sText.slice(Math.max(0, i - 40), i + 60)}»`);
+    out.push(`text differs at ${i}: reference «${dText.slice(Math.max(0, i - 40), i + 60)}» site «${sText.slice(Math.max(0, i - 40), i + 60)}»`);
   }
   if (PIXELS) {
     for (const w of [1440, 390]) {
-      await load(`${DESIGN}/${r.name}.html`, w); await evalJs("window.scrollTo(0,0)"); const A = await shot();
+      await load(refUrl, w); await evalJs("window.scrollTo(0,0)"); const A = await shot();
       await load(siteUrl, w); await evalJs("window.scrollTo(0,0)"); const B = await shot();
       await send("Page.navigate", { url: "about:blank" }); await new Promise((res) => setTimeout(res, 200));
       const d = await evalJs(DIFF(A.data, B.data));
@@ -108,5 +110,5 @@ for (const r of routes) {
 }
 ws.close();
 chrome.kill();
-console.log(fails ? `\n${fails} page(s) with problems` : "\nall pages match the design, no console errors, no overflow at 390 px");
+console.log(fails ? `\n${fails} page(s) with problems` : "\nall pages match the reference, no console errors, no overflow at 390 px");
 process.exit(fails ? 1 : 0);

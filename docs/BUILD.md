@@ -1,19 +1,27 @@
 # Building and launching airgrip.co.in
 
 The live site is `site/`: React 19 + Vite 8 + TypeScript. Every page is pre-rendered to static HTML, so it runs on any
-Hostinger plan, and React only adds the interactive parts. Pages are generated from the locked design (`design/`).
+Hostinger plan, and React only adds the interactive parts. **The built site is the source of truth** (since 2026-11-15);
+`design/` is frozen history.
 
 ## How it fits together
 ```
-design/*.html  --(site/tools/convert.py)-->  site/src/pages/*.tsx      one component per page, same markup as the design
-design/partials.js  ------------------------>  site/src/components/Layout.tsx   header, mega menu, footer, quote bar
-                                               site/src/components/*    + Add, family switches, pair picker, forms, cookie banner
-npm run build  ->  site/dist/   one index.html per URL, sitemap.xml, robots.txt, .htaccess (301 map, 404, caching)
+src/data/products.tsx    content of the 16 datasheet pages: product groups, glands, gland accessories, charts, threads
+src/templates/*.tsx      GroupPage · GlandPage · AccessoryPage · ChartPage (+ datasheet/accessory/chart .css)
+src/components/blocks.tsx  shared pieces: Crumbs, Kv, Faq, Related cards, Bands, SizeTabs, Pic, M / Code / Arr
+src/components/*         header, mega menu, footer, quote bar, + Add, family switches, pair picker, forms, cookie banner
+src/pages/*.tsx          one module per route: the 16 datasheet pages are one line (template + data entry); the other
+                         18 pages (home, hubs, capabilities, quality, about, pressure screw, lock nuts, PG chart, forms…)
+                         hold their own markup, first converted from the design
+src/routes.ts            URL, page module, <title>, description per page
+npm run build  ->  dist/  one index.html per URL, sitemap.xml, robots.txt, .htaccess (301 map, 404, caching)
 ```
-- **Changing a page:** change the design (`design/tools/build_pages.py` for generated pages, or the HTML), then
-  `cd site && npm run convert && npm run build`. Do not edit `site/src/pages/*.tsx` by hand: they are regenerated.
-- **Forms, quote list, header:** `site/src/components/` (hand-written; the converter leaves them alone).
-- **URLs:** `site/tools/convert.py` (`ROUTES`), following `docs/SEO-PLAN.md`.
+- **Changing a product, gland, accessory or chart page:** edit its entry in `src/data/products.tsx`; layout changes go
+  in the template, and apply to every page of that kind.
+- **Other pages:** edit `src/pages/<Page>.tsx` (and `src/pages/css/<Page>.css`).
+- **Titles and descriptions:** `src/routes.ts`. **URLs:** `src/routes.ts` and `P` in `src/site.ts`.
+- **Proving a change:** `node tools/visual-check.mjs <new> <reference> --pixels` compares every page with an earlier
+  build (text, console errors, pixels at 1440 and 390 px).
 
 ## Commands (in `site/`)
 | Command | What it does |
@@ -22,7 +30,7 @@ npm run build  ->  site/dist/   one index.html per URL, sitemap.xml, robots.txt,
 | `npm run dev` | dev server on http://127.0.0.1:5175 (forms answer from a local mock) |
 | `npm run build` | type-check, client build, pre-render, launch guard, dist check; fails on any problem |
 | `npm run preview` | serves `dist/` on http://127.0.0.1:4173 (forms answer from the same local mock) |
-| `node tools/browser-check.mjs [site] [design] [--pixels]` | every page vs the design: text, console errors, 390 px overflow, pixel diff |
+| `node tools/visual-check.mjs [site] [reference] [--pixels]` | every page vs an earlier build (serve it on another port): text, console errors, 390 px overflow, pixel diff at 1440 and 390 |
 | `node tools/flow-check.mjs [site]` | 44 buyer flows end to end, incl. failed sends and retry (`npm run preview` answers the form with a mock). `BROWSER=safari` runs them in real Safari (Safari > Settings > Developer > Allow remote automation) |
 | `node tools/a11y-check.mjs` | axe-core WCAG 2.2 A/AA scan of every page, desktop and phone |
 | `node tools/server-check.mjs [https://airgrip.co.in]` | the deployed server: https, www, 33 old-URL 301s, 410s, 404, headers, caching, every sitemap URL, PHP runs. Sends no form, safe on the live site |
@@ -90,6 +98,12 @@ VITE_GA_ID=G-XXXXXXXXXX     # GA4; empty = no analytics at all
 - **Home quick quote:** shows the chosen file names in the drop zone.
 - The scroll-spy in in-page navigation only follows `#section` links (a link to the quote form in the same strip had
   broken it).
+
+## Verified on 2026-11-15 (shared templates)
+- The 16 generated datasheet pages now come from 4 templates + `src/data/products.tsx`; `tools/convert.py` is gone.
+  Proof against the build before the change: pre-rendered HTML identical on all 34 pages (whitespace between tags
+  aside), the CSS each page loads identical and in the same order, `visual-check --pixels`: same text, no console
+  errors, pixels identical at 1440 and 390 on every page. 44 flows, axe (0 violations), 120 server checks on Apache + PHP.
 
 ## Verified on 2026-11-15
 - Two independent reviews (code; site against the design as a buyer): no P1. Their P2s are fixed (above); P3s are on

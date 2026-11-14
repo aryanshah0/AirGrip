@@ -1,4 +1,4 @@
-/* Generated from design/product.html */
+/* Page styles, first converted from design/product.html */
 .verify { display: flex; gap: var(--s-3); align-items: flex-start; padding: var(--s-3) var(--s-4); margin-bottom: var(--s-4); border: 1px dashed var(--brass); background: var(--brass-wash); font-size: var(--t-14); color: var(--ink-2); }
   .verify b { color: var(--ink); }
   .cad a { font-size: var(--t-13); margin-right: 8px; }

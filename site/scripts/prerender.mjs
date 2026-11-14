@@ -175,4 +175,7 @@ AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application
 fs.writeFileSync(path.join(dist, ".htaccess"), htaccess);
 fs.writeFileSync(path.join(dist, "assets", ".htaccess"), `# hashed file names: cache for a year\n<IfModule mod_headers.c>\nHeader set Cache-Control "public, max-age=31536000, immutable"\n</IfModule>\n`);
 fs.rmSync(path.join(dist, "index.html.tpl"), { force: true });
+// route list for the browser test tools (tools/*.mjs)
+fs.writeFileSync(path.join(root, "tools", "routes-for-check.mjs"), "// Written by scripts/prerender.mjs from src/routes.ts\nexport const routes = " + JSON.stringify(routes.map((r) => ({ name: r.name, path: r.path })), null, 1) + ";\n");
+
 console.log(`prerendered ${n} pages, sitemap with ${indexable.length} URLs, .htaccess with ${MAP.reduce((a, [o]) => a + o.length, 0)} redirects`);

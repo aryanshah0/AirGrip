@@ -1,4 +1,4 @@
-/* Generated from design/exports.html */
+/* Page styles, first converted from design/exports.html */
 .regions { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); border-top: 1px solid var(--ink-line); }
   .regions > div { padding: var(--s-4) var(--s-4) var(--s-5) 0; border-bottom: var(--hair); }
   .regions > div + div { padding-left: var(--s-4); border-left: var(--hair); }

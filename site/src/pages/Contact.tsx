@@ -1,4 +1,4 @@
-// Generated from design/contact.html by tools/convert.py. Do not edit; change the design and re-run.
+// Page markup, first converted from design/contact.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/Contact.css";

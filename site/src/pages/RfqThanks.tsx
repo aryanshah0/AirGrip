@@ -1,4 +1,4 @@
-// Generated from design/rfq-thanks.html by tools/convert.py. Do not edit; change the design and re-run.
+// Page markup, first converted from design/rfq-thanks.html (frozen); edit here.
 
 import "../styles/pages.css";
 import { ThanksDetails } from "../components/ThanksDetails";

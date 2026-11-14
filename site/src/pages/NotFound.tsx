@@ -1,4 +1,4 @@
-// Generated from design/404.html by tools/convert.py. Do not edit; change the design and re-run.
+// Page markup, first converted from design/404.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/NotFound.css";

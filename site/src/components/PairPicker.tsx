@@ -2,11 +2,9 @@
 // Only valid pairs are offered: reducer = gland thread smaller than the entry, enlarger = larger,
 // adapter = a different thread system. Invalid options are not rendered at all (Safari ignores hidden <option>s).
 import { useState } from "react";
-import threads from "../data/threads.json";
 import { AddQ } from "./AddQ";
+import { THREADS as T, type Thread } from "../data/products";
 
-interface Thread { token: string; od: number; sys: string; label: string }
-const T = threads as Thread[];
 const byToken = (t: string) => T.find((x) => x.token === t)!;
 
 function valid(kind: string, entry: Thread, g: Thread) {

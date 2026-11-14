@@ -1,4 +1,4 @@
-/* Generated from design/about.html */
+/* Page styles, first converted from design/about.html */
 .ahero { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: end; margin-top: var(--s-5); }
   .ahero > :first-child { grid-column: 1 / span 6; }
   .ahero > .photo { grid-column: 8 / span 5; aspect-ratio: 4 / 3; border: var(--hair); }

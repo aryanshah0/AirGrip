@@ -1,4 +1,4 @@
-/* Generated from design/products.html */
+/* Page styles, first converted from design/products.html */
 .hub--4 { grid-template-columns: repeat(4, minmax(0,1fr)); align-items: start; }
   .hub--4 > :first-child { grid-column: span 2; }
   .hub--4 > :first-child .photo { aspect-ratio: 8 / 3; }

@@ -3,7 +3,7 @@ import "./styles/fonts.css";
 import "./styles/tokens.css";
 import "./styles/layout.css";
 import { App } from "./App";
-import { routes } from "./routes.gen";
+import { routes } from "./routes";
 
 export function findRoute(pathname: string) {
   // /rfq/index.html is the same page as /rfq/ (the server 301s it, but never show the 404 page for it)

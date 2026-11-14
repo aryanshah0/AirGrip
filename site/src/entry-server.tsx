@@ -1,7 +1,7 @@
 // Used only at build time by scripts/prerender.mjs: renders one route to static HTML.
 import { renderToString } from "react-dom/server";
 import { App } from "./App";
-import { routes } from "./routes.gen";
+import { routes } from "./routes";
 
 export { routes };
 

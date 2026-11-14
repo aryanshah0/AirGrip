@@ -1,0 +1,7 @@
+@import "./datasheet.css";
+/* Chart pages: title block with the thread-profile drawing. */
+.rhead { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: start; margin-top: var(--s-5); }
+.rhead > :first-child { grid-column: 1 / span 7; } .rhead .kv { margin-top: var(--s-5); }
+.rhead > figure { grid-column: 9 / span 4; margin: 0; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+.rhead > figure .frame { border: var(--hair); padding: var(--s-3); }
+@media (max-width: 959px) { .rhead > * { grid-column: 1 / -1 !important; } .rhead > figure { max-width: 420px; } }

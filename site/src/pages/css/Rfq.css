@@ -1,4 +1,4 @@
-/* Generated from design/rfq.html */
+/* Page styles, first converted from design/rfq.html */
 .rfqp { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-7); align-items: start; }
   .rfqp form { grid-column: 1 / span 8; display: grid; gap: var(--s-6); }
   .rfqp aside { grid-column: 10 / span 3; position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: var(--s-6); }

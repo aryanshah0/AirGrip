@@ -65,7 +65,10 @@ check("EMC switch rewrites codes to AG-LE", await ev("$$('td .mono').some(x => x
 // --- thread adapters: pair picker
 await go("/products/brass-cable-glands/thread-adapters/");
 await ev("setVal($('.pair select'), 'PG16'); true");
-const OD = Object.fromEntries(JSON.parse(fs.readFileSync(new URL("../src/data/threads.json", import.meta.url), "utf8")).map((t) => [t.token, t.od]));
+// outside Ø (mm) from the standards (DIN 40430, EN 60423, ISO 228-1, ASME B1.20.1), kept here independently of the site's data
+const OD = { PG07: 12.5, PG09: 15.2, PG11: 18.6, PG13: 20.4, PG16: 22.5, PG21: 28.3, PG29: 37, PG36: 47, PG42: 54, PG48: 59.3,
+  M12: 12, M16: 16, M20: 20, M25: 25, M32: 32, M40: 40, M50: 50, M63: 63, M80: 80,
+  G38: 16.662, G12: 20.955, G34: 26.441, G1: 33.249, G114: 41.91, G112: 47.803, N38: 17.145, N12: 21.336, N34: 26.67, N1: 33.401, N114: 42.164, N112: 48.26 };
 const glandOpts = await ev("[...$$('.pair')[0].querySelectorAll('select')[1].options].map(o => o.value)");
 check("reducer: only smaller gland threads offered", glandOpts.length > 0 && glandOpts.every((t) => OD[t] < OD.PG16), glandOpts.join(","));
 check("pair code updates", await ev("/^AG-RD-PG16/.test($('.pair .pair__code').textContent)"));

@@ -1,8 +1,0 @@
-<dl className="kv" style={{"marginTop": "var(--s-6)", "maxWidth": "560px"}}>{" "}
-<dt>Reference</dt><dd className="mono" id="ref">RFQ-26-0000</dd>{" "}
-<dt>Copy sent to</dt><dd id="mail">The work email you entered</dd>{" "}
-<dt>You sent</dt><dd id="sent">Your drawings and part codes</dd>{" "}
-<dt id="nda-t" hidden>NDA</dt><dd id="nda-d" hidden>Send us your NDA (email it to sales@airgrip.in); we sign it and send an upload link for your drawings.</dd>{" "}
-<dt>Sending a sample?</dt><dd>Courier it to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the reference above.</dd>{" "}
-<dt>Urgent?</dt><dd><a className="link mono" href="tel:+919316615007">+91 93166 15007</a>{" "}·{" "}<a className="link" href="https://wa.me/919316615007">WhatsApp</a></dd>{" "}
-</dl>

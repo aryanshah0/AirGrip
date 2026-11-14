@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "convert": "python3 tools/convert.py",
     "dev": "vite",
     "build": "tsc --noEmit && vite build --outDir dist && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && python3 ../design/tools/check_launch.py dist && node scripts/check-dist.mjs",
     "preview": "vite preview --outDir dist --port 4173",

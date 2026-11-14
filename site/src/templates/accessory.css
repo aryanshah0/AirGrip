@@ -1,0 +1,13 @@
+@import "./datasheet.css";
+/* Gland accessories: thread-pair picker (reducers, enlargers, adapters) and two-column part lists. */
+.pair { display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: flex-end; margin-top: var(--s-4); }
+.pair .addq { min-height: 48px; margin: 0; padding: 0 var(--s-5); }
+.pair label { display: grid; gap: 4px; font-size: var(--t-13); font-weight: 600; }
+.pair select { min-width: 150px; }
+.pair__code { font-size: var(--t-13); color: var(--ink-3); line-height: 48px; }
+.parts2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s-8) var(--gutter); }
+.parts2 .part + .part { margin-top: 0; padding-top: 0; border-top: 0; }
+.parts2 .part__head { grid-template-columns: 140px minmax(0,1fr); }
+@media (min-width: 960px) { .parts2 .part__head { min-height: 168px; } }
+.parts2 .tbl { max-width: none !important; }
+@media (max-width: 959px) { .parts2 { grid-template-columns: 1fr; } .parts2 .part + .part { margin-top: var(--s-8); padding-top: var(--s-7); border-top: var(--hair-strong); } }

@@ -1,4 +1,4 @@
-// Generated from design/home.html by tools/convert.py. Do not edit; change the design and re-run.
+// Page markup, first converted from design/home.html (frozen); edit here.
 
 import "./css/Home.css";
 import { QuickQuote } from "../components/QuickQuote";

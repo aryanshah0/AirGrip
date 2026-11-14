@@ -1,4 +1,4 @@
-// Generated from design/quality.html by tools/convert.py. Do not edit; change the design and re-run.
+// Page markup, first converted from design/quality.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/Quality.css";
