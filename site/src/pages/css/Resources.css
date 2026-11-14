@@ -1,0 +1,18 @@
+/* Generated from design/resources.html */
+.res { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--gutter); }
+  .res a { display: grid; gap: 6px; padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); text-decoration: none; align-content: start; }
+  .res a:hover { border-color: var(--ink); }
+  .res .mono { font-size: var(--t-13); color: var(--brass-deep); }
+  .res b { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+  .res p { font-size: var(--t-14); color: var(--ink-2); }
+  .res .soon { font-size: var(--t-12); color: var(--ink-3); }
+  @media (max-width: 959px) { .res { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 559px) { .res { grid-template-columns: 1fr; } }
+  .res--4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 959px) { .res--4 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 559px) { .res--4 { grid-template-columns: 1fr; } }
+  .dl a { display: grid; grid-template-columns: 1fr auto auto; gap: var(--s-4); align-items: baseline; padding: 12px 0; border-bottom: var(--hair); text-decoration: none; }
+  .dl a:hover b { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 4px; }
+  .dl b { font-weight: 600; }
+  .dl .mono { font-size: var(--t-13); color: var(--ink-3); }
+  .dl { border-top: 1px solid var(--ink-line); }

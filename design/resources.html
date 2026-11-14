@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technical Resources: Thread Charts &amp; Brass Grade Equivalents | AirGrip</title>
+<meta name="description" content="Free technical resources for buyers and engineers: PG, metric, BSP and NPT thread charts, brass grade equivalents (CW614N, CZ121, C38500, IS 319).">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
+<style>
+  .res { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--gutter); }
+  .res a { display: grid; gap: 6px; padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); text-decoration: none; align-content: start; }
+  .res a:hover { border-color: var(--ink); }
+  .res .mono { font-size: var(--t-13); color: var(--brass-deep); }
+  .res b { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+  .res p { font-size: var(--t-14); color: var(--ink-2); }
+  .res .soon { font-size: var(--t-12); color: var(--ink-3); }
+  @media (max-width: 959px) { .res { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 559px) { .res { grid-template-columns: 1fr; } }
+  .res--4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  @media (max-width: 959px) { .res--4 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 559px) { .res--4 { grid-template-columns: 1fr; } }
+  .dl a { display: grid; grid-template-columns: 1fr auto auto; gap: var(--s-4); align-items: baseline; padding: 12px 0; border-bottom: var(--hair); text-decoration: none; }
+  .dl a:hover b { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 4px; }
+  .dl b { font-weight: 600; }
+  .dl .mono { font-size: var(--t-13); color: var(--ink-3); }
+  .dl { border-top: 1px solid var(--ink-line); }
+</style>
+</head>
+<body>
+<div data-part="header" data-current="resources"></div>
+<main>
+<section class="phead">
+  <div class="wrap">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="home.html">Home</a></li><li aria-current="page">Resources</li></ol>
+    <h1>Technical resources</h1>
+    <p class="lead">Technical data for engineers and buyers. Free to use and print.</p>
+  </div>
+</section>
+
+<section class="band" id="threads">
+  <div class="wrap">
+    <div class="res">
+      <a href="resource.html"><span class="mono">DIN 40430</span><b>PG thread chart</b><p>PG 7 – PG 48: outside and core Ø, pitch, through-hole, and PG → metric replacement.</p></a>
+      <a href="metric-chart.html"><span class="mono">EN 60423</span><b>Metric thread chart</b><p>M12 – M63 × 1.5: outside Ø, pitch and tap drill.</p></a>
+      <a href="bsp-chart.html"><span class="mono">ISO 228-1</span><b>BSP thread chart</b><p>G 1/8 – G 5: threads per inch, pitch, major and minor Ø.</p></a>
+      <a href="npt-chart.html"><span class="mono">ASME B1.20.1</span><b>NPT thread chart</b><p>1/8 – 2 inch: threads per inch, pitch, pipe OD, pitch Ø and thread lengths.</p></a>
+      <a href="grades.html"><span class="mono">EN · BS · UNS · IS</span><b>Brass grade equivalents</b><p>CW614N, CW617N, DZR and lead-free grades with nearest equivalents and typical use.</p></a>
+      <a href="contact.html?topic=documents"><span class="mono">CoC · REACH</span><b>Documents on request</b><p>Certificates and the REACH statement: ask and we send them.</p></a>
+    </div>
+  </div>
+</section>
+</main>
+<div data-part="footer"></div>
+<script src="partials.js"></script>
+</body>
+</html>

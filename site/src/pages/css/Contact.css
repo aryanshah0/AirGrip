@@ -1,0 +1,22 @@
+/* Generated from design/contact.html */
+.ct { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-7); align-items: start; }
+  .ct__l { grid-column: 1 / span 6; }
+  .ct__r { grid-column: 8 / span 5; }
+  @media (max-width: 959px) { .ct__l, .ct__r { grid-column: 1 / -1; } }
+  .channels { border-top: 1px solid var(--ink-line); }
+  .channels > a, .channels > div.ch { display: grid; grid-template-columns: 130px 1fr auto; gap: var(--s-4); align-items: baseline; padding: var(--s-4) 0; border-bottom: var(--hair); text-decoration: none; }
+  .channels .k { font-size: var(--t-13); font-weight: 600; font-variation-settings: "wdth" 82; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .channels .v { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+  .channels .v.mono { font-weight: 500; font-size: var(--t-18); }
+  .channels .go { color: var(--ink-3); font-size: var(--t-14); }
+  .channels a:hover .v { color: var(--brass-deep); }
+  .acts2 { display: flex; gap: 8px; }
+  @media (max-width: 559px) { .channels > a, .channels > div.ch { grid-template-columns: 1fr; gap: 6px; } .channels .go { display: none; } }
+  .channels .v.mono { white-space: nowrap; }
+  .map { margin-top: var(--s-6); aspect-ratio: 16 / 9; }
+  .ct__r form { background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-6); display: grid; gap: var(--s-4); }
+  @media (max-width: 559px) { .ct__r form { padding: var(--s-5); } }
+  .ct__r .cdone { background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-6); }
+  .ct__r .alert { padding: var(--s-3) var(--s-4); border: 1px solid var(--error); color: var(--error); background: #FBEFEE; font-size: var(--t-14); }
+  .person { grid-template-columns: 1fr; }
+  .person span { display: block; margin-top: 2px; }

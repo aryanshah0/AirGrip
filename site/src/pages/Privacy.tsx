@@ -1,0 +1,55 @@
+// Generated from design/privacy.html by tools/convert.py. Do not edit; change the design and re-run.
+
+import "../styles/pages.css";
+
+export default function Privacy() {
+  return (
+    <>
+      <main>{" "}
+      <section className="phead"><div className="wrap"><ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Privacy policy</li></ol><h1>Privacy policy</h1><p className="lead">How AirGrip handles the details and files you send us.</p></div></section>{" "}
+      <section className="band"><div className="wrap">{" "}
+      <div className="prose">{" "}
+      <p className="muted">Last updated 14 November 2026</p>{" "}
+      <h2>1. Who is responsible</h2><p>AirGrip ("AirGrip", "we"), Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India, is responsible for the personal data collected on this website. Contact:{" "}<a className="link" href="mailto:sales@airgrip.in">sales@airgrip.in</a>, +91 93166 15007.</p>{" "}
+      <h2>2. What we collect</h2>{" "}
+      <ul className="bullets">{" "}
+      <li><span><b>Quote and contact forms:</b>{" "}name, company, work email, phone, country, destination, quantities, part codes and your notes.</span></li>{" "}
+      <li><span><b>Files you upload:</b>{" "}drawings, CAD files and specifications. These may contain names or other personal data from your title block.</span></li>{" "}
+      <li><span><b>Messages</b>{" "}you send us by email or WhatsApp.</span></li>{" "}
+      <li><span><b>Usage data,</b>{" "}only if you accept analytics cookies: pages visited, device and browser type, approximate location, collected by Google Analytics 4.</span></li>{" "}
+      </ul>{" "}
+      <h2>3. Why we use it, and on what legal basis</h2>{" "}
+      <ul className="bullets">{" "}
+      <li><span>To answer your enquiry, prepare quotes and fulfil orders: steps taken at your request before a contract, and the contract itself (GDPR Art. 6(1)(b)); your consent for this purpose under the DPDP Act.</span></li>{" "}
+      <li><span>To keep business records required by tax and customs law (legal obligation, Art. 6(1)(c)).</span></li>{" "}
+      <li><span>To measure and improve the website, only with your consent (Art. 6(1)(a)). You can withdraw consent at any time in the cookie settings.</span></li>{" "}
+      </ul>{" "}
+      <p>We do not sell your data, and we do not use it for unrelated marketing.</p>{" "}
+      <h2>4. Your drawings</h2><p>Drawings and files are used only to quote and manufacture your parts and are seen only by staff who need them. If you ask us to sign your NDA first, you send drawings only after it is signed.</p>{" "}
+      <h2>5. Who processes data for us</h2>{" "}
+      <p>We use service providers who process data on our instructions:</p>{" "}
+      <ul className="bullets">{" "}
+      <li><span>Website hosting: Hostinger</span></li>{" "}
+      <li><span>Email: the mail service that hosts sales@airgrip.in</span></li>{" "}
+      <li><span>Analytics: Google Analytics 4 (Google), only with consent</span></li>{" "}
+      <li><span>Messaging: WhatsApp (Meta), only if you contact us there</span></li>{" "}
+      <li><span>Maps: Google Maps, only if you open the map link on the contact page</span></li>{" "}
+      </ul>{" "}
+      <h2>6. Where your data is processed</h2><p>AirGrip is based in India, and the details and files you send us are processed in India. Where our service providers (section 5) handle data in other countries, they do so under their own published terms and safeguards.</p>{" "}
+      <h2>7. How long we keep it</h2>{" "}
+      <ul className="bullets">{" "}
+      <li><span>Enquiries and uploaded files that do not lead to an order: kept only as long as needed to answer and follow up, then deleted.</span></li>{" "}
+      <li><span>Customer, order and invoice records: as long as Indian tax and company law requires.</span></li>{" "}
+      <li><span>Analytics data: kept according to our Google Analytics retention setting.</span></li>{" "}
+      </ul>{" "}
+      <h2>8. Your rights</h2><p>You can ask to access, correct or delete your data, to restrict or object to its use, to receive it in a portable form, and to withdraw consent at any time (for form submissions, by writing to us; for analytics, through the cookie settings link in the footer). Under India's Digital Personal Data Protection Act 2023 you can also nominate another person to exercise these rights for you. Write to{" "}<a className="link" href="mailto:sales@airgrip.in">sales@airgrip.in</a>; we reply within one month.</p>{" "}
+      <p>If you are in the EU or UK, you can also complain to your local data protection authority (in the UK, the Information Commissioner's Office). In India, you can complain to the Data Protection Board of India after contacting our grievance officer.</p>{" "}
+      <h2>9. Grievance officer (India)</h2><p>Write to{" "}<a className="link" href="mailto:sales@airgrip.in">sales@airgrip.in</a>{" "}with "Grievance" in the subject.</p>{" "}
+      <h2 id="cookies">10. Cookies</h2><p>Essential storage keeps the site working: your cookie choice, and the quote list saved in your own browser (not sent to us until you submit the form). Analytics cookies are set only after you accept them in the cookie banner.</p>{" "}
+      <h2>11. Changes</h2><p>We will update this page when our practices change and show the date of the last update at the top.</p>{" "}
+      </div>{" "}
+      </div></section>{" "}
+      </main>
+    </>
+  );
+}

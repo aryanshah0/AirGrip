@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Stop plug: slotted dome head, threaded spigot, end view">
+<title>Stop plug: slotted dome head, threaded spigot, end view</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M70 46A22 30 0 0 0 48.2 72L55 72L55 80L48.2 80A22 30 0 0 0 70 106Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M70 56H116L119 59V93L116 96H70" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M116 56V96" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M72 58.4H114M72 93.6H114" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<circle cx="176" cy="76" r="30" fill="#F1E4C6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/><path d="M146.3 72H205.7M146.3 80H205.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M40 76H127M140 76H212M176 40V112" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M48 82V122M119 98V122" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M48 118H119" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="75.6" y="107.0" width="15.8" height="10" fill="#fff" stroke="none"/><text x="83.5" y="115.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">12</text>
+<path d="M146 80V122M206 80V122" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M146 118H206" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="165.2" y="107.0" width="21.7" height="10" fill="#fff" stroke="none"/><text x="176.0" y="115.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">Ø24</text>
+<path d="M100 56L110 38H128" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<text x="114.0" y="35.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">M20</text>
+</g></svg>

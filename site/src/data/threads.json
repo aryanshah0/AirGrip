@@ -1,0 +1,188 @@
+[
+ {
+  "token": "PG07",
+  "od": 12.5,
+  "sys": "PG",
+  "label": "PG 7"
+ },
+ {
+  "token": "PG09",
+  "od": 15.2,
+  "sys": "PG",
+  "label": "PG 9"
+ },
+ {
+  "token": "PG11",
+  "od": 18.6,
+  "sys": "PG",
+  "label": "PG 11"
+ },
+ {
+  "token": "PG13",
+  "od": 20.4,
+  "sys": "PG",
+  "label": "PG 13.5"
+ },
+ {
+  "token": "PG16",
+  "od": 22.5,
+  "sys": "PG",
+  "label": "PG 16"
+ },
+ {
+  "token": "PG21",
+  "od": 28.3,
+  "sys": "PG",
+  "label": "PG 21"
+ },
+ {
+  "token": "PG29",
+  "od": 37.0,
+  "sys": "PG",
+  "label": "PG 29"
+ },
+ {
+  "token": "PG36",
+  "od": 47.0,
+  "sys": "PG",
+  "label": "PG 36"
+ },
+ {
+  "token": "PG42",
+  "od": 54.0,
+  "sys": "PG",
+  "label": "PG 42"
+ },
+ {
+  "token": "PG48",
+  "od": 59.3,
+  "sys": "PG",
+  "label": "PG 48"
+ },
+ {
+  "token": "M12",
+  "od": 12.0,
+  "sys": "M",
+  "label": "M12\u00d71.5"
+ },
+ {
+  "token": "M16",
+  "od": 16.0,
+  "sys": "M",
+  "label": "M16\u00d71.5"
+ },
+ {
+  "token": "M20",
+  "od": 20.0,
+  "sys": "M",
+  "label": "M20\u00d71.5"
+ },
+ {
+  "token": "M25",
+  "od": 25.0,
+  "sys": "M",
+  "label": "M25\u00d71.5"
+ },
+ {
+  "token": "M32",
+  "od": 32.0,
+  "sys": "M",
+  "label": "M32\u00d71.5"
+ },
+ {
+  "token": "M40",
+  "od": 40.0,
+  "sys": "M",
+  "label": "M40\u00d71.5"
+ },
+ {
+  "token": "M50",
+  "od": 50.0,
+  "sys": "M",
+  "label": "M50\u00d71.5"
+ },
+ {
+  "token": "M63",
+  "od": 63.0,
+  "sys": "M",
+  "label": "M63\u00d71.5"
+ },
+ {
+  "token": "M80",
+  "od": 80.0,
+  "sys": "M",
+  "label": "M80"
+ },
+ {
+  "token": "G38",
+  "od": 16.662,
+  "sys": "G",
+  "label": "G 3/8"
+ },
+ {
+  "token": "G12",
+  "od": 20.955,
+  "sys": "G",
+  "label": "G 1/2"
+ },
+ {
+  "token": "G34",
+  "od": 26.441,
+  "sys": "G",
+  "label": "G 3/4"
+ },
+ {
+  "token": "G1",
+  "od": 33.249,
+  "sys": "G",
+  "label": "G 1"
+ },
+ {
+  "token": "G114",
+  "od": 41.91,
+  "sys": "G",
+  "label": "G 1\u00bc"
+ },
+ {
+  "token": "G112",
+  "od": 47.803,
+  "sys": "G",
+  "label": "G 1\u00bd"
+ },
+ {
+  "token": "N38",
+  "od": 17.145,
+  "sys": "N",
+  "label": "3/8 NPT"
+ },
+ {
+  "token": "N12",
+  "od": 21.336,
+  "sys": "N",
+  "label": "1/2 NPT"
+ },
+ {
+  "token": "N34",
+  "od": 26.67,
+  "sys": "N",
+  "label": "3/4 NPT"
+ },
+ {
+  "token": "N1",
+  "od": 33.401,
+  "sys": "N",
+  "label": "1 NPT"
+ },
+ {
+  "token": "N114",
+  "od": 42.164,
+  "sys": "N",
+  "label": "1\u00bc NPT"
+ },
+ {
+  "token": "N112",
+  "od": 48.26,
+  "sys": "N",
+  "label": "1\u00bd NPT"
+ }
+]

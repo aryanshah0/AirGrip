@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found | AirGrip</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
+<style>
+  .nf { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: center; }
+  .nf > div { grid-column: 1 / span 6; } .nf > figure { grid-column: 8 / span 5; margin: 0; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+  .nf figure .frame { border: var(--hair); }
+  @media (max-width: 959px) { .nf > * { grid-column: 1 / -1 !important; } }
+</style>
+</head>
+<body>
+<div data-part="header"></div>
+<main>
+<section class="band">
+  <div class="wrap nf">
+    <div>
+      <span class="eyebrow eyebrow--brass">Error 404</span>
+      <h1 style="margin-block:var(--s-3) var(--s-4)">This page isn't on the drawing</h1>
+      <p class="lead">This page may have moved. Try one of these:</p>
+      <ul class="rlist" style="margin-top:var(--s-6);max-width:520px">
+        <li class="pair"><a class="link" href="products.html">Products</a><span class="mono">/products/</span></li>
+        <li class="pair"><a class="link" href="glands.html">Cable glands</a><span class="mono">/products/brass-cable-glands/</span></li>
+        <li class="pair"><a class="link" href="resources.html">Thread charts &amp; resources</a><span class="mono">/resources/</span></li>
+        <li class="pair"><a class="link" href="rfq.html">Request a quote</a><span class="mono">/rfq/</span></li>
+        <li class="pair"><a class="link" href="contact.html">Contact</a><span class="mono">/contact/</span></li>
+        <li class="pair"><span>Call</span><a class="mono link" href="tel:+919316615007">+91 93166 15007</a></li>
+      </ul>
+    </div>
+    <figure aria-hidden="true"><div class="frame">
+      <svg class="dwg" viewBox="0 0 300 200">
+        <line class="c" x1="20" y1="100" x2="280" y2="100"/>
+        <path class="h" d="M60 100V74L68 66H140V54H200V66H232L240 74V100M60 100V126L68 134H140V146H200V134H232L240 126V100"/>
+        <rect class="t" x="150" y="164" width="140" height="32"/><path class="t" d="M150 176H290"/>
+        <text class="dn" x="156" y="173" style="font-size:9px">DRG NO.</text><text class="dt" x="156" y="191" style="font-size:11px">404 · NOT FOUND</text>
+      </svg>
+    </div></figure>
+  </div>
+</section>
+</main>
+<div data-part="footer"></div>
+<script src="partials.js"></script>
+</body>
+</html>

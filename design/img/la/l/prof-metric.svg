@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Metric ISO thread profile: 60 degree flanks, pitch P, major diameter d, minor diameter d3">
+<title>Metric ISO thread profile: 60 degree flanks, pitch P, major diameter d, minor diameter d3</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M8.0 60.0 L16.0 60.0 L36.0 94.6 L52.0 94.6 L72.0 60.0 L80.0 60.0 L100.0 94.6 L116.0 94.6 L136.0 60.0 L144.0 60.0 L164.0 94.6 L180.0 94.6 L200.0 60.0 L208.0 60.0 L228.0 94.6 L232 94.6L232 132H8Z" fill="#F1E4C6" stroke="none"/><path d="M8.0 60.0 L16.0 60.0 L36.0 94.6 L52.0 94.6 L72.0 60.0 L80.0 60.0 L100.0 94.6 L116.0 94.6 L136.0 60.0 L144.0 60.0 L164.0 94.6 L180.0 94.6 L200.0 60.0 L208.0 60.0 L228.0 94.6 L232 94.6L232 132H8Z" fill="url(#h)" stroke="none"/><path d="M8.0 60.0 L16.0 60.0 L36.0 94.6 L52.0 94.6 L72.0 60.0 L80.0 60.0 L100.0 94.6 L116.0 94.6 L136.0 60.0 L144.0 60.0 L164.0 94.6 L180.0 94.6 L200.0 60.0 L208.0 60.0 L228.0 94.6 L232 94.6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M4 146H236" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M12 56V28M76 56V28" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M12 32H76" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="39.0" y="21.0" width="9.9" height="10" fill="#fff" stroke="none"/><text x="44.0" y="29.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">P</text>
+<path d="M27 79A34 34 0 0 1 61 79" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/><text x="44.0" y="72.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">60°</text>
+<path d="M140 60L156 40H178" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<text x="160.0" y="37.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">d</text>
+<path d="M172 94.6L186 116H190" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<rect x="186.1" y="111.0" width="15.8" height="10" fill="#fff" stroke="none"/><text x="194.0" y="119.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">d3</text>
+</g></svg>

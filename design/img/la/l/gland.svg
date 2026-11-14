@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Brass cable gland: half-section and end view">
+<title>Brass cable gland: half-section and end view</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<g transform="translate(243 -19) scale(.66) rotate(90)">
+<path d="M132 170Q106 174 104 200V252H112V200Q114 186 132 182Z" fill="#F1E4C6"/><path d="M132 170Q106 174 104 200V252H112V200Q114 186 132 182Z" fill="url(#h2)"/>
+<path d="M112 225V250H104V300H116V346L120 350H130V250H126V225Z" fill="#F1E4C6"/><path d="M112 225V250H104V300H116V346L120 350H130V250H126V225Z" fill="url(#h)"/>
+<path d="M114 198L132 190V225H114Z" fill="#E4E2DA"/><path d="M114 198L132 190V225H114Z" fill="url(#s)"/>
+<path d="M132 170Q106 174 104 200V252H112V200Q114 186 132 182ZM112 225V250H104V300H116V346L120 350H130V250H126V225ZM114 198L132 190V225H114Z" stroke="#262B33" stroke-width="2.34" vector-effect="non-scaling-stroke"/>
+<path d="M150 170H168Q194 174 196 200V300H184V346L180 350H150M150 251H196M184 300H150M196 251V300" stroke="#262B33" stroke-width="2.34" vector-effect="non-scaling-stroke"/>
+<path d="M121 304V346M179 304V346" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M150 156V366" stroke="#B8862F" stroke-width="1.30" vector-effect="non-scaling-stroke" stroke-dasharray="14 3 2 3"/>
+</g>
+<path d="M221 80L203.5 110.4H168.5L151 80L168.5 49.6H203.5Z" fill="#F1E4C6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<circle cx="186" cy="80" r="22.4" fill="#F1E4C6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M205.1 80A19.1 19.1 0 1 1 186 60.9" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<circle cx="186" cy="80" r="13.2" fill="#fff" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M144 80H228M186 38V122" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+</g></svg>

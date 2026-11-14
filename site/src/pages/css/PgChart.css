@@ -1,0 +1,12 @@
+/* Generated from design/resource.html */
+.rhead { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: start; margin-top: var(--s-5); }
+  .rhead > :first-child { grid-column: 1 / span 7; }
+  .rhead > figure { grid-column: 9 / span 4; margin: 0; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+  .rhead > figure .frame { border: var(--hair); padding: var(--s-3); }
+  .rhead figcaption { font-size: var(--t-13); color: var(--ink-3); margin-top: var(--s-2); }
+  .rhead h1 { margin: 0 0 var(--s-4); }
+  @media (max-width: 959px) { .rhead > * { grid-column: 1 / -1 !important; } .rhead > figure { max-width: 420px; } }
+  .rlinks { list-style: none; padding: 0; margin: 0; border-top: var(--hair-strong); }
+  .rlinks a { display: flex; justify-content: space-between; gap: var(--s-4); padding: 11px 0; border-bottom: var(--hair); text-decoration: none; }
+  .rlinks a:hover { color: var(--brass-deep); }
+  .rlinks .mono { font-size: var(--t-13); color: var(--ink-3); }

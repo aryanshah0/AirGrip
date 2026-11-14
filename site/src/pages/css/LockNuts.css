@@ -1,0 +1,17 @@
+/* Generated from design/accessory.html */
+.prod__fig .sheet img { width: 100%; height: auto; }
+  .matrix { border-top: 1px solid var(--ink-line); }
+  .matrix .row { display: grid; grid-template-columns: 200px 1fr; gap: var(--s-5); padding: var(--s-4) 0; border-bottom: var(--hair); align-items: start; }
+  .matrix .row b { font-weight: 600; display: block; }
+  .matrix .row .std { font-size: var(--t-13); color: var(--ink-3); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; min-height: 42px; padding: 4px 6px 4px 12px; border: 1px solid var(--rule-strong); background: var(--card); border-radius: var(--radius); }
+  .chip .mono { font-size: var(--t-14); }
+  .chip .addq { margin-left: 0; }
+  @media (max-width: 719px) { .matrix .row { grid-template-columns: 1fr; gap: var(--s-3); } }
+  .types { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+  .types > div { padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); }
+  .types h3 { font-size: var(--t-20); } .types p { font-size: var(--t-14); color: var(--ink-2); margin-top: 6px; }
+  @media (max-width: 719px) { .types { grid-template-columns: 1fr; } }
+  .acc-ctl { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-bottom: var(--s-4); }
+  #sizes .sb .tbl { max-width: 560px; }

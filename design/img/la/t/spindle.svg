@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Valve spindle">
+<title>Valve spindle</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M15.0 80.0 L15.0 71.3 L16.2 70.2 L40.1 70.2 L41.2 71.3 L41.2 66.9 L172.5 66.9 L172.5 62.7 L174.9 60.3 L189.8 60.3 L192.2 62.7 L192.2 69.9 L193.6 68.5 L223.6 68.5 L225.0 69.9 L225.0 80.0" stroke="#262B33" stroke-width="1.2"/>
+<path d="M15.0 80.0 L15.0 88.7 L16.2 89.8 L40.1 89.8 L41.2 88.7 L41.2 93.1 L172.5 93.1 L172.5 97.3 L174.9 99.7 L189.8 99.7 L192.2 97.3 L192.2 90.1 L193.6 91.5 L223.6 91.5 L225.0 90.1 L225.0 80.0" stroke="#262B33" stroke-width="1.2"/>
+<path d="M16.2 80.0V89.8" stroke="#262B33" stroke-width="0.9"/>
+<path d="M16.2 80.0V70.2" stroke="#262B33" stroke-width="0.9"/>
+<path d="M40.1 80.0V89.8" stroke="#262B33" stroke-width="0.9"/>
+<path d="M40.1 80.0V70.2" stroke="#262B33" stroke-width="0.9"/>
+<path d="M41.2 80.0V93.1" stroke="#262B33" stroke-width="0.9"/>
+<path d="M41.2 80.0V66.9" stroke="#262B33" stroke-width="0.9"/>
+<path d="M172.5 80.0V99.7" stroke="#262B33" stroke-width="0.9"/>
+<path d="M172.5 80.0V60.3" stroke="#262B33" stroke-width="0.9"/>
+<path d="M174.9 80.0V99.7" stroke="#262B33" stroke-width="0.9"/>
+<path d="M174.9 80.0V60.3" stroke="#262B33" stroke-width="0.9"/>
+<path d="M189.8 80.0V99.7" stroke="#262B33" stroke-width="0.9"/>
+<path d="M189.8 80.0V60.3" stroke="#262B33" stroke-width="0.9"/>
+<path d="M192.2 80.0V99.7" stroke="#262B33" stroke-width="0.9"/>
+<path d="M192.2 80.0V60.3" stroke="#262B33" stroke-width="0.9"/>
+<path d="M193.6 80.0V91.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M193.6 80.0V68.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M223.6 80.0V91.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M223.6 80.0V68.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M16.5 71.3H39.8M16.5 88.7H39.8" stroke="#262B33" stroke-width=".6"/>
+<path d="M8.0 80.0H232.0" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+</g></svg>

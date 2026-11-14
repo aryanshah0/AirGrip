@@ -1,0 +1,14 @@
+/* Generated from design/exports.html */
+.regions { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); border-top: 1px solid var(--ink-line); }
+  .regions > div { padding: var(--s-4) var(--s-4) var(--s-5) 0; border-bottom: var(--hair); }
+  .regions > div + div { padding-left: var(--s-4); border-left: var(--hair); }
+  .regions b { display: block; font-weight: 600; font-size: var(--t-18); }
+  .regions span { font-size: var(--t-14); color: var(--ink-2); }
+  @media (max-width: 959px) { .regions { grid-template-columns: 1fr 1fr; } .regions > div { padding-left: 0 !important; border-left: 0 !important; } .regions > div:nth-child(even) { padding-left: var(--s-4) !important; border-left: var(--hair) !important; } }
+  .route-line { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); border: 1px solid var(--ink-line); background: var(--card); }
+  .route-line > div { padding: var(--s-4); border-right: var(--hair); position: relative; }
+  .route-line > div:last-child { border-right: 0; }
+  .route-line .mono { color: var(--brass-deep); font-size: var(--t-13); }
+  .route-line b { display: block; font-weight: 600; margin-top: 4px; }
+  .route-line p { font-size: var(--t-14); color: var(--ink-2); margin-top: 4px; }
+  @media (max-width: 959px) { .route-line { grid-template-columns: 1fr; } .route-line > div { border-right: 0; border-bottom: var(--hair); } }

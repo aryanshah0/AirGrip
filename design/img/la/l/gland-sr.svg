@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Strain-relief cable gland: half-section and end view; tapered bending-protection sleeve">
+<title>Strain-relief cable gland: half-section and end view; tapered bending-protection sleeve</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<g transform="translate(4 80) scale(0.72)"><path d="M14 -22H40V-34H70V-26H92V-15H14Z" fill="#F1E4C6" stroke="none"/><path d="M14 -22H40V-34H70V-26H92V-15H14Z" fill="url(#h)" stroke="none"/><path d="M70 -34H100V-30A22 12 0 0 1 122 -18H116L100 -26H70Z" fill="#F1E4C6" stroke="none"/><path d="M70 -34H100V-30A22 12 0 0 1 122 -18H116L100 -26H70Z" fill="url(#h2)" stroke="none"/><path d="M92 -24H100L114 -17.5V-8H92Z" fill="#E4E2DA" stroke="none"/><path d="M92 -24H100L114 -17.5V-8H92Z" fill="url(#s)" stroke="none"/><path d="M114 -8V-16H122L190 -10V-8Z" fill="#F1E4C6" stroke="none"/><path d="M114 -8V-16H122L190 -10V-8Z" fill="url(#h)" stroke="none"/><path d="M14 -22H40V-34H70V-26H92V-15H14Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M70 -34H100V-30A22 12 0 0 1 122 -18H116L100 -26H70Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M92 -24H100L114 -17.5V-8H92Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M114 -8V-16H122L190 -10V-8Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M15 -19H39M71 -28H91" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M14 0V22H40V34H100V30A22 12 0 0 0 122 18V16L190 10V0" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M70 0V34M100 0V30M40 17H100M122 0V16" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M15 19H39" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M130 0V15.3" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M138 0V14.6" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M146 0V13.9" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M154 0V13.2" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M162 0V12.5" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M170 0V11.8" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M178 0V11.1" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M186 0V10.4" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M14 15H92M92 8H190" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke" stroke-dasharray="3 2"/>
+<path d="M6 0H198" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+</g>
+<path d="M217.2 92.2 L196.0 104.5 L174.8 92.2 L174.8 67.8 L196.0 55.5 L217.2 67.8Z" fill="#F1E4C6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/><circle cx="196" cy="80" r="21.2" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/><circle cx="196" cy="80" r="11.5" fill="#F1E4C6" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/><circle cx="196" cy="80" r="5.8" fill="#fff" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/><path d="M163.5 80H228.5M196 47.5V112.5" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M25.6 64.2L36 40H66" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<text x="40.0" y="37.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">PG 13.5</text>
+</g></svg>

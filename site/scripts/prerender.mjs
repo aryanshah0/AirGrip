@@ -1,0 +1,179 @@
+// Build step 3: render every route to static HTML in dist/, with its <head> (title, description, canonical, Open Graph,
+// JSON-LD), the page's own CSS and JS preloads, plus sitemap.xml, robots.txt and .htaccess (redirects, 404, caching).
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const dist = path.join(root, "dist");
+const ORIGIN = "https://airgrip.co.in";
+const GROUP = ["AirGrip International", "AirGrip Industrie", "Asian Brass Technocrats", "Copper Alloy Component Solutions", "Devi Metals"];
+const PRODUCT_PAGES = { "clamping-jaw": "Cable glands", favorit: "Cable glands", product: "Cable gland components", accessory: "Cable gland accessories",
+  "thread-adapters": "Cable gland accessories", "stop-plugs": "Cable gland accessories", "earth-tags": "Cable gland accessories", "conduit-parts": "Cable gland accessories" };
+
+const tpl = fs.readFileSync(path.join(dist, "index.html"), "utf8");
+const manifest = JSON.parse(fs.readFileSync(path.join(dist, ".vite", "manifest.json"), "utf8"));
+const { render, routes } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
+
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+const text = (h) => h.replace(/<!-- -->/g, "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/\s+/g, " ").trim();
+
+// CSS and JS a page module needs (its own chunk plus static imports), from the Vite manifest
+function assetsFor(file) {
+  const css = new Set(), js = new Set(), seen = new Set();
+  (function walk(key) {
+    if (seen.has(key)) return;
+    seen.add(key);
+    const m = manifest[key];
+    if (!m) return;
+    js.add(m.file);
+    (m.css || []).forEach((c) => css.add(c));
+    (m.imports || []).forEach((k) => walk(k));
+  })(file);
+  return { css: [...css], js: [...js] };
+}
+const entry = manifest["index.html"];
+const entryCss = new Set(entry.css || []);
+// Cascade order must match the design: tokens (entry) -> CSS shared by many pages (pages.css) -> the page's own CSS.
+const usedBy = {};
+Object.values(manifest).forEach((m) => (m.css || []).forEach((c) => { usedBy[c] = (usedBy[c] || 0) + 1; }));
+const ordered = (list) => [...entryCss, ...list.filter((c) => !entryCss.has(c)).sort((a, b) => usedBy[b] - usedBy[a])];
+const tplBase = tpl.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>\n?/g, "");
+const font = Object.values(manifest).flatMap((m) => m.assets || []).find((a) => /archivo-latin-wdth-normal.*\.woff2$/.test(a));
+
+const org = {
+  "@type": "Organization", "@id": ORIGIN + "/#org", name: "AirGrip", url: ORIGIN + "/", logo: ORIGIN + "/img/logo.svg",
+  email: "sales@airgrip.in", telephone: "+91-93166-15007", foundingDate: "1988",
+  address: { "@type": "PostalAddress", streetAddress: "Plot No. 3966 & 3967, Road No. U, GIDC Phase-III, Dared", addressLocality: "Jamnagar", postalCode: "361004", addressRegion: "Gujarat", addressCountry: "IN" },
+  subOrganization: GROUP.map((name) => ({ "@type": "Organization", name })),
+};
+const local = {
+  "@type": "LocalBusiness", "@id": ORIGIN + "/#plant", name: "AirGrip", url: ORIGIN + "/", image: ORIGIN + "/img/logo.svg",
+  telephone: "+91-93166-15007", email: "sales@airgrip.in", address: org.address, parentOrganization: { "@id": ORIGIN + "/#org" },
+  openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:30", closes: "18:30" }],
+};
+
+function jsonLd(route, html) {
+  const graph = [];
+  const url = ORIGIN + route.path;
+  if (["home", "about"].includes(route.name)) graph.push(org);
+  if (["home", "contact"].includes(route.name)) graph.push(local);
+  const crumbs = html.match(/<ol class="crumbs"[^>]*>(.*?)<\/ol>/s);
+  if (crumbs) {
+    const items = [...crumbs[1].matchAll(/<li[^>]*>(.*?)<\/li>/gs)].map((m, i) => {
+      const a = m[1].match(/href="([^"]+)"/);
+      return { "@type": "ListItem", position: i + 1, name: text(m[1]), item: a ? ORIGIN + a[1] : url };
+    });
+    graph.push({ "@type": "BreadcrumbList", itemListElement: items });
+  }
+  const faqs = [...html.matchAll(/<details[^>]*>\s*<summary[^>]*>(.*?)<\/summary>(.*?)<\/details>/gs)]
+    .filter((m) => html.lastIndexOf('class="faq"', m.index) > html.lastIndexOf("</section>", m.index));
+  if (faqs.length) graph.push({ "@type": "FAQPage", mainEntity: faqs.map((m) => ({ "@type": "Question", name: text(m[1]), acceptedAnswer: { "@type": "Answer", text: text(m[2]) } })) });
+  if (PRODUCT_PAGES[route.name]) {
+    const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/s);
+    const img = html.match(/class="prod__fig".*?<img[^>]*src="([^"]+)"/s);
+    graph.push({ "@type": "Product", name: text(h1[1]), description: route.description, url, brand: { "@type": "Brand", name: "AirGrip" },
+      manufacturer: { "@id": ORIGIN + "/#org" }, material: "Brass", category: PRODUCT_PAGES[route.name], ...(img ? { image: ORIGIN + img[1] } : {}) });
+    if (!graph.some((g) => g["@id"] === ORIGIN + "/#org")) graph.push({ ...org });
+  }
+  return graph.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>` : "";
+}
+
+function head(route, html) {
+  const url = ORIGIN + route.path;
+  const { css, js } = assetsFor(route.file);
+  const t = [
+    `<title>${esc(route.title)}</title>`,
+    `<meta name="description" content="${esc(route.description)}">`,
+    route.noindex ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
+    `<meta property="og:type" content="website">`, `<meta property="og:site_name" content="AirGrip">`, `<meta property="og:locale" content="en_IN">`,
+    `<meta property="og:title" content="${esc(route.title)}">`, `<meta property="og:description" content="${esc(route.description)}">`,
+    `<meta property="og:url" content="${url}">`, `<meta property="og:image" content="${ORIGIN}/og.png">`, `<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`,
+    `<meta name="twitter:card" content="summary_large_image">`,
+    font ? `<link rel="preload" href="/${font}" as="font" type="font/woff2" crossorigin>` : "",
+    ...ordered(css).map((c) => `<link rel="stylesheet" href="/${c}">`),
+    ...js.map((j) => `<link rel="modulepreload" href="/${j}">`),
+    jsonLd(route, html),
+  ];
+  return t.filter(Boolean).join("\n");
+}
+
+let n = 0;
+for (const route of routes) {
+  const html = await render(route.path);
+  const page = tplBase
+    .replace("<!--head-->", head(route, html))
+    .replace("<body data-bc>", route.bodyClass ? `<body class="${route.bodyClass}">` : "<body>")
+    .replace("<!--app-->", html);
+  const out = route.name === "404" ? path.join(dist, "404.html") : path.join(dist, route.path, "index.html");
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, page);
+  n++;
+}
+
+// sitemap and robots
+const today = new Date().toISOString().slice(0, 10);
+const indexable = routes.filter((r) => !r.noindex);
+fs.writeFileSync(path.join(dist, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${indexable.map((r) => `  <url><loc>${ORIGIN}${r.path}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
+fs.writeFileSync(path.join(dist, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
+
+// Apache / LiteSpeed (Hostinger): https, no www, old-site 301 map (docs/SEO-PLAN.md §5), 410 for WordPress paths, caching
+const R = Object.fromEntries(routes.map((r) => [r.name, r.path]));
+const MAP = [
+  [["about-us", "why-us", "plant", "career"], R.about], [["market-we-serve-2"], R.industries], [["market-we-serve"], R.exports],
+  [["processing-material-range-and-accuracy"], R.capabilities + "#range"], [["process-we-do-2", "process-we-do", "packaging"], R.capabilities],
+  [["quality-control", "quality-assurance"], R.quality], [["cnc-turned-components-2"], R.category], [["cable-gland"], R.glands],
+  [["cable-gland-with-clamping-jaws"], R["clamping-jaw"]], [["kompakt-cable-gland"], R.product], [["favorit-cable-gland"], R.favorit],
+  [["cable-gland-adapters", "cable-gland-enlargers", "cable-gland-reducers"], R["thread-adapters"]],
+  [["cable-gland-lock-nuts-cable-gland-locking-nuts"], R.accessory], [["stop-plug-blank-plug-stooping-plug-blanking-plug"], R["stop-plugs"]],
+  [["male-bush-conduit-gland-male-bush", "conduit-gland-parts"], R["conduit-parts"]], [["earthing-tag"], R["earth-tags"]],
+  [["custom-brass-fittings"], R.fittings], [["special-fasteners"], R.fasteners], [["brass-injection-molding-inserts"], R.inserts],
+  [["custom-metal-stamping-parts"], R.stamping], [["electrical-terminal-blocks-connectors"], R.terminals],
+  [["brass-forged-machined-components"], R.forged], [["technical-library"], R.resources], [["enquiry"], R.rfq],
+];
+const reEsc = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const htaccess = `# Generated by scripts/prerender.mjs. Apache / LiteSpeed (Hostinger).
+Options -Indexes -MultiViews
+DirectorySlash On
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+AddDefaultCharset utf-8
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# https, and the bare domain (www -> airgrip.co.in)
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# old WordPress site: pages moved (301), platform paths gone (410)
+${MAP.flatMap(([olds, to]) => olds.map((o) => `RewriteRule ^${reEsc(o)}/?$ ${to} [R=301,NE,L]`)).join("\n")}
+RewriteRule ^(wp-content|wp-admin|wp-includes|wp-json)(/|$) - [G,L]
+RewriteRule ^(wp-login\\.php|xmlrpc\\.php|feed/?)$ - [G,L]
+RewriteCond %{QUERY_STRING} (^|&)(p|page_id|cat|tag)=
+RewriteRule ^(index\\.php)?$ - [G,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+<FilesMatch "\\.html$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+<FilesMatch "\\.(svg|webp|png|jpg|ico)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json application/xml image/svg+xml
+</IfModule>
+`;
+fs.writeFileSync(path.join(dist, ".htaccess"), htaccess);
+fs.writeFileSync(path.join(dist, "assets", ".htaccess"), `# hashed file names: cache for a year\n<IfModule mod_headers.c>\nHeader set Cache-Control "public, max-age=31536000, immutable"\n</IfModule>\n`);
+fs.rmSync(path.join(dist, "index.html.tpl"), { force: true });
+console.log(`prerendered ${n} pages, sitemap with ${indexable.length} URLs, .htaccess with ${MAP.reduce((a, [o]) => a + o.length, 0)} redirects`);

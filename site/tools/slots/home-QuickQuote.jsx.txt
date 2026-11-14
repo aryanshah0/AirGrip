@@ -1,0 +1,14 @@
+<form aria-label="Quick quote request">{" "}
+<div className="field"><label htmlFor="n">Name<span className="req">*</span></label><input className="input" id="n" autoComplete="name" required /></div>{" "}
+<div className="field"><label htmlFor="c">Company<span className="req">*</span></label><input className="input" id="c" autoComplete="organization" required /></div>{" "}
+<div className="field"><label htmlFor="e">Work email<span className="req">*</span></label><input className="input" id="e" type="email" autoComplete="email" required /></div>{" "}
+<div className="field"><label htmlFor="co">Country<span className="req">*</span></label><input className="input" id="co" autoComplete="country-name" required /></div>{" "}
+<div className="field full"><span className="lbl" id="dl">Drawing</span>{" "}
+<label className="drop" aria-labelledby="dl"><input type="file" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges" /><b>Choose files or drop them here</b><span className="hint">PDF · DWG · DXF · STEP · IGES · max&nbsp;20&nbsp;MB</span></label>{" "}
+</div>{" "}
+<div className="field"><label htmlFor="qo">Qty per order</label><input className="input" id="qo" inputMode="numeric" placeholder="e.g. 5,000" /></div>{" "}
+<div className="field"><label htmlFor="qy">Qty per year</label><input className="input" id="qy" inputMode="numeric" placeholder="e.g. 60,000" /></div>{" "}
+<label className="check full"><input type="checkbox" id="hnda" /><span>Sign my NDA before I share drawings</span></label>{" "}
+<label className="check full"><input type="checkbox" required /><span>I agree that AirGrip may store these details to answer this request (<a className="link" href="/privacy-policy/">privacy policy</a>).<span className="req">*</span></span></label>{" "}
+<div className="full end"><a className="link small" href="/rfq/">Full form: material, finish, volumes, several drawings</a><button className="btn btn--brass">Send request{" "}<span className="arr" aria-hidden="true">→</span></button></div>{" "}
+</form>

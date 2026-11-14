@@ -1,0 +1,24 @@
+/* Generated from design/about.html */
+.ahero { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: end; margin-top: var(--s-5); }
+  .ahero > :first-child { grid-column: 1 / span 6; }
+  .ahero > .photo { grid-column: 8 / span 5; aspect-ratio: 4 / 3; border: var(--hair); }
+  .ahero h1 { margin: 0 0 var(--s-4); }
+  @media (max-width: 959px) { .ahero > * { grid-column: 1 / -1 !important; } }
+  .story { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); }
+  .story .prose { grid-column: 1 / span 7; }
+  .story aside { grid-column: 9 / span 4; }
+  @media (max-width: 959px) { .story > * { grid-column: 1 / -1 !important; } }
+  .people { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--gutter); }
+  .people article { display: block; padding: var(--s-5) var(--s-6); background: var(--card); border: var(--hair-strong); }
+  .people .ph { aspect-ratio: 4 / 5; }
+  .people h3 { font-size: var(--t-20); }
+  .people .role { color: var(--brass-deep); font-size: var(--t-14); font-weight: 600; margin: 2px 0 var(--s-3); display: block; }
+  .people p { font-size: var(--t-14); color: var(--ink-2); }
+  @media (max-width: 959px) { .people { grid-template-columns: 1fr; } }
+  @media (max-width: 559px) { .people article { padding: var(--s-4) var(--s-5); } }
+  .regions { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); border-top: 1px solid var(--ink-line); }
+  .regions > div { padding: var(--s-4) var(--s-4) var(--s-5) 0; border-bottom: var(--hair); }
+  .regions > div + div { padding-left: var(--s-4); border-left: var(--hair); }
+  .regions b { display: block; font-weight: 600; font-size: var(--t-18); }
+  .regions span { font-size: var(--t-14); color: var(--ink-2); }
+  @media (max-width: 959px) { .regions { grid-template-columns: 1fr 1fr; } .regions > div { padding-left: 0 !important; border-left: 0 !important; } .regions > div:nth-child(even) { padding-left: var(--s-4) !important; border-left: var(--hair) !important; } }

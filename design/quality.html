@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quality: ISO 9001:2015, Inspection &amp; Traceability | AirGrip Brass Components</title>
+<meta name="description" content="ISO 9001:2015 certified brass component manufacturer. Mill-certified rod, inspection at defined points, final inspection reports, lot traceability and PPAP Level 3 on request.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
+<style>
+  .qhead { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: start; }
+  .qhead > :first-child { grid-column: 1 / span 7; }
+  .qhead .cert { grid-column: 9 / span 4; background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-5); }
+  .cert .std { font-size: clamp(2rem, 1.6rem + 1.6vw, 2.75rem); font-weight: 600; font-variation-settings: "wdth" 125; letter-spacing: -0.03em; line-height: 1; margin-block: var(--s-3) var(--s-5); }
+  .cert .kv { grid-template-columns: 110px 1fr; font-size: var(--t-14); }
+  @media (max-width: 959px) { .qhead > :first-child, .qhead > .cert { grid-column: 1 / -1; } }
+  .flow { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-top: 1px solid var(--ink-line); counter-reset: s; }
+  .flow li { padding: var(--s-4) var(--s-4) var(--s-5) 0; border-bottom: var(--hair); }
+  .flow li:not(:nth-child(4n+1)) { padding-left: var(--s-4); border-left: var(--hair); }
+  .flow .mono { color: var(--brass-deep); font-size: var(--t-13); }
+  .flow b { display: block; font-weight: 600; margin-top: 4px; }
+  .flow span:last-child { font-size: var(--t-14); color: var(--ink-2); }
+  @media (max-width: 959px) { .flow { grid-template-columns: 1fr 1fr; } .flow li { padding-left: 0 !important; border-left: 0 !important; } .flow li:nth-child(even) { padding-left: var(--s-4) !important; border-left: var(--hair) !important; } }
+  .lab-unused { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: start; }
+  .lab .tbl { grid-column: 1 / span 7; }
+  .lab .ph { grid-column: 9 / span 4; aspect-ratio: 4 / 5; }
+  @media (max-width: 959px) { .lab > * { grid-column: 1 / -1 !important; } .lab .ph { aspect-ratio: 16/9; } }
+  /* ROUTE CARD (signature) */
+  .route { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); align-items: start; }
+  .route__dwg { grid-column: 1 / span 5; position: sticky; top: calc(var(--header-h) + 24px); background: var(--card); border: 1px solid var(--ink-line); padding: 10px; z-index: 2; }
+  .route__dwg .frame { border: var(--hair); }
+  .route__dwg svg { width: 100%; height: auto; }
+  .route__dwg .st { opacity: 0; transition: opacity 350ms var(--ease); }
+  .route__dwg .st.on { opacity: 1; }
+  .route__cap { display: flex; justify-content: space-between; gap: 12px; padding: 8px 4px 2px; font-size: var(--t-13); color: var(--ink-3); }
+  .route__cap b { color: var(--ink); font-weight: 600; }
+  .route__card { grid-column: 7 / span 6; }
+  .rc { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--ink-line); background: var(--card); font-size: var(--t-14); }
+  .rc caption { text-align: left; caption-side: top; padding: 0 0 var(--s-3); }
+  .rc thead th { text-align: left; font-size: var(--t-12); font-weight: 600; font-variation-settings: "wdth" 82; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); background: var(--sheet); padding: 9px 12px; border-bottom: 1px solid var(--ink-line); }
+  .rc td { padding: 16px 12px; border-bottom: var(--hair); vertical-align: top; transition: background 250ms var(--ease); }
+  .rc tbody tr:last-child td { border-bottom: 0; }
+  .rc .op { font-family: var(--font-mono); font-size: var(--t-13); color: var(--brass-deep); white-space: nowrap; border-left: 3px solid transparent; width: 64px; }
+  .rc b { font-weight: 600; }
+  .rc .chk { display: block; color: var(--ink-2); margin-top: 2px; }
+  .rc .rd { font-family: var(--font-mono); font-size: var(--t-13); width: 30%; }
+  .rc tr.on td { background: var(--brass-wash); }
+  .rc tr.on .op { border-left-color: var(--brass); }
+  .rc tr.skip td { color: var(--ink-3); } .rc tr.skip b { font-weight: 500; }
+  .route__foot { margin-top: var(--s-4); display: flex; flex-wrap: wrap; gap: var(--s-4); justify-content: space-between; font-size: var(--t-13); color: var(--ink-3); }
+  @media (max-width: 1023px) {
+    .route__dwg { display: none; }
+    .route__card { grid-column: 1 / -1; }
+    .rc thead { display: none; } .rc, .rc tbody, .rc tr, .rc td { display: block; }
+    .rc caption { display: block; padding: 12px 12px 0; }
+    .rc tr { display: grid; grid-template-columns: 56px 1fr; padding: 14px 12px; border-bottom: var(--hair); transition: background 250ms; }
+    .rc td { padding: 0; border: 0; background: none !important; width: auto !important; }
+    .rc tr.on { background: var(--brass-wash); }
+    .rc .op { grid-row: span 2; border: 0; } .rc .rd { margin-top: 6px; grid-column: 2; }
+  }
+
+</style>
+</head>
+<body>
+<div data-part="header" data-current="quality"></div>
+<main>
+<section class="phead">
+  <div class="wrap">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="home.html">Home</a></li><li aria-current="page">Quality</li></ol>
+    <div class="qhead" style="margin-top:var(--s-5)">
+      <div><h1 style="margin-top:var(--s-4)">Quality you can audit</h1><p class="lead">Every batch is inspected at defined points and carries its records, from the rod's mill certificate to the final inspection report. Visit the plant or ask for a sample set of documents.</p><div class="prod__cta" style="margin-top:var(--s-6)"><a class="btn" href="contact.html?topic=documents">Request a document set <span class="arr" aria-hidden="true">→</span></a><a class="btn btn--ghost" href="#checks">Inspection points</a></div></div>
+      <div class="cert">
+        <span class="eyebrow">Quality management system</span>
+        <div class="std">ISO 9001:2015</div>
+        <dl class="kv"><dt>Certificate</dt><dd>Copy on request</dd></dl>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="checks">
+  <div class="wrap">
+    <div class="open">
+      <div><span class="eyebrow eyebrow--brass">Inspection points</span><h2>One route card follows every batch</h2></div>
+      <p>Eight operations, each with its check and record. The rod's heat number links every record to the carton label.</p>
+    </div>
+    <div class="route">
+      <figure class="route__dwg" style="margin:0" aria-hidden="true">
+        <div class="frame">
+          <svg class="dwg" viewBox="0 0 400 300">
+            <defs>
+              <pattern id="rh" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="1.1"/></pattern>
+            </defs>
+            <!-- S0: drawing review, Rev. B with revision cloud -->
+            <g class="st on" data-s="0">
+              <rect class="t" x="30" y="30" width="340" height="240"/><rect class="t" x="38" y="38" width="324" height="224"/>
+              <g transform="matrix(.5 0 0 .5 10 20)">
+                <path class="fill" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path fill="url(#rh)" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path class="o" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path class="o" d="M110 235V325L120 335H222V325H232V368L238 374H306L312 368V345H402V335H420V345H482L492 335V235M120 235V335M482 235V345M232 304H312M222 235V335M232 235V368M312 235V368M402 235V345M420 235V345"/>
+                <line class="h" x1="110" y1="300" x2="492" y2="300"/><path class="t" d="M122 143H222M122 327H222"/>
+                <line class="c" x1="96" y1="235" x2="506" y2="235"/>
+              </g>
+              <path class="o" style="stroke:#B8862F" d="M268 110a7 7 0 0 1 12 -4a7 7 0 0 1 12 0a7 7 0 0 1 12 0a7 7 0 0 1 12 4a7 7 0 0 1 0 12a7 7 0 0 1 -12 4a7 7 0 0 1 -12 0a7 7 0 0 1 -12 0a7 7 0 0 1 -12 -4a7 7 0 0 1 0 -12z"/>
+              <path class="d" d="M80 92L66 66H52"/><text class="dt" x="44" y="62" style="font-size:10px">M20×1.5-6g</text><text class="dt" x="276" y="119" style="font-size:8.5px">Ø13 ±0.05</text><path class="d" d="M268 116L240 104"/>
+              <path class="o" style="stroke:#B8862F" d="M322 102L332 84L342 102Z"/><text class="dt" x="328" y="98" style="font-size:9px">B</text>
+              <rect class="t" x="200" y="214" width="162" height="48"/><path class="t" d="M200 230H362M322 214V262"/>
+              <text class="dn" x="206" y="226">DRG NO.</text><text class="dt" x="206" y="250" style="font-size:12px">AG-EX-0417</text><text class="dn" x="328" y="226">REV</text><text class="dt" x="336" y="252" style="font-size:16px">B</text>
+            </g>
+            <!-- S1: incoming hex bar with heat tag -->
+            <g class="st" data-s="1">
+              <line class="c" x1="30" y1="150" x2="370" y2="150"/>
+              <path class="fill" d="M60 122H340V178H60Z"/>
+              <path class="o" d="M60 122H340M60 178H340M60 150H340"/>
+              <path class="o" d="M60 122C52 136 68 150 60 164C56 170 58 175 60 178M340 122C332 136 348 150 340 164C336 170 338 175 340 178"/>
+              <path class="t" d="M200 122V96"/><rect class="o" x="150" y="54" width="100" height="42"/><circle class="t" cx="200" cy="62" r="3"/>
+              <text class="dt" x="160" y="80">HEAT 4417</text><text class="dn" x="160" y="91">MTC · MILL LOT</text>
+              <text class="dt" x="190" y="214">HEX AF 24 · CW614N</text>
+            </g>
+            <!-- S3: turned part -->
+            <g class="st" data-s="3">
+              <line class="c" x1="40" y1="150" x2="360" y2="150"/>
+              <g transform="matrix(.78 0 0 .78 -36 -33)">
+                <path class="fill" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path fill="url(#rh)" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path class="o" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path class="o" d="M110 235V325L120 335H222V325H232V368L238 374H306L312 368V345H402V335H420V345H482L492 335V235M120 235V335M482 235V345M232 304H312M222 235V335M232 235V368M312 235V368M402 235V345M420 235V345"/>
+                <line class="h" x1="110" y1="300" x2="492" y2="300"/><path class="t" d="M122 143H222M122 327H222"/>
+              </g>
+              <text class="dt" x="50" y="288">Ø22 ±0.05 · measured 21.98</text>
+            </g>
+            <!-- S4: plated (ISO 128 surface-treatment line: thick long-dash-dot) -->
+            <g class="st" data-s="4">
+              <line class="c" x1="40" y1="150" x2="360" y2="150"/>
+              <g transform="matrix(.78 0 0 .78 -36 -33)">
+                <path class="fill" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/><path fill="url(#rh)" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/><path class="o" d="M110 170V145L120 135H222V145H232V102L238 96H306L312 102V125H402V135H420V125H482L492 135V170Z"/>
+                <path class="o" d="M110 235V325L120 335H222V325H232V368L238 374H306L312 368V345H402V335H420V345H482L492 335V235M120 235V335M482 235V345M222 235V335M232 235V368M312 235V368M402 235V345M420 235V345M232 304H312"/><line class="h" x1="110" y1="300" x2="492" y2="300"/><path class="t" d="M122 143H222M122 327H222"/>
+                <path d="M104 172V143L117 129H216V139H226V96L234 89H310L318 96V119H396V129H426V119H479L498 132V172M104 233V327L117 341H216V331H226V374L234 381H310L318 374V351H396V341H426V351H479L498 338V233" fill="none" stroke="#B8862F" stroke-width="2.2" stroke-dasharray="14 3 2 3" vector-effect="non-scaling-stroke"/>
+              </g>
+              <text class="dt" x="50" y="288">Ni plating · measured 6.2 µm</text>
+            </g>
+            <!-- S5: carton + label -->
+            <g class="st" data-s="5">
+              <path class="o" d="M70 100H330V250H70Z"/><path class="t" d="M70 100L96 76H356L330 100M356 76V226L330 250"/>
+              <rect class="o" x="100" y="128" width="200" height="96"/>
+              <path class="t" d="M100 152H300M100 176H300M100 200H300M170 128V224"/>
+              <text class="dn" x="108" y="145">PART</text><text class="dt" x="178" y="145">AG-EX-0417 B</text>
+              <text class="dn" x="108" y="169">LOT</text><text class="dt" x="178" y="169">AG-26-0412</text>
+              <text class="dn" x="108" y="193">HEAT</text><text class="dt" x="178" y="193">4417</text>
+              <text class="dn" x="108" y="217">QTY</text><text class="dt" x="178" y="217">2,000 pcs</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption class="route__cap"><span>State: <b data-cap>OP 10 · contract review</b></span><span>Example batch</span></figcaption>
+      </figure>
+
+      <div class="route__card">
+        <table class="rc">
+          <caption><span class="eyebrow">Route card · example batch AG-26-0412 · drawing AG-EX-0417 Rev. B</span></caption>
+          <thead><tr><th scope="col">Op.</th><th scope="col">Operation · check</th><th scope="col">Recorded</th></tr></thead>
+          <tbody>
+            <tr data-s="0" data-c="OP 10 · contract review"><td class="op">OP 10</td><td><b>Contract review</b><span class="chk">Drawing revision, quantities and special characteristics agreed with the customer. Control plan issued.</span></td><td class="rd">Rev. B accepted</td></tr>
+            <tr data-s="1" data-c="OP 20 · incoming rod"><td class="op">OP 20</td><td><b>Incoming rod</b><span class="chk">Mill test certificate checked against the order; composition tested at an outside lab.</span></td><td class="rd">Heat 4417<br>Cu 58.1 · Pb 2.9 %</td></tr>
+            <tr class="skip" data-s="1" data-c="OP 30 · not required"><td class="op">OP 30</td><td><b>Hot forging</b><span class="chk">Not required for this part: turned directly from hex bar.</span></td><td class="rd">—</td></tr>
+            <tr data-s="3" data-c="OP 40 · turned"><td class="op">OP 40</td><td><b>Turning</b><span class="chk">Cam automat. First-off part fully measured and approved before the run starts.</span></td><td class="rd">Ø22 ±0.05 → 21.98</td></tr>
+            <tr data-s="3" data-c="OP 50 · patrol inspection"><td class="op">OP 50</td><td><b>Patrol inspection</b><span class="chk">Thread, Ø and length gauged at set intervals on the machine.</span></td><td class="rd">M20×1.5-6g<br>GO ✓ NO-GO ✓ · n = 5</td></tr>
+            <tr data-s="4" data-c="OP 60 · plated"><td class="op">OP 60</td><td><b>Plating</b><span class="chk">Nickel plated in our plant; coating thickness measured per lot.</span></td><td class="rd">Ni 6.2 µm</td></tr>
+            <tr data-s="4" data-c="OP 70 · final inspection"><td class="op">OP 70</td><td><b>Final inspection</b><span class="chk">Sample inspection of each batch (dimensions and appearance); final inspection report issued.</span></td><td class="rd">Lot released</td></tr>
+            <tr data-s="5" data-c="OP 80 · packed &amp; labelled"><td class="op">OP 80</td><td><b>Pack &amp; label</b><span class="chk">Packed to your specification; label carries your part number and revision, lot, heat number and quantity.</span></td><td class="rd">Lot AG-26-0412<br>2,000 pcs</td></tr>
+          </tbody>
+        </table>
+        <div class="route__foot"><span>Example values, for illustration only.</span><a class="link" href="#documents">Documents you receive</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band--sheet" id="lab">
+  <div class="wrap">
+    <div class="open"><div><span class="eyebrow eyebrow--brass">Inspection lab</span><h2>Inspection instruments</h2></div><p>Threads and dimensions are checked with our own gauges and micrometers. Chemical composition and tensile tests are done at an outside lab.</p></div>
+    <div class="tbl"><table class="spec stack-m">
+      <thead><tr><th class="stick">Instrument</th><th>Checks</th></tr></thead>
+      <tbody>
+        <tr><td class="stick">Thread gauges</td><td>Parallel threads (M, PG, BSP, UNC/UNF) GO / NO-GO</td></tr>
+        <tr><td class="stick">Plain plug and ring gauges</td><td>Bores and diameters; special gauges for critical dimensions</td></tr>
+        <tr><td class="stick">Micrometers</td><td>Outside, inside and thread-pitch measurement</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="band" id="documents">
+  <div class="wrap">
+    <div class="open"><div><span class="eyebrow eyebrow--brass">Documents</span><h2>What you receive</h2></div><p>Standard documents come with every batch; others come with samples or on request.</p></div>
+    <div class="tbl"><table class="spec stack-m">
+      <thead><tr><th class="stick">Document</th><th>When</th></tr></thead>
+      <tbody>
+        <tr><td class="stick">Initial sample inspection report</td><td>With samples</td></tr>
+        <tr><td class="stick">PPAP submission, Level 3</td><td>With samples, on request</td></tr>
+        <tr><td class="stick">Mill test certificate (rod), EN 10204 3.1</td><td>Each batch</td></tr>
+        <tr><td class="stick">Final inspection report</td><td>Each batch</td></tr>
+        <tr><td class="stick">Plating thickness report</td><td>Plated batches</td></tr>
+        <tr><td class="stick">Certificate of conformity</td><td>Each batch</td></tr>
+        <tr><td class="stick">REACH / SCIP statement</td><td>On request</td></tr>
+      </tbody>
+    </table></div>
+    <div class="side" style="margin-top:var(--s-8)">
+      <div class="sh"><h2>How the system works</h2><p>Details buyers ask for in supplier questionnaires.</p></div>
+      <div class="sb"><dl class="kv">
+        <dt>Traceability</dt><dd>Lot number linked to the rod heat number on every record and label</dd>
+        <dt>Calibration</dt><dd>Gauges and instruments calibrated yearly by an NABL-accredited lab</dd>
+        <dt>Complaints</dt><dd>Root-cause analysis and corrective action; 8D report within 5 days</dd>
+        <dt>Final inspection</dt><dd>Sample inspection of every batch before packing; in-process and inter-process checks recorded on the route card</dd>
+        <dt>Outside processes</dt><dd>Chemical composition and tensile tests at an outside lab</dd>
+        <dt>Quality contact</dt><dd>Shree Shah, Marketing Director · <a class="link" href="contact.html?topic=audit">arrange an audit or request documents</a></dd>
+      </dl></div>
+    </div>
+    <div class="cta" style="margin-top:var(--s-8)">
+      <div><h2>Running a supplier approval?</h2><p>We can send the certificate, a sample document set and a completed supplier questionnaire, or host an audit in Jamnagar.</p></div>
+      <div class="acts"><a class="btn" href="contact.html?topic=audit">Contact us about supplier approval <span class="arr" aria-hidden="true">→</span></a></div>
+    </div>
+  </div>
+</section>
+</main>
+<div data-part="footer"></div>
+<script src="partials.js"></script>
+<script>
+  // Route card: active row = the row nearest the viewport centre (normal scrolling, nothing pinned)
+  const rows = [...document.querySelectorAll('.rc tbody tr')], states = [...document.querySelectorAll('.route__dwg .st')], cap = document.querySelector('[data-cap]');
+  let ticking = false;
+  function pick() {
+    ticking = false;
+    const mid = innerHeight * (innerWidth < 1024 ? 0.62 : 0.5); let best = rows[0], bd = Infinity;
+    rows.forEach(r => { const b = r.getBoundingClientRect(); const d = Math.abs((b.top + b.bottom) / 2 - mid); if (d < bd) { bd = d; best = r; } });
+    rows.forEach(r => r.classList.toggle('on', r === best));
+    states.forEach(s => s.classList.toggle('on', s.dataset.s === best.dataset.s));
+    if (cap) cap.textContent = best.dataset.c;
+  }
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(pick); } }, { passive: true });
+  pick();
+</script>
+</body>
+</html>

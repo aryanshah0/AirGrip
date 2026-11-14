@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Male bush: hex flange, threaded spigot, rounded cable entry">
+<title>Male bush: hex flange, threaded spigot, rounded cable entry</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M31.4 30.8 L34.1 28.0 L42.4 28.0 L45.2 30.8 L45.2 45.6 L49.3 41.5 L82.5 41.5 L86.6 45.6 L86.6 51.8 L31.4 51.8Z" fill="#F1E4C6" stroke="none"/><path d="M31.4 30.8 L34.1 28.0 L42.4 28.0 L45.2 30.8 L45.2 45.6 L49.3 41.5 L82.5 41.5 L86.6 45.6 L86.6 51.8 L31.4 51.8Z" fill="url(#h)" stroke="none"/><path d="M31.4 30.8 L34.1 28.0 L42.4 28.0 L45.2 30.8 L45.2 45.6 L49.3 41.5 L82.5 41.5 L86.6 45.6 L86.6 51.8 L86.6 51.8 L31.4 51.8 L31.4 30.8" stroke="#262B33" stroke-width="1.2"/>
+<path d="M31.4 76.0 L31.4 121.2 L34.1 124.0 L42.4 124.0 L45.2 121.2 L45.2 106.4 L49.3 110.5 L82.5 110.5 L86.6 106.4 L86.6 76.0" stroke="#262B33" stroke-width="1.2"/>
+<path d="M34.1 76.0V124.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M42.4 76.0V124.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M45.2 76.0V124.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M49.3 76.0V110.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M82.5 76.0V110.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M31.4 100.0H45.2" stroke="#262B33" stroke-width="0.9"/>
+<path d="M46.7 45.6H85.1M46.7 106.4H85.1" stroke="#262B33" stroke-width=".6"/>
+<path d="M31.4 100.2H86.6" stroke="#262B33" stroke-width=".6" stroke-dasharray="3 2"/>
+<path d="M30.6 52.6L30.6 46.3A5.5 5.5 0 0 0 36.9 52.6Z" fill="#fff" stroke="none"/><path d="M31.4 46.3A5.5 5.5 0 0 0 36.9 51.8" stroke="#262B33" stroke-width="1.2"/>
+<path d="M24.4 76.0H93.6" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+<path d="M202.2 100.0 L160.6 124.0 L119.1 100.0 L119.1 52.0 L160.6 28.0 L202.2 52.0Z" fill="#F1E4C6" stroke="none"/><path d="M202.2 100.0 L160.6 124.0 L119.1 100.0 L119.1 52.0 L160.6 28.0 L202.2 52.0Z" stroke="#262B33" stroke-width="1.2"/>
+<circle cx="160.6" cy="76.0" r="40.3" stroke="#262B33" stroke-width=".6"/>
+<circle cx="160.6" cy="76.0" r="24.2" fill="#fff" stroke="#262B33" stroke-width="1.2"/>
+<path d="M106.6 76.0H214.6M160.6 22.0V130.0" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+<path d="M31.4 126.0V142.0M86.6 112.5V142.0" stroke="#5F656E" stroke-width=".5"/>
+<path d="M31.4 138.0H86.6" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="51.1" y="127.0" width="15.8" height="10" fill="#fff" stroke="none"/><text x="59.0" y="135.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">16</text>
+<path d="M119.1 80.0V142.0M202.2 80.0V142.0" stroke="#5F656E" stroke-width=".5"/>
+<path d="M119.1 138.0H202.2" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="143.9" y="127.0" width="33.5" height="10" fill="#fff" stroke="none"/><text x="160.6" y="135.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">AF 24</text>
+</g></svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Dome cap nut: half-section with internal thread and cable hole, end view">
+<title>Dome cap nut: half-section with internal thread and cable hole, end view</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M36 48H86V52A25.9 24 0 0 1 110 67H104A24.6 20 0 0 0 82 56H36Z" fill="#F1E4C6" stroke="none"/><path d="M36 48H86V52A25.9 24 0 0 1 110 67H104A24.6 20 0 0 0 82 56H36Z" fill="url(#h)" stroke="none"/><path d="M36 48H86V52A25.9 24 0 0 1 110 67H104A24.6 20 0 0 0 82 56H36Z" stroke="#262B33" stroke-width="1.2"/>
+<path d="M37 53.6H81" stroke="#262B33" stroke-width=".6"/>
+<path d="M36 76V104H86V100A25.9 24 0 0 0 110 85V76" stroke="#262B33" stroke-width="1.2"/>
+<path d="M36 90H86M86 76V100" stroke="#262B33" stroke-width="0.9"/>
+<path d="M36 96H82" stroke="#262B33" stroke-width=".6" stroke-dasharray="3 2"/>
+<path d="M188.2 90.0 L164.0 104.0 L139.8 90.0 L139.8 62.0 L164.0 48.0 L188.2 62.0Z" fill="#F1E4C6" stroke="#262B33" stroke-width="1.2"/><circle cx="164" cy="76" r="24" stroke="#262B33" stroke-width=".9"/><circle cx="164" cy="76" r="9" fill="#fff" stroke="#262B33" stroke-width="1.2"/><path d="M28 76H118M130 76H198M164 42V110" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+<path d="M36 106V122M110 87V122" stroke="#5F656E" stroke-width=".5"/>
+<path d="M36 118H110" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="65.1" y="107.0" width="15.8" height="10" fill="#fff" stroke="none"/><text x="73.0" y="115.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">16</text>
+<path d="M139.8 80V122M188.2 80V122" stroke="#5F656E" stroke-width=".5"/>
+<path d="M139.8 118H188.2" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="147.2" y="107.0" width="33.5" height="10" fill="#fff" stroke="none"/><text x="164.0" y="115.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">AF 24</text>
+<path d="M58 55L66 36H96" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)"/>
+<text x="70.0" y="33.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">M20×1.5</text>
+</g></svg>

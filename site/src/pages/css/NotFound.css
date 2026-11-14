@@ -1,0 +1,5 @@
+/* Generated from design/404.html */
+.nf { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-6); align-items: center; }
+  .nf > div { grid-column: 1 / span 6; } .nf > figure { grid-column: 8 / span 5; margin: 0; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+  .nf figure .frame { border: var(--hair); }
+  @media (max-width: 959px) { .nf > * { grid-column: 1 / -1 !important; } }
