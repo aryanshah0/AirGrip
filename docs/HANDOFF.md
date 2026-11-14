@@ -126,3 +126,14 @@ The user wants this to END with a locked site that needs no further review or te
 - Pending on others: Hostinger plan + login (user brings details), mailbox website@airgrip.co.in, GA4 owner (call
   sheet 27–29); Ketan's gland data and drawings (~1 month), ISO certificate copy, privacy legal advice.
 - Post-launch (P3) list: `docs/DESIGN-LOCK.md`, bottom.
+
+## 8. Attack round status (2026-11-15, night; session hit the usage limit)
+- Step 0 done and pushed (shared templates + `site/src/data/products.tsx`, parity proven).
+- Attack round: brief in `docs/attack-round/BRIEF.md`. Reports saved: designer (`des.md`, 0 P1 · 7 P2), India buyer
+  (`bin.md`, 0 · 4), Germany buyer (`bde.md`, 0 · 4), copy editor (`cpy.md`, 3 · 10). SEO and QA reviewers were still
+  running; their reports arrive as agent messages (save them as `seo.md` / `qa.md`; if lost, rerun them with the brief).
+- Confirmed by the coordinator: contact form stays visible after "Message sent" (`site/src/pages/css/Contact.css:17`
+  `display:grid` overrides `hidden`) — likely P1, from the BIN report.
+- Next: merge all six into one ranked P1/P2 list (private page + `docs/attack-round/FINDINGS.md`), owner questions to
+  the call sheet, then stop for the user's approval. No fixes before approval. Designer verdict: keep the drawing-sheet
+  concept (no big change).
