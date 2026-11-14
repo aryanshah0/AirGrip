@@ -2,6 +2,7 @@
 <html lang="en-IN">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Request received | AirGrip</title>
 <meta name="robots" content="noindex">
@@ -21,9 +22,9 @@
       <p class="lead" style="margin-top:var(--s-4)">Your request has gone to Shree Shah and our team. You'll get price, MOQ and lead time by email, or questions if anything on the drawing needs clarifying. We work Saturday to Thursday (IST).</p>
       <dl class="kv" style="margin-top:var(--s-6);max-width:560px">
         <dt>Reference</dt><dd class="mono" id="ref">RFQ-26-0000</dd>
-        <dt>Copy sent to</dt><dd><span class="vfy">Your work email</span></dd>
-        <dt>You sent</dt><dd id="sent">2 drawings and 3 part codes <span class="muted small">(example)</span></dd>
-        <dt>NDA</dt><dd>If you asked for one: send us your NDA; we sign it and send an upload link for your drawings</dd>
+        <dt>Copy sent to</dt><dd id="mail">The work email you entered</dd>
+        <dt>You sent</dt><dd id="sent">Your drawings and part codes</dd>
+        <dt id="nda-t" hidden>NDA</dt><dd id="nda-d" hidden>Send us your NDA (email it to sales@airgrip.in); we sign it and send an upload link for your drawings.</dd>
         <dt>Sending a sample?</dt><dd>Courier it to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the reference above.</dd>
         <dt>Urgent?</dt><dd><a class="link mono" href="tel:+919316615007">+91 93166 15007</a> · <a class="link" href="https://wa.me/919316615007">WhatsApp</a></dd>
       </dl>
@@ -41,10 +42,13 @@
     const esc = t => String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
     let sent = null; try { sent = JSON.parse(sessionStorage.getItem('ag-rfq-sent') || 'null'); } catch {}
     if (!sent) return;
-    const fin = { N: 'natural', NI: 'nickel', SN: 'tin', ZN: 'zinc' };
+    if (sent.email) document.getElementById('mail').textContent = sent.email;
+    if (sent.nda) { document.getElementById('nda-t').hidden = false; document.getElementById('nda-d').hidden = false; }
+    const fin = { N: 'Natural', NI: 'Nickel', SN: 'Tin', ZN: 'Zinc' };
     const q = x => [x.qo && x.qo + ' / order', x.qy && x.qy + ' / year'].filter(Boolean).join(', ');
     const rows = sent.items.map(i => `<li><span class="mono">${esc(i.check ? i.code : i.code + '-' + i.fin)}</span>${i.check ? ' (we will check this code)' : ' · ' + fin[i.fin]}${q(i) ? ' · ' + esc(q(i)) : ''}</li>`)
-      .concat(sent.files.map(d => `<li>${esc(d.name)}${q(d) ? ' · ' + esc(q(d)) : ''}</li>`));
+      .concat(sent.files.map(d => `<li>${esc(d.name)}${q(d) ? ' · ' + esc(q(d)) : ''}</li>`))
+      .concat((sent.parts || []).map(x => `<li>${esc(x.name)}${q(x) ? ' · ' + esc(q(x)) : ''}</li>`));
     document.getElementById('sent').innerHTML = rows.length ? `<ul style="margin:0;padding-left:18px">${rows.join('')}</ul>` : 'A note describing the part' + (sent.nda ? ' (drawings follow after the NDA)' : '');
   })();
 </script>

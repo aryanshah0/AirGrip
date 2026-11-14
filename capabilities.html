@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
 <style>
   .proc { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 0; border-top: 1px solid var(--ink-line); }
+  .proc .pic { aspect-ratio: 16/7; border: var(--hair); background: #fff; margin-bottom: var(--s-4); display: grid; place-items: center; overflow: hidden; }
+  .proc .pic img { max-width: 70%; max-height: 80%; }
+  .proc .pic--photo img { max-width: none; max-height: none; width: 100%; height: 100%; object-fit: cover; }
   .proc > article { padding: var(--s-5) var(--s-5) var(--s-6) 0; border-bottom: var(--hair); }
   .proc > article:last-child, .proc > article:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
   .proc > article:nth-child(even) { padding: var(--s-5) 0 var(--s-6) var(--s-5); border-left: var(--hair); }
@@ -54,12 +57,12 @@
         <p class="lead">Each part is routed to the process that gives the lowest cost at its volume.</p>
         <p class="muted" style="max-width:68ch;margin-bottom:var(--s-6)">Design for cost: with each quote we suggest where cost can come out, such as forging instead of machining from bar, a special bar profile to cut operations, or relaxing non-critical dimensions. You approve every change.</p>
         <div class="proc">
-          <article><div class="ph"><span><b>CNC turning</b>shot B5</span></div><h3>CNC turning</h3><p>Complex profiles and multiple features in one set-up. Used for samples, short and medium runs, and parts that change often.</p><span class="mono">Ø5–100 mm · ±0.05 mm</span></article>
-          <article><div class="ph"><span><b>Cam-automat turning</b>shot B6</span></div><h3>Cam-automat turning</h3><p>Bar-fed cam-operated automats for long runs of small and medium parts at the lowest piece price.</p><span class="tagl">bar-fed</span></article>
-          <article><div class="ph"><span><b>Hot forging</b>shot B8</span></div><h3>Hot forging</h3><p>Near-net brass forgings for bodies, tees and manifolds, then machined to finish. Less material and fewer operations than machining from bar.</p><span class="mono">25 g – 1.0 kg</span><span class="tagl">shot-blasted · natural · bright</span></article>
-          <article><div class="ph"><span><b>Special-purpose machines</b>shot B7</span></div><h3>Special-purpose machines</h3><p>Single-operation machines, built in-house, for turning, drilling, threading and milling on large batches of repeat parts.</p><span class="tagl">drill · tap · mill · slot</span></article>
-          <article><div class="ph"><span><b>Stamping</b>shot B9</span></div><h3>Stamping</h3><p>Earth tags, washers, terminals and electrical parts pressed from brass, copper and steel strip.</p><span class="mono">±0.05 mm on punched features</span></article>
-          <article><div class="ph"><span><b>Secondary operations</b>shot B12</span></div><h3>Secondary operations</h3><p>Knurling, broaching, marking and sub-assembly, such as fitting seals into glands before packing.</p><span class="tagl">knurl · broach · mark</span></article>
+          <article><div class="pic"><img src="img/la/t/turned.svg" alt="" loading="lazy"></div><h3>CNC turning</h3><p>Complex profiles and multiple features in one set-up. Used for samples, short and medium runs, and parts that change often.</p><span class="mono">Ø5–100 mm · ±0.05 mm</span></article>
+          <article><div class="pic"><img src="img/la/t/spindle.svg" alt="" loading="lazy"></div><h3>Cam-automat turning</h3><p>Bar-fed cam-operated automats for long runs of small and medium parts at the lowest piece price.</p><span class="tagl">bar-fed</span></article>
+          <article><div class="pic"><img src="img/la/t/tee.svg" alt="" loading="lazy"></div><h3>Hot forging</h3><p>Near-net brass forgings for bodies, tees and manifolds, then machined to finish. Less material and fewer operations than machining from bar.</p><span class="mono">25 g – 1.0 kg</span><span class="tagl">shot-blasted · natural · bright</span></article>
+          <article><div class="pic"><img src="img/la/t/connector.svg" alt="" loading="lazy"></div><h3>Special-purpose machines</h3><p>Single-operation machines, built in-house with our own fixtures, for turning, drilling, threading and milling on large batches of repeat parts. They take manual handling, and with it errors, out of repeat jobs.</p><span class="tagl">drill · tap · mill · slot</span></article>
+          <article><div class="pic"><img src="img/la/t/earthtag.svg" alt="" loading="lazy"></div><h3>Stamping</h3><p>Earth tags, washers, fuse and switch parts and other electrical parts pressed from brass, copper and steel strip.</p><span class="mono">±0.05 mm on punched features</span></article>
+          <article><div class="pic"><img src="img/la/t/insert.svg" alt="" loading="lazy"></div><h3>Secondary operations</h3><p>Knurling, broaching, marking and sub-assembly, such as fitting seals into glands before packing.</p><span class="tagl">knurl · broach · mark</span></article>
         </div>
       </section>
 
@@ -69,16 +72,13 @@
         <div class="tbl"><table class="spec stack-m">
           <thead><tr><th class="stick">Machine type</th><th class="n">Qty</th><th>Bar or part range</th><th>Notes</th></tr></thead>
           <tbody>
-            <tr><td class="stick">CNC turning centres</td><td class="n">12</td><td><span class="tbc">TBC</span></td><td>Samples to medium runs; cross-holes and flats in a second operation</td></tr>
-            <tr><td class="stick">Cam-operated automats</td><td class="n">20</td><td><span class="tbc">TBC</span></td><td>Bar-fed, long runs</td></tr>
+            <tr><td class="stick">CNC turning centres</td><td class="n">12</td><td>Ø5–100 mm bar</td><td>Samples to medium runs; cross-holes and flats in a second operation</td></tr>
+            <tr><td class="stick">Cam-operated automats</td><td class="n">20</td><td>Small and medium parts</td><td>Bar-fed, long runs</td></tr>
             <tr><td class="stick">Special-purpose machines</td><td class="n">21</td><td>—</td><td>Built in-house: turning, drilling, threading, milling</td></tr>
             <tr><td class="stick">Drilling machines</td><td class="n">10</td><td>—</td><td>Drilling and tapping</td></tr>
-            <tr><td class="stick">Forging presses</td><td class="n"><span class="tbc">TBC</span></td><td>25 g – 1.0 kg</td><td>Hot forging</td></tr>
-            <tr><td class="stick">Presses</td><td class="n">3</td><td>Strip 0.2 – 6 mm</td><td>Stamping: brass, copper, steel</td></tr>
-            <tr><td class="stick">Plating line</td><td class="n"><span class="tbc">TBC</span></td><td>—</td><td>Nickel, tin, zinc; silver and chrome on request</td></tr>
+            <tr><td class="stick">Presses</td><td class="n">3</td><td>—</td><td>—</td></tr>
           </tbody>
         </table></div>
-        <p class="rnote">Machine types from the previous site; quantities and ranges to be supplied (questions 15, 18).</p>
       </section>
 
       <section class="sec" id="range">
@@ -91,7 +91,7 @@
             <tr><td class="stick">Turning</td><td>Diameter tolerance</td><td class="n">±0.05 mm</td></tr>
             <tr><td class="stick">Turning</td><td>Run-out</td><td class="n">0.05 mm</td></tr>
             <tr><td class="stick">Forging</td><td>Part weight</td><td class="n">25 g – 1.0 kg</td></tr>
-            <tr><td class="stick">Stamping</td><td>Punched and formed features</td><td class="n">±0.05 mm</td></tr>
+            <tr><td class="stick">Stamping</td><td>Punched features</td><td class="n">±0.05 mm</td></tr>
                         <tr><td class="stick">All</td><td>General tolerance</td><td class="n">ISO 2768-m unless drawn</td></tr>
           </tbody>
         </table></div>
@@ -105,29 +105,29 @@
           <tbody>
             <tr><td class="stick mono">M</td><td>ISO 261 · EN 60423 (glands)</td><td>Turned parts, metric cable glands</td><td><a class="link small" href="metric-chart.html">Chart</a></td></tr>
             <tr><td class="stick mono">PG</td><td>DIN 40430</td><td>Cable glands and accessories</td><td><a class="link small" href="resource.html">Chart</a></td></tr>
-            <tr><td class="stick mono">G (BSP)</td><td>ISO 228-1</td><td>Fittings, glands, inserts</td><td><a class="link small" href="bsp-chart.html">Chart</a></td></tr>
+            <tr><td class="stick mono">G (BSP)</td><td>ISO 228-1</td><td>Fittings, gland accessories, inserts</td><td><a class="link small" href="bsp-chart.html">Chart</a></td></tr>
             <tr><td class="stick mono">R / Rc (BSPT)</td><td>ISO 7-1</td><td>Tapered pipe fittings</td><td class="ondata">—</td></tr>
             <tr><td class="stick mono">NPT</td><td>ASME B1.20.1</td><td>Fittings for North America</td><td><a class="link small" href="npt-chart.html">Chart</a></td></tr>
             <tr><td class="stick mono">UNC / UNF</td><td>ASME B1.1</td><td>Inch fasteners and turned parts</td><td class="ondata">—</td></tr>
             <tr><td class="stick mono">BA / BSW</td><td>BS 57 / BS 84</td><td>Older British equipment</td><td class="ondata">—</td></tr>
           </tbody>
         </table></div>
-        <p class="tbl-note">Special and customer-specific threads made to drawing. Parallel threads gauged GO / NO-GO; taper threads (R/Rc, NPT) with taper step gauges <span class="tbc">confirm</span>.</p>
+        <p class="tbl-note">Special and customer-specific threads made to drawing. Parallel threads gauged GO / NO-GO.</p>
       </section>
 
       <section class="sec" id="finishing">
         <h2>Plating &amp; finishing</h2>
         <div class="cols">
           <dl class="kv"><dt>Nickel</dt><dd>Corrosion resistance and appearance</dd><dt>Tin</dt><dd>Electrical contact parts, solderability</dd><dt>Zinc</dt><dd>Low-cost corrosion protection</dd><dt>Silver</dt><dd>High-conductivity electrical contacts, on request</dd><dt>Chrome</dt><dd>Decorative and wear-resistant surfaces, on request</dd><dt>Natural</dt><dd>Bright-machined, shot-blasted (forgings)</dd></dl>
-          <p class="muted">Nickel, tin and zinc plating is done in our plant; silver and chrome on request. Thickness is measured per lot with a coating-thickness tester and recorded on the route card. State the thickness you need in µm in the quote request.</p>
+          <p class="muted">Nickel, tin and zinc plating is done in our plant; silver and chrome on request. Thickness is measured per lot and recorded on the route card. State the thickness you need in µm in the quote request.</p>
         </div>
       </section>
 
       <section class="sec" id="packing">
         <h2>Packing &amp; dispatch</h2>
-        <p class="lead">Packed to your specification, with traceable labels (<a class="link" href="quality.html#checks">what the label carries</a>).</p>
+        <p class="lead">Packed to your specification, with traceable labels (label contents: <a class="link" href="quality.html#checks">see Quality</a>).</p>
         <ul class="bullets"><li><span>Single-piece packing</span></li><li><span>Small parts in pouches</span></li><li><span>Bubble or foam bags</span></li><li><span>Blister packs</span></li><li><span>Export cartons, strapped and labelled</span></li></ul>
-        <p class="tbl-note" style="margin-top:var(--s-5)">Pieces per bag, carton weight and pallet type to your specification <span class="tbc">standard packing spec TBC</span>. Shipping terms: <a class="link" href="exports.html">Ordering &amp; shipping</a>.</p>
+        <p class="tbl-note" style="margin-top:var(--s-5)">Pieces per bag, carton weight and pallet type to your specification. Shipping terms: <a class="link" href="exports.html">Ordering &amp; shipping</a>.</p>
       </section>
     </div>
   </div>
@@ -143,6 +143,7 @@
   const links = [...document.querySelectorAll('.toc a')];
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(l => l.classList.toggle('on', l.getAttribute('href') === '#' + e.target.id)); }), { rootMargin: '-30% 0px -65% 0px' });
   links.forEach(l => { const t = document.querySelector(l.getAttribute('href')); if (t) io.observe(t); });
+  addEventListener('scroll', () => { const first = document.querySelector(links[0].getAttribute('href')); if (first && first.getBoundingClientRect().top > innerHeight * .3) links.forEach((l, i) => l.classList.toggle('on', i === 0)); }, { passive: true });
 </script>
 </body>
 </html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Stamped brass earth tag">
+<title>Stamped brass earth tag</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+
+<path d="M60 80A34 34 0 1 1 128 80A34 34 0 0 1 60 80ZM122 70H186A10 10 0 0 1 186 90H122Z" fill="#F1E4C6"/>
+<path d="M94 46A34 34 0 1 0 94 114A34 34 0 0 0 125 92L128 90H186A10 10 0 0 0 186 70H128L125 68A34 34 0 0 0 94 46Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+
+<circle cx="94" cy="80" r="20" fill="#fff" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/><circle cx="182" cy="80" r="4.5" fill="#fff" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M50 80H200M94 36V124M182 68V92" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M74 120V136M114 120V136" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M74 132H114" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="71.3" y="121.0" width="45.3" height="10" fill="#fff" stroke="none"/><text x="94.0" y="129.0" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">for M20</text>
+<path d="M160 70L172 52H200" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<text x="176.0" y="48.0" text-anchor="start" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">t 1.0</text>
+</g></svg>

@@ -29,6 +29,8 @@
   @media (max-width: 559px) { .ct__r form { padding: var(--s-5); } }
   .ct__r .cdone { background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-6); }
   .ct__r .alert { padding: var(--s-3) var(--s-4); border: 1px solid var(--error); color: var(--error); background: #FBEFEE; font-size: var(--t-14); }
+  .person { grid-template-columns: 1fr; }
+  .person span { display: block; margin-top: 2px; }
 </style>
 </head>
 <body class="no-wa">
@@ -49,17 +51,16 @@
       <div class="channels">
         <div class="ch"><span class="k">Phone / WhatsApp</span><span class="v mono">+91 93166 15007</span><span class="acts2"><a class="btn btn--sm" href="tel:+919316615007">Call</a><a class="btn btn--ghost btn--sm" href="https://wa.me/919316615007">WhatsApp</a></span></div>
         <a href="mailto:sales@airgrip.in"><span class="k">Email</span><span class="v mono">sales@airgrip.in</span><span class="go">Write →</span></a>
-        <div class="ch"><span class="k">Hours</span><span class="v" style="font-size:var(--t-18)">Saturday – Thursday, 09:30–18:30 IST<br><span class="muted small" style="font-weight:400">Germany / EU 05:00–14:00 CET · UK 04:00–13:00 GMT (summer +1 h) · Friday closed</span></span><span></span></div>
+        <div class="ch"><span class="k">Hours</span><span class="v" style="font-size:var(--t-18)">Saturday – Thursday, 09:30–18:30 IST<br><span class="muted small" style="font-weight:400">Germany / EU 05:00–14:00 CET · UK 04:00–13:00 GMT (one hour later in summer in both) · Friday closed</span></span><span></span></div>
         <div class="ch"><span class="k">Address</span><address class="v" style="font-style:normal;font-size:var(--t-18);line-height:1.45">AirGrip<br>Plot No. 3966 &amp; 3967, Road No. U<br>GIDC Phase-III, Dared<br>Jamnagar 361004, Gujarat, India</address><span></span></div>
-        <div class="ch"><span class="k">Company</span><span class="v" style="font-size:var(--t-15);font-weight:400">AirGrip</span><span></span></div>
       </div>
-      <div class="ch" style="display:grid;gap:var(--s-4);padding:var(--s-4) 0;border-bottom:var(--hair)"><span class="k" style="font-size:var(--t-13);font-weight:600;font-variation-settings:'wdth' 82;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)">Plant visits</span><span>Audits and visits welcome. Nearest airport, travel time and site safety rules <span class="tbc">TBC</span>. Quality contact: Shree Shah, Marketing Director.</span></div>
-      <div class="ph map"><span><b>Map</b>Static map image of GIDC Phase-III, Dared. Interactive Google Map loads only after cookie consent.</span></div>
+      <div class="ch" style="display:grid;gap:var(--s-4);padding:var(--s-4) 0;border-bottom:var(--hair)"><span class="k" style="font-size:var(--t-13);font-weight:600;font-variation-settings:'wdth' 82;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)">Plant visits</span><span>Audits and visits welcome. Tell us your dates and we'll arrange the visit. Quality contact: Shree Shah, Marketing Director.</span></div>
+      <div class="photo map"><img src="img/01-Airgrip-Group-01.webp" alt="AirGrip plant, GIDC Phase-III, Dared, Jamnagar" loading="lazy"></div>
       <p style="margin-top:var(--s-3)"><a class="link small" href="https://www.google.com/maps/search/?api=1&query=GIDC+Phase+3+Dared+Jamnagar+361004">Open in Google Maps</a></p>
     </div>
 
     <div class="ct__r">
-      <div class="person" style="margin-bottom:var(--s-5)"><div class="ph">Photo<br>C2</div><div><b>Shree Shah</b><span>Marketing Director · quotes, samples, export orders and supplier audits</span></div></div>
+      <div class="person" style="margin-bottom:var(--s-5)"><div><b>Shree Shah</b><span>Marketing Director · quotes, samples, export orders and supplier audits</span></div></div>
       <form id="cform" novalidate aria-label="Contact form">
         <div class="alert" id="cerr" role="alert" hidden>Please complete the highlighted fields.</div>
         <div class="field"><label for="n">Name<span class="req">*</span></label><input class="input" id="n" autocomplete="name" required aria-describedby="n-e"><span class="err" id="n-e"></span></div>

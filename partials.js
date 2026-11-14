@@ -31,12 +31,13 @@
           <li><a href="favorit.html">Strain-relief gland</a></li>
           <li><a href="${P.product}">Pressure screws</a></li>
         </ul>
-        <p class="mh" style="margin-top:var(--s-5)"><a href="${P.resources}">Thread charts</a></p>
+        <p class="mh" style="margin-top:var(--s-5)"><a href="${P.resources}">Technical data</a></p>
         <ul>
           <li><a href="${P.pg}">PG thread chart</a></li>
           <li><a href="metric-chart.html">Metric thread chart</a></li>
           <li><a href="bsp-chart.html">BSP thread chart</a></li>
           <li><a href="npt-chart.html">NPT thread chart</a></li>
+          <li><a href="grades.html">Brass grade equivalents</a></li>
         </ul>
       </div>
       <div>
@@ -61,7 +62,7 @@
   const header = (c) => `
   <header class="hdr">
     <div class="wrap hdr__bar">
-      <a class="brand" href="${P.home}"><img src="img/logo.svg" alt="AirGrip – Air Grip Group of Companies, home" width="70" height="52"></a>
+      <a class="brand" href="${P.home}"><img src="img/logo.svg" alt="AirGrip, home" width="70" height="52"></a>
       <nav class="nav" aria-label="Main">
         <button type="button" aria-expanded="false" aria-controls="mega-products"${c === 'products' ? ' aria-current="page"' : ''} data-mega>Products ${chev}</button>
         <a href="${P.capabilities}"${cur('capabilities', c)}>Capabilities</a>
@@ -105,19 +106,19 @@
     <div class="wrap">
       <div class="ftr__grid">
         <div>
-          <a class="brand brand--ftr" href="${P.home}"><img src="img/logo.svg" alt="AirGrip – Air Grip Group of Companies" width="108" height="80"></a>
+          <a class="brand brand--ftr" href="${P.home}"><img src="img/logo.svg" alt="AirGrip" width="108" height="80"></a>
           <address>Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III<br>Dared, Jamnagar 361004, Gujarat, India<br>
           <a class="mono" href="tel:+919316615007">+91 93166 15007</a> · <a href="mailto:sales@airgrip.in">sales@airgrip.in</a><br>
           <span class="muted">Sat–Thu 09:30–18:30 IST</span></address>
         </div>
         <div><p class="fh">Products</p><ul><li><a href="${P.category}">Brass turned components</a></li><li><a href="fittings.html">Brass fittings</a></li><li><a href="forged.html">Forged brass components</a></li><li><a href="inserts.html">Moulding inserts</a></li><li><a href="terminals.html">Electrical terminals &amp; connectors</a></li><li><a href="fasteners.html">Special fasteners</a></li><li><a href="stamping.html">Metal stamping parts</a></li><li><a href="${P.glands}">Brass cable glands &amp; accessories</a></li></ul></div>
         <div><p class="fh">Capabilities</p><ul><li><a href="${P.capabilities}">Processes &amp; machines</a></li><li><a href="${P.capabilities}#range">Range &amp; accuracy</a></li><li><a href="${P.capabilities}#finishing">Plating &amp; finishing</a></li><li><a href="${P.quality}">Quality</a></li></ul></div>
-        <div><p class="fh">Resources</p><ul><li><a href="${P.resources}">All resources</a></li><li><a href="${P.resources}#downloads">Downloads</a></li><li><a href="${P.pg}">PG thread chart</a></li><li><a href="metric-chart.html">Metric thread chart</a></li><li><a href="bsp-chart.html">BSP thread chart</a></li><li><a href="npt-chart.html">NPT thread chart</a></li><li><a href="grades.html">Brass grade equivalents</a></li></ul></div>
+        <div><p class="fh">Resources</p><ul><li><a href="${P.resources}">All resources</a></li><li><a href="${P.pg}">PG thread chart</a></li><li><a href="metric-chart.html">Metric thread chart</a></li><li><a href="bsp-chart.html">BSP thread chart</a></li><li><a href="npt-chart.html">NPT thread chart</a></li><li><a href="grades.html">Brass grade equivalents</a></li></ul></div>
         <div><p class="fh">Company</p><ul><li><a href="${P.about}">About AirGrip</a></li><li><a href="${P.industries}">Industries</a></li><li><a href="${P.exports}">Ordering &amp; shipping</a></li><li><a href="${P.contact}">Contact</a></li><li><a href="${P.rfq}">Request a quote</a></li></ul></div>
       </div>
       <div class="ftr__base">
-        <span>© 2026 AirGrip · Air Grip Group of Companies</span>
-        <span>ISO 9001:2015 · <span class="vfy">RoHS</span></span><a href="privacy.html">Privacy policy</a>
+        <span>© 2026 AirGrip</span>
+        <span>ISO 9001:2015 certified</span><span><a href="privacy.html">Privacy policy</a> · <a href="#cookies" data-cookie-settings>Cookie settings</a></span>
       </div>
     </div>
   </footer>
@@ -127,7 +128,9 @@
   css.textContent = `.mnav{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--ink-line);max-height:calc(100vh - var(--header-h));overflow:auto;padding-block:var(--s-4) var(--s-6)}
   .mnav a,.mnav summary{display:block;padding:12px 0;border-bottom:var(--hair);text-decoration:none;font-size:var(--t-18);font-weight:500;cursor:pointer}
   .mnav ul{list-style:none;margin:0;padding:0 0 var(--s-2) var(--s-4)} .mnav ul a{font-size:var(--t-16);color:var(--ink-2);padding:9px 0}
-  .mnav__c{display:grid;gap:8px;margin-top:var(--s-5)} .mnav__c a{border:1px solid var(--field);padding:0 14px;min-height:48px;display:flex;align-items:center;font-size:var(--t-15)}`;
+  .mnav__c{display:grid;gap:8px;margin-top:var(--s-5)} .mnav__c a{border:1px solid var(--field);padding:0 14px;min-height:48px;display:flex;align-items:center;font-size:var(--t-15)}
+  .mnav summary{display:flex;justify-content:space-between;align-items:center;list-style:none} .mnav summary::-webkit-details-marker{display:none}
+  .mnav summary::after{content:"";width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-right:4px;transition:transform .15s} .mnav details[open]>summary::after{transform:rotate(-135deg)}`;
   document.head.appendChild(css);
 
   document.querySelectorAll('[data-part]').forEach(el => { el.outerHTML = el.dataset.part === 'header' ? header(el.dataset.current || '') : footer; });
@@ -182,4 +185,27 @@
   const wa = document.querySelector('.wa'), ft = document.querySelector('.ftr');
   if (wa) { document.addEventListener('focusin', e => { if (e.target.matches('input,select,textarea')) wa.classList.add('away'); }); document.addEventListener('focusout', () => wa.classList.remove('away')); }
   if (wa && ft && 'IntersectionObserver' in window) new IntersectionObserver(([e]) => wa.classList.toggle('away', e.isIntersecting), { rootMargin: '0px 0px -40px 0px' }).observe(ft);
+
+  // cookie consent: essential storage always; analytics (GA4, Consent Mode v2) only after opt-in.
+  // Stored as 'ag-consent' = 'analytics' | 'essential'. The build connects 'agconsent' to gtag consent updates.
+  const CK = 'ag-consent';
+  const getC = () => { try { return localStorage.getItem(CK); } catch (e) { return null; } };
+  const setC = v => { try { localStorage.setItem(CK, v); } catch (e) {} document.dispatchEvent(new CustomEvent('agconsent', { detail: v })); };
+  const cb = document.createElement('section');
+  cb.className = 'consent'; cb.tabIndex = -1; cb.setAttribute('aria-label', 'Cookie settings'); cb.hidden = true;
+  cb.innerHTML = `<h2>Cookies on this site</h2>
+    <p>We use essential storage to run the site and keep your quote list. With your consent we also use Google Analytics to see which pages buyers use. <a class="link" href="privacy.html#cookies">Privacy policy</a></p>
+    <div class="opts"><label><input type="checkbox" checked disabled> Essential: always on</label>
+    <label><input type="checkbox" data-c-an> Analytics (Google Analytics 4)</label></div>
+    <div class="acts"><button type="button" class="btn btn--sm" data-c-ess>Essential only</button><button type="button" class="btn btn--sm" data-c-all>Accept analytics</button><button type="button" class="btn btn--sm btn--ghost" data-c-save>Save choice</button></div>`;
+  document.body.appendChild(cb);
+  const openC = () => { cb.querySelector('[data-c-an]').checked = getC() === 'analytics'; cb.hidden = false; document.body.classList.add('has-consent'); cb.focus(); };
+  const closeC = v => { setC(v); cb.hidden = true; document.body.classList.remove('has-consent'); };
+  cb.addEventListener('click', e => {
+    if (e.target.closest('[data-c-all]')) closeC('analytics');
+    else if (e.target.closest('[data-c-ess]')) closeC('essential');
+    else if (e.target.closest('[data-c-save]')) closeC(cb.querySelector('[data-c-an]').checked ? 'analytics' : 'essential');
+  });
+  document.addEventListener('click', e => { const l = e.target.closest('[data-cookie-settings]'); if (l) { e.preventDefault(); openC(); } });
+  if (!getC() && !/rfq-thanks/.test(location.pathname)) openC();
 })();

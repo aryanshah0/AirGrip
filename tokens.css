@@ -293,8 +293,9 @@ table.spec thead .stick { background: var(--sheet); }
 .dwg .dn { font-family: var(--font-sans); font-size: 11px; font-weight: 600; fill: var(--ink-3); letter-spacing: .05em; }
 .dwg .fill { fill: var(--brass-tint); }
 .dwg .dot { fill: var(--ink-3); }
-.draw .o, .draw .t { stroke-dasharray: 2400; stroke-dashoffset: 2400; animation: draw 1.1s var(--ease) forwards; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
+.draw .o, .draw .t { stroke-dasharray: 8000; stroke-dashoffset: 8000; animation: draw 1.4s var(--ease) forwards; }
+/* dash lengths are in screen px (non-scaling strokes); the last step clears the dash so long outlines always end complete */
+@keyframes draw { 99% { stroke-dashoffset: 0; stroke-dasharray: 8000; } 100% { stroke-dashoffset: 0; stroke-dasharray: none; } }
 
 /* ---- Footer (paper, not dark) ---------------------------------------- */
 .ftr { border-top: 1px solid var(--ink-line); padding-block: var(--s-8) calc(var(--s-6) + 64px); font-size: var(--t-14); color: var(--ink-2); }
@@ -415,3 +416,37 @@ table.spec tr:has(.addq) > td { vertical-align: middle; }
 @media (max-width: 1559px) { .wa { width: 44px; padding: 0; justify-content: center; right: 8px; } .wa__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
 .strip dd, .strip small { text-wrap: balance; }
 @media (max-width: 559px) { .ftr li a, .ftr address a, .ftr__base a { display: inline-block; padding-block: 10px; } .more { padding-block: 8px; } }
+
+/* ---- Final review fixes (2026-11-14) ------------------------------ */
+.mega .mh a { color: var(--ink); border-bottom: 1px solid var(--brass); padding-bottom: 1px; }
+.mega .mh a::after { content: " →"; color: var(--brass-deep); }
+.mnav summary { display: flex; justify-content: space-between; align-items: center; cursor: pointer; list-style: none; }
+.mnav summary::-webkit-details-marker { display: none; }
+.mnav summary::after { content: ""; width: 8px; height: 8px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); margin-right: 4px; transition: transform var(--fast) var(--ease); }
+.mnav details[open] > summary::after { transform: rotate(-135deg); }
+h2 + .bullets, h3 + .bullets, p + .bullets { margin-top: var(--s-3); }
+table.spec td.stick, table.spec th.stick { width: 1%; }
+@media (pointer: coarse) { .addq { min-height: 44px; min-width: 64px; } }
+
+@media (pointer: coarse) { .seg button { min-height: 44px; } }
+
+/* ---- Sign-off fixes (2026-11-14) ---------------------------------- */
+.tbl-note .mono { white-space: nowrap; }
+@media (max-width: 559px) { .ftr__base { flex-direction: column; align-items: flex-start; gap: 4px; } }
+.consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 70; max-width: 560px; background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-5); display: grid; gap: var(--s-3); }
+.consent[hidden] { display: none; }
+.consent h2 { font-size: var(--t-16); margin: 0; font-variation-settings: "wdth" 100; letter-spacing: 0; }
+.consent p { margin: 0; font-size: var(--t-14); color: var(--ink-2); }
+.consent .acts { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }
+.consent label { display: flex; gap: 10px; align-items: center; font-size: var(--t-14); min-height: 36px; }
+.consent .opts { display: grid; gap: 0; }
+body.has-consent .wa, body.has-consent .qbar { visibility: hidden; }
+
+/* v1.2: hidden quote bar is unreachable; size tables with code + thread only stay compact */
+.qbar { visibility: hidden; transition: transform 250ms var(--ease), visibility 0s linear 250ms; }
+.qbar.on { visibility: visible; transition: transform 250ms var(--ease), visibility 0s; }
+.addq { min-width: 84px; }
+#sizes .tbl:not(:has(th:nth-child(3))) { max-width: 440px; }
+@media (max-width: 559px) { table.spec:not(:has(th:nth-child(3))) .stick .addq { display: inline-flex; margin: 0 0 0 8px; } }
+.consent:focus { outline: none; }
+table.spec:not(:has(th:nth-child(3))) td.stick { white-space: nowrap; }

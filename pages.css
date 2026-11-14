@@ -110,3 +110,14 @@ details.more-d[open] summary { margin-bottom: var(--s-3); }
 .bullets li::before { background: var(--brass); }
 .m-only { display: none; } @media (max-width: 1023px) { .m-only { display: block; } }
 .cta .btn { max-width: 100%; white-space: normal; text-align: center; }
+
+/* v1.2 sign-off fixes */
+.seg button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
+.seg-row { display: flex; align-items: center; gap: var(--s-3); margin-bottom: var(--s-5); }
+.seg-row .seg { margin-bottom: 0; }
+.seg-k { font-size: var(--t-13); font-weight: 600; font-variation-settings: "wdth" 82; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.mono.nw { white-space: nowrap; }
+@media (max-width: 719px) {
+  .subnav .wrap { padding-right: 40px; }
+  .subnav::after { content: ""; position: absolute; top: 0; right: 0; bottom: 1px; width: 40px; pointer-events: none; background: linear-gradient(to right, rgba(0,0,0,0), var(--paper) 70%); }
+}
