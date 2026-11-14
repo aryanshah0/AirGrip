@@ -88,6 +88,25 @@ The user wants this to END with a locked site that needs no further review or te
    next step is deployment to Hostinger (needs the user's details and go-ahead), then `tools/server-check.mjs` on
    the live domain and one real test request.
 
+## 6c. Agreed at the start of the exercise (user, 2026-11-15, new session)
+1. **Severity bar:** §6b.1 as written, with limits. P1 = wrong fact, broken function, something that makes a buyer
+   leave or skip the RFQ, or a clear ranking problem (e.g. two pages competing for one query, a key product with no
+   page). P2 = visible inconsistency, or something a *named* competitor does better (screenshot required). P3 = taste /
+   polish → post-launch list. **Limits:** facts still owed by Ketan are not findings (they live on the call sheet);
+   settled decisions (English only, guides after launch, line drawings instead of photos) stay unless a reviewer shows
+   P1 evidence. The bar does not change once the reviewers start.
+2. **Approval:** one merged, de-duplicated list ranked P1 then P2, each with screenshot/quote, reviewer and proposed
+   fix, shown as a private web page with screenshots plus a copy in `docs/`. The user approves it in one go; separate
+   questions only where there is a real choice (two ways to fix, or changing wording Ketan confirmed).
+3. **Big changes** (new palette or type, a different home hero, dropping the drawing-sheet concept): shown first as
+   before/after mockups of 2–3 key pages; nothing changes site-wide until the user picks. Small fixes within the
+   current system follow the normal approval.
+4. **Deployment-ready = go live, facts later.** After the lock and once the user has the Hostinger details, the site
+   goes on airgrip.co.in and Ketan tests it there. The "—" gland cells, the ISO line without certificate number and the
+   draft privacy page stay until Ketan's data / the certificate / legal advice arrive; reviewers treat these three as
+   known, not as findings. (This replaces REQUIREMENTS §10 "launch waits for all priority-A answers".)
+5. Safari "Allow remote automation" was still off on 2026-11-15; the user has been asked to turn it on.
+
 ## 6. Suggested shape of the exercise (agree it with the user at the start)
 0. Shared components + data file; all tests green; visual parity.
 1. Attack round (UI/UX and SEO together), page by page and element by element, at 1440 and 390 px, against the
