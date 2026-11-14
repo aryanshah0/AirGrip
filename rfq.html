@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Request a Quote: Send Your Drawing | AirGrip Brass Components</title>
+<meta name="description" content="Send your drawings (PDF, DWG, DXF, STEP, IGES) or catalogue part codes for brass turned, forged or stamped parts and cable glands. Reply within two working days. We sign your NDA on request.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
+<style>
+  .rfqp { display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--gutter); row-gap: var(--s-7); align-items: start; }
+  .rfqp form { grid-column: 1 / span 8; display: grid; gap: var(--s-6); }
+  .rfqp aside { grid-column: 10 / span 3; position: sticky; top: calc(var(--header-h) + 24px); display: grid; gap: var(--s-6); }
+  @media (max-width: 1023px) { .rfqp form, .rfqp aside { grid-column: 1 / -1; } .rfqp aside { position: static; } }
+  fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  legend { padding: 0; margin-bottom: var(--s-3); font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+  legend .muted { font-size: var(--t-14); font-weight: 400; font-variation-settings: "wdth" 100; margin-left: 6px; }
+
+  .sheet { background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+  .sheet > .frame { border: var(--hair); }
+  .area { position: relative; min-height: 220px; display: grid; place-items: center; text-align: center; padding: var(--s-6) var(--s-4); cursor: pointer;
+    background-image: linear-gradient(var(--sheet) 1px, transparent 1px), linear-gradient(90deg, var(--sheet) 1px, transparent 1px); background-size: 20px 20px; background-position: -1px -1px; }
+  .area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .area:focus-within { outline: 2px solid var(--ink); outline-offset: -2px; }
+  .area:hover { background-color: var(--brass-wash); }
+  .area .big { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; display: block; }
+  .area .hint { font-family: var(--font-mono); font-size: var(--t-12); color: var(--ink-3); margin-top: 6px; display: block; }
+  .area .zone { position: absolute; font: 600 11px var(--font-sans); color: var(--ink-3); }
+
+  /* title-block field grid: 1px gaps on a rule background = unbroken borders */
+  .tbf { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1px; background: var(--field); border: 1px solid var(--field); border-top: 1px solid var(--ink-line); }
+  .tbf > * { background: var(--card); min-width: 0; }
+  .tbf .cell { padding: 6px 10px 4px; position: relative; }
+  .tbf .s2 { grid-column: span 2; } .tbf .s4 { grid-column: 1 / -1; }
+  .tbf [hidden] { display: none; }
+  .tbf .cell:focus-within { background: var(--brass-wash); box-shadow: inset 0 0 0 2px var(--ink); }
+  .tbf label { display: block; font-size: 12px; font-weight: 600; font-variation-settings: "wdth" 82; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+  .tbf label .req { color: var(--brass-deep); }
+  .tbf input, .tbf select, .tbf textarea { width: 100%; border: 0; border-bottom: 1px dotted var(--rule-strong); background: transparent; padding: 4px 0 6px; font: 500 var(--t-15) var(--font-sans); color: var(--ink); outline: none; min-height: 34px; }
+  .tbf input.m { font-family: var(--font-mono); }
+  .tbf select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M1.5 3.5L5 7l3.5-3.5' fill='none' stroke='%233C424C' stroke-width='1.4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; padding-right: 16px; }
+  .tbf textarea { resize: vertical; min-height: 72px; }
+  .tbf .sect { grid-column: 1 / -1; background: var(--sheet); padding: 6px 10px; font-size: 12px; font-weight: 600; font-variation-settings: "wdth" 82; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); }
+  .tbf [aria-invalid="true"] { box-shadow: inset 0 -2px 0 var(--error); }
+  .tbf .ferr { display: block; font-size: var(--t-12); color: var(--error); min-height: 0; }
+  @media (max-width: 719px) { .tbf { grid-template-columns: 1fr 1fr; } .tbf .s2, .tbf .s4 { grid-column: 1 / -1; } }
+
+  /* item rows (catalogue + drawings) */
+  .items { border-top: 1px solid var(--ink-line); }
+  .item { display: grid; grid-template-columns: minmax(0, 1.5fr) 120px 110px 110px 32px; gap: var(--s-3); align-items: center; padding: 10px 0; border-bottom: var(--hair); }
+  .item .what b { font-family: var(--font-mono); font-weight: 500; font-size: var(--t-14); display: block; }
+  .item .what span { font-size: var(--t-13); color: var(--ink-3); }
+  .item .what .chk { color: var(--brass-deep); }
+  #ditems.is-held { opacity: .45; }
+  .item .item-e { grid-column: 1 / -1; }
+  .item label { font-size: 12px; color: var(--ink-3); display: grid; gap: 2px; }
+  .item input { min-height: 38px; padding: 6px 8px; border: 1px solid var(--field); border-radius: var(--radius); font: 500 var(--t-14) var(--font-mono); width: 100%; background: var(--card); }
+  .item button { background: none; border: 0; color: var(--ink-3); cursor: pointer; font-size: 20px; line-height: 1; width: 44px; height: 44px; }
+  .addcode { display: flex; gap: var(--s-3); margin-top: var(--s-3); } .addcode .input { max-width: 320px; font-family: var(--font-mono); }
+  .item button:hover { color: var(--error); }
+  @media (max-width: 559px) { .item { grid-template-columns: 1fr 1fr 32px; } .item .what { grid-column: 1 / -1; } .item > label:has(select) { grid-column: 1 / -1; } .item > span:empty { display: none; } }
+  .item select { min-height: 38px; padding: 6px 8px; border: 1px solid var(--field); border-radius: var(--radius); font: 500 var(--t-14) var(--font-sans); width: 100%; background: var(--card); }
+
+  .steps { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink-line); }
+  .steps li { display: grid; grid-template-columns: 32px 1fr; padding: 10px 0; border-bottom: var(--hair); font-size: var(--t-14); }
+  .steps .dash { width: 10px; height: 1px; background: var(--brass); margin-top: .75em; }
+  .steps li { grid-template-columns: 22px 1fr; }
+  .formend { display: flex; flex-wrap: wrap; gap: var(--s-4); justify-content: space-between; align-items: center; }
+  .alert { padding: var(--s-3) var(--s-4); border: 1px solid var(--error); color: var(--error); background: #FBEFEE; font-size: var(--t-14); }
+  fieldset.is-off .sheet { opacity: .45; pointer-events: none; }
+</style>
+</head>
+<body class="no-wa">
+<div style="background:#B8862F;color:#15181E;font:600 13px/1.4 Archivo,system-ui,sans-serif;text-align:center;padding:7px 16px">Design preview for AirGrip · not the live website · forms don't send anything · <a href="review.html" style="color:inherit">all pages</a></div>
+<div data-part="header" data-current="rfq"></div>
+<main>
+<section class="phead" style="padding-bottom:var(--s-7)">
+  <div class="wrap">
+    <ol class="crumbs" aria-label="Breadcrumb"><li><a href="home.html">Home</a></li><li aria-current="page">Request a quote</li></ol>
+    <h1>Request a quote</h1>
+    <p class="lead">Add drawings, catalogue part codes, or both. Fields marked * are required; everything else helps us quote faster.</p>
+  </div>
+</section>
+
+<section class="band" style="padding-top:var(--s-7)">
+  <div class="wrap rfqp">
+    <form id="rfqform" novalidate aria-label="Request for quote" action="rfq-thanks.html">
+      <div class="alert" id="err" role="alert" hidden>Please complete the highlighted fields.</div>
+
+      <fieldset id="catalogue">
+        <legend>Catalogue items <span class="muted" data-cn></span></legend>
+        <div class="items" id="citems"></div>
+        <label for="pc" class="small" style="display:block;margin-top:var(--s-3);font-weight:600">Know the part code? Type it here</label><div class="addcode" style="margin-top:6px"><input id="pc" class="input" placeholder="AG-PS-PG09-NI" autocomplete="off"><button type="button" class="btn btn--ghost btn--sm" id="pcadd">+ Add part code</button></div>
+        <p class="tbl-note">Or add sizes from any datasheet, e.g. <a class="link" href="product.html">pressure screws</a>.</p>
+      </fieldset>
+
+      <fieldset id="drawings">
+        <legend>Drawings <span class="muted">one row per file</span></legend>
+        <label class="check" style="margin-bottom:var(--s-3)"><input type="checkbox" id="nda"><span>Sign my NDA before I share drawings</span></label>
+        <p class="tbl-note" id="nda-note" hidden style="margin:0 0 var(--s-3)">NDA requested: the upload is switched off and no files will be sent. Describe the parts in the notes; <span class="vfy">send us your NDA (email it to sales@airgrip.in); we sign it and send an upload link</span>.<span data-kept></span></p>
+        <p class="tbl-note" id="reattach" hidden style="margin:0 0 var(--s-3)"></p>
+        <div class="sheet"><div class="frame">
+          <label class="area" for="files">
+            <input type="file" id="files" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.jpg,.png">
+            <span><span class="big">Drop drawings here, or choose files</span>
+            <span class="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
+          </label>
+        </div></div>
+        <div class="items" id="ditems" style="margin-top:var(--s-3)"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Requirements</legend>
+        <div class="tbf">
+          <div class="cell s2"><label for="mat">Material</label><select id="mat"><option>As per drawing / standard</option><option>CW614N · CuZn39Pb3 (free-cutting)</option><option>CW617N · CuZn40Pb2 (forging)</option><option>Low-lead / lead-free · CW511L / CW724R</option><option>DZR · CW602N</option><option>Other / not sure</option></select></div>
+          <div class="cell dwg-only"><label for="fin">Finish (drawings)</label><select id="fin"><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option></select></div>
+          <div class="cell dwg-only"><label for="tol">Gen. tolerance</label><input id="tol" class="m" placeholder="As per drawing"></div>
+          <div class="cell"><label for="pl">Plating thickness</label><input id="pl" class="m" placeholder="e.g. Ni 5–8 µm"></div>
+          <div class="cell"><label for="due">Samples needed by</label><input id="due" type="date"></div>
+          <div class="cell s2"><label for="inc">Incoterm</label><select id="inc"><option>Not sure</option><option>EXW Jamnagar</option><option>FOB Indian port</option><option>CIF / CFR</option></select></div>
+          <div class="cell s2"><label for="dest">Destination port or city</label><input id="dest" placeholder="e.g. Hamburg, or Pune"></div>
+          <div class="cell s2"><label for="fpd">First production delivery wanted</label><input id="fpd" type="date"></div>
+          <div class="cell s4"><label for="msg">Notes</label><textarea id="msg" placeholder="Application, critical dimensions, packing, anything else we should know"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your details</legend>
+        <div class="tbf">
+          <div class="cell s2"><label for="nm">Name <span class="req">*</span></label><input id="nm" autocomplete="name" required aria-describedby="nm-e"><span class="ferr" id="nm-e"></span></div>
+          <div class="cell s2"><label for="co">Company <span class="req">*</span></label><input id="co" autocomplete="organization" required aria-describedby="co-e"><span class="ferr" id="co-e"></span></div>
+          <div class="cell s2"><label for="em">Work email <span class="req">*</span></label><input id="em" type="email" autocomplete="email" required aria-describedby="em-e"><span class="ferr" id="em-e"></span></div>
+          <div class="cell"><label for="ph">Phone / WhatsApp</label><input id="ph" type="tel" class="m" autocomplete="tel"></div>
+          <div class="cell"><label for="ct">Country <span class="req">*</span></label><input id="ct" autocomplete="country-name" required aria-describedby="ct-e"><span class="ferr" id="ct-e"></span></div>
+        </div>
+      </fieldset>
+
+      <div class="stack">
+        <fieldset style="margin-bottom:var(--s-3)"><legend style="font-size:var(--t-14);font-weight:600;margin-bottom:6px">Documents required</legend>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 20px">
+            <label class="check"><input type="checkbox" id="doc1"><span>PPAP Level 3</span></label>
+            <label class="check"><input type="checkbox" id="doc2"><span>Mill certificate (EN 10204 3.1)</span></label>
+            <label class="check"><input type="checkbox" id="doc3"><span>RoHS / REACH declaration</span></label>
+          </div></fieldset>
+        <label class="check"><input type="checkbox" id="ok" aria-describedby="ok-e"><span>I agree that AirGrip may store these details to answer this request (<a class="link" href="privacy.html">privacy policy</a>). <span class="req" style="color:var(--brass-deep)">*</span> <span class="ferr err" id="ok-e"></span></span></label>
+      </div>
+      <div class="formend"><span class="small muted">Reply within two working days · Sat–Thu, IST</span><button class="btn btn--brass" type="submit">Send request <span class="arr" aria-hidden="true">→</span></button></div>
+    </form>
+
+    <aside>
+      <div>
+        <span class="eyebrow">What happens next</span>
+        <ol class="steps">
+          <li><span class="dash"></span><span class="vfy">Each drawing is reviewed for manufacturability.</span></li>
+          <li><span class="dash"></span><span>You get price, MOQ and lead time by email.</span></li>
+          <li><span class="dash"></span><span>Samples typically in 2–3 weeks, with an inspection report.</span></li>
+        </ol>
+      </div>
+      <dl class="kv">
+        <dt>Formats</dt><dd>PDF, DWG, DXF, STEP, IGES</dd>
+        <dt>NDA</dt><dd>We sign your NDA before you send drawings</dd>
+        <dt>Email</dt><dd><a class="link mono" href="mailto:sales@airgrip.in">sales@airgrip.in</a></dd>
+        <dt>Physical sample</dt><dd>Courier to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the RFQ reference from our reply.</dd>
+      </dl>
+      <div class="person"><div class="ph">Photo<br>C2</div><div><b>Shree Shah</b><span>Marketing Director · your contact for quotes</span></div></div>
+    </aside>
+  </div>
+</section>
+</main>
+<div data-part="footer"></div>
+<script src="partials.js"></script>
+<script>
+  // ---- state: catalogue lines keyed by code, drawings by stable id, text fields by element id (kept in sessionStorage)
+  const SKEY = 'ag-rfq';
+  const SCHEME = /^AG-[A-Z]{2}-[A-Z0-9]+$/;            // basket codes without finish
+  const TYPED = /^(AG-[A-Z]{2}-[A-Z0-9]+)(?:-(N|NI|SN|ZN))?$/; // typed codes, optional finish suffix
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const load = () => { try { return JSON.parse(sessionStorage.getItem(SKEY) || '{}'); } catch { return {}; } };
+  const st = Object.assign({ lines: {}, fields: {}, draws: [] }, load());
+  const save = () => { try { sessionStorage.setItem(SKEY, JSON.stringify({ lines: st.lines, fields: st.fields, draws: draws.map(d => ({ name: d.name, size: d.size, qo: d.qo, qy: d.qy })) })); } catch {} };
+  const line = code => (st.lines[code] = st.lines[code] || { fin: 'N', qo: '', qy: '' });
+
+  const form = document.getElementById('rfqform');
+  const cf = document.getElementById('catalogue'), ci = document.getElementById('citems');
+  const dfs = document.getElementById('drawings'), di = document.getElementById('ditems'), f = document.getElementById('files');
+  const nda = document.getElementById('nda'), ndaNote = document.getElementById('nda-note');
+  let draws = [], seq = 0;
+
+  const qtyInputs = (key, v) => `<label>Qty / order<input inputmode="numeric" data-k="${esc(key)}" data-f="qo" value="${esc(v.qo || '')}" placeholder="e.g. 5,000"></label><label>Qty / year<input inputmode="numeric" data-k="${esc(key)}" data-f="qy" value="${esc(v.qy || '')}" placeholder="e.g. 60,000"></label>`;
+  const finSel = (code, fin) => `<label>Finish<select data-k="${esc(code)}" data-f="fin">${[['N', 'Natural'], ['NI', 'Nickel'], ['SN', 'Tin'], ['ZN', 'Zinc']].map(([v, t]) => `<option value="${v}"${v === fin ? ' selected' : ''}>${t}</option>`).join('')}</select></label>`;
+
+  // catalogue items from the quote list
+  function paintC() {
+    const it = AGBasket.items();
+    cf.querySelector('[data-cn]').textContent = it.length ? `${it.length} from your quote list` : '';
+    ci.innerHTML = it.map(i => {
+      const ok = SCHEME.test(i.code), v = line(i.code);
+      const name = ok ? `${esc(i.code)}-${esc(v.fin)}` : esc(i.code);
+      const sub = ok ? esc(i.label) : `<span class="chk">We'll check this code</span>`;
+      return `<div class="item"><div class="what"><b data-full="${esc(i.code)}">${name}</b><span>${sub}</span></div>${ok ? finSel(i.code, v.fin) : '<span></span>'}${qtyInputs(i.code, v)}<button type="button" aria-label="Remove ${esc(i.code)}" data-rm="${esc(i.code)}">×</button></div>`;
+    }).join('');
+    ci.querySelectorAll('[data-rm]').forEach(b => b.onclick = () => { delete st.lines[b.dataset.rm]; save(); AGBasket.remove(b.dataset.rm); });
+    // drawings first when the quote list is empty (most work is to customer drawings)
+    if (it.length) form.insertBefore(cf, dfs); else form.insertBefore(dfs, cf);
+    syncPart(); save();
+  }
+  ci.addEventListener('input', e => { const el = e.target.closest('[data-k]'); if (!el) return; const v = line(el.dataset.k); v[el.dataset.f] = el.value;
+    if (el.dataset.f === 'fin') el.closest('.item').querySelector('[data-full]').textContent = el.dataset.k + '-' + el.value; save(); });
+  ci.addEventListener('change', e => { const el = e.target.closest('select[data-k]'); if (!el) return; const v = line(el.dataset.k); v.fin = el.value; el.closest('.item').querySelector('[data-full]').textContent = el.dataset.k + '-' + el.value; save(); });
+
+  // typed part codes: Enter adds, never submits
+  const pc = document.getElementById('pc');
+  function addCode() { const raw = pc.value.trim(); if (!raw) return; const v = raw.toUpperCase().replace(/\s+/g, '');
+    const m = v.match(TYPED);
+    if (m) { if (m[2]) line(m[1]).fin = m[2]; AGBasket.add(m[1], 'Added by code'); }
+    else { AGBasket.add(raw, 'Code as typed'); }
+    pc.value = ''; pc.focus(); }
+  document.getElementById('pcadd').onclick = addCode;
+  pc.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addCode(); } });
+
+  // drawings: one row per file, stable ids, quantities kept
+  f.addEventListener('change', () => { [...f.files].forEach(x => draws.push({ id: 'd' + (++seq), file: x, name: x.name, size: x.size, qo: '', qy: '' })); f.value = ''; document.getElementById('reattach').hidden = true; paintD(); });
+  function paintD() {
+    di.innerHTML = draws.map(d => `<div class="item"><div class="what"><b>${esc(d.name)}</b><span>${(d.size / 1048576).toFixed(1)} MB · drawing no. and rev. from the file</span></div><span></span>${qtyInputs(d.id, d)}<button type="button" aria-label="Remove ${esc(d.name)}" data-rmd="${d.id}">×</button></div>`).join('');
+    di.querySelectorAll('[data-rmd]').forEach(b => b.onclick = () => { draws = draws.filter(d => d.id !== b.dataset.rmd); paintD(); });
+    syncPart(); save();
+  }
+  di.addEventListener('input', e => { const el = e.target.closest('[data-k]'); if (!el) return; const d = draws.find(x => x.id === el.dataset.k); if (d) { d[el.dataset.f] = el.value; save(); } });
+  // files can't survive leaving the page: say so, with their names
+  if (st.draws && st.draws.length) { const r = document.getElementById('reattach'); r.hidden = false;
+    r.textContent = 'Please attach your drawings again (files are not kept when you leave this page): ' + st.draws.map(d => d.name).join(', ') + '.'; }
+
+  // NDA first: switch the upload off but keep the chosen files, restore on untick
+  nda.addEventListener('change', () => {
+    const on = nda.checked; f.disabled = on; dfs.classList.toggle('is-off', on); di.classList.toggle('is-held', on); ndaNote.hidden = !on;
+    ndaNote.querySelector('[data-kept]').textContent = on && draws.length ? ` Your ${draws.length} chosen file${draws.length > 1 ? 's are' : ' is'} kept here and will not be sent unless you untick this box.` : '';
+    st.fields.nda = on; save();
+  });
+
+  // requirements that only apply to drawings: hide when the request is catalogue-only
+  function syncPart() { const only = !draws.length && AGBasket.items().length > 0; document.querySelectorAll('.dwg-only').forEach(c => c.hidden = only); }
+
+  // text fields and ticks persist for the session
+  const keep = ['mat', 'fin', 'tol', 'pl', 'due', 'inc', 'dest', 'fpd', 'msg', 'nm', 'co', 'em', 'ph', 'ct', 'doc1', 'doc2', 'doc3'];
+  keep.forEach(id => { const el = document.getElementById(id); if (!el) return; const v = st.fields[id];
+    if (v !== undefined) { if (el.type === 'checkbox') el.checked = !!v; else el.value = v; }
+    el.addEventListener(el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'input', () => { st.fields[id] = el.type === 'checkbox' ? el.checked : el.value; save(); }); });
+  if (st.fields.nda) { nda.checked = true; nda.dispatchEvent(new Event('change')); }
+
+  document.addEventListener('basket', paintC); paintC();
+
+  // validation: inline messages, focus the first problem
+  form.addEventListener('submit', e => {
+    e.preventDefault(); let first = null; const err = document.getElementById('err');
+    [['nm', 'Enter your name'], ['co', 'Enter your company'], ['em', 'Enter a valid work email'], ['ct', 'Enter your country']].forEach(([id, msg]) => {
+      const el = document.getElementById(id); const bad = !el.value.trim() || (id === 'em' && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value));
+      el.setAttribute('aria-invalid', bad); document.getElementById(id + '-e').textContent = bad ? msg : ''; if (bad && !first) first = el; });
+    const c = document.getElementById('ok'); c.setAttribute('aria-invalid', !c.checked); document.getElementById('ok-e').textContent = c.checked ? '' : 'Please tick to agree'; if (!c.checked && !first) first = c;
+    const sendFiles = nda.checked ? [] : draws;
+    const empty = !sendFiles.length && !AGBasket.items().length && !document.getElementById('msg').value.trim();
+    err.textContent = empty ? 'Add at least one drawing, a catalogue item, or a note describing the part.' : 'Please complete the highlighted fields.';
+    if (empty && !first) first = document.getElementById(nda.checked ? 'msg' : 'files');
+    err.hidden = !first;
+    if (first) { err.scrollIntoView({ block: 'center' }); first.focus({ preventScroll: true }); return; }
+    // hand a summary to the thank-you page, then clear the quote list before leaving (header count shows 0 there)
+    const sent = { items: AGBasket.items().map(i => ({ code: i.code, fin: SCHEME.test(i.code) ? line(i.code).fin : '', qo: line(i.code).qo, qy: line(i.code).qy, check: !SCHEME.test(i.code) })),
+                   files: sendFiles.map(d => ({ name: d.name, qo: d.qo, qy: d.qy })), nda: nda.checked };
+    try { sessionStorage.setItem('ag-rfq-sent', JSON.stringify(sent)); sessionStorage.removeItem(SKEY); localStorage.setItem('ag-basket', '[]'); } catch {}
+    location.href = 'rfq-thanks.html';
+  });
+  ['nm', 'co', 'em', 'ct'].forEach(id => document.getElementById(id).addEventListener('blur', e => { if (e.target.getAttribute('aria-invalid') === 'true' && e.target.value.trim()) { e.target.setAttribute('aria-invalid', 'false'); document.getElementById(id + '-e').textContent = ''; } }));
+</script>
+</body>
+</html>

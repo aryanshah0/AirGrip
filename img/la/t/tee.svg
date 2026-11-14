@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Forged brass tee, section">
+<title>Forged brass tee, section</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+
+<path fill-rule="evenodd" d="M40 62H100V28H140V62H200V102H40Z M40 74H112V28H128V74H200V90H40Z" fill="#F1E4C6" stroke="none"/>
+<path fill-rule="evenodd" d="M40 62H100V28H140V62H200V102H40Z M40 74H112V28H128V74H200V90H40Z" fill="url(#h)" stroke="none"/>
+<path d="M40 62H100V28M140 28V62H200M40 102H200M40 74H112V28M128 28V74H200M40 90H200M40 62V74M40 90V102M200 62V74M200 90V102M100 28H112M128 28H140" stroke="#262B33" stroke-width="1.2"/>
+
+<path d="M40 66H60M40 98H60M180 66H200M180 98H200M104 28V46M136 28V46" stroke="#262B33" stroke-width=".6"/>
+
+<path d="M30 82H210M120 18V112" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+</g></svg>

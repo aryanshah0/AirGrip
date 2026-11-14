@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AirGrip design review</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="pages.css">
+<style>
+  .pages { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--gutter); }
+  .pages a { display: grid; gap: 6px; padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); text-decoration: none; transition: border-color var(--fast); align-content: start; }
+  .pages a:hover { border-color: var(--ink); }
+  .pages .mono { font-size: var(--t-12); color: var(--brass-deep); }
+  .pages b { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+  .pages p { font-size: var(--t-14); color: var(--ink-2); }
+  .pages .serves { font-size: var(--t-13); color: var(--ink-3); border-top: var(--hair); padding-top: 6px; margin-top: 4px; }
+  .pages .new { color: var(--ok); font-weight: 600; font-size: var(--t-12); }
+  @media (max-width: 959px) { .pages { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 559px) { .pages { grid-template-columns: 1fr; } }
+  .how li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div style="background:#B8862F;color:#15181E;font:600 13px/1.4 Archivo,system-ui,sans-serif;text-align:center;padding:7px 16px">Design preview for AirGrip · not the live website · forms don't send anything · <a href="review.html" style="color:inherit">all pages</a></div>
+<header class="hdr"><div class="wrap hdr__bar"><a class="brand" href="review.html"><img src="img/logo.svg" alt="AirGrip" width="70" height="52"></a><span class="eyebrow" style="margin-left:auto">Design review · v1.0 locked · mockup, not the live site</span></div></header>
+<main>
+<section class="phead">
+  <div class="wrap">
+    <h1>Design review</h1>
+    <p class="lead">Every page of the new airgrip.co.in in the final design system, after five rounds of adversarial design review, a full-screen UI/UX review, a content-completeness review against competitor sites, a coverage review against the old site, and a fact-check. Review each page on desktop and phone and send changes page by page. Nothing is built in React until you approve.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="open"><div><h2>17 templates</h2></div><p>Every sitemap URL is built from these. "Serves" lists the real URLs that use each one; the pages built from them are listed below.</p></div>
+    <div class="pages">
+      <a href="home.html"><span class="mono">/</span><b>Home</b><p>Drawing-sheet hero, product index, route-card traceability, capabilities, quality, industries, plant, terms, RFQ.</p><span class="serves">Serves: /</span></a>
+      <a href="products.html"><span class="mono">/products/</span><b>Products overview</b><p>Custom groups (line art) and standard gland ranges.</p><span class="serves">Serves: /products/</span></a>
+      <a href="category.html"><span class="mono">/products/brass-turned-components/</span><b>Product group (custom)</b><p>Specs, typical parts drawn to scale, process choice, grades, FAQ.</p><span class="serves">Serves: 7 custom groups</span></a>
+      <a href="glands.html"><span class="mono">/products/brass-cable-glands/</span><b>Cable-gland hub</b> <span class="new">new</span><p>3 gland types, 9 accessories, PG vs metric.</p><span class="serves">Serves: gland and accessory hubs</span></a>
+      <a href="product.html"><span class="mono">/…/pressure-screw/</span><b>Datasheet (dimensioned)</b><p>Two-view drawing, size table with codes, + Add, CAD, compliance.</p><span class="serves">Serves: 3 glands (and accessories once dimensions exist)</span></a>
+      <a href="accessory.html"><span class="mono">/…/lock-nuts/</span><b>Datasheet (sizes only)</b> <span class="new">new</span><p>Size matrix with + Add per size, standard vs EMC.</p><span class="serves">Serves: 9 accessories until dimensions are compiled</span></a>
+      <a href="capabilities.html"><span class="mono">/capabilities/</span><b>Capabilities</b><p>Processes, machine park, range, threads, plating, packing.</p><span class="serves">Serves: /capabilities/ and 3 sub-pages</span></a>
+      <a href="quality.html"><span class="mono">/quality/</span><b>Quality</b><p>ISO card, inspection points, lab, documents, system details.</p><span class="serves">Serves: /quality/</span></a>
+      <a href="industries.html"><span class="mono">/industries/</span><b>Industries</b><p>13 sectors, typical parts, standards to name in an RFQ.</p><span class="serves">Serves: /industries/</span></a>
+      <a href="resources.html"><span class="mono">/resources/</span><b>Resources hub</b> <span class="new">new</span><p>Thread charts, grades, guides, downloads.</p><span class="serves">Serves: /resources/</span></a>
+      <a href="resource.html"><span class="mono">/resources/pg-thread-chart/</span><b>Technical resource</b><p>True 80° profile drawing, DIN 40430 chart.</p><span class="serves">Serves: 4 thread charts, grade equivalents, guides</span></a>
+      <a href="about.html"><span class="mono">/about/</span><b>About</b><p>Story, leadership, exports summary, group.</p><span class="serves">Serves: /about/</span></a>
+      <a href="exports.html"><span class="mono">/exports/</span><b>Ordering &amp; shipping</b> <span class="new">new</span><p>India and export terms, Incoterms table, onboarding details.</p><span class="serves">Serves: /exports/</span></a>
+      <a href="rfq.html"><span class="mono">/rfq/</span><b>Request a quote</b><p>Catalogue items + drawings (one row each), title-block fields, validation.</p><span class="serves">Serves: /rfq/</span></a>
+      <a href="rfq-thanks.html"><span class="mono">/rfq/thank-you/</span><b>Request received</b> <span class="new">new</span><p>Confirmation with reference and next steps.</p><span class="serves">Serves: /rfq/thank-you/ (noindex)</span></a>
+      <a href="contact.html"><span class="mono">/contact/</span><b>Contact</b><p>Channels, hours across time zones, legal IDs, form.</p><span class="serves">Serves: /contact/</span></a>
+      <a href="404.html"><span class="mono">404</span><b>Page not found</b> <span class="new">new</span><p>Helpful 404 for old links that didn't redirect.</p><span class="serves">Serves: all unknown URLs</span></a>
+    </div>
+    <div class="open" style="margin-top:var(--s-9)"><div><h2>Pages built from the templates</h2></div><p>Each page shows what its buyer needs (content review 2, docs/CONTENT-REVIEW-2.md). The old site is a source of facts only; unconfirmed items are held back as questions C1–C12.</p></div>
+    <dl class="kv">
+      <dt>Product groups</dt><dd><a class="link" href="fittings.html">Brass fittings</a> · <a class="link" href="forged.html">Forged components</a> · <a class="link" href="inserts.html">Moulding inserts</a> · <a class="link" href="terminals.html">Electrical terminals</a> · <a class="link" href="fasteners.html">Special fasteners</a> · <a class="link" href="stamping.html">Metal stamping</a></dd>
+      <dt>Cable glands</dt><dd><a class="link" href="clamping-jaw.html">Clamping-jaw</a> · <a class="link" href="favorit.html">Strain-relief</a></dd>
+      <dt>Accessories</dt><dd><a class="link" href="accessory.html">Lock nuts</a> · <a class="link" href="thread-adapters.html">Reducers, enlargers &amp; adapters</a> · <a class="link" href="stop-plugs.html">Stop plugs</a> · <a class="link" href="earth-tags.html">Earth tags</a> · <a class="link" href="conduit-parts.html">Conduit gland parts</a></dd>
+      <dt>Technical</dt><dd><a class="link" href="metric-chart.html">Metric chart</a> · <a class="link" href="bsp-chart.html">BSP chart</a> · <a class="link" href="npt-chart.html">NPT chart</a> · <a class="link" href="grades.html">Grade equivalents</a> · <a class="link" href="privacy.html">Privacy policy (stub)</a></dd>
+    </dl>
+  </div>
+</section>
+
+<section class="band band--sheet">
+  <div class="wrap cols">
+    <div>
+      <p class="rnote" style="margin-bottom:var(--s-5)">Gland names are generic since 2026-11-14 (the previous names were JACOB GmbH product names); the former Kompakt is a pressure screw. Data per size still comes from AirGrip (questions 0.4–0.8).</p>
+      <h2 class="h3" style="margin-bottom:var(--s-4)">How to review</h2>
+      <ol class="how">
+        <li>Open each page on a laptop and on your phone.</li>
+        <li>Try the flows: <b>Products</b> menu → Pressure screw → <b>+ Add</b> two sizes → Lock nuts → <b>+ Add</b> → <b>Review &amp; send</b> → quote form → Send.</li>
+        <li><span class="tbc">TBC</span> = data AirGrip must supply. <span class="vfy">Dotted gold underline</span> = wording to confirm or correct.</li>
+        <li>Line drawings are interim imagery until the photo shoot. Hatched "shot A1/B6" boxes are photos from the shot list.</li>
+        <li>Send changes as: page → section → what to change.</li>
+      </ol>
+    </div>
+    <div>
+      <h2 class="h3" style="margin-bottom:var(--s-4)">Data still needed (top 10)</h2>
+      <dl class="kv">
+        <dt>Capacity</dt><dd>Pieces per month, machine counts, headcount</dd>
+        <dt>ISO 9001</dt><dd>Certificate no., body, expiry, scope (PDF scan)</dd>
+        <dt>Legal</dt><dd>Registered name, GSTIN, IEC</dd>
+        <dt>Glands</dt><dd>Clamping ranges, IP rating, seal material, verified dimensions, "hole" meaning</dd>
+        <dt>Compliance</dt><dd>REACH/SCIP, EN 62444 status, EN 10204 3.1, CoC</dd>
+        <dt>Quality</dt><dd>Sampling plan, 8D response time, spectro in-house or lab</dd>
+        <dt>Machines</dt><dd>Live tooling? Cam-automat bar range? SPMs built in-house?</dd>
+        <dt>Commercial</dt><dd>Payment terms, currency</dd>
+        <dt>People</dt><dd>Ketan Shah bio; group company roles; history milestones</dd>
+        <dt>Links</dt><dd>LinkedIn URL; Google Business Profile</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="open"><div><h2>Documents</h2></div></div>
+    <ul class="rlist rlist--2">
+      <li class="pair"><span><b>Questions for Ketan Shah</b><br><span class="small muted">67 questions + B1–B10 (with options) + documents checklist, start with section 0</span></span><span class="mono">docs/QUESTIONS-FOR-KETAN.md</span></li>
+      <li class="pair"><span><b>Design lock v1.0</b><br><span class="small muted">What is locked, how it may change, final review, build requirements, post-launch list</span></span><span class="mono">docs/DESIGN-LOCK.md</span></li>
+      <li class="pair"><span><b>Copy style (locked)</b><br><span class="small muted">Voice, fixed wordings, heading patterns, launch guard</span></span><span class="mono">docs/COPY-STYLE.md</span></li>
+      <li class="pair"><span><b>Page guide</b><br><span class="small muted">What each page is for, what it shows, what's pending</span></span><span class="mono">docs/PAGE-GUIDE.md</span></li>
+      <li class="pair"><span><b>Requirements</b><br><span class="small muted">Every decision and confirmed fact</span></span><span class="mono">docs/REQUIREMENTS.md</span></li>
+      <li class="pair"><span><b>Claims matrix</b><br><span class="small muted">Every claim on the site with its source</span></span><span class="mono">docs/CLAIMS.md</span></li>
+      <li class="pair"><span><b>Design system &amp; rationale</b><br><span class="small muted">Competitor study, concept, 3 critique rounds</span></span><span class="mono">docs/DESIGN.md</span></li>
+      <li class="pair"><span><b>SEO plan</b><br><span class="small muted">Keyword map, schema, 301 redirects</span></span><span class="mono">docs/SEO-PLAN.md</span></li>
+      <li class="pair"><span><b>Photo shot list</b><br><span class="small muted">Brief for the photographer</span></span><span class="mono">docs/PHOTO-SHOT-LIST.md</span></li>
+      <li class="pair"><span><b>Line-art generator</b><br><span class="small muted">Interim part drawings, regenerated from dimensions</span></span><span class="mono">design/tools/lineart.py</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+</body>
+</html>
