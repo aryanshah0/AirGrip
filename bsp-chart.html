@@ -20,7 +20,8 @@
   .sheet1 { margin-top: var(--s-6); max-width: 460px; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
   .sheet1 > div { border: var(--hair); } .sheet1 img { width: 100%; height: auto; }
   @media (max-width: 959px) { .chead > * { grid-column: 1 / -1 !important; } }
-  .gal--one { grid-template-columns: minmax(0, 360px); }
+  figure.one { margin: 0; max-width: 560px; } figure.one .photo { aspect-ratio: 4/3; border: var(--hair); background: #fff; }
+  figure.one img { width: 100%; height: 100%; object-fit: cover; } figure.one figcaption { margin-top: var(--s-2); font-size: var(--t-14); }
   .gal--3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
   @media (max-width: 959px) { .gal--3 { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 559px) { .gal--one { grid-template-columns: minmax(0, 1fr); } }

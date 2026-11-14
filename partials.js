@@ -107,7 +107,7 @@
         <div>
           <a class="brand brand--ftr" href="${P.home}"><img src="img/logo.svg" alt="AirGrip – Air Grip Group of Companies" width="108" height="80"></a>
           <address>Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III<br>Dared, Jamnagar 361004, Gujarat, India<br>
-          <a class="mono" href="tel:+919316615007">+91 93166 15007</a> · <a href="mailto:sales@airgrip.in">sales@airgrip.in</a><br>
+          <a class="mono" href="tel:+919316615007">+91 93166 15007</a> · <a href="mailto:sales@airgrip.in">sales@airgrip.in</a><br>
           <span class="muted">Sat–Thu 09:30–18:30 IST</span></address>
         </div>
         <div><p class="fh">Products</p><ul><li><a href="${P.category}">Brass turned components</a></li><li><a href="fittings.html">Brass fittings</a></li><li><a href="forged.html">Forged brass components</a></li><li><a href="inserts.html">Moulding inserts</a></li><li><a href="terminals.html">Electrical terminals &amp; connectors</a></li><li><a href="fasteners.html">Special fasteners</a></li><li><a href="stamping.html">Metal stamping parts</a></li><li><a href="${P.glands}">Brass cable glands &amp; accessories</a></li></ul></div>
@@ -116,12 +116,12 @@
         <div><p class="fh">Company</p><ul><li><a href="${P.about}">About AirGrip</a></li><li><a href="${P.industries}">Industries</a></li><li><a href="${P.exports}">Ordering &amp; shipping</a></li><li><a href="${P.contact}">Contact</a></li><li><a href="${P.rfq}">Request a quote</a></li></ul></div>
       </div>
       <div class="ftr__base">
-        <span>© 2026 <span class="tbc">Registered company name</span> · GSTIN <span class="tbc">TBC</span> · IEC <span class="tbc">TBC</span></span>
-        <span>ISO 9001:2015 · <span class="vfy">RoHS</span></span><a href="privacy.html">Privacy policy</a>
+        <span>© 2026 AirGrip · Air Grip Group of Companies</span>
+        <span>ISO 9001:2015 · <span class="vfy">RoHS</span></span><a href="privacy.html">Privacy policy</a>
       </div>
     </div>
   </footer>
-  <a class="wa" href="https://wa.me/919316615007" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>WhatsApp</a>`;
+  <a class="wa" href="https://wa.me/919316615007" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span class="wa__t">WhatsApp</span></a>`;
 
   const css = document.createElement('style');
   css.textContent = `.mnav{position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--ink-line);max-height:calc(100vh - var(--header-h));overflow:auto;padding-block:var(--s-4) var(--s-6)}

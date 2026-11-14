@@ -99,13 +99,13 @@
       <fieldset id="drawings">
         <legend>Drawings <span class="muted">one row per file</span></legend>
         <label class="check" style="margin-bottom:var(--s-3)"><input type="checkbox" id="nda"><span>Sign my NDA before I share drawings</span></label>
-        <p class="tbl-note" id="nda-note" hidden style="margin:0 0 var(--s-3)">NDA requested: the upload is switched off and no files will be sent. Describe the parts in the notes; <span class="vfy">send us your NDA (email it to sales@airgrip.in); we sign it and send an upload link</span>.<span data-kept></span></p>
+        <p class="tbl-note" id="nda-note" hidden style="margin:0 0 var(--s-3)">NDA requested: the upload is switched off and no files will be sent. Describe the parts in the notes; send us your NDA (email it to sales@airgrip.in); we sign it and send an upload link.<span data-kept></span></p>
         <p class="tbl-note" id="reattach" hidden style="margin:0 0 var(--s-3)"></p>
         <div class="sheet"><div class="frame">
           <label class="area" for="files">
             <input type="file" id="files" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.jpg,.png">
             <span><span class="big">Drop drawings here, or choose files</span>
-            <span class="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
+            <span class="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
           </label>
         </div></div>
         <div class="items" id="ditems" style="margin-top:var(--s-3)"></div>
@@ -114,8 +114,8 @@
       <fieldset>
         <legend>Requirements</legend>
         <div class="tbf">
-          <div class="cell s2"><label for="mat">Material</label><select id="mat"><option>As per drawing / standard</option><option>CW614N · CuZn39Pb3 (free-cutting)</option><option>CW617N · CuZn40Pb2 (forging)</option><option>Low-lead / lead-free · CW511L / CW724R</option><option>DZR · CW602N</option><option>Other / not sure</option></select></div>
-          <div class="cell dwg-only"><label for="fin">Finish (drawings)</label><select id="fin"><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option></select></div>
+          <div class="cell s2"><label for="mat">Material</label><select id="mat"><option>As per drawing / standard</option><option>CW614N · CuZn39Pb3 (free-cutting)</option><option>CW617N · CuZn40Pb2 (forging)</option><option>Low-lead / lead-free · CW511L / CW724R</option><option>DZR · CW602N</option><option>Other / not sure</option></select></div>
+          <div class="cell dwg-only"><label for="fin">Finish (drawings)</label><select id="fin"><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option><option>Silver (on request)</option><option>Chrome (on request)</option></select></div>
           <div class="cell dwg-only"><label for="tol">Gen. tolerance</label><input id="tol" class="m" placeholder="As per drawing"></div>
           <div class="cell"><label for="pl">Plating thickness</label><input id="pl" class="m" placeholder="e.g. Ni 5–8 µm"></div>
           <div class="cell"><label for="due">Samples needed by</label><input id="due" type="date"></div>
@@ -146,14 +146,14 @@
           </div></fieldset>
         <label class="check"><input type="checkbox" id="ok" aria-describedby="ok-e"><span>I agree that AirGrip may store these details to answer this request (<a class="link" href="privacy.html">privacy policy</a>). <span class="req" style="color:var(--brass-deep)">*</span> <span class="ferr err" id="ok-e"></span></span></label>
       </div>
-      <div class="formend"><span class="small muted">Reply within two working days · Sat–Thu, IST</span><button class="btn btn--brass" type="submit">Send request <span class="arr" aria-hidden="true">→</span></button></div>
+      <div class="formend"><span class="small muted">Reply within two working days · Sat–Thu, IST</span><button class="btn btn--brass" type="submit">Send request <span class="arr" aria-hidden="true">→</span></button></div>
     </form>
 
     <aside>
       <div>
         <span class="eyebrow">What happens next</span>
         <ol class="steps">
-          <li><span class="dash"></span><span class="vfy">Each drawing is reviewed for manufacturability.</span></li>
+          <li><span class="dash"></span>Our team reviews every drawing.</li>
           <li><span class="dash"></span><span>You get price, MOQ and lead time by email.</span></li>
           <li><span class="dash"></span><span>Samples typically in 2–3 weeks, with an inspection report.</span></li>
         </ol>
@@ -164,7 +164,7 @@
         <dt>Email</dt><dd><a class="link mono" href="mailto:sales@airgrip.in">sales@airgrip.in</a></dd>
         <dt>Physical sample</dt><dd>Courier to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the RFQ reference from our reply.</dd>
       </dl>
-      <div class="person"><div class="ph">Photo<br>C2</div><div><b>Shree Shah</b><span>Marketing Director · your contact for quotes</span></div></div>
+      <div class="person"><div class="ph">Photo<br>C2</div><div><b>Shree Shah</b><span>Marketing Director · your contact for quotes</span></div></div>
     </aside>
   </div>
 </section>
@@ -223,7 +223,7 @@
   // drawings: one row per file, stable ids, quantities kept
   f.addEventListener('change', () => { [...f.files].forEach(x => draws.push({ id: 'd' + (++seq), file: x, name: x.name, size: x.size, qo: '', qy: '' })); f.value = ''; document.getElementById('reattach').hidden = true; paintD(); });
   function paintD() {
-    di.innerHTML = draws.map(d => `<div class="item"><div class="what"><b>${esc(d.name)}</b><span>${(d.size / 1048576).toFixed(1)} MB · drawing no. and rev. from the file</span></div><span></span>${qtyInputs(d.id, d)}<button type="button" aria-label="Remove ${esc(d.name)}" data-rmd="${d.id}">×</button></div>`).join('');
+    di.innerHTML = draws.map(d => `<div class="item"><div class="what"><b>${esc(d.name)}</b><span>${(d.size / 1048576).toFixed(1)} MB · drawing no. and rev. from the file</span></div><span></span>${qtyInputs(d.id, d)}<button type="button" aria-label="Remove ${esc(d.name)}" data-rmd="${d.id}">×</button></div>`).join('');
     di.querySelectorAll('[data-rmd]').forEach(b => b.onclick = () => { draws = draws.filter(d => d.id !== b.dataset.rmd); paintD(); });
     syncPart(); save();
   }

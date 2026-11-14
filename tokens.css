@@ -410,3 +410,8 @@ table.spec tr:has(.addq) > td { vertical-align: middle; }
 
 /* ---- Print (thread charts, grades) -------------------------------- */
 @media print { .hdr, .mega, .mnav, footer, .ftr, .wa, .qbar, .cta, .crumbs, .subnav, .rnote { display: none !important; } body { background: #fff; } .band, .phead { padding-block: 12px !important; } .tbl { overflow: visible; border: 0; } table.spec { font-size: 10pt; } a { text-decoration: none; color: inherit; } }
+
+/* ---- Final polish (2026-11-14) ----------------------------------- */
+@media (max-width: 1559px) { .wa { width: 44px; padding: 0; justify-content: center; right: 8px; } .wa__t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; } }
+.strip dd, .strip small { text-wrap: balance; }
+@media (max-width: 559px) { .ftr li a, .ftr address a, .ftr__base a { display: inline-block; padding-block: 10px; } .more { padding-block: 8px; } }
