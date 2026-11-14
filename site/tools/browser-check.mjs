@@ -38,6 +38,8 @@ const send = (method, params = {}) => new Promise((r) => { const i = ++id; pendi
 const evalJs = async (expr) => (await send("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true })).result?.result?.value;
 const PIXELS = process.argv.includes("--pixels");
 async function shot() {
+  // load every lazy image first, so both captures show the same thing (otherwise timing shows up as differences)
+  await evalJs("Promise.all([...document.images].map((i) => { i.loading = 'eager'; return i.complete ? 0 : new Promise((r) => { i.onload = i.onerror = r; setTimeout(r, 4000); }); })).then(() => document.fonts.ready).then(() => new Promise((r) => setTimeout(r, 300)))");
   const h = await evalJs("Math.ceil(document.documentElement.scrollHeight)");
   const w = await evalJs("document.documentElement.clientWidth");
   const r = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { x: 0, y: 0, width: w, height: Math.min(h, 16000), scale: 1 } });

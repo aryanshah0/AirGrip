@@ -13,6 +13,7 @@ export function ContactForm() {
   const [ok, setOk] = useState(false);
   const [err, setErr] = useState<Record<string, string>>({});
   const [alert, setAlert] = useState("");
+  const [sendMsg, setSendMsg] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
   const doneRef = useRef<HTMLDivElement>(null);
@@ -36,13 +37,14 @@ export function ContactForm() {
     const first = RULES.map(([k]) => k as string).concat("cok").find((k) => next[k]);
     if (first) { setAlert("Please complete the highlighted fields."); document.getElementById(first)?.focus(); return; }
     setAlert("");
+    setSendMsg("");
     setBusy(true);
     try {
       await sendForm("contact", { name: f.n, company: f.c, email: f.e, topic: f.t, message: f.m, consent: true });
       track("contact_submit", { topic: f.t });
       setDone(true);
     } catch (x) {
-      setAlert(x instanceof SendError ? x.message : "Could not send. Please email sales@airgrip.in.");
+      setSendMsg(x instanceof SendError ? x.message : "Could not send. Please email sales@airgrip.in.");
     } finally {
       setBusy(false);
     }
@@ -58,6 +60,7 @@ export function ContactForm() {
         <div className="field"><label htmlFor="t">Topic</label><select className="select" id="t" value={f.t} onChange={set("t")}><option value="general">General question</option><option value="audit">Supplier approval, audit or plant visit</option><option value="order">Existing order</option><option value="documents">Quality documents (certificates, declarations)</option></select></div>
         <div className="field"><label htmlFor="m">Message<span className="req">*</span></label><textarea className="textarea" id="m" required aria-describedby="m-e" aria-invalid={!!err.m} value={f.m} onChange={set("m")} onBlur={blur("m")}></textarea><span className="err" id="m-e">{err.m}</span></div>
         <label className="check"><input type="checkbox" id="cok" required aria-describedby="cok-e" aria-invalid={!!err.cok} checked={ok} onChange={(e) => { setOk(e.target.checked); if (e.target.checked) setErr({ ...err, cok: "" }); }} /><span>I agree that AirGrip may store these details to answer my message (<a className="link" href={P.privacy}>privacy policy</a>). <span className="req" style={{ color: "var(--brass-deep)" }}>*</span> <span className="err" id="cok-e">{err.cok}</span></span></label>
+        {sendMsg && <p className="err sendmsg" id="csendmsg" role="alert">{sendMsg}</p>}
         <div><button className="btn" type="submit" disabled={busy}>{busy ? "Sending…" : "Send message"} <span className="arr" aria-hidden="true">→</span></button></div>
       </form>
       <div ref={doneRef} className="cdone" id="cdone" role="status" tabIndex={-1} hidden={!done}>

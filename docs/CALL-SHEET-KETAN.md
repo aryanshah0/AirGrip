@@ -92,4 +92,4 @@ These are not shown on the site until answered:
 ## Added at the start of the build (2026-11-14)
 27. Hosting: which Hostinger plan is bought for airgrip.co.in (web hosting Premium/Business, Cloud, VPS), and who has the login? Is email for sales@airgrip.in on the same account?
 28. Google Analytics: the old site used GA4 property 336239038 (measurement ID G-BLFBKNQ02D, set up through Google Site Kit). Which Google account owns it, and can Aryan get access? If nobody can, we create a new property.
-29. Forms: OK to send quote requests (with drawings attached) from a small script on the Hostinger hosting to sales@airgrip.in? Needs one sending mailbox on the hosting (e.g. website@airgrip.co.in).
+29. Forms (Aryan decided 2026-11-15: a script on the hosting sends to sales@airgrip.in): someone with the hPanel login creates the mailbox website@airgrip.co.in. Is sales@airgrip.in hosted at Hostinger too, or elsewhere (Google Workspace, Zoho)?

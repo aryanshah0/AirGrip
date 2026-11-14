@@ -41,6 +41,17 @@ export interface SentSummary {
   nda: boolean;
   email: string;
   ref: string;
+  /** home quick quote: its quantities, shown when no drawing was attached */
+  quick?: { qo: string; qy: string };
 }
 export const SENT_KEY = "ag-rfq-sent";
-export const newRef = () => "RFQ-" + new Date().getFullYear().toString().slice(2) + "-" + String(Math.floor(Math.random() * 9000) + 1000);
+// RFQ-26-K7M3QX: 6 characters without look-alikes (no 0/O, 1/I/L), about 10^9 values a year, so no two buyers share one.
+const REF_CHARS = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+export const newRef = () => "RFQ-" + new Date().getFullYear().toString().slice(2) + "-" +
+  [...crypto.getRandomValues(new Uint8Array(6))].map((n) => REF_CHARS[n % REF_CHARS.length]).join("");
+/** After a successful send the page navigates away; Back can restore it from the browser cache still "Sending…". */
+export function onPageRestore(fn: () => void) {
+  const h = (e: PageTransitionEvent) => { if (e.persisted) fn(); };
+  addEventListener("pageshow", h);
+  return () => removeEventListener("pageshow", h);
+}

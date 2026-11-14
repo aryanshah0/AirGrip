@@ -55,7 +55,8 @@ Applied (summary):
 - Done: file checks, 20 MB limit and allowed types, rejected per row with a message (D11).
 - Done: cookie-consent banner with a "Cookie settings" link in the footer; GA4 Consent Mode v2 (switched on by the GA4 ID).
 - Done: thread-pair picker renders only valid options (works in Safari).
-- Open: form delivery (PHP on Hostinger or a form service) and the "copy sent to" email; the site posts to a configurable endpoint (call sheet 27–29).
+- Done (2026-11-15): form delivery by PHP on the Hostinger hosting to sales@airgrip.in, with the buyer copy (`site/public/api/form.php`, docs/BUILD.md). Needs the mailbox website@airgrip.co.in on the hosting.
+- Accepted 2026-11-15 after the independent build review: the dimension key folds on phones on all three gland pages; the adapter picker leaves out entry threads with no valid partner; the home quick quote names the chosen files.
 - Done: `design/tools/check_launch.py` runs on the pre-rendered HTML in every build and in CI (GitHub Actions); the build fails until it reports zero.
 
 ## Post-launch list (P3, deliberately not done now)
@@ -65,4 +66,5 @@ Applied (summary):
 - NPT mm rounding (17.15, 60.33); BSP G 5/8 hole decimals; "Drop drawings here" wording on phones; decoded names for typed codes; mobile-nav Escape key and aria-current.
 - Lock nuts breadcrumb and "used with" links; glands hub CTA lead; Clamping-jaw and Favorit sub-nav and FAQ parity with Kompakt.
 - Accessory drawings keep illustrative numbers (captioned "Illustrative drawing, not to size").
+- From the build review (2026-11-15, P3): mega menu links come after the rest of the header in keyboard order, and the menu stays open when focus leaves it; focus after choosing a cookie option; LocalBusiness `geo`; per-template share images; titles over 60 characters (12 pages) and "manufacturer" in the turned-components title; more internal links from accessory pages to thread charts and grades; decide whether old `/wp-content/uploads/` files (PDFs, images) with backlinks should 301 instead of 410.
 - From the v1.2 sign-off (P3): "Used with" caption pattern; one CTA label on made-to-drawing pages; RFQ thank-you copy for catalogue-only requests; terminals "Where they are used" band; catalogue items without sample approval in the order flow; packing and labelling options for the whole standard range; home machines tile wording; "samples free" on the RFQ page; About export figure repeated; Contact names Shree Shah twice.

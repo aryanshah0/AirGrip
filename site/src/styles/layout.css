@@ -8,3 +8,10 @@
 /* Build additions: per-row file messages on the quote forms, second-finish link. */
 .item .fmsg { display: block; color: var(--error); font-size: var(--t-13); justify-self: start; }
 .item .linkbtn, .linkbtn { width: auto; height: auto; line-height: 1.4; background: none; border: 0; padding: 0; font: inherit; color: var(--ink-2); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: var(--t-13); justify-self: start; }
+
+/* send failure: shown right above the Send button */
+.sendmsg { margin: var(--s-4) 0 0; font-size: var(--t-15); font-weight: 500; }
+
+/* quote list: "+ another finish" on its own line under the label; very long typed codes wrap instead of widening the page */
+.item .what .linkbtn { display: block; margin-top: 2px; }
+.item .what b { overflow-wrap: anywhere; }

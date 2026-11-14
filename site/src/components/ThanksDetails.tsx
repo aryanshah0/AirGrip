@@ -20,9 +20,10 @@ export function ThanksDetails() {
 
   return (
     <dl className="kv" style={{ marginTop: "var(--s-6)", maxWidth: "560px" }}>
-      <dt>Reference</dt><dd className="mono" id="ref">{s?.ref || "RFQ-26-0000"}</dd>
+      <dt>Reference</dt><dd className={s?.ref ? "mono" : undefined} id="ref">{s?.ref || "In the copy we emailed you"}</dd>
       <dt>Copy sent to</dt><dd id="mail">{s?.email || "The work email you entered"}</dd>
-      <dt>You sent</dt><dd id="sent">{!s ? "Your drawings and part codes" : rows.length ? <ul style={{ margin: 0, paddingLeft: "18px" }}>{rows}</ul> : "A note describing the part" + (s.nda ? " (drawings follow after the NDA)" : "")}</dd>
+      <dt>You sent</dt><dd id="sent">{!s ? "Your drawings and part codes" : rows.length ? <ul style={{ margin: 0, paddingLeft: "18px" }}>{rows}</ul> : s.quick ? "Your contact details" + (qty(s.quick) ? " · " + qty(s.quick) : "") + (s.nda ? " (drawings follow after the NDA)" : "")
+        : "A note describing the part" + (s.nda ? " (drawings follow after the NDA)" : "")}</dd>
       <dt id="nda-t" hidden={!s?.nda}>NDA</dt><dd id="nda-d" hidden={!s?.nda}>Send us your NDA (email it to {SITE.email}); we sign it and send an upload link for your drawings.</dd>
       <dt>Sending a sample?</dt><dd>Courier it to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the reference above.</dd>
       <dt>Urgent?</dt><dd><a className="link mono" href={SITE.phoneHref}>{SITE.phone}</a> · <a className="link" href={SITE.whatsapp}>WhatsApp</a></dd>

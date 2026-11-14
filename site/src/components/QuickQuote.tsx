@@ -1,8 +1,8 @@
 // Home page quick quote (markup from design/home.html). Required fields use the browser's own validation, as in
 // the design. "Sign my NDA first" switches the upload off. Sends to the form endpoint, then opens the thank-you page.
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { P } from "../site";
-import { SENT_KEY, SendError, fileProblem, newRef, sendForm, type SentSummary } from "../lib/forms";
+import { SENT_KEY, SendError, fileProblem, newRef, onPageRestore, sendForm, type SentSummary } from "../lib/forms";
 import { track } from "../lib/analytics";
 
 export function QuickQuote() {
@@ -10,6 +10,8 @@ export function QuickQuote() {
   const [nda, setNda] = useState(false);
   const [msg, setMsg] = useState("");
   const [busy, setBusy] = useState(false);
+  const refId = useRef("");
+  useEffect(() => onPageRestore(() => setBusy(false)), []);
 
   const problems = files.map((f) => [f, fileProblem(f, ["pdf", "dwg", "dxf", "step", "stp", "igs", "iges"])] as const).filter(([, p]) => p);
 
@@ -18,13 +20,13 @@ export function QuickQuote() {
     const fd = new FormData(e.currentTarget);
     const v = (k: string) => String(fd.get(k) || "").trim();
     if (!nda && problems.length) { setMsg(problems.map(([f, p]) => `${f.name}: ${p}`).join(" ")); return; }
-    const ref = newRef();
+    const ref = (refId.current ||= newRef()); // kept if the buyer retries after a failed send
     const send = nda ? [] : files;
     setBusy(true);
     setMsg("");
     try {
       await sendForm("rfq-quick", { ref, name: v("n"), company: v("c"), email: v("e"), country: v("co"), qty_order: v("qo"), qty_year: v("qy"), nda, consent: true }, send);
-      const sent: SentSummary = { ref, items: [], files: send.map((f) => ({ name: f.name, qo: v("qo"), qy: v("qy") })), parts: [], nda, email: v("e") };
+      const sent: SentSummary = { ref, items: [], files: send.map((f) => ({ name: f.name, qo: v("qo"), qy: v("qy") })), parts: [], nda, email: v("e"), quick: { qo: v("qo"), qy: v("qy") } };
       try { sessionStorage.setItem(SENT_KEY, JSON.stringify(sent)); } catch { /* thank-you page shows the generic text */ }
       track("rfq_submit", { form: "home", files: send.length, nda });
       location.href = P.thanks;

@@ -1,6 +1,6 @@
 // Build step 5: checks every pre-rendered page in dist/. Fails the build on a broken internal link, anchor or
 // image, a missing title / description / canonical / H1, invalid JSON-LD, or leftover template markers.
-// With --launch it also fails when the site is not ready to go live (no form endpoint configured).
+// With --launch it also fails when the site is not ready to go live (no form sender).
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -58,7 +58,7 @@ for (const f of ["sitemap.xml", "robots.txt", ".htaccess", "404.html"]) if (!fs.
 if (launch) {
   const { loadEnv } = await import("vite");
   const env = loadEnv("production", root, "VITE_");
-  if (!env.VITE_FORM_ENDPOINT) problems.push("launch: no form endpoint (set VITE_FORM_ENDPOINT in site/.env.production and rebuild)");
+  if (!env.VITE_FORM_ENDPOINT && !fs.existsSync(path.join(dist, "api/form.php"))) problems.push("launch: no form sender (dist/api/form.php missing and no VITE_FORM_ENDPOINT)");
   if (!env.VITE_GA_ID) console.warn("  note: no GA4 ID (VITE_GA_ID): the site launches without analytics");
 }
 

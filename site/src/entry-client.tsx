@@ -6,7 +6,9 @@ import { App } from "./App";
 import { routes } from "./routes.gen";
 
 export function findRoute(pathname: string) {
-  const p = pathname.endsWith("/") || pathname.endsWith(".html") ? pathname : pathname + "/";
+  // /rfq/index.html is the same page as /rfq/ (the server 301s it, but never show the 404 page for it)
+  const q = pathname.replace(/\/index\.html$/, "/");
+  const p = q.endsWith("/") || q.endsWith(".html") ? q : q + "/";
   return routes.find((r) => r.path === p) ?? routes.find((r) => r.name === "404")!;
 }
 

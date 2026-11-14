@@ -22,12 +22,12 @@ export const SITE = {
 /**
  * Switches that are filled in before launch (see docs/BUILD.md).
  *  - VITE_GA_ID: GA4 measurement ID. Empty = no analytics script at all.
- *  - VITE_FORM_ENDPOINT: URL the quote and contact forms POST to (multipart). Empty = forms cannot send
- *    (the dev server answers /api/form with a local mock; the launch check fails a build without it).
+ *  - VITE_FORM_ENDPOINT: URL the quote and contact forms POST to (multipart). Default: /api/form.php, the PHP
+ *    sender shipped in public/api/ (the dev and preview servers answer it with a local mock instead).
  */
 export const CONFIG = {
   gaId: (import.meta.env.VITE_GA_ID as string | undefined) || "",
-  formEndpoint: (import.meta.env.VITE_FORM_ENDPOINT as string | undefined) || (import.meta.env.DEV ? "/api/form" : ""),
+  formEndpoint: (import.meta.env.VITE_FORM_ENDPOINT as string | undefined) || (import.meta.env.DEV ? "/api/form" : "/api/form.php"),
 };
 
 // Paths used by the shared layout (pages link with plain URLs generated from the design).

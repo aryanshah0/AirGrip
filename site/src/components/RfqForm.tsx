@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { P, SITE } from "../site";
 import { basket, useBasket } from "../lib/basket";
-import { SENT_KEY, SendError, fileProblem, newRef, sendForm, type SentSummary } from "../lib/forms";
+import { SENT_KEY, SendError, fileProblem, newRef, onPageRestore, sendForm, type SentSummary } from "../lib/forms";
 import { track } from "../lib/analytics";
 
 const SKEY = "ag-rfq";
@@ -39,7 +39,8 @@ export function RfqForm() {
   const [draws, setDraws] = useState<Draw[]>([]);
   const [parts, setParts] = useState<Part[]>([{ id: "p1", name: "", qo: "", qy: "" }]);
   const [fields, setFields] = useState<Fields>({});
-  const [reattach, setReattach] = useState<string[]>([]);
+  const [reattach, setReattach] = useState<{ name: string; qo: string; qy: string }[]>([]);
+  const ref = useRef("");
   const [err, setErr] = useState<Record<string, string>>({});
   const [probs, setProbs] = useState<[string, string][]>([]);
   const [sendMsg, setSendMsg] = useState("");
@@ -62,14 +63,15 @@ export function RfqForm() {
       }
       if (s.fields) setFields(kept(s.fields));
       if (Array.isArray(s.parts) && s.parts.length) setParts(s.parts);
-      if (Array.isArray(s.draws) && s.draws.length) setReattach(s.draws.map((d: { name: string }) => d.name));
+      if (Array.isArray(s.draws) && s.draws.length) setReattach(s.draws.map((d: { name: string; qo?: string; qy?: string }) => ({ name: d.name, qo: d.qo || "", qy: d.qy || "" })));
     } catch { /* fresh form */ }
     loaded.current = true;
+    return onPageRestore(() => setBusy(false));
   }, []);
   useEffect(() => {
     if (!loaded.current) return;
-    try { sessionStorage.setItem(SKEY, JSON.stringify({ lines, fields: kept(fields), parts, draws: draws.map((d) => ({ name: d.name, size: d.size, qo: d.qo, qy: d.qy })) })); } catch { /* storage blocked */ }
-  }, [lines, fields, parts, draws]);
+    try { sessionStorage.setItem(SKEY, JSON.stringify({ lines, fields: kept(fields), parts, draws: draws.length ? draws.map((d) => ({ name: d.name, size: d.size, qo: d.qo, qy: d.qy })) : reattach })); } catch { /* storage blocked */ }
+  }, [lines, fields, parts, draws, reattach]);
   useEffect(() => { if (lastPart.current) { document.getElementById("pn-" + lastPart.current)?.focus(); lastPart.current = null; } }, [parts]);
 
   const linesOf = (c: string): Line[] => lines[c]?.length ? lines[c] : [{ id: c, fin: "N", qo: "", qy: "" }];
@@ -90,7 +92,8 @@ export function RfqForm() {
   const nda = !!fields.nda;
   const okDraws = draws.filter((d) => !d.problem);
   const sendFiles = nda ? [] : okDraws;
-  const partsShown = items.length === 0 && (draws.length === 0 || nda);
+  // part names stay visible (and are sent) once typed, even after a code or drawing is added
+  const partsShown = (items.length === 0 && (draws.length === 0 || nda)) || parts.some((x) => x.name.trim());
   const catalogueOnly = !draws.length && items.length > 0;
 
   function addCode() {
@@ -109,7 +112,10 @@ export function RfqForm() {
   function addFiles(list: FileList | null) {
     if (!list) return;
     // copy now: the FileList is live and is emptied when the input is reset right after this call
-    const added = [...list].map((x) => ({ id: uid("d"), file: x, name: x.name, size: x.size, qo: "", qy: "", problem: fileProblem(x) }));
+    const added = [...list].map((x) => {
+      const was = reattach.find((r) => r.name === x.name); // same drawing attached before leaving the page: keep its quantities
+      return { id: uid("d"), file: x, name: x.name, size: x.size, qo: was?.qo || "", qy: was?.qy || "", problem: fileProblem(x) };
+    });
     setDraws((d) => [...d, ...added]);
     setReattach([]);
   }
@@ -134,13 +140,13 @@ export function RfqForm() {
       return;
     }
 
-    const ref = newRef();
+    ref.current ||= newRef(); // one reference per request: a retry after a failed send keeps it
     const q = (x: { qo: string; qy: string }) => [x.qo && x.qo + " / order", x.qy && x.qy + " / year"].filter(Boolean).join(" · ");
     const sentItems = items.flatMap((i) => SCHEME.test(i.code)
       ? linesOf(i.code).map((l) => ({ code: i.code, fin: l.fin, qo: l.qo, qy: l.qy, check: false }))
       : [{ code: i.code, fin: "", qo: linesOf(i.code)[0].qo, qy: linesOf(i.code)[0].qy, check: true }]);
     const payload: Record<string, string | boolean> = {
-      ref,
+      ref: ref.current,
       items: sentItems.map((x) => [x.check ? x.code + " (code as typed)" : `${x.code}-${x.fin}`, q(x)].filter(Boolean).join(" · ")).join("\n"),
       drawings: sendFiles.map((d) => [d.name, q(d)].filter(Boolean).join(" · ")).join("\n"),
       parts: namedParts.map((x) => [x.name, q(x)].filter(Boolean).join(" · ")).join("\n"),
@@ -158,7 +164,7 @@ export function RfqForm() {
       return;
     }
     const sent: SentSummary = {
-      ref, nda, email: f("em").trim(),
+      ref: ref.current, nda, email: f("em").trim(),
       items: sentItems, files: sendFiles.map((d) => ({ name: d.name, qo: d.qo, qy: d.qy })), parts: namedParts.map((x) => ({ name: x.name, qo: x.qo, qy: x.qy })),
     };
     track("rfq_submit", { form: "rfq", items: sentItems.length, files: sendFiles.length, nda });
@@ -202,7 +208,7 @@ export function RfqForm() {
       <legend>Drawings <span className="muted">one row per file</span></legend>
       <label className="check" style={{ marginBottom: "var(--s-3)" }}><input type="checkbox" {...check("nda")} /><span>Sign my NDA before I share drawings</span></label>
       <p className="tbl-note" id="nda-note" hidden={!nda} style={{ margin: "0 0 var(--s-3)" }}>NDA requested: the upload is switched off and no files will be sent. List the parts and quantities below; send us your NDA (email it to {SITE.email}); we sign it and send an upload link.<span>{nda && draws.length ? ` Your ${draws.length} chosen file${draws.length > 1 ? "s are" : " is"} kept here and will not be sent unless you untick this box.` : ""}</span></p>
-      <p className="tbl-note" id="reattach" hidden={!reattach.length} style={{ margin: "0 0 var(--s-3)" }}>{reattach.length ? "Please attach your drawings again (files are not kept when you leave this page): " + reattach.join(", ") + "." : ""}</p>
+      <p className="tbl-note" id="reattach" hidden={!reattach.length} style={{ margin: "0 0 var(--s-3)" }}>{reattach.length ? "Please attach your drawings again (files are not kept when you leave this page): " + reattach.map((r) => r.name).join(", ") + "." : ""}</p>
       <div className="sheet"><div className="frame">
         <label className="area" htmlFor="files">
           <input type="file" id="files" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.jpg,.png" disabled={nda} onChange={(e) => { addFiles(e.target.files); e.target.value = ""; }} />
@@ -224,8 +230,8 @@ export function RfqForm() {
 
   return (
     <form id="rfqform" noValidate aria-label="Request for quote" onSubmit={submit}>
-      <div ref={errBox} className="alert" id="err" role="alert" hidden={!probs.length && !sendMsg}>
-        {sendMsg || (probs.length ? <>Please fix the following:<ul>{probs.map(([id, msg], i) => <li key={i}><a href={"#" + id} onClick={(ev) => { ev.preventDefault(); const el = document.getElementById(id); el?.scrollIntoView({ block: "center" }); el?.focus({ preventScroll: true }); }}>{msg}</a></li>)}</ul></> : "Please complete the highlighted fields.")}
+      <div ref={errBox} className="alert" id="err" role="alert" hidden={!probs.length}>
+        {(probs.length ? <>Please fix the following:<ul>{probs.map(([id, msg], i) => <li key={i}><a href={"#" + id} onClick={(ev) => { ev.preventDefault(); const el = document.getElementById(id); el?.scrollIntoView({ block: "center" }); el?.focus({ preventScroll: true }); }}>{msg}</a></li>)}</ul></> : "Please complete the highlighted fields.")}
       </div>
 
       {items.length ? [catalogue, drawings] : [drawings, catalogue]}
@@ -279,6 +285,7 @@ export function RfqForm() {
           <p className="tbl-note" style={{ marginTop: "6px" }}>EN 10204 3.1 mill certificate and certificate of conformity come with every batch.</p></fieldset>
         <label className="check"><input type="checkbox" id="ok" aria-describedby="ok-e" aria-invalid={!!err.ok} checked={!!fields.ok} onChange={(e) => { setF("ok", e.target.checked); if (e.target.checked) setErr((x) => ({ ...x, ok: "" })); }} /><span>I agree that AirGrip may store these details to answer this request (<a className="link" href={P.privacy}>privacy policy</a>). <span className="req" style={{ color: "var(--brass-deep)" }}>*</span> <span className="ferr err" id="ok-e">{err.ok}</span></span></label>
       </div>
+      {sendMsg && <p className="err sendmsg" id="sendmsg" role="alert">{sendMsg}</p>}
       <div className="formend"><span className="small muted">Reply within two working days · Sat–Thu, IST</span><button className="btn btn--brass" type="submit" disabled={busy}>{busy ? "Sending…" : "Send request"} <span className="arr" aria-hidden="true">→</span></button></div>
     </form>
   );

@@ -30,6 +30,11 @@ export function applyConsent(c: Consent | null) {
   }
   if (c !== "analytics") {
     gtag("consent", "update", { analytics_storage: "denied" });
+    // consent withdrawn: delete the _ga cookies Google Analytics set (on this host and the parent domain)
+    document.cookie.split(";").map((x) => x.split("=")[0].trim()).filter((n) => /^_ga(_|$)/.test(n)).forEach((n) => {
+      for (const d of ["", "; domain=" + location.hostname, "; domain=." + location.hostname.replace(/^www\./, "")])
+        document.cookie = n + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/" + d;
+    });
     return;
   }
   gtag("consent", "update", { analytics_storage: "granted" });

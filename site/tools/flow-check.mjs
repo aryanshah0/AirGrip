@@ -1,10 +1,12 @@
 // End-to-end checks of the interactive parts of the BUILT site, as a buyer would use them.
 //   VITE_FORM_ENDPOINT=/api/form npm run build && npm run preview   (preview answers /api/form with a mock)
-//   node tools/flow-check.mjs [origin]
+//   node tools/flow-check.mjs [origin]          (BROWSER=safari: real Safari through safaridriver)
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { DOM_HELPERS, launch } from "./cdp.mjs";
+import { DOM_HELPERS, launch as launchChrome } from "./cdp.mjs";
+
+const launch = process.env.BROWSER === "safari" ? (await import("./safari.mjs")).launch : launchChrome;
 
 const O = process.argv[2] || "http://127.0.0.1:4173";
 const b = await launch();
@@ -87,12 +89,22 @@ check("empty details: error summary lists 5 problems", await b.until("$$('#err l
 check("…and marks the fields invalid", await ev("$('#nm').getAttribute('aria-invalid') === 'true' && $('#nm-e').textContent.length > 0"));
 await ev("setVal('#nm', 'Test Buyer'); setVal('#co', 'Test GmbH'); setVal('#em', 'buyer@example.com'); setVal('#ct', 'Germany'); $('#ok').click(); true");
 await ev("setVal($$('#citems .item input')[0], '5000'); true");
-await ev("$('#rfqform button[type=submit]').click(); true");
-check("valid form sends and opens the thank-you page", await b.until("location.pathname === '/rfq/thank-you/'", 6000));
+// sending fails (no connection, then a server error): everything stays, the message sits above Send, retry works
+await ev("window.__f = window.fetch; window.fetch = (u, o) => { sessionStorage.setItem('refs', (sessionStorage.getItem('refs') || '') + o.body.get('ref') + ' '); return Promise.reject(new TypeError('offline')); }; $('#rfqform button[type=submit]').click(); true");
+check("send fails offline: message right above the Send button", await b.until("$('#sendmsg') && /try again/.test($('#sendmsg').textContent) && $('#sendmsg').nextElementSibling.classList.contains('formend')"));
+check("…everything typed and attached is kept, Send works again", await ev("location.pathname === '/rfq/' && $('#nm').value === 'Test Buyer' && $$('#citems .item').length === 5 && $$('#ditems .item').length === 3 && !$('#rfqform button[type=submit]').disabled"), await ev("JSON.stringify([location.pathname, $('#nm').value, $$('#citems .item').length, $$('#ditems .item').length, $('#rfqform button[type=submit]').disabled])"));
+await ev("window.fetch = (u, o) => { sessionStorage.setItem('refs', (sessionStorage.getItem('refs') || '') + o.body.get('ref') + ' '); return Promise.resolve(new Response('{}', { status: 502 })); }; $('#rfqform button[type=submit]').click(); true");
+check("send fails with a server error: same message, still on the form", await b.until("/try again/.test($('#sendmsg')?.textContent || '') && location.pathname === '/rfq/' && !$('#rfqform button[type=submit]').disabled"));
+check("…and the quote list is not cleared", await ev("JSON.parse(localStorage.getItem('ag-basket')).length === 4"), await ev("localStorage.getItem('ag-basket')"));
+await ev("window.fetch = window.__f; $('#rfqform button[type=submit]').click(); true");
+check("retry: valid form sends and opens the thank-you page", await b.until("location.pathname === '/rfq/thank-you/'", 6000));
 await b.waitLoad(); await ev(DOM_HELPERS);
-check("thank-you shows reference and email", await b.until("/^RFQ-\\d{2}-\\d{4}$/.test($('#ref').textContent) && $('#mail').textContent === 'buyer@example.com'"));
+check("thank-you shows reference and email", await b.until("/^RFQ-\\d{2}-[2-9A-Z]{6}$/.test($('#ref').textContent) && $('#mail').textContent === 'buyer@example.com'"));
+check("…the same reference as the failed attempts (a retry keeps it)", await ev("sessionStorage.getItem('refs').trim().split(' ').every((r) => r === $('#ref').textContent)"), await ev("sessionStorage.getItem('refs') + ' / ' + $('#ref').textContent"));
 check("thank-you lists both finishes, typed code and the good drawing only", await ev("const t = $('#sent').textContent; t.includes('AG-SP-PG07-N') && t.includes('AG-SP-PG07-NI') && t.includes('AG-PS-PG09-SN') && t.includes('AB-123 rev B.pdf') && !t.includes('setup.exe') && !t.includes('huge.step')"));
 check("quote list cleared after sending", await ev("JSON.parse(localStorage.getItem('ag-basket')).length === 0 && $('.basket-btn .count').hidden"));
+await ev("history.back(); true");
+check("Back to the sent form: Send button usable again (not stuck on Sending…)", await b.until("location.pathname === '/rfq/' && $('#rfqform button[type=submit]') && !$('#rfqform button[type=submit]').disabled && /Send request/.test($('#rfqform button[type=submit]').textContent)", 6000));
 
 // --- NDA path
 await go("/rfq/");
@@ -106,8 +118,10 @@ check("contact topic preselected from the link", await b.until("$('#t').value ==
 await ev("$('#cform button[type=submit]').click(); true");
 check("contact validation", await ev("!$('#cerr').hidden && $('#n').getAttribute('aria-invalid') === 'true'"));
 await ev("setVal('#n', 'A'); setVal('#c', 'B'); setVal('#e', 'a@b.co'); setVal('#m', 'Hello'); $('#cok').click(); true");
-await ev("$('#cform button[type=submit]').click(); true");
-check("contact sends and confirms", await b.until("!$('#cdone').hidden && $('#cform').hidden"));
+await ev("window.__f = window.fetch; window.fetch = () => Promise.resolve(new Response('{}', { status: 500 })); $('#cform button[type=submit]').click(); true");
+check("contact send fails: message above Send, message kept", await b.until("$('#csendmsg') && $('#csendmsg').nextElementSibling.querySelector('button[type=submit]') && $('#m').value === 'Hello' && $('#cdone').hidden"));
+await ev("window.fetch = window.__f; $('#cform button[type=submit]').click(); true");
+check("contact retry sends and confirms", await b.until("!$('#cdone').hidden && $('#cform').hidden"));
 
 // --- home quick quote
 await go("/");
@@ -116,9 +130,10 @@ await b.setFiles("form[aria-label='Quick quote request'] input[type=file]", [goo
 await ev("$('form[aria-label=\"Quick quote request\"] button').click(); true");
 check("home quick quote sends and opens the thank-you page", await b.until("location.pathname === '/rfq/thank-you/'", 6000));
 
+await b.finish?.();
 const errs = b.errors();
 check("no JavaScript errors during the run", !errs.length, errs.slice(0, 3).join(" | "));
-b.close();
+await b.close();
 fs.rmSync(dir, { recursive: true, force: true });
 const bad2 = results.filter((r) => !r[1]).length;
 console.log(bad2 ? `\n${bad2} of ${results.length} checks failed` : `\nall ${results.length} flow checks passed`);

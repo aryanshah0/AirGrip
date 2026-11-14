@@ -61,7 +61,13 @@ function routeCard() {
 /** Wide tables show a fade at the right edge while there is more to scroll. */
 function tableCue() {
   const tbls = [...document.querySelectorAll<HTMLElement>(".tbl")];
-  const cue = () => tbls.forEach((t) => t.classList.toggle("can-scroll", t.scrollWidth - t.clientWidth - t.scrollLeft > 4));
+  const cue = () => tbls.forEach((t) => {
+    const wide = t.scrollWidth - t.clientWidth > 4;
+    t.classList.toggle("can-scroll", wide && t.scrollWidth - t.clientWidth - t.scrollLeft > 4);
+    // a table wider than the screen must be scrollable with the keyboard too
+    if (wide) { t.tabIndex = 0; t.setAttribute("role", "region"); t.setAttribute("aria-label", t.querySelector("caption")?.textContent?.trim() || "Table, scrolls sideways"); }
+    else if (t.getAttribute("role") === "region") { t.removeAttribute("tabindex"); t.removeAttribute("role"); t.removeAttribute("aria-label"); }
+  });
   tbls.forEach((t) => t.addEventListener("scroll", cue, { passive: true }));
   addEventListener("resize", cue);
   cue();

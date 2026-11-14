@@ -8,8 +8,6 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const dist = path.join(root, "dist");
 const ORIGIN = "https://airgrip.co.in";
 const GROUP = ["AirGrip International", "AirGrip Industrie", "Asian Brass Technocrats", "Copper Alloy Component Solutions", "Devi Metals"];
-const PRODUCT_PAGES = { "clamping-jaw": "Cable glands", favorit: "Cable glands", product: "Cable gland components", accessory: "Cable gland accessories",
-  "thread-adapters": "Cable gland accessories", "stop-plugs": "Cable gland accessories", "earth-tags": "Cable gland accessories", "conduit-parts": "Cable gland accessories" };
 
 const tpl = fs.readFileSync(path.join(dist, "index.html"), "utf8");
 const manifest = JSON.parse(fs.readFileSync(path.join(dist, ".vite", "manifest.json"), "utf8"));
@@ -67,15 +65,13 @@ function jsonLd(route, html) {
     graph.push({ "@type": "BreadcrumbList", itemListElement: items });
   }
   const faqs = [...html.matchAll(/<details[^>]*>\s*<summary[^>]*>(.*?)<\/summary>(.*?)<\/details>/gs)]
-    .filter((m) => html.lastIndexOf('class="faq"', m.index) > html.lastIndexOf("</section>", m.index));
+    .filter((m) => {
+      // inside a section whose class list includes "faq" (class="faq", class="sb faq", ...)
+      const before = html.slice(0, m.index);
+      const faqAt = Math.max(...[...before.matchAll(/class="[^"]*\bfaq\b[^"]*"/g)].map((x) => x.index), -1);
+      return faqAt > before.lastIndexOf("</section>");
+    });
   if (faqs.length) graph.push({ "@type": "FAQPage", mainEntity: faqs.map((m) => ({ "@type": "Question", name: text(m[1]), acceptedAnswer: { "@type": "Answer", text: text(m[2]) } })) });
-  if (PRODUCT_PAGES[route.name]) {
-    const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/s);
-    const img = html.match(/class="prod__fig".*?<img[^>]*src="([^"]+)"/s);
-    graph.push({ "@type": "Product", name: text(h1[1]), description: route.description, url, brand: { "@type": "Brand", name: "AirGrip" },
-      manufacturer: { "@id": ORIGIN + "/#org" }, material: "Brass", category: PRODUCT_PAGES[route.name], ...(img ? { image: ORIGIN + img[1] } : {}) });
-    if (!graph.some((g) => g["@id"] === ORIGIN + "/#org")) graph.push({ ...org });
-  }
   return graph.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>` : "";
 }
 
@@ -147,6 +143,9 @@ RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteCond %{HTTP_HOST} ^www\\.(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+# /about/index.html -> /about/ (THE_REQUEST: only what the visitor asked for, not the DirectoryIndex lookup)
+RewriteCond %{THE_REQUEST} \\s/+(\\S*/)?index\\.html[\\s?]
+RewriteRule ^(.*/)?index\\.html$ /$1 [R=301,L]
 
 # old WordPress site: pages moved (301), platform paths gone (410)
 ${MAP.flatMap(([olds, to]) => olds.map((o) => `RewriteRule ^${reEsc(o)}/?$ ${to} [R=301,NE,L]`)).join("\n")}

@@ -9,7 +9,7 @@ const CHROME = process.env.CHROME || "/Applications/Google Chrome.app/Contents/M
 export async function launch() {
   const prof = fs.mkdtempSync(path.join(os.tmpdir(), "agcdp-"));
   const port = 9500 + Math.floor(Math.random() * 400);
-  const chrome = spawn(CHROME, ["--headless=new", "--disable-gpu", `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, "about:blank"], { stdio: "ignore" });
+  const chrome = spawn(CHROME, ["--headless=new", "--disable-gpu", `--remote-debugging-port=${port}`, `--user-data-dir=${prof}`, ...(process.env.CDP_INSECURE ? ["--ignore-certificate-errors"] : []), "about:blank"], { stdio: "ignore" });
   let ws;
   for (let i = 0; i < 60 && !ws; i++) {
     await new Promise((r) => setTimeout(r, 200));
