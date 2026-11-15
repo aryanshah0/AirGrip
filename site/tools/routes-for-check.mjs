@@ -93,6 +93,10 @@ export const routes = [
   "path": "/exports/"
  },
  {
+  "name": "germany",
+  "path": "/exports/germany-eu/"
+ },
+ {
   "name": "contact",
   "path": "/contact/"
  },

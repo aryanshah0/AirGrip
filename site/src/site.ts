@@ -55,6 +55,7 @@ export const P = {
   industries: "/industries/",
   about: "/about/",
   exports: "/exports/",
+  germany: "/exports/germany-eu/",
   contact: "/contact/",
   rfq: "/rfq/",
   thanks: "/rfq/thank-you/",

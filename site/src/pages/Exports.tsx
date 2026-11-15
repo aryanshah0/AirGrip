@@ -11,7 +11,7 @@ export default function Exports() {
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Ordering &amp; shipping</li></ol>{" "}
       <h1>Ordering &amp; shipping, in India and abroad</h1>{" "}
-      <p className="lead">How quoting, payment and delivery work, for buyers in India and for importers in more than 40 countries.</p>{" "}
+      <p className="lead">How quoting, payment and delivery work, for buyers in India and for importers in more than 40 countries. Buying from Germany or the EU? <a className="link" href="/exports/germany-eu/">Brass components for Germany &amp; the EU</a>.</p>{" "}
       <dl className="strip" style={{"marginTop": "var(--s-7)"}}>{" "}
       <div><dt>Countries</dt><dd>40+<small>Europe to Asia-Pacific</small></dd></div>{" "}
       <div><dt>Export share</dt><dd>25 %<small>of output</small></dd></div>{" "}
