@@ -93,3 +93,20 @@ These are not shown on the site until answered:
 27. Hosting: which Hostinger plan is bought for airgrip.co.in (web hosting Premium/Business, Cloud, VPS), and who has the login? Is email for sales@airgrip.in on the same account?
 28. Google Analytics: the old site used GA4 property 336239038 (measurement ID G-BLFBKNQ02D, set up through Google Site Kit). Which Google account owns it, and can Aryan get access? If nobody can, we create a new property.
 29. Forms (Aryan decided 2026-11-15: a script on the hosting sends to sales@airgrip.in): someone with the hPanel login creates the mailbox website@airgrip.co.in. Is sales@airgrip.in hosted at Hostinger too, or elsewhere (Google Workspace, Zoho)?
+
+## Added by the attack round on the built site (2026-11-15)
+Until answered, the site uses safe interim wording (docs/attack-round/FINDINGS.md).
+30. **Urgent, hosting:** airgrip.co.in and airgrip.in point to Hostinger's parking nameservers with no DNS records. The
+    old site is offline and mail to sales@airgrip.in is very likely not arriving. Who sets up DNS and email in hPanel?
+31. Glands: for unarmoured cable only? Any single/double-compression glands for armoured (SWA) cable?
+32. After a buyer's NDA is signed, how do drawings reach us: reply to the email, or an upload service?
+33. Tightest diameter tolerance held routinely on CNC (is ±0.05 the standard or the limit)? Which measuring
+    instruments are in-house (CMM, profile projector, roughness, coating thickness)? (see also 23)
+34. Will AirGrip sign REACH Art. 33 and RoHS statements as PDFs for the website? Can it complete a conflict-minerals
+    report (CMRT) for tin plating? (Cr(VI)-free passivation: item 10)
+35. How long is a quote valid, and how are brass/copper price changes handled in annual orders?
+36. Google Business Profile: the public share link, and the exact name, address and phone on it.
+37. Typical parts per industry (the Industries page shows only confirmed ones); are seal inserts sold as spares?
+38. Are the parts in the photos `02-Product-We-Manufactur.webp` and `Brass-Precision-turned-Parts-2.webp` AirGrip's own?
+39. OK to say "GST and PAN on request" and "completed supplier questionnaire on request"?
+40. Sea transit time to Hamburg / Rotterdam; HS codes per product group.
