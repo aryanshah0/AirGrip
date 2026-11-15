@@ -125,3 +125,7 @@ details.more-d[open] summary { margin-bottom: var(--s-3); }
   .subnav .wrap { padding-right: 40px; }
   .subnav::after { content: ""; position: absolute; top: 0; right: 0; bottom: 1px; width: 40px; pointer-events: none; background: linear-gradient(to right, rgba(0,0,0,0), var(--paper) 70%); }
 }
+
+/* related card for a page that is not a part: a short fact instead of a drawing */
+.rel .photo.txt { display: grid; place-items: center; background: var(--paper); }
+.rel .photo.txt span { font-family: var(--font-mono); font-size: var(--t-18); color: var(--ink-2); letter-spacing: .02em; }

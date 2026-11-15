@@ -191,6 +191,8 @@ turned("spacer", "Hex spacer", [(25, 5.8, H_)], bore=[(0, 25, 2.5, {"thread":1})
 turned("adaptor", "Hex thread adaptor", [(12, 10.5, {"thread":1,"cham":1}), (8, 13.9, H_), (12, 10.5, {"thread":1,"cham":1})], bore=[(0, 32, 6, {})], len_label="32", dia=False, threads=[(0, "G 1/2")])
 turned("insert", "Knurled moulding insert", [(2, 4, {"cham":1}), (5, 4.4, {"knurl":1}), (2, 3.4, {}), (5, 4.4, {"knurl":1}), (1, 4, {"cham":1})], bore=[(0, 15, 1.8, {"thread":1})], len_label="15", dia=(1, "Ø8.8"))
 turned("fastener", "Brass stud, threaded both ends", [(12, 4, {"thread":1,"cham":1}), (14, 4, {}), (12, 4, {"thread":1,"cham":1})], len_label="38", dia=False, threads=[(2, "M8")], section=False)
+# attack round 2026-11-15: product-group heroes that read as the real part (fasteners, forged, fittings, stamping)
+turned("hexbolt", "Brass hex bolt: hex head, plain shank, M8 thread, end view across flats", [(5.3, 7.5, H_), (12, 4, {"cham":1}), (18, 4, {"thread":1,"cham":1})], len_label="35", end=True, threads=[(2, "M8")], section=False)
 # ---- accessories (side + end view) -------------------------------------------
 turned("locknut", "Brass lock nut", [(5, 13.9, H_)], bore=[(0, 5, 10, {"thread":1})], len_label="5", end=True)
 turned("reducer", "Cable gland reducer", [(3, 16, {"cham":1}), (10, 12, {"thread":1,"cham":1})], bore=[(0, 13, 7.5, {"thread":1})], len_label="13", end=True)
@@ -212,6 +214,38 @@ tee_body = f'''
 {C("M30 82H210M120 18V112")}'''
 write("tee", "Forged brass tee, section", tee_body + DIM("M40 106V124M200 106V124") + DL("M40 120H200") + TXT(120, 117, "L", bg=True)
       + LEAD("M136 34L156 16H186") + TXT(160, 13, "G 1/2", anchor="start"), tee_body)
+ft_body = f'''
+<path fill-rule="evenodd" d="M40 64H80V52H98L102 24H138L142 52H160V64H200V100H160V112H80V100H40Z M40 72H110V24H130V72H200V92H40Z" fill="{TINT}" stroke="none"/>
+<path fill-rule="evenodd" d="M40 64H80V52H98L102 24H138L142 52H160V64H200V100H160V112H80V100H40Z M40 72H110V24H130V72H200V92H40Z" fill="url(#h)" stroke="none"/>
+{O("M40 64H80V52H98L102 24H138L142 52H160V64H200V100H160V112H80V100H40Z")}
+{O("M40 72H110V24M130 24V72H200M40 92H200")}
+{T("M80 58H160M80 106H160M40 68H62M40 96H62M178 68H200M178 96H200M106 24V44M134 24V44")}
+{C("M30 82H210M120 14V118")}'''
+write("forgedtee", "Forged brass tee in section: hex body, three threaded ports, drafted boss, parting line on the centre plane", ft_body
+      + DIM("M40 104V128M200 104V128") + DL("M40 124H200") + TXT(120, 121, "L", bg=True)
+      + LEAD("M134 30L156 14H186") + TXT(160, 11, "G 1/2", anchor="start")
+      + LEAD("M141 46L168 40H196") + TXT(170, 37, "draft 1°", anchor="start")
+      + LEAD("M206 82L214 70") + TXT(215, 67, "PL", anchor="start"), ft_body)
+el_body = f'''
+<path fill-rule="evenodd" d="M50 68H110V34H158V98Q158 116 140 116H50Z M50 84H126V34H142V100H50Z" fill="{TINT}" stroke="none"/>
+<path fill-rule="evenodd" d="M50 68H110V34H158V98Q158 116 140 116H50Z M50 84H126V34H142V100H50Z" fill="url(#h)" stroke="none"/>
+{O("M50 68H110V34M158 34V98Q158 116 140 116H50M50 84H126V34M142 34V100H50M50 68V84M50 100V116M110 34H126M142 34H158")}
+{T("M50 80H72M50 104H72M122 34V56M146 34V56")}
+{C("M40 92H170M134 24V126")}'''
+write("elbow", "Brass 90 degree elbow fitting in section: two threaded ports", el_body
+      + DIM("M50 120V138M158 120V138") + DL("M50 134H158") + TXT(104, 131, "L", bg=True)
+      + LEAD("M150 40L170 24H198") + TXT(172, 21, "G 1/2", anchor="start"), el_body)
+ct_body = f'''
+<path fill-rule="evenodd" d="M30 56H118L128 50H152V64H134V76H152V90H128L118 84H30Z M42 70A6 6 0 1 0 54 70A6 6 0 1 0 42 70Z" fill="{TINT}" stroke="none"/>
+{O("M30 56H118L128 50H152V64H134V76H152V90H128L118 84H30Z")}
+<circle cx="48" cy="70" r="6" fill="#fff" stroke="{INK}" stroke-width="1.2"/>
+<path d="M172 90H202V50H198V86H172Z" fill="{TINT}" stroke="none"/><path d="M172 90H202V50H198V86H172Z" fill="url(#h)" stroke="none"/>
+{O("M172 90H202V50H198V86H172Z")}
+{C("M22 70H160M48 58V82")}'''
+write("contact", "Stamped brass contact: plan view with mounting hole and forked end; side view of the bend", ct_body
+      + DIM("M30 94V114M152 94V114") + DL("M30 110H152") + TXT(91, 107, "L", bg=True)
+      + LEAD("M52 65L70 40H96") + TXT(72, 37, "Ø4.2", anchor="start")
+      + LEAD("M200 52L210 36H226") + TXT(212, 33, "t 0.8", anchor="start"), ct_body)
 term_body = f'''
 <path d="M50 62H82V76H50Z M94 62H146V76H94Z M158 62H190V76H158Z M50 96H190V110H50Z" fill="{TINT}"/>
 <path d="M50 62H82V76H50Z M94 62H146V76H94Z M158 62H190V76H158Z M50 96H190V110H50Z" fill="url(#h)"/>

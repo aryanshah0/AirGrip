@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Brass hex bolt: hex head, plain shank, M8 thread, end view across flats">
+<title>Brass hex bolt: hex head, plain shank, M8 thread, end view across flats</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width="0.40"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width="0.23" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width="0.25"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M29.3 76.0 L29.3 55.6 L32.1 52.8 L42.9 52.8 L45.7 55.6 L45.7 65.1 L47.2 63.7 L81.3 63.7 L82.8 65.1 L82.8 65.1 L84.2 63.7 L136.9 63.7 L138.3 65.1 L138.3 76.0" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M29.3 76.0 L29.3 96.4 L32.1 99.2 L42.9 99.2 L45.7 96.4 L45.7 86.9 L47.2 88.3 L81.3 88.3 L82.8 86.9 L82.8 86.9 L84.2 88.3 L136.9 88.3 L138.3 86.9 L138.3 76.0" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<path d="M32.1 76.0V99.2" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M32.1 76.0V52.8" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M42.9 76.0V99.2" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M42.9 76.0V52.8" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M45.7 76.0V99.2" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M45.7 76.0V52.8" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M47.2 76.0V88.3" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M47.2 76.0V63.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M81.3 76.0V88.3" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M81.3 76.0V63.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M82.8 76.0V88.3" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M82.8 76.0V63.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M84.2 76.0V88.3" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M84.2 76.0V63.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M136.9 76.0V88.3" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M136.9 76.0V63.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M29.3 87.6H45.7" stroke="#262B33" stroke-width="1.17" vector-effect="non-scaling-stroke"/>
+<path d="M84.3 65.1H136.8M84.3 86.9H136.8" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M22.3 76.0H145.3" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M207.5 87.6 L187.5 99.2 L167.4 87.6 L167.4 64.4 L187.5 52.8 L207.5 64.4Z" fill="#F1E4C6" stroke="none"/><path d="M207.5 87.6 L187.5 99.2 L167.4 87.6 L167.4 64.4 L187.5 52.8 L207.5 64.4Z" stroke="#262B33" stroke-width="1.56" vector-effect="non-scaling-stroke"/>
+<circle cx="187.5" cy="76.0" r="19.5" stroke="#262B33" stroke-width="0.78" vector-effect="non-scaling-stroke"/>
+<path d="M158.3 76.0H216.7M187.5 46.8V105.2" stroke="#B8862F" stroke-width="0.91" vector-effect="non-scaling-stroke" stroke-dasharray="10 2 1.5 2"/>
+<path d="M29.3 101.2V117.2M138.3 90.3V117.2" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M29.3 113.2H138.3" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="75.9" y="102.2" width="15.8" height="10" fill="#fff" stroke="none"/><text x="83.8" y="110.2" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">35</text>
+<path d="M167.4 80.0V117.2M207.5 80.0V117.2" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke"/>
+<path d="M167.4 113.2H207.5" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="170.7" y="102.2" width="33.5" height="10" fill="#fff" stroke="none"/><text x="187.5" y="110.2" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">AF 13</text>
+<path d="M110.6 63.7L100.6 40.8H84.8" stroke="#5F656E" stroke-width="0.65" vector-effect="non-scaling-stroke" marker-start="url(#a)"/>
+<text x="98.6" y="37.8" text-anchor="end" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="4.75" fill="#262B33" stroke="none">M8</text>
+</g></svg>

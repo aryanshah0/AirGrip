@@ -93,8 +93,8 @@ export default function TurnedComponents() {
       <div className="wrap">{" "}
       <div className="open"><div><h2 className="sub">Related</h2></div></div>{" "}
       <div className="rel">{" "}
-      <a href="/products/brass-forged-components/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/tee.svg" /><img src="/img/la/tee.svg" alt="" loading="lazy" /></picture></div><b>Forged brass components</b><span>25 g – 1.0 kg</span></a>{" "}
-      <a href="/products/brass-fittings/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/adaptor.svg" /><img src="/img/la/adaptor.svg" alt="" loading="lazy" /></picture></div><b>Brass fittings</b><span>BSP · NPT</span></a>{" "}
+      <a href="/products/brass-forged-components/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/forgedtee.svg" /><img src="/img/la/forgedtee.svg" alt="" loading="lazy" /></picture></div><b>Forged brass components</b><span>25 g – 1.0 kg</span></a>{" "}
+      <a href="/products/brass-fittings/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/elbow.svg" /><img src="/img/la/elbow.svg" alt="" loading="lazy" /></picture></div><b>Brass fittings</b><span>BSP · NPT</span></a>{" "}
       <a href="/products/brass-moulding-inserts/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/insert.svg" /><img src="/img/la/insert.svg" alt="" loading="lazy" /></picture></div><b>Moulding inserts</b><span>Knurled, threaded</span></a>{" "}
       <a href="/products/brass-electrical-terminals/"><div className="photo"><picture><source media="(max-width: 559px)" srcSet="/img/la/t/terminal.svg" /><img src="/img/la/terminal.svg" alt="" loading="lazy" /></picture></div><b>Electrical terminals &amp; connectors</b><span>Made to drawing</span></a>{" "}
       </div>{" "}

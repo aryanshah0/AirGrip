@@ -64,11 +64,12 @@ export function Pic({ name, alt = "" }: { name: string; alt?: string }) {
   );
 }
 
-export interface Card { href: string; img: string; name: string; sub: string }
+/** img: a line drawing; txt instead of a drawing for pages that are not a part (capabilities, data tables) */
+export interface Card { href: string; img: string; txt?: string; name: string; sub: string }
 export function Related({ items }: { items: Card[] }) {
   return (
     <div className="rel">
-      {items.map((c) => <a key={c.href} href={c.href}><div className="photo"><Pic name={c.img} /></div><b>{c.name}</b><span>{c.sub}</span></a>)}
+      {items.map((c) => <a key={c.href} href={c.href}>{c.txt ? <div className="photo txt"><span>{c.txt}</span></div> : <div className="photo"><Pic name={c.img} /></div>}<b>{c.name}</b><span>{c.sub}</span></a>)}
     </div>
   );
 }

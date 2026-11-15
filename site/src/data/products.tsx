@@ -35,12 +35,12 @@ export const GLAND_BRASS = <>Brass CuZn39Pb3 (<M>CW614N</M>); lead-free on reque
 // Related cards
 const C = {
   turned: { href: P.category, img: "turned", name: "Brass turned components", sub: "Ø5–100 mm" },
-  forged: { href: P.forged, img: "tee", name: "Forged brass components", sub: "25 g – 1.0 kg" },
-  fittings: { href: P.fittings, img: "adaptor", name: "Brass fittings", sub: "BSP · NPT" },
+  forged: { href: P.forged, img: "forgedtee", name: "Forged brass components", sub: "25 g – 1.0 kg" },
+  fittings: { href: P.fittings, img: "elbow", name: "Brass fittings", sub: "BSP · NPT" },
   inserts: { href: P.inserts, img: "insert", name: "Moulding inserts", sub: "Knurled, threaded" },
   terminals: { href: P.terminals, img: "terminal", name: "Electrical terminals & connectors", sub: "From M2" },
-  stamping: { href: P.stamping, img: "earthtag", name: "Metal stamping parts", sub: "Washers, tags" },
-  capabilities: { href: P.capabilities, img: "spindle", name: "Capabilities", sub: "Processes & machines" },
+  stamping: { href: P.stamping, img: "contact", name: "Metal stamping parts", sub: "Washers, tags" },
+  capabilities: { href: P.capabilities, img: "", txt: "66 machines", name: "Capabilities", sub: "Processes & machines" },
   bspChart: { href: P.bsp, img: "prof-bsp", name: "BSP thread chart", sub: "ISO 228-1" },
   nptChart: { href: P.npt, img: "prof-npt", name: "NPT thread chart", sub: "ASME B1.20.1" },
   glands: { href: P.glands, img: "gland", name: "Brass cable glands", sub: "PG · metric" },
@@ -73,7 +73,7 @@ export interface Group {
 
 export const GROUPS = {
   fittings: {
-    crumb: "Brass fittings", h1: "Brass fittings", img: "adaptor",
+    crumb: "Brass fittings", h1: "Brass fittings", img: "elbow",
     lead: "Fittings made to your drawing or sample: hot-forged or turned from bar, then drilled and threaded.",
     facts: [
       ["Process", "Hot-forged and machined, or turned from bar"],
@@ -102,7 +102,7 @@ export const GROUPS = {
   },
 
   forged: {
-    crumb: "Forged brass components", h1: "Forged brass components", img: "tee",
+    crumb: "Forged brass components", h1: "Forged brass components", img: "forgedtee",
     lead: "Hot-forged brass blanks from 25 g to 1.0 kg, CNC-machined to your drawing. Forging first saves material and machining time on parts with branches, flanges or large heads.",
     facts: [
       ["Process", "Hot forging, then CNC turning, drilling and threading"],
@@ -123,7 +123,7 @@ export const GROUPS = {
     ],
     faqH2: "Buying forgings from AirGrip",
     faq: [["Is a forged part cheaper than one machined from bar?", "Forging adds a die but cuts material and machining time, so for branched or flanged parts in volume it is usually cheaper. If both routes make sense, the quote shows both."]],
-    related: [C.fittings, C.turned, C.capabilities, { href: P.grades, img: "bush", name: "Brass grade equivalents", sub: "CW617N · CZ122" }],
+    related: [C.fittings, C.turned, C.capabilities, { href: P.grades, img: "", txt: "EN · BS · UNS · IS", name: "Brass grade equivalents", sub: "CW617N · CZ122" }],
     cta: ["Send the drawing of your forged part", "Include the annual volume: it decides whether a forging die pays off."],
   },
 
@@ -153,8 +153,8 @@ export const GROUPS = {
       ["Which knurl should I choose?", "Diamond knurl for combined torque and pull-out resistance, straight knurl where torque matters most, unidirectional for specific press-in designs. Send the drawing and we'll advise."],
       ["Can you match an existing insert?", "Yes. Send a sample or drawing; we match thread, knurl and dimensions."],
     ],
-    related: [C.terminals, C.turned, { href: P.fasteners, img: "fastener", name: "Special fasteners", sub: "Studs, nuts, anchors" },
-      { href: P.grades, img: "bush", name: "Brass grade equivalents", sub: "CW614N · IS 319" }],
+    related: [C.terminals, C.turned, { href: P.fasteners, img: "hexbolt", name: "Special fasteners", sub: "Studs, nuts, anchors" },
+      { href: P.grades, img: "", txt: "EN · BS · UNS · IS", name: "Brass grade equivalents", sub: "CW614N · IS 319" }],
     cta: ["Send your insert drawing or a sample", "Include the thread, knurl type and the plastic it is moulded into."],
   },
 
@@ -186,7 +186,7 @@ export const GROUPS = {
   },
 
   fasteners: {
-    crumb: "Special fasteners", h1: "Special brass fasteners", img: "fastener",
+    crumb: "Special fasteners", h1: "Special brass fasteners", img: "hexbolt",
     lead: "Fasteners that standard catalogues don't cover, made to your drawing: battery-terminal fasteners, screws and bolts, anchors, studs, nuts and washers.",
     facts: [
       ["Process", "Turned and threaded in-house; washers stamped"],
@@ -210,7 +210,7 @@ export const GROUPS = {
   },
 
   stamping: {
-    crumb: "Metal stamping parts", h1: "Brass, copper and steel stampings", img: "earthtag",
+    crumb: "Metal stamping parts", h1: "Brass, copper and steel stampings", img: "contact",
     lead: "Parts pressed from brass, copper and steel strip to your drawing or sample: electrical stampings, earth tags, fuse and switch parts, crimp pins and washers.",
     facts: [
       ["Process", "Pressed in our plant"],
@@ -224,7 +224,7 @@ export const GROUPS = {
     photos: [],
     faqH2: "Buying stampings from AirGrip",
     faq: [["Can you combine stamping with turning?", <>Yes: stamped parts can be assembled with turned or threaded parts as a sub-assembly. Earth tags for cable glands: <a className="link" href={P.earthTags}>earth tags</a>.</>]],
-    related: [{ ...C.earthTags, sub: "For cable glands" }, C.terminals, { href: P.fasteners, img: "fastener", name: "Special fasteners", sub: "Washers, nuts" }, C.capabilities],
+    related: [{ ...C.earthTags, sub: "For cable glands" }, C.terminals, { href: P.fasteners, img: "hexbolt", name: "Special fasteners", sub: "Washers, nuts" }, C.capabilities],
     cta: ["Send your stamping drawing", "Include the material, strip thickness and plating."],
   },
 } satisfies Record<string, Group>;
