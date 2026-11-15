@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- AirGrip company profile (2 pages A4), source of public/downloads/airgrip-company-profile.pdf.
+     Only facts already confirmed and shown on the website (docs/REQUIREMENTS.md §9–§13). Rebuild: node tools/make-profile.mjs -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AirGrip company profile</title>
+<style>
+@font-face { font-family: "Archivo"; src: url(../../src/styles/fonts/archivo-latin-wdth-normal.woff2) format("woff2-variations"); font-weight: 400 700; font-stretch: 75% 125%; }
+@font-face { font-family: "Plex Mono"; src: url(../../src/styles/fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2"); font-weight: 400; }
+@page { size: A4; margin: 14mm 15mm 14mm; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 9.6pt/1.45 Archivo, Arial, sans-serif; color: #15181E; }
+.mono { font-family: "Plex Mono", ui-monospace, monospace; font-size: 8.6pt; }
+header { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1.2pt solid #15181E; padding-bottom: 4mm; }
+header img { height: 16mm; }
+header .r { text-align: right; font-size: 8.5pt; color: #4a4f59; }
+h1 { font-stretch: 120%; font-weight: 700; font-size: 22pt; line-height: 1.05; margin: 6mm 0 2mm; letter-spacing: -.02em; }
+.lead { font-size: 11pt; color: #3a3f48; max-width: 150mm; margin: 0 0 5mm; }
+h2 { font-stretch: 112%; font-size: 11.5pt; margin: 5mm 0 2mm; padding-top: 2mm; border-top: .5pt solid #CFCDC3; }
+.strip { display: grid; grid-template-columns: repeat(4, 1fr); border-top: .8pt solid #15181E; border-bottom: .5pt solid #CFCDC3; margin-bottom: 2mm; }
+.strip div { padding: 2.5mm 2mm 2.5mm 0; }
+.strip dt { font-size: 7pt; letter-spacing: .06em; text-transform: uppercase; color: #5F656E; }
+.strip dd { margin: 0; font-stretch: 115%; font-weight: 600; font-size: 13pt; }
+.strip small { display: block; font-size: 7.5pt; font-weight: 400; color: #5F656E; font-stretch: 100%; }
+dl.kv { display: grid; grid-template-columns: 36mm 1fr; margin: 0; }
+dl.kv dt { font-size: 7.5pt; letter-spacing: .05em; text-transform: uppercase; color: #5F656E; padding: 1.6mm 0; border-bottom: .4pt solid #E2E0D8; }
+dl.kv dd { margin: 0; padding: 1.6mm 0; border-bottom: .4pt solid #E2E0D8; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+ul { margin: 0; padding-left: 4mm; } li { margin: .6mm 0; }
+table { width: 100%; border-collapse: collapse; font-size: 8.8pt; }
+th { text-align: left; font-size: 7pt; letter-spacing: .05em; text-transform: uppercase; color: #5F656E; border-bottom: .8pt solid #15181E; padding: 1.4mm 2mm 1.4mm 0; }
+td { border-bottom: .4pt solid #E2E0D8; padding: 1.4mm 2mm 1.4mm 0; vertical-align: top; }
+.brass { color: #8A6418; }
+.page2 { break-before: page; }
+.contact { margin-top: 6mm; padding: 4mm; border: .8pt solid #15181E; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+footer { margin-top: 4mm; font-size: 7.5pt; color: #5F656E; }
+</style>
+</head>
+<body>
+<header>
+  <img src="../../public/img/logo.svg" alt="AirGrip">
+  <div class="r">Company profile · <span class="mono">airgrip.co.in</span><br>Jamnagar, Gujarat, India</div>
+</header>
+
+<h1>Brass components, made to your drawing</h1>
+<p class="lead">AirGrip makes brass parts to customer drawings in Jamnagar, India: turned components, forgings, fittings, moulding inserts, electrical parts, special fasteners and stampings, plus a standard range of brass cable glands and accessories. Founded in 1988 by Ketan Shah.</p>
+
+<dl class="strip">
+  <div><dt>Founded</dt><dd>1988<small>Jamnagar, Gujarat</small></dd></div>
+  <div><dt>Quality system</dt><dd>ISO 9001:2015<small>certified</small></dd></div>
+  <div><dt>Exports</dt><dd>40+ countries<small>about 25 % of output</small></dd></div>
+  <div><dt>Machines</dt><dd>66<small>team of 50+ people</small></dd></div>
+</dl>
+
+<div class="cols">
+  <div>
+    <h2>What we make</h2>
+    <dl class="kv">
+      <dt>Turned parts</dt><dd>CNC and cam-automat turned, <span class="mono">Ø5–100 mm</span>, <span class="mono">±0.05 mm</span>; ISO 2768-m unless the drawing states otherwise</dd>
+      <dt>Forgings</dt><dd>Hot-forged, then machined, <span class="mono">25 g – 1.0 kg</span></dd>
+      <dt>To drawing</dt><dd>Fittings, moulding inserts, terminal blocks and neutral links, special fasteners, brass, copper and steel stampings</dd>
+      <dt>Cable glands</dt><dd>Clamping-jaw and strain-relief glands, pressure screws, lock nuts, adapters, stop plugs, earth tags; PG 7–48 and M12–M80; EPDM seal, IP54</dd>
+      <dt>Volumes</dt><dd>From a few thousand pieces to millions a year</dd>
+    </dl>
+  </div>
+  <div>
+    <h2>How we make it</h2>
+    <dl class="kv">
+      <dt>Material</dt><dd>Rod bought from approved mills; CW614N and CW617N as standard; low-lead, lead-free and DZR grades on request</dd>
+      <dt>Machine park</dt><dd>12 CNC lathes, 20 cam automats, 21 special-purpose machines built in-house, 10 drilling machines, 3 presses</dd>
+      <dt>Processes</dt><dd>Hot forging, turning, drilling, threading, milling, stamping, plating, sub-assembly</dd>
+      <dt>Threads</dt><dd>Metric, PG, BSP and BSPT, NPT, UNC/UNF, BA, BSW; special threads to drawing</dd>
+      <dt>Plating</dt><dd>Nickel, tin, zinc in our plant; silver or chrome on request</dd>
+    </dl>
+  </div>
+</div>
+
+<h2>Industries we supply</h2>
+<p style="margin:0">Electrical and switchgear · automotive · plumbing and sanitary · HVAC and refrigeration · hydraulics and pneumatics · plastic moulding and pipes</p>
+
+<section class="page2">
+<h2 style="border-top:0;margin-top:0">Quality and documents</h2>
+<table>
+  <tr><th style="width:42%">Document or practice</th><th>When</th></tr>
+  <tr><td>EN 10204 3.1 mill certificate</td><td>With every batch</td></tr>
+  <tr><td>Certificate of conformity</td><td>With every batch</td></tr>
+  <tr><td>Final inspection report</td><td>With every batch (sample-based final inspection)</td></tr>
+  <tr><td>Control plan and first-off approval</td><td>Every order: control plan at contract review; first part fully measured and approved before the run</td></tr>
+  <tr><td>Traceability</td><td>The rod's heat number links every record to the carton label</td></tr>
+  <tr><td>PPAP Level 3</td><td>On request (ISO 9001:2015; not IATF 16949)</td></tr>
+  <tr><td>Calibration</td><td>Yearly, by an NABL-accredited lab</td></tr>
+  <tr><td>Complaints</td><td>8D report within 5 days</td></tr>
+  <tr><td>REACH and RoHS</td><td>Brass contains lead above 0.1 %: REACH Article 33 statement on request. Leaded brass is covered by RoHS Annex III exemption 6(c); lead-free CW724R on request</td></tr>
+</table>
+
+<div class="cols">
+  <div>
+    <h2>Ordering</h2>
+    <dl class="kv">
+      <dt>Quote</dt><dd>Reply within two working days (Sat–Thu, IST): price, MOQ and lead time</dd>
+      <dt>NDA</dt><dd>We sign your NDA before you send drawings</dd>
+      <dt>Samples</dt><dd>Free, typically in 2–3 weeks, with an inspection report; you pay the courier</dd>
+      <dt>Production</dt><dd>4–6 weeks typical after sample approval; made to order</dd>
+      <dt>MOQ</dt><dd>Depends on the part and process; stated in the quote</dd>
+      <dt>Payment</dt><dd>Agreed per order in the quote, including the currency</dd>
+    </dl>
+  </div>
+  <div>
+    <h2>Delivery</h2>
+    <dl class="kv">
+      <dt>India</dt><dd>GST invoice; road transport; MSME (Udyam) registered. GST, PAN, MSME certificate and bank details sent on request for vendor registration</dd>
+      <dt>Export</dt><dd>EXW Jamnagar, FOB, CFR, CIF via Mundra or Nhava Sheva (JNPT); air freight for samples</dd>
+      <dt>Shipping documents</dt><dd>Commercial invoice and packing list</dd>
+      <dt>Packing</dt><dd>Cartons with traceable labels</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="contact">
+  <div><b>Shree Shah</b>, Marketing Director<br>Quotes, samples, export orders and supplier audits<br><span class="mono">sales@airgrip.in · +91 93166 15007</span> (phone and WhatsApp)</div>
+  <div><b>AirGrip</b>, Air Grip Group of Companies<br>Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India<br>Sat–Thu 09:30–18:30 IST · <span class="mono">airgrip.co.in</span></div>
+</div>
+<footer>Send drawings (PDF, DWG, DXF, STEP, IGES) at airgrip.co.in/rfq/. Plant visits and supplier audits welcome by appointment.</footer>
+</section>
+</body>
+</html>

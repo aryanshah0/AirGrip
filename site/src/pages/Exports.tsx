@@ -30,7 +30,7 @@ export default function Exports() {
       <dt>Delivery</dt><dd>Road transport across India; freight agreed in the quote</dd>{" "}
       <dt>Payment</dt><dd>Agreed per order in the quote</dd>{" "}
       <dt>MSME / Udyam</dt><dd>Registered under MSME (Udyam)</dd>{" "}
-      <dt>Vendor registration</dt><dd>GST, PAN, MSME certificate and bank details sent on request</dd>{" "}
+      <dt>Vendor registration</dt><dd>GST, PAN, MSME certificate and bank details sent on request ·{" "}<a className="link" href="/downloads/airgrip-company-profile.pdf">company profile (PDF, 2 pages)</a></dd>{" "}
       </dl></div>{" "}
       </div>{" "}
       </section>{" "}

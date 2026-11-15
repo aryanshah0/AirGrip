@@ -157,7 +157,7 @@ export default function Quality() {
       </div>{" "}
       <div className="cta" style={{"marginTop": "var(--s-8)"}}>{" "}
       <div><h2>Running a supplier approval?</h2><p>We can send the certificate, a sample document set and a completed supplier questionnaire, or host an audit in Jamnagar.</p></div>{" "}
-      <div className="acts"><a className="btn" href="/contact/?topic=audit">Contact us about supplier approval{" "}<span className="arr" aria-hidden="true">→</span></a></div>{" "}
+      <div className="acts"><a className="btn" href="/contact/?topic=audit">Contact us about supplier approval{" "}<span className="arr" aria-hidden="true">→</span></a><a className="btn btn--ghost" href="/downloads/airgrip-company-profile.pdf">Company profile (PDF)</a></div>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}

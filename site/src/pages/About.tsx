@@ -16,7 +16,7 @@ export default function About() {
       </div>{" "}
       <dl className="strip" style={{"marginTop": "var(--s-7)"}}>{" "}
       <div><dt>Founded</dt><dd>1988<small>Jamnagar, Gujarat</small></dd></div>{" "}
-      <div><dt>Plating</dt><dd>In-house<small>nickel, tin, zinc</small></dd></div>{" "}
+      <div><dt>Plating</dt><dd>In our plant<small>nickel, tin, zinc</small></dd></div>{" "}
       <div><dt>Quality</dt><dd>ISO 9001:2015<small>certified</small></dd></div>{" "}
       <div><dt>Exports</dt><dd>40+ countries<small>25 % of output</small></dd></div>{" "}
       <div><dt>Team</dt><dd>50+<small>people</small></dd></div>{" "}
@@ -56,7 +56,7 @@ export default function About() {
       </div>{" "}
       </section>{" "}
       <section className="band band--sheet">{" "}
-      <div className="wrap"><div className="cta"><div><h2>Visit the plant</h2><p>Supplier audits and plant visits are welcome. Tell us your dates and we'll arrange the day.</p></div><div className="acts"><a className="btn" href="/contact/?topic=visit">Arrange a visit{" "}<span className="arr" aria-hidden="true">→</span></a></div></div></div>{" "}
+      <div className="wrap"><div className="cta"><div><h2>Visit the plant</h2><p>Supplier audits and plant visits are welcome. Tell us your dates and we'll arrange the day. For your vendor file: <a className="link" href="/downloads/airgrip-company-profile.pdf">company profile (PDF, 2 pages)</a>.</p></div><div className="acts"><a className="btn" href="/contact/?topic=visit">Arrange a visit{" "}<span className="arr" aria-hidden="true">→</span></a></div></div></div>{" "}
       </section>{" "}
       </main>
     </>
