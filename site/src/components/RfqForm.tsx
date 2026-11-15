@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { P, SITE } from "../site";
 import { basket, useBasket } from "../lib/basket";
-import { SENT_KEY, SendError, fileProblem, newRef, onPageRestore, sendForm, type SentSummary } from "../lib/forms";
+import { SENT_KEY, SendError, batchProblem, fileProblem, newRef, onPageRestore, sendForm, type SentSummary } from "../lib/forms";
 import { track } from "../lib/analytics";
 
 const SKEY = "ag-rfq";
@@ -43,6 +43,11 @@ export function RfqForm() {
   const ref = useRef("");
   const [err, setErr] = useState<Record<string, string>>({});
   const [probs, setProbs] = useState<[string, string][]>([]);
+  // codes carried in the link from the quote bar when the browser blocks storage (/rfq/?codes=AG-SP-PG07,…)
+  useEffect(() => {
+    const c = new URLSearchParams(location.search).get("codes");
+    if (c) c.split(",").map((x) => x.trim().toUpperCase()).filter((x) => /^AG-[A-Z]{2}-[A-Z0-9]+$/.test(x)).forEach((x) => basket.add(x, "From the quote list"));
+  }, []);
   const [sendMsg, setSendMsg] = useState("");
   const [busy, setBusy] = useState(false);
   const [code, setCode] = useState("");
@@ -112,9 +117,13 @@ export function RfqForm() {
   function addFiles(list: FileList | null) {
     if (!list) return;
     // copy now: the FileList is live and is emptied when the input is reset right after this call
+    // limits per request (count, total size) apply on top of the per-file checks
+    let n = draws.filter((d) => !d.problem).length, bytes = draws.filter((d) => !d.problem).reduce((a, d) => a + d.size, 0);
     const added = [...list].map((x) => {
       const was = reattach.find((r) => r.name === x.name); // same drawing attached before leaving the page: keep its quantities
-      return { id: uid("d"), file: x, name: x.name, size: x.size, qo: was?.qo || "", qy: was?.qy || "", problem: fileProblem(x) };
+      const problem = fileProblem(x) || batchProblem(n, bytes, x);
+      if (!problem) { n++; bytes += x.size; }
+      return { id: uid("d"), file: x, name: x.name, size: x.size, qo: was?.qo || "", qy: was?.qy || "", problem };
     });
     setDraws((d) => [...d, ...added]);
     setReattach([]);
@@ -182,7 +191,7 @@ export function RfqForm() {
 
   const catalogue: ReactNode = (
     <fieldset id="catalogue" key="catalogue">
-      <legend>Catalogue items <span className="muted">{items.length ? `${items.length} from your quote list` : ""}</span></legend>
+      <legend>Catalogue items <span className="muted">{items.length ? `· ${items.length}` : ""}</span></legend>
       <div className="items" id="citems">
         {items.map((i) => {
           const ok = SCHEME.test(i.code);
@@ -215,10 +224,11 @@ export function RfqForm() {
           <span><span className="big">Drop drawings here, or choose files</span> <span className="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
         </label>
       </div></div>
+      {draws.length > 0 && <p className="tbl-note" style={{ margin: "var(--s-3) 0 0" }}>Add quantities per drawing. We take the drawing number and revision from the file.</p>}
       <div className={"items" + (nda ? " is-held" : "")} id="ditems" style={{ marginTop: "var(--s-3)" }}>
         {draws.map((d) => (
           <div className="item" key={d.id}>
-            <div className="what"><b>{d.name}</b><span>{(d.size / 1048576).toFixed(1)} MB · drawing no. and rev. from the file</span></div><span></span>
+            <div className="what"><b>{d.name}</b><span>{d.size < 104858 ? "< 0.1" : (d.size / 1048576).toFixed(1)} MB</span></div><span></span>
             <Qty v={d} set={(k, v) => setDraws((x) => x.map((y) => (y.id === d.id ? { ...y, [k]: v } : y)))} />
             <button type="button" aria-label={`Remove ${d.name}`} onClick={() => setDraws((x) => x.filter((y) => y.id !== d.id))}>×</button>
             {d.problem && <span className="item-e fmsg" role="alert">{d.problem}</span>}
@@ -254,7 +264,7 @@ export function RfqForm() {
         <legend>Requirements</legend>
         <div className="tbf">
           <div className="cell s2"><label htmlFor="mat">Material</label><select {...input("mat")} value={f("mat") || "As per drawing / standard"}><option>As per drawing / standard</option><option>CW614N · CuZn39Pb3 (free-cutting)</option><option>CW617N · CuZn40Pb2 (forging)</option><option>Low-lead / lead-free · CW511L / CW724R</option><option>DZR · CW602N</option><option>Other / not sure</option></select></div>
-          <div className="cell dwg-only" hidden={catalogueOnly}><label htmlFor="fin">Finish (drawings)</label><select {...input("fin")} value={f("fin") || "As per drawing"}><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option><option>Silver (on request)</option><option>Chrome (on request)</option></select></div>
+          <div className="cell dwg-only" hidden={catalogueOnly}><label htmlFor="fin">Finish for drawn parts</label><select {...input("fin")} value={f("fin") || "As per drawing"}><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option><option>Silver (on request)</option><option>Chrome (on request)</option></select></div>
           <div className="cell dwg-only" hidden={catalogueOnly}><label htmlFor="tol">General tolerance</label><input {...input("tol")} className="m" placeholder="As per drawing" /></div>
           <div className="cell"><label htmlFor="pl">Plating thickness</label><input {...input("pl")} placeholder="µm, as on your drawing" /></div>
           <div className="cell"><label htmlFor="due">Samples needed by</label><input {...input("due")} type="date" /></div>

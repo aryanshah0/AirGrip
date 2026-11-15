@@ -46,7 +46,7 @@ function PartsSizes({ a }: { a: PartsAccessory }) {
 
 export function AccessoryPage({ a }: { a: Accessory }) {
   const page = (
-    <main>
+    <main id="main">
       <section className="band--tight" style={{ paddingTop: "var(--s-6)" }}><div className="wrap">
         <Crumbs items={[["Products", P.products], ["Brass cable glands", P.glands], [a.name]]} />
         <div className="prod" style={{ marginTop: "var(--s-5)" }}>
@@ -56,7 +56,7 @@ export function AccessoryPage({ a }: { a: Accessory }) {
             {a.photo && <div className="prod__thumbs"><div className="photo"><img src={`/img/${a.photo}`} alt={`${a.name}, photo`} /></div></div>}
           </figure>
           <div className="prod__info">
-            <span className="eyebrow">Gland accessories&nbsp;· <span className="mono" style={{ letterSpacing: "0" }}>{a.code}</span></span>
+            <span className="eyebrow">Gland accessories&nbsp;· <span className="mono" style={{ letterSpacing: "0" }}>{a.eyebrow ?? a.code}</span></span>
             <h1>{a.h1}</h1>
             <p className="lead">{a.lead}</p>
             <Kv rows={a.facts} />

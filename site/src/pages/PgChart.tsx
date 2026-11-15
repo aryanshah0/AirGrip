@@ -6,7 +6,7 @@ import "./css/PgChart.css";
 export default function PgChart() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead" style={{"paddingBottom": "var(--s-7)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/resources/">Resources</a></li><li aria-current="page">PG thread chart</li></ol>{" "}
@@ -18,7 +18,7 @@ export default function PgChart() {
       <dt>Standard</dt><dd>DIN 40430</dd>{" "}
       <dt>Flank angle</dt><dd className="mono">80°</dd>{" "}
       <dt>Pitches</dt><dd className="mono">1.270 · 1.411 · 1.588 mm</dd>{" "}
-      <dt>Sizes</dt><dd className="mono">PG 7 – PG 48</dd>{" "}
+      <dt>Sizes</dt><dd className="mono">PG 7–48</dd>{" "}
       </dl>{" "}
       <div className="prod__cta" style={{"marginTop": "var(--s-6)"}}><a className="btn btn--ghost" href="/products/brass-cable-glands/">PG cable glands</a></div>{" "}
       </div>{" "}

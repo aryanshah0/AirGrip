@@ -6,7 +6,7 @@ import "./css/NotFound.css";
 export default function NotFound() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="band">{" "}
       <div className="wrap nf">{" "}
       <div>{" "}

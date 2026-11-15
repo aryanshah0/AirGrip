@@ -6,7 +6,7 @@ import "./css/TurnedComponents.css";
 export default function TurnedComponents() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="band--tight" style={{"paddingTop": "var(--s-6)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li aria-current="page">Brass turned components</li></ol>{" "}
@@ -18,13 +18,13 @@ export default function TurnedComponents() {
       <div className="sheet3"><div style={{"gridTemplateColumns": "1fr"}}><img src="/img/la/l/turned.svg" alt="Drawing of a turned brass shaft with threaded spigot, groove, collar and knurl" /></div></div>{" "}
       </div>{" "}
       <dl className="kv">{" "}
-      <dt>Diameter</dt><dd className="mono">Ø5 – 100 mm</dd>{" "}
+      <dt>Diameter</dt><dd className="mono">Ø5–100 mm</dd>{" "}
       <dt>Length</dt><dd className="mono">≤ 100 mm</dd>{" "}
       <dt>Tolerance</dt><dd><span className="mono">±0.05 mm</span>, run-out{" "}<span className="mono">0.05</span></dd>{" "}
       <dt>Material</dt><dd><span className="mono">CW614N</span>,{" "}<span className="mono">CW617N</span>; lead-free and DZR on request</dd>{" "}
       <dt>Threads</dt><dd className="mono">M · BSP/BSPT · NPT · UNC/UNF · PG · BA · BSW</dd>{" "}
       <dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc; silver or chrome on request</dd>{" "}
-      <dt>Gen. tolerance</dt><dd><span className="mono">ISO 2768-m</span>{" "}unless drawn · parallel threads gauged GO / NO-GO</dd>{" "}
+      <dt>Gen. tolerance</dt><dd><span className="mono">ISO 2768-m</span>{" "}unless the drawing states otherwise · parallel threads gauged GO / NO-GO</dd>{" "}
       </dl>{" "}
       </div>{" "}
       </div>{" "}

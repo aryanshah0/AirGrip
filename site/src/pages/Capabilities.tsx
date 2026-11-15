@@ -6,7 +6,7 @@ import "./css/Capabilities.css";
 export default function Capabilities() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Capabilities</li></ol>{" "}
@@ -39,11 +39,11 @@ export default function Capabilities() {
       </section>{" "}
       <section className="sec" id="machines">{" "}
       <h2>Machine park</h2>{" "}
-      <p className="lead" style={{"marginBottom": "var(--s-5)"}}>66 machines: 12 CNC turning centres, 20 cam automats, 21 special-purpose machines built in-house, 10 drilling machines and 3 presses.</p>{" "}
+      <p className="lead" style={{"marginBottom": "var(--s-5)"}}>66 machines: 12 CNC lathes, 20 cam automats, 21 special-purpose machines built in-house, 10 drilling machines and 3 presses.</p>{" "}
       <div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">Machine type</th><th className="n">Qty</th><th>Bar or part range</th><th>Notes</th></tr></thead>
       <tbody>
-      <tr><td className="stick" data-l="Machine type">CNC turning centres</td><td className="n" data-l="Qty">12</td><td data-l="Bar or part range">Ø5–100 mm bar</td><td data-l="Notes">Samples to medium runs; cross-holes and flats in a second operation</td></tr>
+      <tr><td className="stick" data-l="Machine type">CNC lathes</td><td className="n" data-l="Qty">12</td><td data-l="Bar or part range">Ø5–100 mm bar</td><td data-l="Notes">Samples to medium runs; cross-holes and flats in a second operation</td></tr>
       <tr><td className="stick" data-l="Machine type">Cam-operated automats</td><td className="n" data-l="Qty">20</td><td data-l="Bar or part range">Small and medium parts</td><td data-l="Notes">Bar-fed, long runs</td></tr>
       <tr><td className="stick" data-l="Machine type">Special-purpose machines</td><td className="n" data-l="Qty">21</td><td data-l="Bar or part range">—</td><td data-l="Notes">Built in-house: turning, drilling, threading, milling</td></tr>
       <tr><td className="stick" data-l="Machine type">Drilling machines</td><td className="n" data-l="Qty">10</td><td data-l="Bar or part range">—</td><td data-l="Notes">Drilling and tapping</td></tr>
@@ -56,16 +56,16 @@ export default function Capabilities() {
       <div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">Process</th><th>Parameter</th><th className="n">Value</th></tr></thead>
       <tbody>
-      <tr><td className="stick" data-l="Process">Turning</td><td data-l="Parameter">Bar diameter</td><td className="n" data-l="Value">5 – 100 mm</td></tr>
+      <tr><td className="stick" data-l="Process">Turning</td><td data-l="Parameter">Bar diameter</td><td className="n" data-l="Value">Ø5–100 mm</td></tr>
       <tr><td className="stick" data-l="Process">Turning</td><td data-l="Parameter">Part length</td><td className="n" data-l="Value">≤ 100 mm</td></tr>
       <tr><td className="stick" data-l="Process">Turning</td><td data-l="Parameter">Diameter tolerance</td><td className="n" data-l="Value">±0.05 mm</td></tr>
       <tr><td className="stick" data-l="Process">Turning</td><td data-l="Parameter">Run-out</td><td className="n" data-l="Value">0.05 mm</td></tr>
       <tr><td className="stick" data-l="Process">Forging</td><td data-l="Parameter">Part weight</td><td className="n" data-l="Value">25 g – 1.0 kg</td></tr>
       <tr><td className="stick" data-l="Process">Stamping</td><td data-l="Parameter">Punched features</td><td className="n" data-l="Value">±0.05 mm</td></tr>
-      <tr><td className="stick" data-l="Process">All</td><td data-l="Parameter">General tolerance</td><td className="n" data-l="Value">ISO 2768-m unless drawn</td></tr>
+      <tr><td className="stick" data-l="Process">All</td><td data-l="Parameter">General tolerance</td><td className="n" data-l="Value">ISO 2768-m unless the drawing states otherwise</td></tr>
       </tbody>
       </table></div>{" "}
-      <p className="tbl-note">Materials: CW614N, CW617N as standard; lead-free CW511L, CW724R and DZR CW602N on request.{" "}<a className="link" href="/resources/brass-grade-equivalents/">Grade details</a></p>{" "}
+      <p className="tbl-note">Materials: CW614N and CW617N as standard; on request low-lead DZR CW511L, lead-free CW724R and DZR CW602N.{" "}<a className="link" href="/resources/brass-grade-equivalents/">Grade details</a></p>{" "}
       </section>{" "}
       <section className="sec" id="threads">{" "}
       <h2>Threads</h2>{" "}

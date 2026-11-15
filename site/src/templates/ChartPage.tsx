@@ -12,7 +12,7 @@ const TD = { s: "stick mono", n: "n", c: "mono c", t: undefined } as Record<stri
 export function ChartPage({ c }: { c: Chart }) {
   const kinds = [...c.kinds];
   return (
-    <main>
+    <main id="main">
       <section className="phead" style={{ paddingBottom: "var(--s-7)" }}><div className="wrap">
         <Crumbs items={[["Resources", P.resources], [c.h1]]} />
         {c.fig ? (

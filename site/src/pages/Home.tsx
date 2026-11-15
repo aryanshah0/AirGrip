@@ -6,7 +6,7 @@ import { QuickQuote } from "../components/QuickQuote";
 export default function Home() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       {" "}
       <section className="hero">{" "}
       <div className="wrap">{" "}
@@ -95,7 +95,7 @@ export default function Home() {
       <dl className="strip strip--4" aria-label="Key figures">{" "}
       <div><dt>In business</dt><dd>Since 1988<small>Jamnagar, Gujarat</small></dd></div>{" "}
       <div><dt>Exports</dt><dd>40+ countries<small>25 % of output</small></dd></div>{" "}
-      <div><dt>Machines</dt><dd>66<small>CNC, automats, SPMs, drills, presses</small></dd></div>{" "}
+      <div><dt>Machines</dt><dd>66<small>CNC lathes, cam automats, special-purpose machines, drilling machines, presses</small></dd></div>{" "}
       <div><dt>Samples</dt><dd>2–3 weeks<small>typical</small></dd></div>{" "}
       </dl>{" "}
       </div>{" "}
@@ -130,8 +130,8 @@ export default function Home() {
       <dl className="strip strip--4" aria-label="Ranges">{" "}
       <div><dt>CNC turning</dt><dd><span className="mono">Ø5–100</span><small>mm bar diameter</small></dd></div>{" "}
       <div><dt>Tolerance</dt><dd><span className="mono">±0.05</span><small>diameter tolerance, mm</small></dd></div>{" "}
-      <div><dt>Hot forging</dt><dd><span className="mono">25 g–1.0 kg</span><small>forged, then machined</small></dd></div>{" "}
-      <div><dt>Plating</dt><dd>Ni · Sn · Zn<small>in our plant; Ag, Cr on request</small></dd></div>{" "}
+      <div><dt>Hot forging</dt><dd><span className="mono">25 g – 1.0 kg</span><small>forged, then machined</small></dd></div>{" "}
+      <div><dt>Plating</dt><dd>Nickel · tin · zinc<small>in our plant; silver and chrome on request</small></dd></div>{" "}
       </dl>{" "}
       <div className="plant">{" "}
       <div className="plant__media">{" "}
@@ -156,7 +156,7 @@ export default function Home() {
       <div className="wrap">{" "}
       <div className="rfq">{" "}
       <div className="rfq__l">{" "}
-      <span className="eyebrow">Request for quote</span>{" "}
+      <span className="eyebrow">Request a quote</span>{" "}
       <h2>Send a drawing. We reply within two working days.</h2>{" "}
       <p>Include the quantity per order and per year. You get a price, MOQ and lead time, or our questions on the drawing. If a small design change would make the part cheaper to make, the quote says so.</p>{" "}
       <p className="rline">Typical: samples 2–3 weeks · production 4–6 weeks · MOQ per part</p>{" "}

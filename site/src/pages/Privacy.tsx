@@ -5,7 +5,7 @@ import "../styles/pages.css";
 export default function Privacy() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead"><div className="wrap"><ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Privacy policy</li></ol><h1>Privacy policy</h1><p className="lead">How AirGrip handles the details and files you send us.</p></div></section>{" "}
       <section className="band"><div className="wrap">{" "}
       <div className="prose">{" "}

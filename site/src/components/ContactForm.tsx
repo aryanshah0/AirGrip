@@ -6,10 +6,10 @@ import { track } from "../lib/analytics";
 
 const TOPICS: Record<string, string> = { documents: "documents", audit: "audit", visit: "audit", order: "order" };
 const RULES: [keyof Fields, string][] = [["n", "Enter your name"], ["c", "Enter your company"], ["e", "Enter a valid work email"], ["m", "Write your message"]];
-interface Fields { n: string; c: string; e: string; t: string; m: string }
+interface Fields { n: string; c: string; e: string; p: string; t: string; m: string }
 
 export function ContactForm() {
-  const [f, setF] = useState<Fields>({ n: "", c: "", e: "", t: "general", m: "" });
+  const [f, setF] = useState<Fields>({ n: "", c: "", e: "", p: "", t: "general", m: "" });
   const [ok, setOk] = useState(false);
   const [err, setErr] = useState<Record<string, string>>({});
   const [alert, setAlert] = useState("");
@@ -40,7 +40,7 @@ export function ContactForm() {
     setSendMsg("");
     setBusy(true);
     try {
-      await sendForm("contact", { name: f.n, company: f.c, email: f.e, topic: f.t, message: f.m, consent: true });
+      await sendForm("contact", { name: f.n, company: f.c, email: f.e, phone: f.p, topic: f.t, message: f.m, consent: true });
       track("contact_submit", { topic: f.t });
       setDone(true);
     } catch (x) {
@@ -57,6 +57,7 @@ export function ContactForm() {
         <div className="field"><label htmlFor="n">Name<span className="req">*</span></label><input className="input" id="n" autoComplete="name" required aria-describedby="n-e" aria-invalid={!!err.n} value={f.n} onChange={set("n")} onBlur={blur("n")} /><span className="err" id="n-e">{err.n}</span></div>
         <div className="field"><label htmlFor="c">Company<span className="req">*</span></label><input className="input" id="c" autoComplete="organization" required aria-describedby="c-e" aria-invalid={!!err.c} value={f.c} onChange={set("c")} onBlur={blur("c")} /><span className="err" id="c-e">{err.c}</span></div>
         <div className="field"><label htmlFor="e">Work email<span className="req">*</span></label><input className="input" id="e" type="email" autoComplete="email" required aria-describedby="e-e" aria-invalid={!!err.e} value={f.e} onChange={set("e")} onBlur={blur("e")} /><span className="err" id="e-e">{err.e}</span></div>
+        <div className="field"><label htmlFor="p">Phone / WhatsApp</label><input className="input" id="p" type="tel" autoComplete="tel" value={f.p} onChange={set("p")} /></div>
         <div className="field"><label htmlFor="t">Topic</label><select className="select" id="t" value={f.t} onChange={set("t")}><option value="general">General question</option><option value="audit">Supplier approval, audit or plant visit</option><option value="order">Existing order</option><option value="documents">Quality documents (certificates, declarations)</option></select></div>
         <div className="field"><label htmlFor="m">Message<span className="req">*</span></label><textarea className="textarea" id="m" required aria-describedby="m-e" aria-invalid={!!err.m} value={f.m} onChange={set("m")} onBlur={blur("m")}></textarea><span className="err" id="m-e">{err.m}</span></div>
         <label className="check"><input type="checkbox" id="cok" required aria-describedby="cok-e" aria-invalid={!!err.cok} checked={ok} onChange={(e) => { setOk(e.target.checked); if (e.target.checked) setErr({ ...err, cok: "" }); }} /><span>I agree that AirGrip may store these details to answer my message (<a className="link" href={P.privacy}>privacy policy</a>). <span className="req" style={{ color: "var(--brass-deep)" }}>*</span> <span className="err" id="cok-e">{err.cok}</span></span></label>

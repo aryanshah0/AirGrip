@@ -7,7 +7,7 @@ import { RfqForm } from "../components/RfqForm";
 export default function Rfq() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead" style={{"paddingBottom": "var(--s-7)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Request a quote</li></ol>{" "}
@@ -26,10 +26,10 @@ export default function Rfq() {
       </ol>{" "}
       </div>{" "}
       <dl className="kv">{" "}
-      <dt>Formats</dt><dd>PDF, DWG, DXF, STEP, IGES</dd>{" "}
+      <dt>Formats</dt><dd>PDF, DWG, DXF, STEP, IGES; JPG or PNG photos of samples</dd>{" "}
       <dt>NDA</dt><dd>We sign your NDA before you send drawings</dd>{" "}
       <dt>Email</dt><dd><a className="link mono" href="mailto:sales@airgrip.in">sales@airgrip.in</a></dd>{" "}
-      <dt>Physical sample</dt><dd>Courier to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the RFQ reference from our reply.</dd>{" "}
+      <dt>Physical sample</dt><dd>Courier to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the reference shown after you send this form.</dd>{" "}
       </dl>{" "}
       <div className="person"><div><b>Shree Shah</b><span>Marketing Director · your contact for quotes</span></div></div>{" "}
       </aside>{" "}

@@ -25,3 +25,11 @@ Ketan's answers (facts), Shree/Ketan's read of Home and About (voice), or real b
 ## Never visible to buyers
 - References to the old site ("previous catalogue/site/datasheet/Technical Library"), question numbers, photo-shoot notes, "size list being confirmed". These belong in review notes only.
 - Guard: `python3 design/tools/check_launch.py` lists every review note, TBC, .vfy, photo placeholder, old-site reference and question number. The build must report zero before launch.
+
+## Numbers and ranges (added 2026-11-15, attack round)
+- En dash without spaces when the unit appears once: `Ø5–100 mm`, `PG 7–48`, `57.0–59.0 %`.
+- Spaced en dash when both ends carry a unit or prefix: `25 g – 1.0 kg`, `M12×1.5 – M63×1.5`.
+- `×` without spaces (`M20×1.5`); inch sizes as `1 1/4`, `1 1/2` everywhere (never `1¼`); ranges in running text
+  "3/8 to 1 1/2 inch".
+- Terms: "adapter" (never "adaptor"); "CNC lathes" (not turning centres: no live tooling); CW511L is low-lead DZR,
+  CW724R lead-free; "special-purpose machines" (not SPMs); "in our plant"; "unless the drawing states otherwise".

@@ -99,6 +99,8 @@ check("…everything typed and attached is kept, Send works again", await ev("lo
 await ev("window.fetch = (u, o) => { sessionStorage.setItem('refs', (sessionStorage.getItem('refs') || '') + o.body.get('ref') + ' '); return Promise.resolve(new Response('{}', { status: 502 })); }; $('#rfqform button[type=submit]').click(); true");
 check("send fails with a server error: same message, still on the form", await b.until("/try again/.test($('#sendmsg')?.textContent || '') && location.pathname === '/rfq/' && !$('#rfqform button[type=submit]').disabled"));
 check("…and the quote list is not cleared", await ev("JSON.parse(localStorage.getItem('ag-basket')).length === 4"), await ev("localStorage.getItem('ag-basket')"));
+await ev("window.fetch = () => Promise.resolve(new Response(JSON.stringify({ ok: false, error: 'email' }), { status: 400 })); $('#rfqform button[type=submit]').click(); true");
+check("server refuses the email: a specific message, not 'try again'", await b.until("/email address/.test($('#sendmsg')?.textContent || '') && !/try again/.test($('#sendmsg').textContent)"));
 await ev("window.fetch = window.__f; $('#rfqform button[type=submit]').click(); true");
 check("retry: valid form sends and opens the thank-you page", await b.until("location.pathname === '/rfq/thank-you/'", 6000));
 await b.waitLoad(); await ev(DOM_HELPERS);
@@ -126,6 +128,26 @@ check("contact send fails: message above Send, message kept", await b.until("$('
 await ev("window.fetch = window.__f; $('#cform button[type=submit]').click(); true");
 check("contact retry sends and confirms", await b.until("!$('#cdone').hidden && $('#cform').hidden"));
 check("contact form is gone from the screen after sending", await b.evalJs("getComputedStyle($('#cform')).display === 'none' && $('#cdone').offsetHeight > 0"));
+
+// --- more than 20 drawings: the 21st is refused on its own row, not lost
+const many = Array.from({ length: 21 }, (_, i) => { const p = path.join(dir, `D-${i + 1}.pdf`); fs.writeFileSync(p, "%PDF-1.4"); return p; });
+await go("/rfq/");
+await b.setFiles("#files", many);
+await b.until("$$('#ditems .item').length === 21");
+check("21 drawings: the 21st is refused on its row", await ev("$$('#ditems .item .fmsg').length === 1 && /at most 20/.test($$('#ditems .item')[20].textContent)"));
+
+// --- header keyboard: Products -> its panel -> next link; Escape closes the phone menu
+const key = async (k, code, vk, shift = false) => { for (const type of ["keyDown", "keyUp"]) await b.send("Input.dispatchKeyEvent", { type, key: k, code, windowsVirtualKeyCode: vk, modifiers: shift ? 8 : 0 }); };
+await go("/", 1440);
+await ev("$('.nav button').focus(); $('.nav button').click(); true");
+await key("Tab", "Tab", 9);
+check("Tab from the open Products menu goes into its panel", await ev("document.activeElement.closest('#mega-products') !== null"));
+await key("Escape", "Escape", 27);
+check("Escape closes it and returns to Products", await ev("!$('#mega-products').classList.contains('open') && document.activeElement === $('.nav button')"));
+await go("/", 390);
+await ev("$('.hdr__menu').click(); true");
+await key("Escape", "Escape", 27);
+check("Escape closes the phone menu and returns to Menu", await ev("$('#mnav').hidden && document.activeElement === $('.hdr__menu')"));
 
 // --- home quick quote
 await go("/");

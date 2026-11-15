@@ -1,8 +1,8 @@
 // Shared header (Products mega menu, mobile nav), footer, WhatsApp button, sticky quote bar and cookie banner.
 // Markup and behaviour are ported 1:1 from design/partials.js.
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import { P, SITE } from "../site";
-import { useBasket } from "../lib/basket";
+import { basket, useBasket } from "../lib/basket";
 import { ConsentBanner } from "./Consent";
 
 const Chev = () => (
@@ -32,7 +32,7 @@ function Mega({ open }: { open: boolean }) {
             <li><a href={P.strainRelief}>Strain-relief gland</a></li>
             <li><a href={P.pressureScrew}>Pressure screws</a></li>
           </ul>
-          <p className="mh" style={{ marginTop: "var(--s-5)" }}><a href={P.resources}>Technical data</a></p>
+          <p className="mh" style={{ marginTop: "var(--s-5)" }}><a href={P.resources}>Resources</a></p>
           <ul>
             <li><a href={P.pg}>PG thread chart</a></li>
             <li><a href={P.metric}>Metric thread chart</a></li>
@@ -67,11 +67,25 @@ function Header({ nav }: { nav: string }) {
   const [mega, setMega] = useState(false);
   const [mnav, setMnav] = useState(false);
   const btn = useRef<HTMLButtonElement>(null);
+  const menuBtn = useRef<HTMLButtonElement>(null);
   const cur = (k: string) => (k === nav ? { "aria-current": "page" as const } : {});
 
   useEffect(() => {
     if (!mega) return;
-    const key = (e: KeyboardEvent) => { if (e.key === "Escape") { setMega(false); btn.current?.focus(); } };
+    const panel = () => document.getElementById("mega-products");
+    const links = () => [...(panel()?.querySelectorAll<HTMLElement>("a") || [])];
+    const key = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { setMega(false); btn.current?.focus(); return; }
+      if (e.key !== "Tab") return;
+      // keyboard order: Products -> its panel -> the next header link (the panel sits later in the page structure)
+      const L = links(), a = document.activeElement;
+      if (a === btn.current && !e.shiftKey && L[0]) { e.preventDefault(); L[0].focus(); }
+      else if (a === L[0] && e.shiftKey) { e.preventDefault(); btn.current?.focus(); }
+      else if (a === L[L.length - 1] && !e.shiftKey) { e.preventDefault(); setMega(false); (btn.current?.nextElementSibling as HTMLElement | null)?.focus(); }
+    };
+    // focus moving anywhere else closes the panel
+    const focus = (e: FocusEvent) => { const t = e.target as Node; if (!panel()?.contains(t) && !btn.current?.contains(t)) setMega(false); };
+    document.addEventListener("focusin", focus);
     const click = (e: MouseEvent) => {
       const panel = document.getElementById("mega-products");
       const t = e.target as Node;
@@ -79,8 +93,18 @@ function Header({ nav }: { nav: string }) {
     };
     document.addEventListener("keydown", key);
     document.addEventListener("click", click);
-    return () => { document.removeEventListener("keydown", key); document.removeEventListener("click", click); };
+    return () => { document.removeEventListener("keydown", key); document.removeEventListener("click", click); document.removeEventListener("focusin", focus); };
   }, [mega]);
+
+  useEffect(() => {
+    if (!mnav) return;
+    const nav = () => document.getElementById("mnav");
+    const key = (e: KeyboardEvent) => { if (e.key === "Escape") { setMnav(false); menuBtn.current?.focus(); } };
+    const focus = (e: FocusEvent) => { const t = e.target as Node; if (!nav()?.contains(t) && !menuBtn.current?.contains(t)) setMnav(false); };
+    document.addEventListener("keydown", key);
+    document.addEventListener("focusin", focus);
+    return () => { document.removeEventListener("keydown", key); document.removeEventListener("focusin", focus); };
+  }, [mnav]);
 
   return (
     <header className="hdr">
@@ -98,7 +122,7 @@ function Header({ nav }: { nav: string }) {
         <div className="hdr__end">
           <a className="hdr__tel" href={SITE.phoneHref}>{SITE.phone}</a>
           <a className="btn btn--sm basket-btn" href={P.rfq}><span className="hide-s">Request a quote</span><span className="show-s">Quote</span><span className="count" hidden={!items.length}>{items.length}</span></a>
-          <button className="btn btn--ghost btn--sm hdr__menu" type="button" aria-expanded={mnav} aria-controls="mnav" onClick={() => setMnav(!mnav)}>{mnav ? "Close" : "Menu"}</button>
+          <button ref={menuBtn} className="btn btn--ghost btn--sm hdr__menu" type="button" aria-expanded={mnav} aria-controls="mnav" onClick={() => setMnav(!mnav)}>{mnav ? "Close" : "Menu"}</button>
         </div>
       </div>
       <Mega open={mega} />
@@ -178,18 +202,30 @@ function WhatsApp() {
 function QuoteBar() {
   const items = useBasket();
   const n = items.length;
-  useEffect(() => { document.body.classList.toggle("has-qbar", n > 0); }, [n]);
+  useEffect(() => { document.body.classList.toggle("has-qbar", n > 0); document.documentElement.classList.toggle("has-qbar", n > 0); }, [n]);
   const codes = n ? "· " + items.slice(0, 3).map((i) => i.code).join(", ") + (n > 3 ? " …" : "") : "";
+  // storage blocked: the list can only travel to the quote form inside this link
+  const blocked = n > 0 && basket.blocked();
+  const href = blocked ? P.rfq + "?codes=" + encodeURIComponent(items.map((i) => i.code).join(",")) : P.rfq;
   return (
     <div className={"qbar" + (n ? " on" : "")} role="status">
-      <div className="wrap"><span><b>{n}</b> <span>{n === 1 ? "item" : "items"}</span> in your quote <span className="qcodes">{codes}</span></span><a className="btn btn--sm" href={P.rfq}>Review &amp; send <span className="arr" aria-hidden="true">→</span></a></div>
+      <div className="wrap"><span><b>{n}</b> <span>{n === 1 ? "item" : "items"}</span> in your quote <span className="qcodes">{codes}</span>{blocked && <span className="qnote">Your browser blocks site storage: use “Review &amp; send” to take this list to the quote form.</span>}</span><a className="btn btn--sm" href={href}>Review &amp; send <span className="arr" aria-hidden="true">→</span></a></div>
     </div>
   );
+}
+
+function skip(e: ReactMouseEvent<HTMLAnchorElement>) {
+  const main = document.querySelector("main");
+  if (!main) return;
+  e.preventDefault();
+  main.tabIndex = -1;
+  main.focus();
 }
 
 export function Layout({ nav, quoteBar, consent, children }: { nav: string; quoteBar: boolean; consent: boolean; children: ReactNode }) {
   return (
     <>
+      <a className="skiplink" href="#main" onClick={skip}>Skip to content</a>
       <Header nav={nav} />
       {children}
       <Footer />

@@ -28,6 +28,9 @@ await b.evalJs("localStorage.clear(); true");
 await scan("/", 1440, " (cookie banner open)");
 await b.evalJs("localStorage.setItem('ag-consent', 'essential'); true");
 for (const r of routes) for (const w of [1440, 390]) await scan(r.path, w);
+// datasheet with a filled quote list ("✓ Added" buttons, quote bar)
+await b.evalJs("localStorage.setItem('ag-basket', JSON.stringify([{ code: 'AG-SP-PG07', label: 'Stop plug PG 7' }])); true");
+for (const w of [1440, 390]) await scan("/products/brass-cable-glands/stop-plugs/", w, " (quote list filled)");
 b.close();
 
 if (!found.size) console.log(`axe: no WCAG A/AA violations on ${routes.length} pages (desktop and phone)`);

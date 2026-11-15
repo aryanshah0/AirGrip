@@ -8,7 +8,7 @@ import { PartCode } from "../components/Family";
 export default function PressureScrew() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="band--tight" style={{"paddingTop": "var(--s-6)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li><a href="/products/brass-cable-glands/">Brass cable glands</a></li><li aria-current="page">Pressure screws</li></ol>{" "}
@@ -110,10 +110,10 @@ export default function PressureScrew() {
       </section>{" "}
       <section className="band band--sheet" id="material">{" "}
       <div className="wrap side">{" "}
-      <div className="sh"><h2>Material &amp; compliance</h2><p>Free-cutting brass CW614N as standard. Lead-free grades (CW511L, CW724R) on request.</p></div>{" "}
+      <div className="sh"><h2>Material &amp; compliance</h2><p>Free-cutting brass CW614N as standard. Low-lead (CW511L) and lead-free (CW724R) grades on request.</p></div>{" "}
       <div className="sb cols">{" "}
       <div>{" "}
-      <dl className="kv"><dt>Copper</dt><dd className="mono">57.0 – 59.0 %</dd><dt>Lead</dt><dd className="mono">2.5 – 3.5 %</dd><dt>Zinc</dt><dd>Remainder (CW614N, EN 12164)</dd></dl>{" "}
+      <dl className="kv"><dt>Copper</dt><dd className="mono">57.0–59.0 %</dd><dt>Lead</dt><dd className="mono">2.5–3.5 %</dd><dt>Zinc</dt><dd>Remainder (CW614N, EN 12164)</dd></dl>{" "}
       <p className="tbl-note">Equivalents: CZ121Pb3 (BS 2874) · C38500 (ASTM B455) · IS 319.{" "}<a className="link" href="/resources/brass-grade-equivalents/">Brass grade equivalents</a></p>{" "}
       </div>{" "}
       <div>{" "}

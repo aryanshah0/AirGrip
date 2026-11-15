@@ -17,8 +17,8 @@ export const PG = t("PG", [["PG 7", "PG07", 12.5], ["PG 9", "PG09", 15.2], ["PG 
   ["PG 21", "PG21", 28.3], ["PG 29", "PG29", 37.0], ["PG 36", "PG36", 47.0], ["PG 42", "PG42", 54.0], ["PG 48", "PG48", 59.3]]);
 export const METRIC = t("M", [["M12×1.5", "M12", 12], ["M16×1.5", "M16", 16], ["M20×1.5", "M20", 20], ["M25×1.5", "M25", 25], ["M32×1.5", "M32", 32],
   ["M40×1.5", "M40", 40], ["M50×1.5", "M50", 50], ["M63×1.5", "M63", 63], ["M80", "M80", 80]]); // M80 pitch: to confirm (Ketan)
-export const BSP = t("G", [["G 3/8", "G38", 16.662], ["G 1/2", "G12", 20.955], ["G 3/4", "G34", 26.441], ["G 1", "G1", 33.249], ["G 1¼", "G114", 41.91], ["G 1½", "G112", 47.803]]);
-export const NPT = t("N", [["3/8 NPT", "N38", 17.145], ["1/2 NPT", "N12", 21.336], ["3/4 NPT", "N34", 26.67], ["1 NPT", "N1", 33.401], ["1¼ NPT", "N114", 42.164], ["1½ NPT", "N112", 48.26]]);
+export const BSP = t("G", [["G 3/8", "G38", 16.662], ["G 1/2", "G12", 20.955], ["G 3/4", "G34", 26.441], ["G 1", "G1", 33.249], ["G 1 1/4", "G114", 41.91], ["G 1 1/2", "G112", 47.803]]);
+export const NPT = t("N", [["3/8 NPT", "N38", 17.145], ["1/2 NPT", "N12", 21.336], ["3/4 NPT", "N34", 26.67], ["1 NPT", "N1", 33.401], ["1 1/4 NPT", "N114", 42.164], ["1 1/2 NPT", "N112", 48.26]]);
 export const THREADS: Thread[] = [...PG, ...METRIC, ...BSP, ...NPT];
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -84,13 +84,13 @@ export const GROUPS = {
       ["Finish", PLATED], ["Documents", DOCS], ["Volumes", VOL],
     ],
     typesH2: "Fittings we make",
-    types: ["Pipe fittings: adaptors, nipples, couplings, tees, elbows", "Hose-barb fittings", "Compression fittings",
+    types: ["Pipe fittings: adapters, nipples, couplings, tees, elbows", "Hose-barb fittings", "Compression fittings",
       "Pneumatic and airline fittings", "Hydraulic fittings", "Automotive fittings"],
     photos: [["Brass-Fittings.webp", "Brass fittings"]],
     specTitle: "How fittings are made",
     spec: [
-      ["Forged, then machined", "Bodies with side branches (tees, elbows, crosses) are hot-forged near net shape, then drilled and threaded: less material and fewer operations than bar."],
-      ["Turned from bar", "Straight connectors, adaptors, nipples and hose barbs are turned on CNC lathes or cam automats."],
+      ["Forged, then machined", "Bodies with side branches (tees, elbows, crosses) are hot-forged near-net shape, then drilled and threaded: less material and fewer operations than bar."],
+      ["Turned from bar", "Straight connectors, adapters, nipples and hose barbs are turned on CNC lathes or cam automats."],
     ],
     faqH2: "Buying brass fittings from AirGrip",
     faq: [
@@ -153,7 +153,7 @@ export const GROUPS = {
       ["Which knurl should I choose?", "Diamond knurl for combined torque and pull-out resistance, straight knurl where torque matters most, unidirectional for specific press-in designs. Send the drawing and we'll advise."],
       ["Can you match an existing insert?", "Yes. Send a sample or drawing; we match thread, knurl and dimensions."],
     ],
-    related: [C.terminals, C.turned, { href: P.fasteners, img: "fastener", name: "Special brass fasteners", sub: "Studs, nuts, anchors" },
+    related: [C.terminals, C.turned, { href: P.fasteners, img: "fastener", name: "Special fasteners", sub: "Studs, nuts, anchors" },
       { href: P.grades, img: "bush", name: "Brass grade equivalents", sub: "CW614N · IS 319" }],
     cta: ["Send your insert drawing or a sample", "Include the thread, knurl type and the plastic it is moulded into."],
   },
@@ -251,7 +251,7 @@ const none = (n: number, rows: number) => Array.from({ length: rows }, () => Arr
 export const GLANDS = {
   clampingJaw: {
     name: "Clamping-jaw cable gland", code: "AG-CJ",
-    lead: "A cable gland with clamping jaws that grip the cable for traction relief.",
+    lead: "A brass cable gland whose clamping jaws grip the cable centrally and hold it against pull-out.",
     use: "Distribution boxes and control cabinets, moving machine parts, automation and plant engineering, where the cable must be held against pull-out.",
     art: "gland-cj", photo: "01-Cable-Gland-With-Clamping-Jaw.webp", figNote: "Clamping-jaw gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D</M> cable passage&nbsp;· <M>T</M> entry thread</>,
@@ -262,7 +262,7 @@ export const GLANDS = {
   },
   strainRelief: {
     name: "Strain-relief cable gland", code: "AG-SR",
-    lead: "A cable gland with bending protection, giving strain and traction relief for flexible cables.",
+    lead: "A brass cable gland for flexible cables: it holds the cable against pull-out and protects it from bending where it enters.",
     use: "Flexible cables on moving machine parts, automation and control cabinets, where the cable needs bending protection at the entry.",
     art: "gland-sr", photo: "strain-relief-cable-gland.webp", figNote: "Strain-relief gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D1, D2</M> cable passage&nbsp;· <M>T</M> entry thread</>,
@@ -279,7 +279,8 @@ export const GLANDS = {
 interface AccessoryBase {
   name: string;             // breadcrumb and image alt, e.g. "Stop plugs"
   h1: string;
-  code: string;             // eyebrow, e.g. "AG-SP"
+  code: string;             // part-code family, e.g. "AG-SP" (also the eyebrow unless `eyebrow` is set)
+  eyebrow?: string;
   img: string;              // drawing in /img/la/l/
   photo?: string;
   lead: string;
@@ -298,11 +299,11 @@ export type Accessory = TabsAccessory | PartsAccessory;
 
 const accRelated = (self: string) => [C.glands, C.lockNuts, C.earthTags, C.adapters, C.stopPlugs].filter((c) => c.href !== self).slice(0, 4);
 const RANGE = "PG 7–48 · M12–M80";
-const INCH = 'BSP and NPT 3/8–1½"';
+const INCH = "BSP and NPT 3/8 to 1 1/2 inch";
 
 export const ACCESSORIES = {
   stopPlugs: {
-    kind: "tabs", heads: true, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", img: "stopplug", photo: "04-Stop-Plug-01.webp",
+    kind: "tabs", heads: true, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", eyebrow: "AG-SP\u00a0· AG-SH", img: "stopplug", photo: "04-Stop-Plug-01.webp",
     lead: "Stop plugs (blanking plugs) close unused cable entries in enclosures, temporarily or permanently.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],
@@ -429,7 +430,7 @@ export const CHARTS = {
       ["2 NPT", "11.5", "2.209", "60.32", "57.63", "11.07", "19.22"],
     ],
     note: <p className="tbl-note">All values in mm, converted from ASME B1.20.1 (inch). E0 = pitch diameter at the small end of the external thread.</p>,
-    cta: ["NPT fittings and accessories", "Fittings and gland accessories in NPT, 3/8 to 1½ inch.", P.fittings, "See brass fittings"],
+    cta: ["NPT fittings and accessories", "Fittings and gland accessories in NPT, 3/8 to 1 1/2 inch.", P.fittings, "See brass fittings"],
   },
   grades: {
     h1: "Brass grade equivalents", std: "EN · BS · UNS · IS",

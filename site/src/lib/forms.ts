@@ -4,6 +4,9 @@
 import { CONFIG } from "../site";
 
 export const MAX_FILE_MB = 20;
+/** One request: at most this many drawings (PHP max_file_uploads) and this much in total (below post_max_size). */
+export const MAX_FILES = 20;
+export const MAX_TOTAL_MB = 100;
 export const DRAWING_TYPES = ["pdf", "dwg", "dxf", "step", "stp", "igs", "iges", "jpg", "jpeg", "png"];
 export const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
@@ -15,6 +18,20 @@ export function fileProblem(f: File, types = DRAWING_TYPES): string {
   return "";
 }
 
+/** Limits for one request, applied in order to the files that passed fileProblem(). Returns "" or the reason. */
+export function batchProblem(countSoFar: number, bytesSoFar: number, f: File): string {
+  if (countSoFar >= MAX_FILES) return `Not sent: at most ${MAX_FILES} drawings per request. Send the rest in a second request or by email to sales@airgrip.in.`;
+  if (bytesSoFar + f.size > MAX_TOTAL_MB * 1048576) return `Not sent: the drawings would be over ${MAX_TOTAL_MB} MB in total. Send the rest in a second request or by email to sales@airgrip.in.`;
+  return "";
+}
+
+/** What the buyer can do when the server refuses a request (its JSON "error"); anything else is a temporary fault. */
+const REFUSED: Record<string, string> = {
+  email: "Not sent: our server did not accept this email address. Please check it, or email sales@airgrip.in.",
+  "too large": `Not sent: the drawings are too large for one request (over ${MAX_TOTAL_MB} MB in total). Send fewer at a time, or email sales@airgrip.in.`,
+  "too many requests": "Not sent: too many requests from this connection in the last hour. Please try again in an hour, or email sales@airgrip.in.",
+};
+
 export class SendError extends Error {}
 
 export async function sendForm(form: string, fields: Record<string, string | boolean | undefined>, files: File[] = []): Promise<void> {
@@ -24,13 +41,19 @@ export async function sendForm(form: string, fields: Record<string, string | boo
   fd.append("page", location.pathname);
   Object.entries(fields).forEach(([k, v]) => { if (v !== undefined && v !== "" && v !== false) fd.append(k, v === true ? "yes" : String(v)); });
   files.forEach((f) => fd.append("files[]", f, f.name));
+  if (files.length) fd.append("file_count", String(files.length)); // the server reports any file that did not arrive
   let res: Response;
   try {
     res = await fetch(CONFIG.formEndpoint, { method: "POST", body: fd, headers: { Accept: "application/json" } });
   } catch {
     throw new SendError("Could not send: check your connection and try again, or email sales@airgrip.in.");
   }
-  if (!res.ok) throw new SendError("Could not send just now. Please try again, or email sales@airgrip.in.");
+  if (res.ok) return;
+  let code = "";
+  try { code = String((await res.json()).error || ""); } catch { /* not JSON */ }
+  if (REFUSED[code]) throw new SendError(REFUSED[code]);
+  if (res.status >= 500 || res.status === 404) throw new SendError("Could not send just now. Please try again, or email sales@airgrip.in.");
+  throw new SendError("Could not send this request. Please email it to sales@airgrip.in.");
 }
 
 /** Summary handed to the thank-you page (sessionStorage, this tab only). */

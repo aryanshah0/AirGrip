@@ -7,7 +7,7 @@ import { ContactForm } from "../components/ContactForm";
 export default function Contact() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead" style={{"paddingBottom": "var(--s-7)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol>{" "}

@@ -8,7 +8,7 @@ export function AddQ({ code, label, className = "addq" }: { code: string; label:
   const l = fam ? fam.label(label) : label;
   const on = useBasket().some((i) => i.code === c);
   return (
-    <button type="button" className={className} aria-pressed={on} aria-label={(on ? "Remove " : "Add ") + l + (on ? " from quote" : " to quote")}
+    <button type="button" className={className} aria-pressed={on} aria-label={on ? `Added: ${l} (press to remove from quote)` : `Add ${l} to quote`}
       onClick={() => (on ? basket.remove(c) : basket.add(c, l))}>
       {on ? "✓ Added" : "+ Add"}
     </button>

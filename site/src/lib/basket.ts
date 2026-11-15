@@ -8,6 +8,7 @@ export interface BasketItem { code: string; label: string }
 const KEY = "ag-basket";
 const listeners = new Set<() => void>();
 let cache: BasketItem[] | null = null;
+let blocked = false; // the browser refuses site storage: the list lives in this page only
 const EMPTY: BasketItem[] = [];
 
 function read(): BasketItem[] {
@@ -17,13 +18,14 @@ function read(): BasketItem[] {
     const v = JSON.parse(localStorage.getItem(KEY) || "[]");
     cache = Array.isArray(v) ? v.filter((i) => i && typeof i.code === "string") : [];
   } catch {
+    blocked = true;
     cache = [];
   }
   return cache!;
 }
 function write(v: BasketItem[]) {
   cache = v;
-  try { localStorage.setItem(KEY, JSON.stringify(v)); } catch { /* storage full or blocked: keep in memory */ }
+  try { localStorage.setItem(KEY, JSON.stringify(v)); } catch { blocked = true; /* storage full or blocked: keep in memory */ }
   listeners.forEach((l) => l());
 }
 
@@ -41,6 +43,8 @@ export const basket = {
   },
   remove(code: string) { write(read().filter((i) => i.code !== code)); },
   clear() { write([]); },
+  /** true when the list can't be saved, so it won't follow the buyer to another page by itself */
+  blocked: () => blocked,
   subscribe(l: () => void) { listeners.add(l); return () => { listeners.delete(l); }; },
 };
 

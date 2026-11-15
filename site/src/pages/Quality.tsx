@@ -6,7 +6,7 @@ import "./css/Quality.css";
 export default function Quality() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Quality</li></ol>{" "}
@@ -105,7 +105,7 @@ export default function Quality() {
       <tr data-s="1" data-c="OP 20 · incoming rod"><td className="op">OP 20</td><td><b>Incoming rod</b><span className="chk">Mill test certificate checked against the order; composition tested at an outside lab.</span></td><td className="rd">Heat 4417<br />Cu 58.1 · Pb 2.9 %</td></tr>
       <tr className="skip" data-s="1" data-c="OP 30 · not required"><td className="op">OP 30</td><td><b>Hot forging</b><span className="chk">Not required for this part: turned directly from hex bar.</span></td><td className="rd">—</td></tr>
       <tr data-s="3" data-c="OP 40 · turned"><td className="op">OP 40</td><td><b>Turning</b><span className="chk">Cam automat. First-off part fully measured and approved before the run starts.</span></td><td className="rd">Ø22 ±0.05 → 21.98</td></tr>
-      <tr data-s="3" data-c="OP 50 · patrol inspection"><td className="op">OP 50</td><td><b>Patrol inspection</b><span className="chk">Thread, Ø and length gauged at set intervals on the machine.</span></td><td className="rd">M20×1.5-6g<br />GO ✓ NO-GO ✓ · n = 5</td></tr>
+      <tr data-s="3" data-c="OP 50 · in-process inspection"><td className="op">OP 50</td><td><b>In-process inspection</b><span className="chk">Thread, Ø and length gauged at set intervals on the machine.</span></td><td className="rd">M20×1.5-6g<br />GO ✓ NO-GO ✓ · n = 5</td></tr>
       <tr data-s="4" data-c="OP 60 · plated"><td className="op">OP 60</td><td><b>Plating</b><span className="chk">Nickel plated in our plant; coating thickness measured per lot.</span></td><td className="rd">Ni 6.2 µm</td></tr>
       <tr data-s="4" data-c="OP 70 · final inspection"><td className="op">OP 70</td><td><b>Final inspection</b><span className="chk">Sample inspection of each batch (dimensions and appearance); final inspection report issued.</span></td><td className="rd">Lot released</td></tr>
       <tr data-s="5" data-c="OP 80 · packed &amp; labelled"><td className="op">OP 80</td><td><b>Pack &amp; label</b><span className="chk">Packed to your specification; label carries your part number and revision, lot, heat number and quantity.</span></td><td className="rd">Lot AG-26-0412<br />2,000 pcs</td></tr>

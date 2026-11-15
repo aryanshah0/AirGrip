@@ -6,7 +6,7 @@ import "./css/Exports.css";
 export default function Exports() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Ordering &amp; shipping</li></ol>{" "}

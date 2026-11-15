@@ -6,7 +6,7 @@ import "./css/Industries.css";
 export default function Industries() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Industries</li></ol>{" "}

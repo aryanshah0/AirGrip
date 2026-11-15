@@ -6,7 +6,7 @@ import { ThanksDetails } from "../components/ThanksDetails";
 export default function RfqThanks() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="band">{" "}
       <div className="wrap side">{" "}
       <div className="sh"><span className="eyebrow eyebrow--brass">Request received</span></div>{" "}

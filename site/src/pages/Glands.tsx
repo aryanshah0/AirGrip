@@ -6,7 +6,7 @@ import "./css/Glands.css";
 export default function Glands() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li aria-current="page">Brass cable glands</li></ol>{" "}
@@ -24,8 +24,8 @@ export default function Glands() {
       <div className="sb"><div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">Type</th><th>How the cable is held</th><th>Sizes</th><th>Code</th></tr></thead>
       <tbody>
-      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/clamping-jaw-cable-gland/"><b>Clamping&#8209;jaw</b></a></td><td data-l="How the cable is held">Clamping jaws grip the cable (traction relief)</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-CJ</td></tr>
-      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/strain-relief-cable-gland/"><b>Strain-relief</b></a></td><td data-l="How the cable is held">Bending protection at the entry: strain and traction relief for flexible cables</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-SR</td></tr>
+      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/clamping-jaw-cable-gland/"><b>Clamping&#8209;jaw</b></a></td><td data-l="How the cable is held">Clamping jaws grip the cable centrally and hold it against pull-out</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-CJ</td></tr>
+      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/strain-relief-cable-gland/"><b>Strain-relief</b></a></td><td data-l="How the cable is held">Holds the cable against pull-out and protects flexible cables from bending at the entry</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-SR</td></tr>
       </tbody>
       </table></div>{" "}
       <p className="tbl-note">Pressure screws, the gland component that compresses the seal, have their own datasheet:{" "}<a className="link" href="/products/brass-cable-glands/pressure-screw/">pressure screws</a>.</p>{" "}
@@ -64,10 +64,10 @@ export default function Glands() {
       <div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">Thread</th><th>Standard</th><th>Flank angle</th><th>Sizes</th><th>Chart</th></tr></thead>
       <tbody>
-      <tr><td className="stick mono" data-l="Thread">PG</td><td className="c" data-l="Standard">DIN 40430</td><td className="mono" data-l="Flank angle">80°</td><td className="c" data-l="Sizes"><span className="mono">PG 7 – PG 48</span></td><td data-l="Chart"><a className="link" href="/resources/pg-thread-chart/">PG chart</a></td></tr>
+      <tr><td className="stick mono" data-l="Thread">PG</td><td className="c" data-l="Standard">DIN 40430</td><td className="mono" data-l="Flank angle">80°</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48</span></td><td data-l="Chart"><a className="link" href="/resources/pg-thread-chart/">PG chart</a></td></tr>
       <tr><td className="stick mono" data-l="Thread">M</td><td className="c" data-l="Standard">EN 60423</td><td className="mono" data-l="Flank angle">60°</td><td className="c" data-l="Sizes"><span className="mono">M12×1.5 – M63×1.5, M80</span></td><td data-l="Chart"><a className="link" href="/resources/metric-cable-gland-thread-chart/">Metric chart</a></td></tr>
-      <tr><td className="stick mono" data-l="Thread">G (BSP)</td><td className="c" data-l="Standard">ISO 228-1</td><td className="mono" data-l="Flank angle">55°</td><td className="c" data-l="Sizes">Accessories{" "}<span className="mono">3/8 – 1½"</span></td><td data-l="Chart"><a className="link" href="/resources/bsp-thread-chart/">BSP chart</a></td></tr>
-      <tr><td className="stick mono" data-l="Thread">NPT</td><td className="c" data-l="Standard">ASME B1.20.1</td><td className="mono" data-l="Flank angle">60°</td><td className="c" data-l="Sizes">Accessories{" "}<span className="mono">3/8 – 1½"</span></td><td data-l="Chart"><a className="link" href="/resources/npt-thread-chart/">NPT chart</a></td></tr>
+      <tr><td className="stick mono" data-l="Thread">G (BSP)</td><td className="c" data-l="Standard">ISO 228-1</td><td className="mono" data-l="Flank angle">55°</td><td className="c" data-l="Sizes">Accessories{" "}<span className="mono">3/8 to 1 1/2 inch</span></td><td data-l="Chart"><a className="link" href="/resources/bsp-thread-chart/">BSP chart</a></td></tr>
+      <tr><td className="stick mono" data-l="Thread">NPT</td><td className="c" data-l="Standard">ASME B1.20.1</td><td className="mono" data-l="Flank angle">60°</td><td className="c" data-l="Sizes">Accessories{" "}<span className="mono">3/8 to 1 1/2 inch</span></td><td data-l="Chart"><a className="link" href="/resources/npt-thread-chart/">NPT chart</a></td></tr>
       </tbody>
       </table></div>{" "}
       </div>{" "}

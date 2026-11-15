@@ -20,7 +20,7 @@ export function GroupPage({ g }: { g: Group }) {
   const one = g.photos.length === 1 ? g.photos[0] : null;
   const many = g.photos.length > 1 ? g.photos : null;
   return (
-    <main>
+    <main id="main">
       <section className="band--tight" style={{ paddingTop: "var(--s-6)" }}>
         <div className="wrap">
           <Crumbs items={[["Products", P.products], [g.crumb]]} />

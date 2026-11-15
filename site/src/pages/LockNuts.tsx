@@ -10,7 +10,7 @@ import { PartCode } from "../components/Family";
 export default function LockNuts() {
   return (
     <FamilyProvider id="accessory">
-      <main>{" "}
+      <main id="main">{" "}
       <section className="band--tight" style={{"paddingTop": "var(--s-6)"}}>{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li><a href="/products/brass-cable-glands/">Brass cable glands</a></li><li aria-current="page">Lock nuts</li></ol>{" "}
@@ -28,7 +28,7 @@ export default function LockNuts() {
       <h1>Brass lock nuts for cable glands</h1>{" "}
       <p className="lead">Lock nuts fasten cable glands and accessories to an enclosure wall, gland plate or equipment housing. Available as standard brass lock nuts and as EMC lock nuts.</p>{" "}
       <dl className="kv">{" "}
-      <dt>Threads</dt><dd><span className="mono">PG 7–48 · M12–M80</span>{" "}·{" "}<span className="mono">BSP and NPT 3/8–1½"</span></dd>{" "}
+      <dt>Threads</dt><dd><span className="mono">PG 7–48 · M12–M80</span>{" "}·{" "}<span className="mono">BSP and NPT 3/8 to 1 1/2 inch</span></dd>{" "}
       <dt>Material</dt><dd>Brass CuZn39Pb3 (<span className="mono">CW614N</span>); lead-free on request</dd>{" "}
       <dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc</dd>{" "}
       <dt>Part code</dt><dd><span className="mono nw">AG-LN-[size]-[finish]</span>{" "}· EMC{" "}<span className="mono nw">AG-LE-[size]-[finish]</span></dd>{" "}
@@ -90,8 +90,8 @@ export default function LockNuts() {
       <tr><td className="stick"><PartCode code="AG-LN-G12" /><AddQ code="AG-LN-G12" label="Lock nut G 1/2" /></td><td className="n">G 1/2</td></tr>
       <tr><td className="stick"><PartCode code="AG-LN-G34" /><AddQ code="AG-LN-G34" label="Lock nut G 3/4" /></td><td className="n">G 3/4</td></tr>
       <tr><td className="stick"><PartCode code="AG-LN-G1" /><AddQ code="AG-LN-G1" label="Lock nut G 1" /></td><td className="n">G 1</td></tr>
-      <tr><td className="stick"><PartCode code="AG-LN-G114" /><AddQ code="AG-LN-G114" label="Lock nut G 1 1/4" /></td><td className="n">G 1¼</td></tr>
-      <tr><td className="stick"><PartCode code="AG-LN-G112" /><AddQ code="AG-LN-G112" label="Lock nut G 1 1/2" /></td><td className="n">G 1½</td></tr>
+      <tr><td className="stick"><PartCode code="AG-LN-G114" /><AddQ code="AG-LN-G114" label="Lock nut G 1 1/4" /></td><td className="n">G 1 1/4</td></tr>
+      <tr><td className="stick"><PartCode code="AG-LN-G112" /><AddQ code="AG-LN-G112" label="Lock nut G 1 1/2" /></td><td className="n">G 1 1/2</td></tr>
       </tbody></table></div></div>{" "}
       <div role="tabpanel" id="p4" aria-labelledby="t4" hidden><div className="tbl"><table className="spec">
       <thead><tr><th className="stick">Part code</th><th className="n">Thread</th></tr></thead>
@@ -100,8 +100,8 @@ export default function LockNuts() {
       <tr><td className="stick"><PartCode code="AG-LN-N12" /><AddQ code="AG-LN-N12" label="Lock nut 1/2 NPT" /></td><td className="n">1/2 NPT</td></tr>
       <tr><td className="stick"><PartCode code="AG-LN-N34" /><AddQ code="AG-LN-N34" label="Lock nut 3/4 NPT" /></td><td className="n">3/4 NPT</td></tr>
       <tr><td className="stick"><PartCode code="AG-LN-N1" /><AddQ code="AG-LN-N1" label="Lock nut 1 NPT" /></td><td className="n">1 NPT</td></tr>
-      <tr><td className="stick"><PartCode code="AG-LN-N114" /><AddQ code="AG-LN-N114" label="Lock nut 1 1/4 NPT" /></td><td className="n">1¼ NPT</td></tr>
-      <tr><td className="stick"><PartCode code="AG-LN-N112" /><AddQ code="AG-LN-N112" label="Lock nut 1 1/2 NPT" /></td><td className="n">1½ NPT</td></tr>
+      <tr><td className="stick"><PartCode code="AG-LN-N114" /><AddQ code="AG-LN-N114" label="Lock nut 1 1/4 NPT" /></td><td className="n">1 1/4 NPT</td></tr>
+      <tr><td className="stick"><PartCode code="AG-LN-N112" /><AddQ code="AG-LN-N112" label="Lock nut 1 1/2 NPT" /></td><td className="n">1 1/2 NPT</td></tr>
       </tbody></table></div></div>{" "}
       <p className="tbl-note">PG to DIN 40430; metric to EN 60423; BSP to ISO 228-1; NPT to ASME B1.20.1. Leaded brass under RoHS Annex III exemption 6(c); EN 10204 3.1 mill certificate with every batch.</p>{" "}
       </div></div>{" "}

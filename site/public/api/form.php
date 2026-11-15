@@ -101,8 +101,8 @@ $FORMS = [
     'rfq' => ['ref', 'items', 'drawings', 'parts', 'material', 'finish', 'tolerance', 'plating_thickness', 'samples_by',
         'incoterm', 'destination', 'first_delivery', 'notes', 'name', 'company', 'email', 'phone', 'country',
         'ppap_level3', 'reach_statement', 'nda', 'consent'],
-    'rfq-quick' => ['ref', 'name', 'company', 'email', 'country', 'qty_order', 'qty_year', 'nda', 'consent'],
-    'contact' => ['name', 'company', 'email', 'topic', 'message', 'consent'],
+    'rfq-quick' => ['ref', 'name', 'company', 'email', 'phone', 'country', 'qty_order', 'qty_year', 'nda', 'consent'],
+    'contact' => ['name', 'company', 'email', 'phone', 'topic', 'message', 'consent'],
 ];
 $LONG = ['items', 'drawings', 'parts', 'notes', 'message'];
 $LABEL = [
@@ -127,7 +127,15 @@ foreach ($FORMS[$form] as $k) {
 $page = one_line((string) ($_POST['page'] ?? ''), 120);
 
 foreach (['name', 'company', 'email'] as $k) if ($v[$k] === '') answer(400, $k);
-if (!filter_var($v['email'], FILTER_VALIDATE_EMAIL)) answer(400, 'email');
+// Addresses with non-ASCII characters (jürgen@müller-gmbh.de) are valid: the domain is converted to its ASCII
+// form (xn--…); a non-ASCII local part is accepted, but not put into mail headers (see $replyTo).
+$at = strrpos($v['email'], '@');
+if ($at !== false && function_exists('idn_to_ascii') && preg_match('/[^\x20-\x7e]/', substr($v['email'], $at + 1))) {
+    $dom = idn_to_ascii(substr($v['email'], $at + 1), IDNA_DEFAULT, INTL_IDNA_VARIANT_UTS46);
+    if ($dom !== false) $v['email'] = substr($v['email'], 0, $at + 1) . $dom;
+}
+if (!filter_var($v['email'], FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) answer(400, 'email');
+$asciiEmail = !preg_match('/[^\x20-\x7e]/', $v['email']);
 if ($v['consent'] !== 'yes') answer(400, 'consent');
 if ($form !== 'contact') {
     if ($v['country'] === '') answer(400, 'country');
@@ -151,6 +159,10 @@ if ($form !== 'contact' && isset($_FILES['files']) && is_array($_FILES['files'][
         $files[] = ['name' => $name, 'path' => $F['tmp_name'][$i], 'size' => (int) $F['size'][$i]];
     }
 }
+// PHP drops uploads beyond max_file_uploads before this script runs; the browser says how many it sent.
+$claimed = (int) ($_POST['file_count'] ?? 0);
+$arrived = isset($_FILES['files']) && is_array($_FILES['files']['name']) ? count($_FILES['files']['name']) : 0;
+if ($claimed > $arrived) $skipped[] = ($claimed - $arrived) . ' more file(s) were sent but did not arrive (limit ' . ini_get('max_file_uploads') . ' files per request)';
 if (($v['nda'] ?? '') === 'yes' && $files) { $skipped = array_merge($skipped, array_map(fn($f) => $f['name'] . ' (NDA: not accepted before signing)', $files)); $files = []; }
 if ($form === 'rfq-quick') $v['drawings'] = implode("\n", array_map(fn($f) => $f['name'], $files));
 
@@ -185,7 +197,8 @@ elseif ($attach) $lines[] = "\n" . count($attach) . ' drawing(s) attached.';
 if ($skipped) $lines = array_merge($lines, ['', 'Not received:'], $skipped);
 $lines[] = "\nThe buyer agreed to the privacy policy. Reply to this email to answer them.";
 
-if (!send_mail($C, $C['to'], $subject, implode("\n", $lines), $v['email'], $attach)) {
+if (!$asciiEmail) $lines[] = 'Note: the buyer\'s address has non-ASCII characters, so it is not set as Reply-To. Write to ' . $v['email'] . ' directly.';
+if (!send_mail($C, $C['to'], $subject, implode("\n", $lines), $asciiEmail ? $v['email'] : $C['to'], $attach)) {
     logline($C, "$form\t" . ($v['ref'] ?? '') . "\tFAILED to send to sales");
     answer(502, 'mail');
 }

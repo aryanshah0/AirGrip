@@ -38,7 +38,7 @@ function SizeTable({ g, sizes, values }: { g: Gland; sizes: Thread[]; values: st
 
 export function GlandPage({ g }: { g: Gland }) {
   return (
-    <main>
+    <main id="main">
       <section className="band--tight" style={{ paddingTop: "var(--s-6)" }}>
         <div className="wrap">
           <Crumbs items={[["Products", P.products], ["Brass cable glands", P.glands], [g.name]]} />

@@ -6,7 +6,7 @@ import "./css/About.css";
 export default function About() {
   return (
     <>
-      <main>{" "}
+      <main id="main">{" "}
       <section className="phead">{" "}
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>{" "}
@@ -20,7 +20,7 @@ export default function About() {
       <div><dt>Quality</dt><dd>ISO 9001:2015<small>certified</small></dd></div>{" "}
       <div><dt>Exports</dt><dd>40+ countries<small>25 % of output</small></dd></div>{" "}
       <div><dt>Team</dt><dd>50+<small>people</small></dd></div>{" "}
-      <div><dt>Machines</dt><dd>66<small>incl. 21 SPMs built in-house</small></dd></div>{" "}
+      <div><dt>Machines</dt><dd>66<small>incl. 21 special-purpose machines built in-house</small></dd></div>{" "}
       </dl>{" "}
       </div>{" "}
       </section>{" "}
