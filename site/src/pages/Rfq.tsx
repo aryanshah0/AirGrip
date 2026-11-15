@@ -29,6 +29,7 @@ export default function Rfq() {
       <dt>Formats</dt><dd>PDF, DWG, DXF, STEP, IGES; JPG or PNG photos of samples</dd>{" "}
       <dt>NDA</dt><dd>We sign your NDA before you send drawings</dd>{" "}
       <dt>Email</dt><dd><a className="link mono" href="mailto:sales@airgrip.in">sales@airgrip.in</a></dd>{" "}
+      <dt>Phone / WhatsApp</dt><dd><a className="link mono" href="tel:+919316615007">+91 93166 15007</a>{" "}· <a className="link" href="https://wa.me/919316615007">WhatsApp</a></dd>{" "}
       <dt>Physical sample</dt><dd>Courier to Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India. Mark the parcel with your company name and the reference shown after you send this form.</dd>{" "}
       </dl>{" "}
       <div className="person"><div><b>Shree Shah</b><span>Marketing Director · your contact for quotes</span></div></div>{" "}

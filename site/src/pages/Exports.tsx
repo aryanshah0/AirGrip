@@ -52,7 +52,7 @@ export default function Exports() {
       <dt>Regions</dt><dd>Europe (Germany, France and other EU markets), the UK, North America (USA, Canada), the Middle East, Africa and Asia-Pacific</dd>{" "}
       <dt>Incoterms</dt><dd>EXW Jamnagar · FOB / CFR / CIF via Mundra or Nhava Sheva · air for samples</dd>{" "}
       <dt>Shipping documents</dt><dd>Commercial invoice and packing list. Quality documents:{" "}<a className="link" href="/quality/#documents">see Quality</a></dd>{" "}
-      <dt>Compliance</dt><dd>REACH statement on request; quality documents:{" "}<a className="link" href="/quality/#documents">see Quality</a></dd>{" "}
+      <dt>Compliance</dt><dd>REACH: brass contains lead above 0.1 %, Article 33 statement on request · RoHS: leaded brass under Annex III exemption 6(c), lead-free CW724R on request · quality documents:{" "}<a className="link" href="/quality/#documents">see Quality</a></dd>{" "}
       <dt>Payment &amp; currency</dt><dd>Agreed per order in the quote, including the invoice currency</dd>{" "}
       <dt>Time zone</dt><dd>IST (UTC+5:30), Sat–Thu 09:30–18:30. Overlap with Europe: Mon–Thu mornings.</dd>{" "}
       </dl>{" "}

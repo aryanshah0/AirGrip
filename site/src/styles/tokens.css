@@ -142,7 +142,9 @@ p { margin: 0; text-wrap: pretty; }
 .basket-btn { position: relative; }
 .basket-btn .count { position: absolute; top: -8px; right: -8px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 2px; background: var(--brass); color: #17120A; font: 600 11px/18px var(--font-sans); text-align: center; }
 .hdr__menu { display: none; }
-@media (max-width: 1360px) { .hdr__tel { display: none; } }
+/* the number shows wherever it fits; phones get a Call button instead */
+@media (min-width: 1101px) and (max-width: 1179px), (max-width: 559px) { .hdr__tel { display: none; } }
+.hdr__call { display: none; } @media (max-width: 559px) { .hdr__call { display: inline-flex; } }
 @media (max-width: 1100px) { .nav { display: none; } .hdr__menu { display: inline-flex; } }
 @media (max-width: 559px) { .hdr__bar { gap: var(--s-3); } .hdr__end { gap: var(--s-2); } .brand img { height: 46px; } .hide-s { display: none; } }
 .show-s { display: none; } @media (max-width: 559px) { .show-s { display: inline; } }

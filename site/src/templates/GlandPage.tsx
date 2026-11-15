@@ -88,8 +88,8 @@ export function GlandPage({ g }: { g: Gland }) {
         <div className="sh"><h2>Material &amp; compliance</h2></div>
         <div className="sb"><Kv rows={[
           ["Used in", g.use],
-          ["RoHS", "Leaded brass is covered by Annex III exemption 6(c)"],
-          ["REACH", "Statement on request"],
+          ["RoHS", "Leaded brass (CW614N) is covered by RoHS Annex III exemption 6(c) (copper alloys with up to 4 % lead); lead-free CW724R on request"],
+          ["REACH", "Brass contains lead, a REACH candidate-list substance, above 0.1 %; REACH Article 33 statement on request"],
           ["Hazardous areas", "Not certified for hazardous (Ex / ATEX) areas"],
           ["Material data", <a className="link" href={P.grades}>Brass grade equivalents</a>],
         ]} /></div>

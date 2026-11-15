@@ -118,8 +118,8 @@ export default function PressureScrew() {
       </div>{" "}
       <div>{" "}
       <dl className="kv">{" "}
-      <dt>RoHS</dt><dd>Leaded brass is covered by Annex III exemption 6(c) (copper alloys with up to 4 % lead)</dd>{" "}
-      <dt>REACH</dt><dd>Lead is a candidate-list substance; REACH statement on request</dd>{" "}
+      <dt>RoHS</dt><dd>Leaded brass (CW614N) is covered by RoHS Annex III exemption 6(c) (copper alloys with up to 4 % lead); lead-free CW724R on request</dd>{" "}
+      <dt>REACH</dt><dd>Brass contains lead, a REACH candidate-list substance, above 0.1 %; REACH Article 33 statement on request</dd>{" "}
       <dt>Material cert.</dt><dd>EN 10204 3.1 mill certificate with every batch</dd>{" "}
       </dl>{" "}
       <h3 className="h4" style={{"marginTop": "var(--s-6)", "marginBottom": "var(--s-3)"}}>Options</h3>{" "}

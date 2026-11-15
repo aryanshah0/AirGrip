@@ -65,6 +65,7 @@ export default function Capabilities() {
       <tr><td className="stick" data-l="Process">All</td><td data-l="Parameter">General tolerance</td><td className="n" data-l="Value">ISO 2768-m unless the drawing states otherwise</td></tr>
       </tbody>
       </table></div>{" "}
+      <p className="tbl-note">Fits tighter than ±0.05 mm: send the drawing; the quote says whether we can hold them.</p>{" "}
       <p className="tbl-note">Materials: CW614N and CW617N as standard; on request low-lead DZR CW511L, lead-free CW724R and DZR CW602N.{" "}<a className="link" href="/resources/brass-grade-equivalents/">Grade details</a></p>{" "}
       </section>{" "}
       <section className="sec" id="threads">{" "}

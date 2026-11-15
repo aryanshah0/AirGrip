@@ -20,7 +20,7 @@ export default function TurnedComponents() {
       <dl className="kv">{" "}
       <dt>Diameter</dt><dd className="mono">Ø5–100 mm</dd>{" "}
       <dt>Length</dt><dd className="mono">≤ 100 mm</dd>{" "}
-      <dt>Tolerance</dt><dd><span className="mono">±0.05 mm</span>, run-out{" "}<span className="mono">0.05</span></dd>{" "}
+      <dt>Tolerance</dt><dd><span className="mono">±0.05 mm</span>, run-out{" "}<span className="mono">0.05</span>. Fits tighter than ±0.05 mm: send the drawing; the quote says whether we can hold them.</dd>{" "}
       <dt>Material</dt><dd><span className="mono">CW614N</span>,{" "}<span className="mono">CW617N</span>; lead-free and DZR on request</dd>{" "}
       <dt>Threads</dt><dd className="mono">M · BSP/BSPT · NPT · UNC/UNF · PG · BA · BSW</dd>{" "}
       <dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc; silver or chrome on request</dd>{" "}

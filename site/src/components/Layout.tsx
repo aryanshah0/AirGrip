@@ -121,6 +121,7 @@ function Header({ nav }: { nav: string }) {
         </nav>
         <div className="hdr__end">
           <a className="hdr__tel" href={SITE.phoneHref}>{SITE.phone}</a>
+          <a className="btn btn--ghost btn--sm hdr__call" href={SITE.phoneHref} aria-label={"Call " + SITE.phone}>Call</a>
           <a className="btn btn--sm basket-btn" href={P.rfq}><span className="hide-s">Request a quote</span><span className="show-s">Quote</span><span className="count" hidden={!items.length}>{items.length}</span></a>
           <button ref={menuBtn} className="btn btn--ghost btn--sm hdr__menu" type="button" aria-expanded={mnav} aria-controls="mnav" onClick={() => setMnav(!mnav)}>{mnav ? "Close" : "Menu"}</button>
         </div>
