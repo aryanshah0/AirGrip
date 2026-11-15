@@ -62,7 +62,7 @@ export function ContactForm() {
         <div className="field"><label htmlFor="m">Message<span className="req">*</span></label><textarea className="textarea" id="m" required aria-describedby="m-e" aria-invalid={!!err.m} value={f.m} onChange={set("m")} onBlur={blur("m")}></textarea><span className="err" id="m-e">{err.m}</span></div>
         <label className="check"><input type="checkbox" id="cok" required aria-describedby="cok-e" aria-invalid={!!err.cok} checked={ok} onChange={(e) => { setOk(e.target.checked); if (e.target.checked) setErr({ ...err, cok: "" }); }} /><span>I agree that AirGrip may store these details to answer my message (<a className="link" href={P.privacy}>privacy policy</a>). <span className="req" style={{ color: "var(--brass-deep)" }}>*</span> <span className="err" id="cok-e">{err.cok}</span></span></label>
         {sendMsg && <p className="err sendmsg" id="csendmsg" role="alert">{sendMsg}</p>}
-        <div><button className="btn" type="submit" disabled={busy}>{busy ? "Sending…" : "Send message"} <span className="arr" aria-hidden="true">→</span></button></div>
+        <div><button className="btn btn--brass" type="submit" disabled={busy}>{busy ? "Sending…" : "Send message"} <span className="arr" aria-hidden="true">→</span></button></div>
       </form>
       <div ref={doneRef} className="cdone" id="cdone" role="status" tabIndex={-1} hidden={!done}>
         <span className="eyebrow eyebrow--brass">Message sent</span>

@@ -1,22 +1,43 @@
-// Gland accessory datasheet (stop plugs, earth tags, reducers/enlargers/adapters, conduit gland parts).
+// Gland accessory datasheet (lock nuts, stop plugs, earth tags, reducers/enlargers/adapters, conduit gland parts).
 // Content: ACCESSORIES in src/data/products.tsx.
 import "../styles/pages.css";
 import "./accessory.css";
-import { Arr, Code, Crumbs, Kv, Related, SizeTabs } from "../components/blocks";
+import { Arr, Code, Crumbs, Kv, Plate, Related, SizeGrid, SizeTabs } from "../components/blocks";
 import { FamilyProvider, FamilySwitch } from "../components/Family";
 import { PairPicker } from "../components/PairPicker";
 import type { Accessory, PartsAccessory, TabsAccessory } from "../data/products";
 import { P } from "../site";
 
+const NOTE = "Thread standards: PG DIN 40430\u00a0· metric EN 60423\u00a0· BSP ISO 228-1\u00a0· NPT ASME B1.20.1.";
+
+/** Same layout as the gland pages: the drawing as a key on the left, every thread system side by side on the right. */
 function TabsSizes({ a }: { a: TabsAccessory }) {
+  const used = a.systems.map((s) => s.tab);
   return (
-    <section className="band" id="sizes"><div className="wrap side">
-      <div className="sh"><h2>Sizes and part codes</h2><p>Add sizes to your quote; finish is chosen in the quote form.</p></div>
-      <div className="sb">
-        {a.heads && <div className="seg-row"><span className="seg-k">Head</span><FamilySwitch id="stop-plugs" /></div>}
-        <SizeTabs prefix="s" code={a.code} name={a.item} systems={a.systems} col={a.col} />
-        <p className="tbl-note">Dimensions with your quote.</p>
+    <section className="band" id="sizes"><div className="wrap">
+      <div className="open"><div><h2>Sizes and part codes</h2></div><p>Add sizes to your quote; finish is chosen in the quote form.</p></div>
+      <div className="dims">
+        <details className="dimkey" open>
+          <summary>Drawing</summary>
+          <figure><div className="frame"><img src={`/img/la/l/${a.img}.svg`} alt={`${a.name} drawing`} style={{ width: "100%", height: "auto" }} /></div><figcaption>Illustrative drawing, not to size. Dimensions come with your quote, on a dimensioned drawing.</figcaption></figure>
+        </details>
+        <div>
+          {a.family && <div className="seg-row"><span className="seg-k">{a.family.label}</span><FamilySwitch id={a.family.id} /></div>}
+          <SizeGrid code={a.code} name={a.item} systems={a.systems} col={a.col} caption={a.name} />
+          <p className="tbl-note" style={{ marginTop: "var(--s-5)" }}>{used.length > 2 ? NOTE : "Thread standards: PG DIN 40430\u00a0· metric EN 60423."}</p>
+        </div>
       </div>
+    </div></section>
+  );
+}
+
+function Types({ t }: { t: NonNullable<TabsAccessory["types"]> }) {
+  return (
+    <section className="band band--sheet" id="types"><div className="wrap side">
+      <div className="sh"><h2>{t.h2}</h2><p>{t.intro}</p></div>
+      <div className="sb"><div className="types">
+        {t.items.map(([h, p, c]) => <div key={h}><h3>{h}</h3><p>{p}</p><p className="mono" style={{ marginTop: "var(--s-3)", color: "var(--ink)" }}>{c}</p></div>)}
+      </div></div>
     </div></section>
   );
 }
@@ -51,9 +72,8 @@ export function AccessoryPage({ a }: { a: Accessory }) {
         <Crumbs items={[["Products", P.products], ["Brass cable glands", P.glands], [a.name]]} />
         <div className="prod" style={{ marginTop: "var(--s-5)" }}>
           <figure className="prod__fig" style={{ margin: "0" }}>
-            <div className="sheet"><div className="frame"><img src={`/img/la/l/${a.img}.svg`} alt={`${a.name} drawing`} style={{ width: "100%", height: "auto" }} /></div></div>
+            <Plate drawing={<div className="sheet"><div className="frame"><img src={`/img/la/l/${a.img}.svg`} alt={`${a.name} drawing`} style={{ width: "100%", height: "auto" }} /></div></div>} photos={a.photos} />
             <p className="tbl-note">Illustrative drawing, not to size.</p>
-            {a.photo && <div className="prod__thumbs"><div className="photo"><img src={`/img/${a.photo}`} alt={`${a.name}, photo`} /></div></div>}
           </figure>
           <div className="prod__info">
             <span className="eyebrow">Gland accessories&nbsp;· <span className="mono" style={{ letterSpacing: "0" }}>{a.eyebrow ?? a.code}</span></span>
@@ -64,13 +84,18 @@ export function AccessoryPage({ a }: { a: Accessory }) {
           </div>
         </div>
       </div></section>
+      {a.kind === "tabs" && a.types && <Types t={a.types} />}
       {a.kind === "tabs" ? <TabsSizes a={a} /> : <PartsSizes a={a} />}
       <section className="band band--sheet"><div className="wrap">
         <div className="open"><div><h2 className="sub">Used with</h2></div></div>
         <Related items={a.related} />
+        <div className="cta" style={{ marginTop: "var(--s-8)" }}>
+          <div><h2>Need a size or conversion that isn't listed?</h2><p>Ask us: other sizes on request.</p></div>
+          <div className="acts"><a className="btn" href={P.rfq}>Request a quote <Arr /></a></div>
+        </div>
       </div></section>
     </main>
   );
   // the stop-plug head switch rewrites every part code on the page
-  return a.kind === "tabs" && a.heads ? <FamilyProvider id="stop-plugs">{page}</FamilyProvider> : page;
+  return a.kind === "tabs" && a.family ? <FamilyProvider id={a.family.id}>{page}</FamilyProvider> : page;
 }

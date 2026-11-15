@@ -49,6 +49,11 @@
   .item button { background: none; border: 0; color: var(--ink-3); cursor: pointer; font-size: 20px; line-height: 1; width: 44px; height: 44px; }
   .addcode { display: flex; gap: var(--s-3); margin-top: var(--s-3); } .addcode .input { max-width: 320px; font-family: var(--font-mono); }
   .item button:hover { color: var(--error); }
+  /* one field style on the quote form: the title-block underline, also for the quote-list rows and the code field */
+  .item input, .item select, .addcode .input { border: 0; border-bottom: 1px dotted var(--rule-strong); border-radius: 0; background: transparent; padding: 4px 0 6px; min-height: 38px; }
+  .item select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Cpath d='M1.5 3.5L5 7l3.5-3.5' fill='none' stroke='%235F656E' stroke-width='1.4'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 2px center; appearance: none; padding-right: 16px; }
+  .item input:focus-visible, .item select:focus-visible, .addcode .input:focus-visible { outline: none; border-bottom: 2px solid var(--ink); background: var(--brass-wash); }
+  .addcode .input { font: 500 var(--t-15) var(--font-mono); }
   @media (max-width: 559px) { .item { grid-template-columns: 1fr 1fr 32px; } .item .what { grid-column: 1 / -1; } .item > label:has(select) { grid-column: 1 / -1; } .item > span:empty { display: none; } }
   .item select { min-height: 38px; padding: 6px 8px; border: 1px solid var(--field); border-radius: var(--radius); font: 500 var(--t-14) var(--font-sans); width: 100%; background: var(--card); }
 

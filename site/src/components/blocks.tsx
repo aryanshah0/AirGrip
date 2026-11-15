@@ -4,6 +4,26 @@ import { Fragment, type ReactNode } from "react";
 import { AddQ } from "./AddQ";
 import { PartCode } from "./Family";
 
+/** The hero picture of a product page: the drawing, with a Drawing | Photo switch when photos exist. Photos are shown
+ *  at the same size as the drawing, so every product page treats photos the same way. */
+export function Plate({ drawing, photos }: { drawing: ReactNode; photos: [file: string, alt: string][] }) {
+  if (!photos.length) return <>{drawing}</>;
+  return (
+    <div className="plate">
+      <div className="seg plate__sw" role="tablist" aria-label="View">
+        <button role="tab" id="v-d" aria-selected="true" aria-controls="v-dp">Drawing</button>
+        <button role="tab" id="v-p" aria-selected="false" aria-controls="v-pp" tabIndex={-1}>Photo{photos.length > 1 ? "s" : ""}</button>
+      </div>
+      <div role="tabpanel" id="v-dp" aria-labelledby="v-d">{drawing}</div>
+      <div role="tabpanel" id="v-pp" aria-labelledby="v-p" hidden>
+        <div className={"plate__ph" + (photos.length > 1 ? " is-many" : "")}>
+          {photos.map(([f, alt]) => <img key={f} src={`/img/${f}`} alt={alt} loading="lazy" />)}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /** Monospace run (numbers, codes, standards). */
 export const M = ({ children }: { children: ReactNode }) => <span className="mono">{children}</span>;
 /** Part code that must not wrap. */
@@ -60,6 +80,32 @@ export function Bands({ sections }: { sections: (ReactNode | false | null | unde
 
 export interface SizeRow { label: string; token: string }
 export interface SizeSystem { tab: string; sizes: SizeRow[] }
+const STD: Record<string, string> = { PG: "DIN 40430", Metric: "EN 60423", BSP: "ISO 228-1", NPT: "ASME B1.20.1" };
+/** Every thread system at once, side by side (two columns from 720 px): part code + "+ Add" per size. */
+export function SizeGrid({ code, name, systems, col = "Thread", caption }: { code: string; name: string; systems: SizeSystem[]; col?: string; caption: string }) {
+  return (
+    <div className="sysgrid">
+      {systems.map((s) => (
+        <div key={s.tab}>
+          <h3 className="h4">{s.tab}{STD[s.tab] && <span className="muted">&nbsp;· {STD[s.tab]}</span>}</h3>
+          <div className="tbl"><table className="spec">
+            <caption className="sr-only">{caption}, {s.tab} sizes</caption>
+            <thead><tr><th className="stick">Part code</th><th>{col}</th></tr></thead>
+            <tbody>
+              {s.sizes.map((z) => (
+                <tr key={z.token}>
+                  <td className="stick"><PartCode code={`${code}-${z.token}`} /><AddQ code={`${code}-${z.token}`} label={`${name} ${z.label}`} /></td>
+                  <td>{z.label}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table></div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 /** Thread-system tabs with one size table each: part code + "+ Add" per size. `prefix` keeps tab ids unique. */
 export function SizeTabs({ prefix, code, name, systems, col = "Thread" }: { prefix: string; code: string; name: string; systems: SizeSystem[]; col?: string }) {
   return (

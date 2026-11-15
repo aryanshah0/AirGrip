@@ -15,6 +15,10 @@
 .prod__fig .sheet { background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
 .prod__fig .sheet .frame { border: var(--hair); padding: var(--s-4); }
 .prod__fig .sheet svg { max-height: 440px; width: 100%; margin-inline: auto; }
+.plate__sw { margin-bottom: var(--s-3); }
+.plate__ph { background: var(--card); border: 1px solid var(--ink-line); padding: 10px; display: grid; gap: 10px; }
+.plate__ph.is-many { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.plate__ph img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; border: var(--hair); display: block; }
 .prod__thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); margin-top: var(--s-2); }
 .prod__thumbs > * { aspect-ratio: 4 / 3; }
 .prod__thumbs .photo { border: 1px solid var(--rule-strong); }

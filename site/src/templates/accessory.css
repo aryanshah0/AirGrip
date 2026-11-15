@@ -1,4 +1,14 @@
 @import "./datasheet.css";
+/* Size lists: every thread system side by side */
+.sysgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-7) var(--gutter); }
+.sysgrid h3 { margin: 0 0 var(--s-3); }
+.sysgrid .muted { font-weight: 400; }
+@media (max-width: 719px) { .sysgrid { grid-template-columns: minmax(0, 1fr); } }
+.seg-row + .sysgrid { margin-top: var(--s-5); }
+.types { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); }
+.types > div { padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); }
+.types h3 { font-size: var(--t-20); } .types p { font-size: var(--t-14); color: var(--ink-2); margin-top: 6px; }
+@media (max-width: 719px) { .types { grid-template-columns: 1fr; } }
 /* Gland accessories: thread-pair picker (reducers, enlargers, adapters) and two-column part lists. */
 .pair { display: flex; flex-wrap: wrap; gap: var(--s-4); align-items: flex-end; margin-top: var(--s-4); }
 .pair .addq { min-height: 48px; margin: 0; padding: 0 var(--s-5); }

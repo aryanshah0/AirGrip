@@ -2,6 +2,7 @@
 
 import "../styles/pages.css";
 import "./css/TurnedComponents.css";
+import { Plate } from "../components/blocks";
 
 export default function TurnedComponents() {
   return (
@@ -15,7 +16,7 @@ export default function TurnedComponents() {
       <h1>Brass turned components, made to drawing</h1>{" "}
       <p className="lead">Precision CNC and cam-automat turned brass parts, made in Jamnagar, India, from brass bar to your drawing: bushes, pins, spacers, nozzles, inserts and connector bodies. CNC for complex parts and short runs; cam automats and special-purpose machines for long runs.</p>{" "}
       <div className="prod__cta"><a className="btn" href="/rfq/">Send a drawing{" "}<span className="arr" aria-hidden="true">→</span></a><a className="btn btn--ghost" href="#process">Which process?</a></div>{" "}
-      <div className="sheet3"><div style={{"gridTemplateColumns": "1fr"}}><img src="/img/la/l/turned.svg" alt="Drawing of a turned brass shaft with threaded spigot, groove, collar and knurl" /></div></div>{" "}
+      <div style={{ marginTop: "var(--s-6)" }}><Plate drawing={<div className="sheet3" style={{ marginTop: 0 }}><div style={{"gridTemplateColumns": "1fr"}}><img src="/img/la/l/turned.svg" alt="Drawing of a turned brass shaft with threaded spigot, groove, collar and knurl" /></div></div>} photos={[["02-Product-We-Manufactur.webp", "Brass turned parts"]]} /></div>{" "}
       </div>{" "}
       <dl className="kv">{" "}
       <dt>Diameter</dt><dd className="mono">Ø5–100 mm</dd>{" "}

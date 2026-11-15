@@ -11,26 +11,20 @@ export default function Glands() {
       <div className="wrap">{" "}
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li aria-current="page">Brass cable glands</li></ol>{" "}
       <div className="phead__row">{" "}
-      <div><h1>Brass cable glands &amp;&nbsp;accessories</h1><p className="lead">Two gland types in PG and metric threads, with pressure screws and accessories; lock nuts, stop plugs and adapters also come in BSP and NPT. Every item has a part code you can add to a quote.</p></div>{" "}
+      <div><h1>Brass cable glands &amp;&nbsp;accessories</h1><p className="lead">Two gland types in PG and metric threads, with pressure screws and accessories; lock nuts, stop plugs, reducers, enlargers and adapters also come in BSP and NPT. Every item has a part code you can add to a quote.</p></div>{" "}
       <div><dl className="kv"><dt>Threads</dt><dd><span className="mono">PG</span>{" "}DIN 40430 ·{" "}<span className="mono">M</span>{" "}EN 60423</dd><dt>Material</dt><dd><span className="mono">CW614N</span>; lead-free on request</dd><dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc</dd></dl></div>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}
       <section className="band">{" "}
       <div className="wrap">{" "}
-      <div className="open"><div><h2>Cable glands</h2></div><p>Both glands take the same accessories, in the same sizes. Choose by how the cable must be held.</p></div>{" "}
-      <div className="side">{" "}
-      <figure className="sh" style={{"margin": "0"}}><div className="photo" style={{"aspectRatio": "3/2", "border": "var(--hair)"}}><img src="/img/la/gland.svg" alt="Cable gland drawing: half-section and end view" loading="lazy" /></div><figcaption className="tbl-note">Typical gland in half-section, with end view.</figcaption></figure>{" "}
-      <div className="sb"><div className="tbl"><table className="spec stack-m">
-      <thead><tr><th className="stick">Type</th><th>How the cable is held</th><th>Sizes</th><th>Code</th></tr></thead>
-      <tbody>
-      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/clamping-jaw-cable-gland/"><b>Clamping&#8209;jaw</b></a></td><td data-l="How the cable is held">Clamping jaws grip the cable centrally and hold it against pull-out</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-CJ</td></tr>
-      <tr><td className="stick" data-l="Type"><a className="link" href="/products/brass-cable-glands/strain-relief-cable-gland/"><b>Strain-relief</b></a></td><td data-l="How the cable is held">Holds the cable against pull-out and protects flexible cables from bending at the entry</td><td className="c" data-l="Sizes"><span className="mono">PG 7–48 · M12–M80</span></td><td className="c mono" data-l="Code">AG-SR</td></tr>
-      </tbody>
-      </table></div>{" "}
-      <p className="tbl-note">Pressure screws, the gland component that compresses the seal, have their own datasheet:{" "}<a className="link" href="/products/brass-cable-glands/pressure-screw/">pressure screws</a>.</p>{" "}
-      <p className="tbl-note">Used in distribution boxes and control cabinets, machinery, automation and plant engineering.</p></div>{" "}
+      <div className="open"><div><h2>Cable glands</h2></div><p>Both glands take the same accessories, in the same sizes. Choose by how the cable must be held. All in PG 7–48 and M12–M80.</p></div>{" "}
+      <div className="hub">{" "}
+      <a href="/products/brass-cable-glands/clamping-jaw-cable-gland/"><div className="photo"><img src="/img/la/gland-cj.svg" alt="Clamping-jaw cable gland: half-section and end view" loading="lazy" /></div><h3>Clamping-jaw gland</h3><p>Clamping jaws grip the cable centrally and hold it against pull-out.</p><span className="mono">AG-CJ&nbsp;· EPDM seal, IP54</span></a>{" "}
+      <a href="/products/brass-cable-glands/strain-relief-cable-gland/"><div className="photo"><img src="/img/la/gland-sr.svg" alt="Strain-relief cable gland: half-section and end view" loading="lazy" /></div><h3>Strain-relief gland</h3><p>Holds the cable against pull-out and protects flexible cables from bending at the entry.</p><span className="mono">AG-SR&nbsp;· EPDM seal, IP54</span></a>{" "}
+      <a href="/products/brass-cable-glands/pressure-screw/"><div className="photo"><img src="/img/la/pscrew.svg" alt="Brass pressure screw: half-section and end view" loading="lazy" /></div><h3>Pressure screws</h3><p>The gland component that compresses the seal, supplied on its own. Spare dome cap nuts on request.</p><span className="mono">AG-PS</span></a>{" "}
       </div>{" "}
+      <p className="tbl-note" style={{"marginTop": "var(--s-6)"}}>Used in distribution boxes and control cabinets, machinery, automation and plant engineering.</p>{" "}
       </div>{" "}
       </section>{" "}
       <section className="band band--sheet" id="accessories">{" "}
@@ -42,7 +36,6 @@ export default function Glands() {
       <a href="/products/brass-cable-glands/stop-plugs/"><span className="th"><img src="/img/la/t/stopplug.svg" alt="" loading="lazy" /></span><span><b>Stop plugs</b><span>Close unused entries ·{" "}<span className="mono nw">AG-SP · AG-SH</span></span></span></a>{" "}
       <a href="/products/brass-cable-glands/earth-tags/"><span className="th"><img src="/img/la/t/earthtag.svg" alt="" loading="lazy" /></span><span><b>Earth tags</b><span>PG and metric ·{" "}<span className="mono nw">AG-ET</span></span></span></a>{" "}
       <a href="/products/brass-cable-glands/conduit-gland-parts/"><span className="th"><img src="/img/la/t/malebush.svg" alt="" loading="lazy" /></span><span><b>Conduit gland parts</b><span>Male bushes, conduit nuts ·{" "}<span className="mono nw">AG-MB · AG-CN</span></span></span></a>{" "}
-      <a href="/products/brass-cable-glands/pressure-screw/"><span className="th"><img src="/img/la/t/pscrew.svg" alt="" loading="lazy" /></span><span><b>Pressure screws &amp; spares</b><span>Pressure screws · dome cap nuts on request ·{" "}<span className="mono nw">AG-PS</span></span></span></a>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}

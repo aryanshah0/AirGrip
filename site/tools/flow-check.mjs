@@ -54,8 +54,12 @@ check("Hex head switches codes to AG-SH", await ev("$('#sizes td .mono').textCon
 check("…and the hex size is not yet added", await ev("$('#sizes .addq').getAttribute('aria-pressed') === 'false'"));
 await ev("$('#sizes .addq').click(); true");
 check("hex stop plug added (2 items)", await ev("JSON.parse(localStorage.getItem('ag-basket')).map(i => i.code).join() === 'AG-SP-PG07,AG-SH-PG07'"));
-await ev("$$('[role=tab]')[1].click(); true");
-check("thread tabs switch to Metric", await ev("$$('[role=tabpanel]')[1].hidden === false && $$('[role=tabpanel]')[0].hidden === true"));
+check("stop plugs: all four thread systems listed side by side", await ev("$$('.sysgrid table').length === 4"));
+await go("/products/brass-cable-glands/clamping-jaw-cable-gland/");
+await ev("$$('#sizes [role=tab]')[1].click(); true");
+check("thread tabs switch to Metric", await ev("$$('#sizes [role=tabpanel]')[1].hidden === false && $$('#sizes [role=tabpanel]')[0].hidden === true"));
+await ev("$('#v-p').click(); true");
+check("Drawing | Photo switch shows the photo", await ev("$('#v-pp').hidden === false && $('#v-dp').hidden === true"));
 
 // --- lock nuts: EMC switch
 await go("/products/brass-cable-glands/lock-nuts/");

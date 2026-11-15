@@ -61,7 +61,7 @@ export interface Group {
   facts: KvRow[];
   typesH2: string;
   types: string[];
-  photos: [file: string, caption: string][];   // 1 photo: beside the types list; 2+: an "Examples" gallery
+  photos: [file: string, caption: string][];   // shown in the hero, behind a Drawing | Photo switch
   specTitle?: string;
   spec?: KvRow[];
   also?: { h2: string; rows: KvRow[] };   // optional band after the spec: related things we make
@@ -234,10 +234,12 @@ export const GROUPS = {
 // "" in a size row = not yet confirmed: shown as "—" ("dimensions with your quote").
 // ---------------------------------------------------------------------------------------------------------------
 export interface Gland {
-  name: string;             // "Clamping-jaw cable gland"
+  crumb: string;            // breadcrumb, table captions
+  item: string;             // one piece, for "+ Add" labels and image alt: "Clamping-jaw cable gland"
+  h1: string;
   code: string;             // AG-CJ
   lead: string;
-  use: string;
+  facts: KvRow[];           // hero facts (the part code row is added by the template)
   art: string;              // drawing: /img/la/l/<art>.svg and dimension key /img/la/<art>-key.svg
   photo: string;
   figNote: string;
@@ -245,31 +247,61 @@ export interface Gland {
   cols: string[];
   pg: string[][];           // per PG size (in PG order): one value per column
   metric: string[][];       // per metric size (in METRIC order)
+  clamping: boolean;        // a complete gland: cable clamping ranges come with the drawing
+  faqH2: string;
+  faq: FaqItem[];
 }
 const none = (n: number, rows: number) => Array.from({ length: rows }, () => Array<string>(n).fill(""));
+const GLAND_FACTS = (use: string): KvRow[] => [
+  ["Entry thread", "PG to DIN 40430, metric to EN 60423"], ["Material", GLAND_BRASS], ["Finish", FINISH],
+  ["Seal", "EPDM"], ["Ingress", "IP54"], ["Spare parts", "Dome cap nuts on request"], ["Used in", use],
+];
+const GLAND_FAQ: FaqItem[] = [
+  ["Can you make a gland to our own drawing?", <>No: the glands are a standard range, PG 7–48 and M12–M80. Parts made to your drawing are our <a className="link" href={P.category}>brass turned components</a>.</>],
+  ["Are these glands for hazardous areas?", "No. They are not certified for hazardous (Ex / ATEX) areas."],
+  ["Can I order spare dome cap nuts?", "Yes, on request: list them in your quote request with the gland size."],
+];
 
 export const GLANDS = {
   clampingJaw: {
-    name: "Clamping-jaw cable gland", code: "AG-CJ",
+    crumb: "Clamping-jaw cable gland", item: "Clamping-jaw cable gland", h1: "Clamping-jaw brass cable gland", code: "AG-CJ",
     lead: "A brass cable gland whose clamping jaws grip the cable centrally and hold it against pull-out.",
-    use: "Distribution boxes and control cabinets, moving machine parts, automation and plant engineering, where the cable must be held against pull-out.",
+    facts: GLAND_FACTS("Distribution boxes and control cabinets, moving machine parts, automation and plant engineering, where the cable must be held against pull-out."),
     art: "gland-cj", photo: "01-Cable-Gland-With-Clamping-Jaw.webp", figNote: "Clamping-jaw gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D</M> cable passage&nbsp;· <M>T</M> entry thread</>,
     cols: ["L", "GL", "D"],
     pg: [["15.0", "5.5", "8.0"], ["16.0", "6.0", "10.5"], ["17.5", "6.0", "12.0"], ["19.0", "7.5", "14.5"], ["19.0", "7.5", "17.5"],
       ["", "", ""], ["", "", ""], ["26.0", "9.0", "36.0"], ["28.0", "10.0", "46.0"], ["28.0", "10.0", "52.0"]],
-    metric: none(3, 9),
+    metric: none(3, 9), clamping: true,
+    faqH2: "Clamping-jaw glands: questions", faq: GLAND_FAQ,
   },
   strainRelief: {
-    name: "Strain-relief cable gland", code: "AG-SR",
+    crumb: "Strain-relief cable gland", item: "Strain-relief cable gland", h1: "Strain-relief brass cable gland", code: "AG-SR",
     lead: "A brass cable gland for flexible cables: it holds the cable against pull-out and protects it from bending where it enters.",
-    use: "Flexible cables on moving machine parts, automation and control cabinets, where the cable needs bending protection at the entry.",
+    facts: GLAND_FACTS("Flexible cables on moving machine parts, automation and control cabinets, where the cable needs bending protection at the entry."),
     art: "gland-sr", photo: "strain-relief-cable-gland.webp", figNote: "Strain-relief gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D1, D2</M> cable passage&nbsp;· <M>T</M> entry thread</>,
     cols: ["L", "GL", "D1", "D2"],
     pg: [["", "", "", ""], ["21.5", "6.0", "12.5", "10.0"], ["22.5", "6.0", "15.0", "11.6"], ["24.0", "6.5", "17.0", "13.6"], ["24.0", "6.5", "18.5", "15.6"],
       ["25.0", "7.5", "23.5", "21.0"], ["30.5", "8.0", "32.0", "30.0"], ["32.0", "9.0", "37.0", "35.0"], ["", "", "", ""], ["", "", "", ""]],
-    metric: none(4, 9),
+    metric: none(4, 9), clamping: true,
+    faqH2: "Strain-relief glands: questions", faq: GLAND_FAQ,
+  },
+  pressureScrew: {
+    crumb: "Pressure screws", item: "Pressure screw", h1: "Brass pressure screws for cable glands", code: "AG-PS",
+    lead: "The pressure screw is the part of a cable gland that is screwed to the gland body: it compresses the seal around the cable and holds it against pull-out.",
+    facts: [["Thread", <><M>PG 7–48</M> (DIN 40430)&nbsp;· <M>M12–M80</M> (EN 60423)</>], ["Material", GLAND_BRASS], ["Finish", FINISH]],
+    art: "pscrew", photo: "pressure-screw.webp", figNote: "Pressure screw in half-section, with end view.",
+    key: <><M>T</M> thread (PG or metric)&nbsp;· <M>AF</M> across flats&nbsp;· <M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D</M> cable passage</>,
+    cols: ["AF", "L", "GL", "D"],
+    pg: [["", "", "", ""], ["17.0", "17.0", "6.0", "10.0"], ["20.0", "18.0", "6.0", "11.6"], ["22.0", "19.0", "6.0", "13.6"], ["24.0", "19.0", "6.0", "15.6"],
+      ["30.0", "20.0", "7.0", "21.0"], ["40.0", "23.0", "8.0", "30.0"], ["", "", "", ""], ["", "", "", ""], ["", "", "", ""]],
+    metric: none(4, 9), clamping: false,
+    faqH2: "Pressure screws: questions",
+    faq: [
+      ["Can you supply lead-free pressure screws?", "Yes, in lead-free brass on request. Say so in the quote request."],
+      ["Is the pressure screw the same part as the dome cap nut?", "No, they are different parts. Spare dome cap nuts are available on request."],
+    ],
   },
 } satisfies Record<string, Gland>;
 
@@ -282,13 +314,17 @@ interface AccessoryBase {
   code: string;             // part-code family, e.g. "AG-SP" (also the eyebrow unless `eyebrow` is set)
   eyebrow?: string;
   img: string;              // drawing in /img/la/l/
-  photo?: string;
+  photos: [file: string, alt: string][];
   lead: string;
   facts: KvRow[];
   related: Card[];
 }
 /** One size table per thread system (stop plugs, earth tags). `heads` adds the head-type switch (stop plugs). */
-export interface TabsAccessory extends AccessoryBase { kind: "tabs"; item: string; col?: string; systems: { tab: string; sizes: Thread[] }[]; heads?: boolean }
+export interface TabsAccessory extends AccessoryBase {
+  kind: "tabs"; item: string; col?: string; systems: { tab: string; sizes: Thread[] }[];
+  family?: { id: "stop-plugs" | "accessory"; label: string };   // code-family switch above the sizes
+  types?: { h2: string; intro: string; items: [title: string, text: string, code: string][] };
+}
 /** Several parts, each with a short description and its own size tables or pair picker. */
 export interface PartsAccessory extends AccessoryBase {
   kind: "parts"; h2: string; intro: string; twoColumns: boolean;
@@ -302,8 +338,25 @@ const RANGE = "PG 7–48 · M12–M80";
 const INCH = "BSP and NPT 3/8 to 1 1/2 inch";
 
 export const ACCESSORIES = {
+  lockNuts: {
+    kind: "tabs", family: { id: "accessory", label: "Type" }, name: "Lock nuts", item: "Lock nut", h1: "Brass lock nuts for cable glands", code: "AG-LN", eyebrow: "AG-LN\u00a0· AG-LE", img: "locknut",
+    photos: [["08-Brass-Lock-Nut.webp", "Brass lock nuts"], ["08-EMC-Lock-Nut.webp", "EMC lock nut"]],
+    lead: "Lock nuts fasten cable glands and accessories to an enclosure wall, gland plate or equipment housing. Available as standard brass lock nuts and as EMC lock nuts.",
+    facts: [
+      ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],
+      ["Material", GLAND_BRASS], ["Finish", FINISH],
+      ["Part code", <><Code>AG-LN-[size]-[finish]</Code>&nbsp;· EMC <Code>AG-LE-[size]-[finish]</Code></>],
+      ["Other sizes", "On request"],
+    ],
+    types: { h2: "Standard or EMC", intro: "Two types; choose one above the size lists.", items: [
+      ["Standard lock nut", "Plain hexagon lock nut that clamps the gland against the enclosure wall.", "AG-LN-[size]-[finish]"],
+      ["EMC lock nut", "Lock nut for installations that need electrical contact between gland and enclosure.", "AG-LE-[size]-[finish]"],
+    ] },
+    systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }, { tab: "BSP", sizes: BSP }, { tab: "NPT", sizes: NPT }],
+    related: accRelated(P.lockNuts),
+  },
   stopPlugs: {
-    kind: "tabs", heads: true, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", eyebrow: "AG-SP\u00a0· AG-SH", img: "stopplug", photo: "04-Stop-Plug-01.webp",
+    kind: "tabs", family: { id: "stop-plugs", label: "Head" }, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", eyebrow: "AG-SP\u00a0· AG-SH", img: "stopplug", photos: [["04-Stop-Plug-01.webp", "Stop plugs, photo"]],
     lead: "Stop plugs (blanking plugs) close unused cable entries in enclosures, temporarily or permanently.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],
@@ -315,7 +368,7 @@ export const ACCESSORIES = {
     related: accRelated(P.stopPlugs),
   },
   earthTags: {
-    kind: "tabs", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photo: "12-Earthing-Tag.webp",
+    kind: "tabs", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photos: [["12-Earthing-Tag.webp", "Earth tags, photo"]],
     lead: "Stamped from brass strip and sized to the gland thread: PG 7–48 and M12–M80.",
     facts: [
       ["For gland thread", <M>{RANGE}</M>],
@@ -328,7 +381,7 @@ export const ACCESSORIES = {
     related: accRelated(P.earthTags),
   },
   adapters: {
-    kind: "parts", twoColumns: false, name: "Reducers, enlargers & adapters", h1: "Brass reducers, enlargers & adapters", code: "AG-RD · AG-EN · AG-AD", img: "reducer",
+    kind: "parts", twoColumns: false, name: "Reducers, enlargers & adapters", h1: "Brass reducers, enlargers & adapters", code: "AG-RD · AG-EN · AG-AD", img: "reducer", photos: [],
     lead: "Change the size or thread system of an enclosure entry, so a gland fits without re-machining the enclosure.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M>; pairs on request</>],
@@ -351,7 +404,7 @@ export const ACCESSORIES = {
     related: accRelated(P.adapters),
   },
   conduit: {
-    kind: "parts", twoColumns: true, name: "Conduit gland parts", h1: "Brass conduit gland parts", code: "AG-MB · AG-CN", img: "malebush", photo: "09-Brass-Male-Bush.webp",
+    kind: "parts", twoColumns: true, name: "Conduit gland parts", h1: "Brass conduit gland parts", code: "AG-MB · AG-CN", img: "malebush", photos: [],   // each part shows its own photo below
     lead: "Male bushes and conduit gland nuts for cable and conduit entries into enclosures.",
     facts: [
       ["Threads", <M>{RANGE}</M>],

@@ -2,23 +2,11 @@
 // Content: GROUPS in src/data/products.tsx.
 import "../styles/pages.css";
 import "./datasheet.css";
-import type { CSSProperties } from "react";
-import { Arr, Bands, Crumbs, Faq, Kv, Related } from "../components/blocks";
+import { Arr, Bands, Crumbs, Faq, Kv, Plate, Related } from "../components/blocks";
 import type { Group } from "../data/products";
 import { P } from "../site";
 
-function Photo({ file, caption, style }: { file: string; caption: string; style?: CSSProperties }) {
-  return (
-    <figure className="one" style={style}>
-      <div className="photo"><img src={`/img/${file}`} alt={caption} loading="lazy" /></div>
-      <figcaption>{caption}</figcaption>
-    </figure>
-  );
-}
-
 export function GroupPage({ g }: { g: Group }) {
-  const one = g.photos.length === 1 ? g.photos[0] : null;
-  const many = g.photos.length > 1 ? g.photos : null;
   return (
     <main id="main">
       <section className="band--tight" style={{ paddingTop: "var(--s-6)" }}>
@@ -29,7 +17,7 @@ export function GroupPage({ g }: { g: Group }) {
               <h1>{g.h1}</h1>
               <p className="lead">{g.lead}</p>
               <div className="prod__cta"><a className="btn" href={P.rfq}>Send a drawing <Arr /></a></div>
-              <div className="sheet1"><div><img src={`/img/la/l/${g.img}.svg`} alt="Drawing of a typical part" /></div></div>
+              <div style={{ marginTop: "var(--s-6)" }}><Plate drawing={<div className="sheet1" style={{ marginTop: 0 }}><div><img src={`/img/la/l/${g.img}.svg`} alt="Drawing of a typical part" /></div></div>} photos={g.photos} /></div>
             </div>
             <Kv rows={g.facts} />
           </div>
@@ -40,7 +28,6 @@ export function GroupPage({ g }: { g: Group }) {
           <div className="sh">
             <h2>{g.typesH2}</h2>
             <p>Made to your drawing or sample.</p>
-            {one && <Photo file={one[0]} caption={one[1]} style={{ marginTop: "var(--s-6)" }} />}
           </div>
           <div className="sb"><ul className="types2">{g.types.map((x) => <li key={x}>{x}</li>)}</ul></div>
         </div>,
@@ -54,16 +41,6 @@ export function GroupPage({ g }: { g: Group }) {
           <div className="wrap side">
             <div className="sh"><h2>{g.also.h2}</h2></div>
             <div className="sb"><Kv rows={g.also.rows} /></div>
-          </div>
-        ),
-        many && (
-          <div className="wrap">
-            <div className="open"><div><h2 className="sub">Examples</h2></div></div>
-            <div className={many.length === 3 ? "gal gal--3" : "gal"}>
-              {many.map(([file, caption]) => (
-                <figure key={file}><div className="photo"><img src={`/img/${file}`} alt={caption} loading="lazy" /></div><figcaption>{caption}</figcaption></figure>
-              ))}
-            </div>
           </div>
         ),
         <div className="wrap side">
