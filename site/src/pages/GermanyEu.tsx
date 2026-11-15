@@ -16,7 +16,7 @@ export default function GermanyEu() {
           <dl className="strip" style={{ marginTop: "var(--s-7)" }}>
             <div><dt>Quality system</dt><dd>ISO 9001:2015<small>not IATF 16949</small></dd></div>
             <div><dt>With every batch</dt><dd>EN 10204 3.1<small>plus CoC and inspection report</small></dd></div>
-            <div><dt>Quote reply</dt><dd>2 working days<small>Sat–Thu, mornings CET</small></dd></div>
+            <div><dt>Quote reply</dt><dd>2 working days<small>Sat–Thu, IST</small></dd></div>
             <div><dt>Samples</dt><dd>2–3 weeks<small>free; you pay the courier</small></dd></div>
           </dl>
         </div>
@@ -37,7 +37,7 @@ export default function GermanyEu() {
           ["Brass grades", <><M>CW614N</M> and <M>CW617N</M> as standard; on request low-lead DZR <M>CW511L</M>, lead-free <M>CW724R</M> and DZR <M>CW602N</M> · <a className="link" href={P.grades}>grade equivalents</a></>],
           ["Threads", <>Metric (ISO 261), BSP parallel (ISO 228-1) and taper (ISO 7-1), NPT (ASME B1.20.1), UNC/UNF, PG; parallel threads gauged GO / NO-GO</>],
           ["Documents with every batch", "EN 10204 3.1 mill certificate, certificate of conformity and final inspection report"],
-          ["On request", "PPAP Level 3; REACH Article 33 statement (brass contains lead above 0.1 %)"],
+          ["On request", "PPAP Level 3; REACH Article 33 statement (leaded brass contains lead above 0.1 %)"],
           ["RoHS", "Leaded brass is covered by RoHS Annex III exemption 6(c); lead-free CW724R on request"],
           ["Measuring and complaints", "Instruments calibrated yearly by an NABL-accredited lab; 8D report within 5 days"],
           ["Audits", <>Supplier approval and plant visits: <a className="link" href={P.contact + "?topic=visit"}>arrange a visit</a> · <a className="link" href={P.quality}>Quality</a></>],

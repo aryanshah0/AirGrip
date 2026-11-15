@@ -446,7 +446,7 @@ export const CHARTS = {
   metric: {
     h1: "Metric cable gland thread chart", std: "EN 60423", fig: "prof-metric", tableH2: "Metric thread sizes",
     lead: "Metric threads with 1.5 mm pitch are the default for new cable entries in Europe, for glands, accessories and many turned parts.",
-    facts: [["Pitch", <M>1.5 mm</M>], ["Flank angle", <M>60°</M>], ["Sizes", <M>M12 – M63</M>]],
+    facts: [["Pitch", <M>1.5 mm</M>], ["Flank angle", <M>60°</M>], ["Sizes", <M>M12–M63</M>]],
     headers: ["Size", "Outside Ø d", "Pitch P", "Tap drill Ø"], kinds: "snnn",
     rows: [12, 16, 20, 25, 32, 40, 50, 63].map((d) => [`M${d}×1.5`, d.toFixed(2), "1.5", (d - 1.5).toFixed(1)]),
     note: <p className="tbl-note">Tap drill = d − P. AirGrip glands and accessories also come in M80.</p>,

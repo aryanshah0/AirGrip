@@ -128,8 +128,8 @@ export default function Home() {
       <p>Founded in 1988 by Ketan Shah: turning, forging, stamping and plating on one site.</p>{" "}
       </div>{" "}
       <dl className="strip strip--4" aria-label="Ranges">{" "}
-      <div><dt>CNC turning</dt><dd><span className="mono">Ø5–100</span><small>mm bar diameter</small></dd></div>{" "}
-      <div><dt>Tolerance</dt><dd><span className="mono">±0.05</span><small>diameter tolerance, mm</small></dd></div>{" "}
+      <div><dt>CNC turning</dt><dd><span className="mono">Ø5–100 mm</span><small>bar diameter</small></dd></div>{" "}
+      <div><dt>Tolerance</dt><dd><span className="mono">±0.05 mm</span><small>all processes</small></dd></div>{" "}
       <div><dt>Hot forging</dt><dd><span className="mono">25 g – 1.0 kg</span><small>forged, then machined</small></dd></div>{" "}
       <div><dt>Plating</dt><dd>Nickel · tin · zinc<small>in our plant; silver and chrome on request</small></dd></div>{" "}
       </dl>{" "}

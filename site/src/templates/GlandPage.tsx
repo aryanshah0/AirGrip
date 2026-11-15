@@ -88,7 +88,7 @@ export function GlandPage({ g }: { g: Gland }) {
           <div>
             <Kv rows={[
               ["RoHS", "Leaded brass (CW614N) is covered by RoHS Annex III exemption 6(c) (copper alloys with up to 4 % lead); lead-free CW724R on request"],
-              ["REACH", "Brass contains lead, a REACH candidate-list substance, above 0.1 %; REACH Article 33 statement on request"],
+              ["REACH", "Leaded brass (CW614N) contains lead, a REACH candidate-list substance, above 0.1 %; REACH Article 33 statement on request"],
               ["Material cert.", "EN 10204 3.1 mill certificate with every batch"],
               ["Hazardous areas", "Not certified for hazardous (Ex / ATEX) areas"],
             ]} />
