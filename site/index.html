@@ -9,6 +9,7 @@
 </head>
 <body data-bc>
 <div id="root"><!--app--></div>
+<script>/* first visit: show the pre-rendered cookie banner now, not after the app script loads (it was the page's largest paint) */try{if(!localStorage.getItem("ag-consent")&&!/^\/rfq\/thank-you\//.test(location.pathname)){var c=document.querySelector(".consent");if(c){c.hidden=false;document.body.classList.add("has-consent")}}}catch(e){}</script>
 <script type="module" src="/src/entry-client.tsx"></script>
 </body>
 </html>

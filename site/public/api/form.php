@@ -195,9 +195,8 @@ foreach ($FORMS[$form] as $k) {
 if ($links) $lines = array_merge($lines, ['', "Drawings were too large to attach. Download them (links work for {$C['keep_days']} days):"], $links);
 elseif ($attach) $lines[] = "\n" . count($attach) . ' drawing(s) attached.';
 if ($skipped) $lines = array_merge($lines, ['', 'Not received:'], $skipped);
-$lines[] = "\nThe buyer agreed to the privacy policy. Reply to this email to answer them.";
-
-if (!$asciiEmail) $lines[] = 'Note: the buyer\'s address has non-ASCII characters, so it is not set as Reply-To. Write to ' . $v['email'] . ' directly.';
+$lines[] = "\nThe buyer agreed to the privacy policy. " . ($asciiEmail ? 'Reply to this email to answer them.'
+    : 'Their address has non-ASCII characters, so replying to this email does not reach them: write to ' . $v['email'] . ' directly.');
 if (!send_mail($C, $C['to'], $subject, implode("\n", $lines), $asciiEmail ? $v['email'] : $C['to'], $attach)) {
     logline($C, "$form\t" . ($v['ref'] ?? '') . "\tFAILED to send to sales");
     answer(502, 'mail');

@@ -37,7 +37,7 @@
   --error:#A3322A;
 
   /* ---- Type --------------------------------------------------------- */
-  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Archivo", "Archivo Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --t-11: 0.6875rem; --t-12: 0.75rem; --t-13: 0.8125rem; --t-14: 0.875rem; --t-15: 0.9375rem;
