@@ -12,8 +12,8 @@ export default function TurnedComponents() {
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li aria-current="page">Brass turned components</li></ol>{" "}
       <div className="chead">{" "}
       <div>{" "}
-      <h1>Brass turned components</h1>{" "}
-      <p className="lead">CNC and cam-automat turned parts made from brass bar to your drawing: bushes, pins, spacers, nozzles, inserts and connector bodies. CNC for complex parts and short runs; cam automats and special-purpose machines for long runs.</p>{" "}
+      <h1>Brass turned components, made to drawing</h1>{" "}
+      <p className="lead">Precision CNC and cam-automat turned brass parts, made in Jamnagar, India, from brass bar to your drawing: bushes, pins, spacers, nozzles, inserts and connector bodies. CNC for complex parts and short runs; cam automats and special-purpose machines for long runs.</p>{" "}
       <div className="prod__cta"><a className="btn" href="/rfq/">Send a drawing{" "}<span className="arr" aria-hidden="true">→</span></a><a className="btn btn--ghost" href="#process">Which process?</a></div>{" "}
       <div className="sheet3"><div style={{"gridTemplateColumns": "1fr"}}><img src="/img/la/l/turned.svg" alt="Drawing of a turned brass shaft with threaded spigot, groove, collar and knurl" /></div></div>{" "}
       </div>{" "}

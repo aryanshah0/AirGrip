@@ -58,7 +58,7 @@ export function GlandPage({ g }: { g: Gland }) {
                 ["Finish", FINISH],
                 ["Seal", "EPDM"],
                 ["Ingress", "IP54"],
-                ["Spare parts", "Dome cap nuts and seal inserts on request"],
+                ["Spare parts", "Dome cap nuts on request"],
                 ["Part code", <><Code>{g.code}-[size]-[finish]</Code>, e.g. <Code>{g.code}-PG09-NI</Code></>],
               ]} />
               <div className="prod__cta"><a className="btn" href="#sizes">Choose sizes <Arr ch="↓" /></a></div>

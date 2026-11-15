@@ -64,6 +64,7 @@ export interface Group {
   photos: [file: string, caption: string][];   // 1 photo: beside the types list; 2+: an "Examples" gallery
   specTitle?: string;
   spec?: KvRow[];
+  also?: { h2: string; rows: KvRow[] };   // optional band after the spec: related things we make
   faqH2: string;
   faq: FaqItem[];
   related: Card[];
@@ -158,7 +159,7 @@ export const GROUPS = {
   },
 
   terminals: {
-    crumb: "Electrical terminals & connectors", h1: "Brass electrical terminals & connectors", img: "terminal",
+    crumb: "Electrical terminals & connectors", h1: "Brass electrical parts: terminals, neutral links & connectors", img: "terminal",
     lead: "Terminal blocks, connectors, earth blocks and neutral links for wiring and panel boards, made to your drawing for switchgear, MCB and RCD makers.",
     facts: [
       ["Process", "Cut from extruded brass profile, then milled, drilled and tapped"],
@@ -173,6 +174,11 @@ export const GROUPS = {
     photos: [],
     specTitle: "Where they are used",
     spec: [["Equipment", "Wiring and panel boards; miniature circuit breakers (MCB), residual-current devices (RCD), circuit breakers and switchgear."]],
+    also: { h2: "Other electrical parts we make", rows: [
+      ["Stamped parts", <>Electrical stampings, fuse and switch parts, female crimp pins: <a className="link" href={P.stamping}>metal stamping parts</a></>],
+      ["Earthing", <>Brass earth tags sized to the gland thread: <a className="link" href={P.earthTags}>earth tags</a></>],
+      ["Cable entry", <>Brass cable glands, lock nuts and stop plugs for panels and enclosures: <a className="link" href={P.glands}>brass cable glands</a></>],
+    ] },
     faqH2: "Buying terminals from AirGrip",
     faq: [["Can you size a terminal to a current rating?", "Tell us the rating and the mating cable or busbar; we work to your drawing or propose one for your approval."]],
     related: [C.inserts, { ...C.earthTags, sub: "For cable glands" }, C.glands, C.turned],

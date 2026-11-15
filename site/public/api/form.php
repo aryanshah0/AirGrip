@@ -204,7 +204,7 @@ if ($form !== 'contact') {
             : ($form === 'rfq-quick' ? 'Your contact details' . (($q = implode(' · ', array_filter([$v['qty_order'] !== '' ? $v['qty_order'] . ' / order' : '', $v['qty_year'] !== '' ? $v['qty_year'] . ' / year' : '']))) !== '' ? " · $q" : '')
                 : 'A note describing the part') . ($v['nda'] === 'yes' ? ' (drawings follow after the NDA)' : '')),
     ];
-    if ($v['nda'] === 'yes') array_push($t, '', 'NDA: send us your NDA (email it to ' . $C['to'] . '); we sign it and send an upload link for your drawings.');
+    if ($v['nda'] === 'yes') array_push($t, '', 'NDA: send us your NDA by email to ' . $C['to'] . '. We sign and return it; then reply to that email with your drawings.');
     array_push($t, '', 'Sending a sample? Courier it to ' . $C['address'] . '. Mark the parcel with your company name and the reference above.',
         '', 'Questions: reply to this email, or call ' . $C['phone'] . '.', '', 'AirGrip, Jamnagar, India', 'https://airgrip.co.in');
     $copy = send_mail($C, $v['email'], 'Your quote request ' . $v['ref'] . ' to AirGrip', implode("\n", $t), $C['to']) ? 'copy sent' : 'copy FAILED';

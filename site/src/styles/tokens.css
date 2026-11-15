@@ -4,6 +4,10 @@
    In the build, fonts are self-hosted woff2 subsets; Google Fonts is used here for the mockup only.
    ===================================================================== */
 
+/* `hidden` must always hide: author rules such as `display: grid` would otherwise override the browser's own
+   [hidden] style (the contact form stayed on screen after sending). */
+[hidden] { display: none !important; }
+
 :root {
   /* ---- Colour ----------------------------------------------------- */
   --paper:        #FAFAF7;   /* page */

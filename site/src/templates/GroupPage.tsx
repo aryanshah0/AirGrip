@@ -50,6 +50,12 @@ export function GroupPage({ g }: { g: Group }) {
             <div className="sb"><Kv rows={g.spec} /></div>
           </div>
         ),
+        g.also && (
+          <div className="wrap side">
+            <div className="sh"><h2>{g.also.h2}</h2></div>
+            <div className="sb"><Kv rows={g.also.rows} /></div>
+          </div>
+        ),
         many && (
           <div className="wrap">
             <div className="open"><div><h2 className="sub">Examples</h2></div></div>

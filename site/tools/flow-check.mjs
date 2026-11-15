@@ -125,6 +125,7 @@ await ev("window.__f = window.fetch; window.fetch = () => Promise.resolve(new Re
 check("contact send fails: message above Send, message kept", await b.until("$('#csendmsg') && $('#csendmsg').nextElementSibling.querySelector('button[type=submit]') && $('#m').value === 'Hello' && $('#cdone').hidden"));
 await ev("window.fetch = window.__f; $('#cform button[type=submit]').click(); true");
 check("contact retry sends and confirms", await b.until("!$('#cdone').hidden && $('#cform').hidden"));
+check("contact form is gone from the screen after sending", await b.evalJs("getComputedStyle($('#cform')).display === 'none' && $('#cdone').offsetHeight > 0"));
 
 // --- home quick quote
 await go("/");

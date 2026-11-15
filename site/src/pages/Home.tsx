@@ -157,8 +157,8 @@ export default function Home() {
       <div className="rfq">{" "}
       <div className="rfq__l">{" "}
       <span className="eyebrow">Request for quote</span>{" "}
-      <h2>Send a drawing, get a price within two working days</h2>{" "}
-      <p>Include the quantity per order and per year. If a small design change would make the part cheaper to make, the quote will say so.</p>{" "}
+      <h2>Send a drawing. We reply within two working days.</h2>{" "}
+      <p>Include the quantity per order and per year. You get a price, MOQ and lead time, or our questions on the drawing. If a small design change would make the part cheaper to make, the quote says so.</p>{" "}
       <p className="rline">Typical: samples 2–3 weeks · production 4–6 weeks · MOQ per part</p>{" "}
       <p className="small" style={{"marginTop": "var(--s-2)"}}><a className="link" style={{"color": "var(--on-dark)"}} href="/exports/">Ordering &amp; shipping</a></p>{" "}
       <a className="btn btn--brass rfq__mbtn" href="/rfq/" style={{"display": "none", "marginTop": "var(--s-5)"}}>Send a drawing{" "}<span className="arr" aria-hidden="true">→</span></a>{" "}

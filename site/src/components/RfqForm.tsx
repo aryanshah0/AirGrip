@@ -207,7 +207,7 @@ export function RfqForm() {
     <fieldset id="drawings" key="drawings" className={nda ? "is-off" : undefined}>
       <legend>Drawings <span className="muted">one row per file</span></legend>
       <label className="check" style={{ marginBottom: "var(--s-3)" }}><input type="checkbox" {...check("nda")} /><span>Sign my NDA before I share drawings</span></label>
-      <p className="tbl-note" id="nda-note" hidden={!nda} style={{ margin: "0 0 var(--s-3)" }}>NDA requested: the upload is switched off and no files will be sent. List the parts and quantities below; send us your NDA (email it to {SITE.email}); we sign it and send an upload link.<span>{nda && draws.length ? ` Your ${draws.length} chosen file${draws.length > 1 ? "s are" : " is"} kept here and will not be sent unless you untick this box.` : ""}</span></p>
+      <p className="tbl-note" id="nda-note" hidden={!nda} style={{ margin: "0 0 var(--s-3)" }}>NDA requested: the upload is switched off and no files will be sent. List the parts and quantities below; send us your NDA by email to {SITE.email}. We sign and return it; then reply to that email with your drawings.<span>{nda && draws.length ? ` Your ${draws.length} chosen file${draws.length > 1 ? "s are" : " is"} kept here and will not be sent unless you untick this box.` : ""}</span></p>
       <p className="tbl-note" id="reattach" hidden={!reattach.length} style={{ margin: "0 0 var(--s-3)" }}>{reattach.length ? "Please attach your drawings again (files are not kept when you leave this page): " + reattach.map((r) => r.name).join(", ") + "." : ""}</p>
       <div className="sheet"><div className="frame">
         <label className="area" htmlFor="files">

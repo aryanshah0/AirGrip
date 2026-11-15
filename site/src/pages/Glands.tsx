@@ -42,7 +42,7 @@ export default function Glands() {
       <a href="/products/brass-cable-glands/stop-plugs/"><span className="th"><img src="/img/la/t/stopplug.svg" alt="" loading="lazy" /></span><span><b>Stop plugs</b><span>Close unused entries ·{" "}<span className="mono nw">AG-SP · AG-SH</span></span></span></a>{" "}
       <a href="/products/brass-cable-glands/earth-tags/"><span className="th"><img src="/img/la/t/earthtag.svg" alt="" loading="lazy" /></span><span><b>Earth tags</b><span>PG and metric ·{" "}<span className="mono nw">AG-ET</span></span></span></a>{" "}
       <a href="/products/brass-cable-glands/conduit-gland-parts/"><span className="th"><img src="/img/la/t/malebush.svg" alt="" loading="lazy" /></span><span><b>Conduit gland parts</b><span>Male bushes, conduit nuts ·{" "}<span className="mono nw">AG-MB · AG-CN</span></span></span></a>{" "}
-      <a href="/products/brass-cable-glands/pressure-screw/"><span className="th"><img src="/img/la/t/pscrew.svg" alt="" loading="lazy" /></span><span><b>Pressure screws &amp; spares</b><span>Pressure screws · dome cap nuts and seal inserts on request ·{" "}<span className="mono nw">AG-PS</span></span></span></a>{" "}
+      <a href="/products/brass-cable-glands/pressure-screw/"><span className="th"><img src="/img/la/t/pscrew.svg" alt="" loading="lazy" /></span><span><b>Pressure screws &amp; spares</b><span>Pressure screws · dome cap nuts on request ·{" "}<span className="mono nw">AG-PS</span></span></span></a>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}
