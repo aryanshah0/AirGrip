@@ -38,6 +38,7 @@
 
   /* ---- Type --------------------------------------------------------- */
   --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-text: "Archivo", "Archivo Text Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --t-11: 0.6875rem; --t-12: 0.75rem; --t-13: 0.8125rem; --t-14: 0.875rem; --t-15: 0.9375rem;
@@ -64,7 +65,7 @@
 /* ---- Base ------------------------------------------------------------ */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 16px); }
-body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-sans); font-size: var(--t-16); line-height: 1.6; font-variation-settings: "wdth" 100; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font-text); font-size: var(--t-16); line-height: 1.6; font-variation-settings: "wdth" 100; -webkit-font-smoothing: antialiased; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
@@ -74,6 +75,7 @@ a { color: inherit; }
 
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; font-weight: 600; }
 .display { font-size: var(--t-display); line-height: .98; font-weight: 580; font-variation-settings: "wdth" 125; letter-spacing: -0.035em; }
+.display, h1, .h1, h2, .h2, h3, .h3, .strip dd, .facts dd b, .brand b { font-family: var(--font-sans); }
 h1, .h1 { font-size: var(--t-h1); line-height: 1.02; font-weight: 600; font-variation-settings: "wdth" 125; letter-spacing: -0.03em; }
 h2, .h2 { font-size: var(--t-h2); line-height: 1.06; font-weight: 600; font-variation-settings: "wdth" 125; letter-spacing: -0.025em; }
 h3, .h3 { font-size: var(--t-h3); line-height: 1.2; font-weight: 600; font-variation-settings: "wdth" 112; letter-spacing: -0.015em; }
