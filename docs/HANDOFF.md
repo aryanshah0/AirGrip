@@ -127,11 +127,8 @@ The user wants this to END with a locked site that needs no further review or te
   sheet 27–29); Ketan's gland data and drawings (~1 month), ISO certificate copy, privacy legal advice.
 - Post-launch (P3) list: `docs/DESIGN-LOCK.md`, bottom.
 
-## 8. Attack round status (2026-11-15, morning)
-- All six reports are in `docs/attack-round/` (des, bin, bde, cpy, seo, qa). Merged list: `docs/attack-round/FINDINGS.md`,
-  also published as a private page for the user. 7 P1 (all re-checked on the build), 31 P2, ~90 P3. No big change;
-  designer: keep the drawing-sheet concept.
-- Outside the site: both domains are parked at Hostinger with no DNS (site offline, sales@airgrip.in mail likely not
-  arriving). Call sheet item 30.
-- Waiting for the user's approval plus two choices (photos A/B, Germany/EU page now/after). No fixes before approval.
-- New owner questions: call sheet 30–40.
+## 8. Status: LOCKED (2026-11-15)
+The attack round, fixes and verification round are complete; all six reviewers confirmed lockable. See
+`docs/SITE-LOCK.md` (what was reviewed, results, tests, honest limits, post-launch list). Next: Hostinger DNS/email
+(urgent, call sheet 30), then deploy per `docs/BUILD.md`, `tools/server-check.mjs https://airgrip.co.in` and one real
+test request. After the lock only Ketan's facts, live defects or buyer feedback change the site.
