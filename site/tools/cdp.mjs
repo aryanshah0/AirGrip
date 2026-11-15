@@ -55,8 +55,13 @@ export async function launch() {
   await send("Runtime.enable");
   const errors = () => events.filter((e) => e.method === "Runtime.exceptionThrown" || (e.method === "Runtime.consoleAPICalled" && e.params.type === "error"))
     .map((e) => e.params.exceptionDetails?.exception?.description || e.params.args?.map((a) => a.value ?? a.description).join(" "));
+  // a real key press: "Tab", "Escape", "Enter"; shift for Shift+key
+  const VK = { Tab: 9, Escape: 27, Enter: 13 };
+  async function press(key, shift = false) {
+    for (const type of ["keyDown", "keyUp"]) await send("Input.dispatchKeyEvent", { type, key, code: key, windowsVirtualKeyCode: VK[key], modifiers: shift ? 8 : 0 });
+  }
   const close = () => { ws.close(); chrome.kill(); };
-  return { send, evalJs, load, waitLoad, until, setFiles, events, errors, wait, close };
+  return { send, evalJs, load, waitLoad, until, setFiles, press, events, errors, wait, close };
 }
 
 // Helpers injected into pages: set a React-controlled field and fire the event React listens to.

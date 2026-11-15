@@ -86,7 +86,15 @@ await ev("btn('+ another finish').click(); true");
 check("+ another finish adds a second line for the same code", await ev("$$('#citems .item').length === 4 && $$('#citems .item b')[1].textContent === 'AG-SP-PG07-NI'"));
 await ev("setVal('#pc', 'ag-ps-pg09-sn'); $('#pc').dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); true");
 check("typed code with finish is added (Enter)", await b.until("$$('#citems .item b').some(x => x.textContent === 'AG-PS-PG09-SN')"));
-await b.setFiles("#files", [good, bad, big]);
+if (process.env.BROWSER === "safari") {
+  // safaridriver can only pick files the input's accept list allows (as a buyer's picker does); a wrong type still
+  // arrives by drag and drop, so it is put on the input the way a drop does
+  await b.setFiles("#files", [good]);
+  await b.until("$$('#ditems .item').length === 1");
+  await ev("(() => { const i = $('#files'), d = new DataTransfer(); d.items.add(new File(['x'], 'setup.exe')); i.files = d.files; i.dispatchEvent(new Event('change', { bubbles: true })); return true; })()");
+  await b.until("$$('#ditems .item').length === 2");
+  await b.setFiles("#files", [big]);
+} else await b.setFiles("#files", [good, bad, big]);
 await b.until("$$('#ditems .item').length === 3");
 check("three drawings listed, one row each", await ev("$$('#ditems .item').length === 3"));
 check("bad type and oversize are rejected on their row", await ev("$$('#ditems .item .fmsg').length === 2 && /not accepted/.test($$('#ditems .item')[1].textContent) && /over the 20 MB/.test($$('#ditems .item')[2].textContent)"));
@@ -136,12 +144,15 @@ check("contact form is gone from the screen after sending", await b.evalJs("getC
 // --- more than 20 drawings: the 21st is refused on its own row, not lost
 const many = Array.from({ length: 21 }, (_, i) => { const p = path.join(dir, `D-${i + 1}.pdf`); fs.writeFileSync(p, "%PDF-1.4"); return p; });
 await go("/rfq/");
-await b.setFiles("#files", many);
+if (process.env.BROWSER === "safari") {
+  // safaridriver hangs handing over 21 files at once; the limit is the form's own logic, so the files go on the input directly
+  await ev("(() => { const i = $('#files'), d = new DataTransfer(); for (let n = 1; n <= 21; n++) d.items.add(new File(['%PDF-1.4'], 'D-' + n + '.pdf', { type: 'application/pdf' })); i.files = d.files; i.dispatchEvent(new Event('change', { bubbles: true })); return true; })()");
+} else await b.setFiles("#files", many);
 await b.until("$$('#ditems .item').length === 21");
 check("21 drawings: the 21st is refused on its row", await ev("$$('#ditems .item .fmsg').length === 1 && /at most 20/.test($$('#ditems .item')[20].textContent)"));
 
 // --- header keyboard: Products -> its panel -> next link; Escape closes the phone menu
-const key = async (k, code, vk, shift = false) => { for (const type of ["keyDown", "keyUp"]) await b.send("Input.dispatchKeyEvent", { type, key: k, code, windowsVirtualKeyCode: vk, modifiers: shift ? 8 : 0 }); };
+const key = (k, _code, _vk, shift = false) => b.press(k, shift);
 await go("/", 1440);
 await ev("$('.nav button').focus(); $('.nav button').click(); true");
 await key("Tab", "Tab", 9);

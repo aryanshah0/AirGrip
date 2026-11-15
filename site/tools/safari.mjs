@@ -59,7 +59,15 @@ export async function launch() {
     const id = Object.values(el)[0];
     await call("POST", `/element/${id}/value`, { text: files.join("\n") });
   }
+  // a real key press (WebDriver actions): "Tab", "Escape"; shift for Shift+key
+  const WD_KEYS = { Tab: "\uE004", Escape: "\uE00C", Enter: "\uE007" };
+  async function press(key, shift = false) {
+    const k = WD_KEYS[key] || key, S_ = "\uE008";
+    const seq = [...(shift ? [{ type: "keyDown", value: S_ }] : []), { type: "keyDown", value: k }, { type: "keyUp", value: k }, ...(shift ? [{ type: "keyUp", value: S_ }] : [])];
+    await call("POST", "/actions", { actions: [{ type: "key", id: "kb", actions: seq }] });
+    await call("DELETE", "/actions");
+  }
   const errors = () => errs.slice();
   const close = async () => { await harvest(); try { await call("DELETE", ""); } catch { /* closed */ } driver.kill(); };
-  return { evalJs, load, waitLoad, until, setFiles, errors, wait, close, async finish() { await harvest(); } };
+  return { evalJs, load, waitLoad, until, setFiles, press, errors, wait, close, async finish() { await harvest(); } };
 }

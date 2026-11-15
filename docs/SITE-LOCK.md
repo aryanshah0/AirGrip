@@ -50,7 +50,9 @@ Before the attack, the 34 generated pages were rebuilt as four templates plus on
   - quote validity and metal price basis (35).
 
 ## Tests at the lock
-- `tools/flow-check.mjs`: **52 buyer flows pass** (Chrome). New in this round:
+- `tools/flow-check.mjs`: **52 buyer flows pass in Chrome and in real Safari on the Mac** (`BROWSER=safari`, run
+  2026-11-15 after the lock). In Safari, the wrong-type file and the 21 files are put on the file input as a drag-and-drop
+  would: safaridriver can only pick files the input's `accept` list allows, as a buyer's file picker does. New in this round:
   - the contact form is hidden after sending;
   - server refusal messages;
   - the 21st drawing;
@@ -82,9 +84,6 @@ Before the attack, the 34 generated pages were rebuilt as four templates plus on
   1024, 768 and 320.
 
 ## Not tested (honest limits)
-- **Real Safari on the Mac:** the flows can't run until Safari > Settings > Developer > "Allow remote automation" is on
-  (`BROWSER=safari node tools/flow-check.mjs`). The iOS Simulator (Safari, iOS 18.6) shows pages render, but no buyer
-  steps were run in it.
 - **Real phones** (Ketan: Android + Windows; Aryan: iPhone), Firefox, and real screen readers (VoiceOver / NVDA).
   Names and roles were checked with axe and by reading the page structure.
 - **The real Hostinger server:** PHP upload limits (`upload_max_filesize` ≥ 20M, `post_max_size` ≥ 128M,
