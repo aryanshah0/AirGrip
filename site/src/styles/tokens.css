@@ -38,6 +38,8 @@
 
   /* ---- Type --------------------------------------------------------- */
   --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-wide: "Archivo", "Archivo Wide Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mid: "Archivo", "Archivo Mid Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-text: "Archivo", "Archivo Text Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
@@ -75,7 +77,10 @@ a { color: inherit; }
 
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; font-weight: 600; }
 .display { font-size: var(--t-display); line-height: .98; font-weight: 580; font-variation-settings: "wdth" 125; letter-spacing: -0.035em; }
-.display, h1, .h1, h2, .h2, h3, .h3, .strip dd, .facts dd b, .brand b { font-family: var(--font-sans); }
+/* headings get the fallback matched to their width setting (wdth 125 / 112) */
+.display, h1, .h1, h2, .h2, .brand b { font-family: var(--font-wide); }
+h3, .h3, .strip dd, .facts dd b, .side > .sh h2, .sec > h2, h2.sub { font-family: var(--font-mid); }
+.consent h2 { font-family: var(--font-text); }
 h1, .h1 { font-size: var(--t-h1); line-height: 1.02; font-weight: 600; font-variation-settings: "wdth" 125; letter-spacing: -0.03em; }
 h2, .h2 { font-size: var(--t-h2); line-height: 1.06; font-weight: 600; font-variation-settings: "wdth" 125; letter-spacing: -0.025em; }
 h3, .h3 { font-size: var(--t-h3); line-height: 1.2; font-weight: 600; font-variation-settings: "wdth" 112; letter-spacing: -0.015em; }

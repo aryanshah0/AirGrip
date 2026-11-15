@@ -22,3 +22,7 @@
    (wdth 112–125) keep the system fallback: Arial is far narrower than wide Archivo. Where Arial is missing (Android)
    the face is skipped and the system font is used, as before. */
 @font-face { font-family: "Archivo Text Fallback"; src: local("Arial"), local("ArialMT"); size-adjust: 98.7%; ascent-override: 89.2%; descent-override: 21.3%; line-gap-override: 0%; }
+/* Headings: matched fallbacks for the wide settings (measured in Chrome against Arial Bold: Archivo 600 at wdth 125 is
+   123.2 % as wide, at wdth 112 108.7 %), so a heading doesn't take another line when Archivo arrives late. */
+@font-face { font-family: "Archivo Wide Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"); font-weight: 100 900; size-adjust: 123.2%; ascent-override: 71.4%; descent-override: 17%; line-gap-override: 0%; }
+@font-face { font-family: "Archivo Mid Fallback"; src: local("Arial Bold"), local("Arial-BoldMT"); font-weight: 100 900; size-adjust: 108.7%; ascent-override: 81%; descent-override: 19.3%; line-gap-override: 0%; }
