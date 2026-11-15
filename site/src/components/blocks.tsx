@@ -106,31 +106,3 @@ export function SizeGrid({ code, name, systems, col = "Thread", caption }: { cod
     </div>
   );
 }
-
-/** Thread-system tabs with one size table each: part code + "+ Add" per size. `prefix` keeps tab ids unique. */
-export function SizeTabs({ prefix, code, name, systems, col = "Thread" }: { prefix: string; code: string; name: string; systems: SizeSystem[]; col?: string }) {
-  return (
-    <>
-      <div className="seg" role="tablist" aria-label="Thread system">
-        {systems.map((s, i) => (
-          <button key={s.tab} role="tab" id={`${prefix}t${i}`} aria-selected={i === 0} aria-controls={`${prefix}p${i}`} tabIndex={i === 0 ? undefined : -1}>{s.tab}</button>
-        ))}
-      </div>
-      {systems.map((s, i) => (
-        <div key={s.tab} role="tabpanel" id={`${prefix}p${i}`} aria-labelledby={`${prefix}t${i}`} hidden={i > 0 || undefined}>
-          <div className="tbl"><table className="spec">
-            <thead><tr><th className="stick">Part code</th><th className="n">{col}</th></tr></thead>
-            <tbody>
-              {s.sizes.map((z) => (
-                <tr key={z.token}>
-                  <td className="stick"><PartCode code={`${code}-${z.token}`} /><AddQ code={`${code}-${z.token}`} label={`${name} ${z.label}`} /></td>
-                  <td className="n">{z.label}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table></div>
-        </div>
-      ))}
-    </>
-  );
-}

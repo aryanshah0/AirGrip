@@ -46,7 +46,7 @@ export default function Glands() {
       <dt>Stock</dt><dd>Made to order; lead time in the quote</dd>{" "}
       <dt>Quoting</dt><dd>Add sizes with{" "}<b>+ Add</b>{" "}on each datasheet and send them in one request; finish is chosen per line</dd>{" "}
       <dt>Drawings</dt><dd>Dimensioned drawing with every quote</dd>{" "}
-      <dt>Seal &amp; compliance</dt><dd>EPDM seal, IP54 · not certified for hazardous (Ex / ATEX) areas · leaded brass under RoHS Annex III exemption 6(c) · REACH statement on request</dd>{" "}
+      <dt>Seal &amp; compliance</dt><dd>EPDM seal, IP54 · not certified for hazardous (Ex / ATEX) areas · leaded brass (CW614N) under RoHS Annex III exemption 6(c), valid until 30 June 2027; lead-free CW724R on request · REACH: lead above 0.1 %, Article 33 statement on request</dd>{" "}
       </dl></div>{" "}
       </div>{" "}
       </section>{" "}

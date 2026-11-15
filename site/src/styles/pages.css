@@ -18,7 +18,8 @@
 .plate__sw { margin-bottom: var(--s-3); }
 .plate__ph { background: var(--card); border: 1px solid var(--ink-line); padding: 10px; display: grid; gap: 10px; }
 .plate__ph.is-many { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
-.plate__ph img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; border: var(--hair); display: block; }
+/* never shown wider than the photo file itself (old photos are 300–560 px): centred in a 4:3 cell instead of stretched */
+.plate__ph > img { width: 100%; aspect-ratio: 4 / 3; object-fit: scale-down; background: #fff; border: var(--hair); display: block; }
 .prod__thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-2); margin-top: var(--s-2); }
 .prod__thumbs > * { aspect-ratio: 4 / 3; }
 .prod__thumbs .photo { border: 1px solid var(--rule-strong); }

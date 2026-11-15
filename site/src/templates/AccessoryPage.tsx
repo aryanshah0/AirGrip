@@ -2,11 +2,18 @@
 // Content: ACCESSORIES in src/data/products.tsx.
 import "../styles/pages.css";
 import "./accessory.css";
-import { Arr, Code, Crumbs, Kv, Plate, Related, SizeGrid, SizeTabs } from "../components/blocks";
+import { Arr, Code, Crumbs, Kv, Plate, Related, SizeGrid } from "../components/blocks";
 import { FamilyProvider, FamilySwitch } from "../components/Family";
 import { PairPicker } from "../components/PairPicker";
 import type { Accessory, PartsAccessory, TabsAccessory } from "../data/products";
 import { P } from "../site";
+
+/** Compliance under every accessory size list (the gland pages carry the same facts in their compliance block). */
+function Compliance({ a }: { a: Accessory }) {
+  return a.material === "strip"
+    ? <p className="tbl-note">EN 10204 3.1 mill certificate with every batch. Strip grade and RoHS / REACH status with your quote.</p>
+    : <p className="tbl-note">Leaded brass (CW614N) contains lead above 0.1 % (REACH candidate list; Article 33 statement on request) and is covered by RoHS Annex III exemption 6(c), currently valid until 30 June 2027 (Delegated Directive (EU) 2025/2364); lead-free CW724R on request. EN 10204 3.1 mill certificate with every batch.</p>;
+}
 
 const NOTE = "Thread standards: PG DIN 40430\u00a0· metric EN 60423\u00a0· BSP ISO 228-1\u00a0· NPT ASME B1.20.1.";
 
@@ -25,6 +32,7 @@ function TabsSizes({ a }: { a: TabsAccessory }) {
           {a.family && <div className="seg-row"><span className="seg-k">{a.family.label}</span><FamilySwitch id={a.family.id} /></div>}
           <SizeGrid code={a.code} name={a.item} systems={a.systems} col={a.col} caption={a.name} />
           <p className="tbl-note" style={{ marginTop: "var(--s-5)" }}>{used.length > 2 ? NOTE : "Thread standards: PG DIN 40430\u00a0· metric EN 60423."}</p>
+          <Compliance a={a} />
         </div>
       </div>
     </div></section>
@@ -49,7 +57,7 @@ function PartsSizes({ a }: { a: PartsAccessory }) {
         <div className="photo"><img src={`/img/${p.photo}`} alt={`Brass ${p.title.toLowerCase()}`} loading="lazy" /></div>
         <div><h2 className="h3" style={{ margin: "0 0 var(--s-3)" }}>{p.title}</h2><p>{p.text}</p></div>
       </div>
-      {p.sizes && <SizeTabs prefix={p.sizes.prefix} code={p.sizes.code} name={p.sizes.item} systems={p.sizes.systems} />}
+      {p.sizes && <SizeGrid code={p.sizes.code} name={p.sizes.item} systems={p.sizes.systems} caption={p.title} />}
       {p.pair && <>
         <PairPicker {...p.pair} />
         <p className="tbl-note">Code: <Code>{p.pair.code}-[entry][gland]-[finish]</Code>, one quote line per pair. Finish is chosen in the quote form. Dimensions with your quote.</p>
@@ -61,6 +69,7 @@ function PartsSizes({ a }: { a: PartsAccessory }) {
       <div className="open"><div><h2>{a.h2}</h2></div><p>{a.intro}</p></div>
       {a.twoColumns ? <div className="parts2">{parts}</div> : parts}
       {a.notes}
+      <Compliance a={a} />
     </div></section>
   );
 }

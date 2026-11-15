@@ -318,6 +318,7 @@ interface AccessoryBase {
   lead: string;
   facts: KvRow[];
   related: Card[];
+  material?: "strip";      // earth tags: brass strip, grade not yet confirmed
 }
 /** One size table per thread system (stop plugs, earth tags). `heads` adds the head-type switch (stop plugs). */
 export interface TabsAccessory extends AccessoryBase {
@@ -328,7 +329,7 @@ export interface TabsAccessory extends AccessoryBase {
 /** Several parts, each with a short description and its own size tables or pair picker. */
 export interface PartsAccessory extends AccessoryBase {
   kind: "parts"; h2: string; intro: string; twoColumns: boolean;
-  parts: { id: string; title: string; photo: string; text: string; sizes?: { prefix: string; code: string; item: string; systems: { tab: string; sizes: Thread[] }[] }; pair?: { code: string; what: string; entry: string; gland: string } }[];
+  parts: { id: string; title: string; photo: string; text: string; sizes?: { code: string; item: string; systems: { tab: string; sizes: Thread[] }[] }; pair?: { code: string; what: string; entry: string; gland: string } }[];
   notes: ReactNode;
 }
 export type Accessory = TabsAccessory | PartsAccessory;
@@ -368,7 +369,7 @@ export const ACCESSORIES = {
     related: accRelated(P.stopPlugs),
   },
   earthTags: {
-    kind: "tabs", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photos: [["12-Earthing-Tag.webp", "Earth tags, photo"]],
+    kind: "tabs", material: "strip", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photos: [["12-Earthing-Tag.webp", "Earth tags, photo"]],
     lead: "Stamped from brass strip and sized to the gland thread: PG 7–48 and M12–M80.",
     facts: [
       ["For gland thread", <M>{RANGE}</M>],
@@ -404,7 +405,7 @@ export const ACCESSORIES = {
     related: accRelated(P.adapters),
   },
   conduit: {
-    kind: "parts", twoColumns: true, name: "Conduit gland parts", h1: "Brass conduit gland parts", code: "AG-MB · AG-CN", img: "malebush", photos: [],   // each part shows its own photo below
+    kind: "parts", twoColumns: false, name: "Conduit gland parts", h1: "Brass conduit gland parts", code: "AG-MB · AG-CN", img: "malebush", photos: [],   // each part shows its own photo below
     lead: "Male bushes and conduit gland nuts for cable and conduit entries into enclosures.",
     facts: [
       ["Threads", <M>{RANGE}</M>],
@@ -415,11 +416,11 @@ export const ACCESSORIES = {
     intro: "Add sizes to your quote; finish is chosen in the quote form.",
     parts: [
       { id: "male-bush", title: "Male bushes", photo: "09-Brass-Male-Bush.webp", text: "Protect the cable from sharp edges where it enters trunking, panels, machines or housings, indoors or outdoors. For unarmoured cable.",
-        sizes: { prefix: "b", code: "AG-MB", item: "Male bush", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
+        sizes: { code: "AG-MB", item: "Male bush", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
       { id: "conduit-nut", title: "Conduit gland nuts", photo: "11-Conduit-Gland-Nut-01.webp", text: "Brass nuts for conduit glands, PG 7–48 and M12–M80.",
-        sizes: { prefix: "c", code: "AG-CN", item: "Conduit gland nut", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
+        sizes: { code: "AG-CN", item: "Conduit gland nut", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
     ],
-    notes: <p className="tbl-note" style={{ marginTop: "var(--s-6)" }}>Dimensions with your quote.</p>,
+    notes: <p className="tbl-note" style={{ marginTop: "var(--s-6)" }}>Thread standards: PG DIN 40430&nbsp;· metric EN 60423. Dimensions come with your quote, on a dimensioned drawing.</p>,
     related: accRelated(P.conduit),
   },
 } satisfies Record<string, Accessory>;

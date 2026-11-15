@@ -38,7 +38,7 @@ export default function GermanyEu() {
           ["Threads", <>Metric (ISO 261), BSP parallel (ISO 228-1) and taper (ISO 7-1), NPT (ASME B1.20.1), UNC/UNF, PG; parallel threads gauged GO / NO-GO</>],
           ["Documents with every batch", "EN 10204 3.1 mill certificate, certificate of conformity and final inspection report"],
           ["On request", "PPAP Level 3; REACH Article 33 statement (leaded brass contains lead above 0.1 %)"],
-          ["RoHS", "Leaded brass is covered by RoHS Annex III exemption 6(c); lead-free CW724R on request"],
+          ["RoHS", "Leaded brass is covered by RoHS Annex III exemption 6(c), currently valid until 30 June 2027 (Delegated Directive (EU) 2025/2364); lead-free CW724R on request"],
           ["Measuring and complaints", "Instruments calibrated yearly by an NABL-accredited lab; 8D report within 5 days"],
           ["Audits", <>Supplier approval and plant visits: <a className="link" href={P.contact + "?topic=visit"}>arrange a visit</a> · <a className="link" href={P.quality}>Quality</a></>],
         ]} /></div>

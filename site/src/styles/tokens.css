@@ -37,7 +37,7 @@
   --error:#A3322A;
 
   /* ---- Type --------------------------------------------------------- */
-  --font-sans: "Archivo", "Archivo Fallback", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --t-11: 0.6875rem; --t-12: 0.75rem; --t-13: 0.8125rem; --t-14: 0.875rem; --t-15: 0.9375rem;
@@ -166,6 +166,8 @@ p { margin: 0; text-wrap: pretty; }
 .crumbs { display: flex; flex-wrap: wrap; gap: 8px; font-size: var(--t-13); color: var(--ink-3); list-style: none; padding: 0; margin: 0; }
 .crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--rule-strong); }
 .crumbs a { text-decoration: none; color: var(--ink-2); }
+/* phones: the current page's crumb stays on the line it starts on (it re-wrapped when the web font arrived: layout shift) */
+@media (max-width: 559px) { .crumbs li:last-child { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } }
 .crumbs a:hover { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
 .phead { padding-block: var(--s-6) var(--s-8); border-bottom: var(--hair); }
 .phead h1 { margin-block: var(--s-5) var(--s-4); max-width: 18ch; }
