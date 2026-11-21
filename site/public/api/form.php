@@ -60,7 +60,48 @@ function send_mail(array $C, string $to, string $subject, string $text, string $
         }
         $body .= "--$b--\r\n";
     }
+    // Hostinger's PHP mail() sends from the server's own address (noreply@srvNNNN.main-hosting.eu), so DMARC for
+    // airgrip.co.in fails and Gmail shows "via srvNNNN". Logging in to the mailbox over SMTP fixes both. Falls
+    // back to mail() when the password file is missing or SMTP fails, so a request is never lost.
+    $pass = is_readable($C['smtp_pass_file'] ?? '') ? trim((string) file_get_contents($C['smtp_pass_file'])) : '';
+    if ($pass !== '') {
+        $err = smtp_send($C, $pass, $to, mime_word($subject), $headers, $body);
+        if ($err === '') return true;
+        logline($C, "smtp failed: $err");
+    }
     return mail($to, mime_word($subject), $body, implode("\r\n", $headers), '-f' . $from);
+}
+
+/** Sends one message through the mailbox's SMTP server (implicit TLS, AUTH LOGIN). Returns '' or the error. */
+function smtp_send(array $C, string $pass, string $to, string $subject, array $headers, string $body): string
+{
+    $s = @stream_socket_client('ssl://' . $C['smtp_host'] . ':' . $C['smtp_port'], $en, $es, 15);
+    if (!$s) return "connect: $es";
+    stream_set_timeout($s, 30);
+    $talk = function (?string $line, string $want) use ($s): string {
+        if ($line !== null) fwrite($s, $line . "\r\n");
+        $r = '';
+        while (($l = fgets($s, 1024)) !== false) { $r .= $l; if (strlen($l) < 4 || $l[3] === ' ') break; }
+        return strncmp($r, $want, 3) === 0 ? '' : trim($r ?: 'no answer');
+    };
+    $from = $C['from'];
+    $data = implode("\r\n", array_merge([
+        'Date: ' . date('r'),
+        'Message-ID: <' . bin2hex(random_bytes(12)) . '@' . substr(strrchr($from, '@'), 1) . '>',
+        "To: $to",
+        "Subject: $subject",
+    ], $headers)) . "\r\n\r\n" . preg_replace('/^\./m', '..', str_replace(["\r\n", "\n"], ["\n", "\r\n"], $body));
+    foreach ([
+        [null, '220'], ['EHLO ' . substr(strrchr($from, '@'), 1), '250'], ['AUTH LOGIN', '334'],
+        [base64_encode($from), '334'], [base64_encode($pass), '235'],
+        ["MAIL FROM:<$from>", '250'], ["RCPT TO:<$to>", '250'], ['DATA', '354'], [rtrim($data, "\r\n") . "\r\n.", '250'],
+    ] as [$line, $want]) {
+        $e = $talk($line, $want);
+        if ($e !== '') { fclose($s); return ($line === base64_encode($pass) ? 'login' : strtok((string) $line, ':')) . ": $e"; }
+    }
+    $talk('QUIT', '221');
+    fclose($s);
+    return '';
 }
 
 function rrmdir(string $dir): void

@@ -5,6 +5,11 @@ return [
     'to'   => 'sales@airgrip.in',
     'from' => 'website@airgrip.co.in',
     'from_name' => 'AirGrip website',
+    // Mail is sent by logging in to that mailbox over SMTP (so SPF/DKIM/DMARC pass). Its password lives only on the
+    // server, in this file (one line, chmod 600), never in the repo. Without the file, PHP mail() is used.
+    'smtp_host' => 'smtp.hostinger.com',
+    'smtp_port' => 465,
+    'smtp_pass_file' => dirname($_SERVER['DOCUMENT_ROOT'] ?: __DIR__ . '/..') . '/airgrip-forms/smtp-password.txt',
 
     // Only forms on these sites may post (stops other sites using this script).
     'origins' => ['https://airgrip.co.in', 'https://www.airgrip.co.in'],
