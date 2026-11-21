@@ -83,7 +83,10 @@ The site runs on AirGrip's Hostinger Business plan (website airgrip.co.in, PHP 8
   Log: `airgrip-forms/log.txt`.
 - **Email (open on 2026-11-21):** sales@airgrip.in receives nothing until airgrip.in's nameservers at Netandhost are
   `hermes.dns-parking.com` / `artemis.dns-parking.com` and the inbox exists (call sheet 30). The forms send from
-  website@airgrip.co.in: create that mailbox on the airgrip.co.in email plan (its MX/SPF are live).
+  website@airgrip.co.in (mailbox created 2026-11-22). `form.php` logs in to it over SMTP (smtp.hostinger.com:465);
+  its password is only on the server in `airgrip-forms/smtp-password.txt` (chmod 600). Without that file it falls
+  back to PHP mail(), which Hostinger sends from noreply@srv…main-hosting.eu (DMARC fails, Gmail shows "via").
+  Tested 2026-11-22: buyer copy in the Gmail inbox, SPF, DKIM (airgrip.co.in) and DMARC all PASS.
 - **After email works:** send one real quote request with a small drawing and check it reaches sales@airgrip.in and
   the buyer copy arrives (check spam; DKIM is set by Hostinger email). Then Search Console: add the property,
   submit `https://airgrip.co.in/sitemap.xml`.
