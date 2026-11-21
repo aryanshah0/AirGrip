@@ -140,4 +140,5 @@ old WordPress hack, old sitemap_index.xml) all return 404 now. Check the Pages r
 Since 2026-11-21 those WordPress archive paths answer 410 (.htaccess from prerender.mjs; server-check covers them) and
 Search Console has temporary prefix removals for /category/ and /2026/ (about 6 months, enough for the 410s to clear them).
 Recheck `site:airgrip.co.in` on Google after a few days: only the new pages should remain.
+**Analytics (2026-11-21):** GA4 live, see docs/BUILD.md › Analytics switch (call sheet 28 answered: new property).
 brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deploy/update: docs/BUILD.md › Deploy.

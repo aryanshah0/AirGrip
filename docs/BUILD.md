@@ -58,7 +58,14 @@ npm run build  ->  dist/  one index.html per URL, sitemap.xml, robots.txt, .htac
 ```
 VITE_GA_ID=G-XXXXXXXXXX     # GA4; empty = no analytics at all
 ```
-- **GA4:** the old site's Google Site Kit used property 336239038, measurement ID `G-BLFBKNQ02D` (an older stream
+- **Live since 2026-11-21:** `VITE_GA_ID=G-N35WZ2PV3G` (new GA4 account "AirGrip", property "airgrip.co.in", in Ketan's
+  marketing Google account; India time, INR; optional data sharing with Google off; linked to Search Console). The ID
+  is public (it is in every page) but lives in the uncommitted `.env.production`: a deploy from another machine without
+  that file ships the site without analytics (the build prints "no GA4 ID"). Tested on the live site: nothing goes to
+  Google before consent; after "Accept analytics" gtag.js loads and the page view arrives in GA real-time.
+  To do after the first real request: in GA Admin › Events, star `rfq_submit` and `contact_submit` as key events
+  (GA only lists an event once it has fired).
+- **Old GA4 (not reused):** the old site's Google Site Kit used property 336239038, measurement ID `G-BLFBKNQ02D` (an older stream
   "airgrip.co.in - GA4", `G-LY6PM6QR5B`, also appears). Reusing the property keeps the traffic history; Ketan must
   confirm who owns that Google account. Consent Mode v2 is wired: nothing loads until a visitor accepts analytics.
   Events: `rfq_submit`, `contact_submit`, `basket_add`, `tel_click`, `mailto_click`, `whatsapp_click`, `pdf_download`.
