@@ -131,7 +131,7 @@ The user wants this to END with a locked site that needs no further review or te
 Locked site deployed (Ketan's go-ahead, email still pending). Live checks: 283 server checks, 52 buyer flows,
 test request end to end (kept on the server, mail accepted). Open: sales@airgrip.in email (Netandhost nameservers),
 website@airgrip.co.in mailbox, Google Business Profile, Ketan's call sheet 30–44.
-**Search Console (2026-11-21):** domain property airgrip.co.in in Ketan's Google account (marketing.airgrip@gmail.com),
+**Search Console (2026-11-21):** domain property airgrip.co.in in Ketan's marketing Google account,
 verified by a `google-site-verification` TXT record on @ in Hostinger DNS: **never delete that record**. Sitemap
 https://airgrip.co.in/sitemap.xml read with 33 pages; indexing requested for home, products, turned components, cable
 glands, electrical terminals, capabilities, Germany & EU. Old submissions (shop.php / goods.php spam sitemaps from the
