@@ -136,4 +136,8 @@ verified by a `google-site-verification` TXT record on @ in Hostinger DNS: **nev
 https://airgrip.co.in/sitemap.xml read with 33 pages; indexing requested for home, products, turned components, cable
 glands, electrical terminals, capabilities, Germany & EU. Old submissions (shop.php / goods.php spam sitemaps from the
 old WordPress hack, old sitemap_index.xml) all return 404 now. Check the Pages report a few days after go-live.
+**Hacked old site:** Google still indexed casino-spam pages under /category/ and /2026/MM/ (old WordPress, Apr–Jul 2026).
+Since 2026-11-21 those WordPress archive paths answer 410 (.htaccess from prerender.mjs; server-check covers them) and
+Search Console has temporary prefix removals for /category/ and /2026/ (about 6 months, enough for the 410s to clear them).
+Recheck `site:airgrip.co.in` on Google after a few days: only the new pages should remain.
 brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deploy/update: docs/BUILD.md › Deploy.
