@@ -54,7 +54,9 @@ for (const [old, to] of moves) {
 }
 
 // gone and missing
-for (const p of ["/wp-admin/", "/wp-content/uploads/x.jpg", "/wp-login.php", "/xmlrpc.php", "/feed/", "/?p=12", "/index.php?page_id=5"]) {
+for (const p of ["/wp-admin/", "/wp-content/uploads/x.jpg", "/wp-login.php", "/xmlrpc.php", "/feed/", "/?p=12", "/index.php?page_id=5",
+  "/category/crypto-casinos/", "/tag/x/", "/author/admin/", "/page/2/", "/2026/04/page/2/", "/2026/07/16/some-post/",
+  "/comments/feed/", "/shop.php?sitemap-146.xml", "/goods.php?sitemap-127.xml", "/sitemap_index.xml", "/post-sitemap.xml"]) {
   const r = await get(p);
   check(`${p} answers 410`, r.status === 410, String(r.status));
 }

@@ -181,6 +181,12 @@ RewriteRule ^(.*/)?index\\.html$ /$1 [R=301,L]
 ${MAP.flatMap(([olds, to]) => olds.map((o) => `RewriteRule ^${reEsc(o)}/?$ ${to} [R=301,NE,L]`)).join("\n")}
 RewriteRule ^(wp-content|wp-admin|wp-includes|wp-json)(/|$) - [G,L]
 RewriteRule ^(wp-login\\.php|xmlrpc\\.php|feed/?)$ - [G,L]
+# WordPress archives and feeds: the hacked old site filled these with casino spam (2026), still in Google's index
+RewriteRule ^(category|tag|author|page)(/|$) - [G,L]
+RewriteRule ^(19|20)[0-9][0-9](/|$) - [G,L]
+RewriteRule (^|/)feed/?$ - [G,L]
+RewriteRule ^(shop|goods)\\.php$ - [G,L]
+RewriteRule ^(sitemap_index|wp-sitemap[^/]*|[a-z_]+-sitemap[0-9]*)\\.xml$ - [G,L]
 RewriteCond %{QUERY_STRING} (^|&)(p|page_id|cat|tag)=
 RewriteRule ^(index\\.php)?$ - [G,L]
 # older static site: pages moved (301)
