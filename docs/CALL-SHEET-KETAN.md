@@ -110,3 +110,16 @@ Until answered, the site uses safe interim wording (docs/attack-round/FINDINGS.m
 38. Are the parts in the photos `02-Product-We-Manufactur.webp` and `Brass-Precision-turned-Parts-2.webp` AirGrip's own?
 39. OK to say "GST and PAN on request" and "completed supplier questionnaire on request"?
 40. Sea transit time to Hamburg / Rotterdam; HS codes per product group.
+
+## Added by the old-site comparison (2026-11-21)
+Claims the old site made that would strengthen the new one, if still true (not on the new site until confirmed):
+41. Old turned-parts page: "Accuracy of 20 to 30 microns can be achieved with CNC". Still true? Then the ±0.05 mm
+    headline can say what CNC holds (see 33).
+42. Old quality page: "100 % visual inspection to ensure visual-defect-free products". Is every part visually
+    inspected before packing (you told us final inspection is sample-based)?
+43. Old site: "brass extrusion plants within 3 km". OK to say rod comes from mills nearby (short material lead time)?
+44. **Email and phone continuity at go-live:** the old site showed **sales@airgrip.co.in** on every page for years and
+    sent forms to inquiry@airgrip.co.in; customers and directory listings still use them. Create both as forwarders
+    to sales@airgrip.in when Hostinger email is set up (today airgrip.co.in has no mail records, so they bounce). The
+    old numbers (+91 79900 38395, +91 94264 65801 / 802) are on old listings: are they still answered, or should the
+    listings be updated to +91 93166 15007?

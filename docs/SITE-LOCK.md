@@ -95,8 +95,10 @@ Before the attack, the 34 generated pages were rebuilt as four templates plus on
    no records: the old site is offline and **mail to sales@airgrip.in is very likely not arriving** (call sheet 30).
    Someone with the hPanel login sets up DNS and email, and creates the mailbox `website@airgrip.co.in` that the forms
    send from.
-2. The upload to Hostinger and the checks after it (`docs/BUILD.md` › Deploy).
-3. Already agreed to follow after go-live: Ketan's gland size table and drawings, the ISO certificate details, and legal
+2. **Email continuity:** forward sales@airgrip.co.in and inquiry@airgrip.co.in (on the old site for years) to
+   sales@airgrip.in when Hostinger email is set up (call sheet 44).
+3. The upload to Hostinger and the checks after it (`docs/BUILD.md` › Deploy).
+4. Already agreed to follow after go-live: Ketan's gland size table and drawings, the ISO certificate details, and legal
    advice on the privacy page (HANDOFF §6c.4). Open questions are on `docs/CALL-SHEET-KETAN.md` (items 1–40).
 
 ## Post-launch list (P3)
@@ -134,3 +136,12 @@ one-liners, plus the older list at the bottom of `docs/DESIGN-LOCK.md`. These ar
 - Then run `npm run build`, `tools/flow-check.mjs`, `tools/a11y-check.mjs` and (on the server) `tools/server-check.mjs`.
   Use `tools/visual-check.mjs <new> <reference> --pixels` to see exactly what changed.
 - Regenerate the company profile with `node tools/make-profile.mjs` after any fact in it changes.
+
+## Old-site comparison (2026-11-21)
+Every item of the old site's 35 pages (reference/old-site-reference/content) was checked against the built site's text.
+About 94 % is carried over or deliberately replaced by Ketan's answers (Ø5–100 mm instead of Ø5–75, six industries,
+generic gland names, phones and email). Deliberately left out: marketing filler (DMAIC slogans, "near zero defect",
+"over 29 years"), the careers page (not for buyers), the per-page "Request a call back" form (replaced by Call,
+WhatsApp and a phone field on every form) and unconfirmed scope (wood/Phillips screws, spring/stainless stampings,
+ACME/Edison threads, 7 more industries). Three old claims that would strengthen the site went to Ketan (call sheet
+41–43); one operational must went on the go-live list (old email addresses, call sheet 44).
