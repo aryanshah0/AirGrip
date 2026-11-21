@@ -142,3 +142,14 @@ Search Console has temporary prefix removals for /category/ and /2026/ (about 6 
 Recheck `site:airgrip.co.in` on Google after a few days: only the new pages should remain.
 **Analytics (2026-11-21):** GA4 live, see docs/BUILD.md › Analytics switch (call sheet 28 answered: new property).
 brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deploy/update: docs/BUILD.md › Deploy.
+
+## 9. Status on 2026-11-22
+- **Google:** casino spam gone from `site:airgrip.co.in` (Search Console removals active); 7 new pages indexed;
+  airgrip.co.in is #1 for "airgrip" and "airgrip jamnagar". Not yet on page 1 for "brass turned components
+  manufacturer jamnagar". Two old results (/process-we-do "Coming Soon", /quality-assurance) still show old text;
+  recrawl requested (both 301 to the new pages). Page indexing report still "processing".
+- **Email:** website@airgrip.co.in sends over SMTP (SPF/DKIM/DMARC pass, tested). **sales@airgrip.in still receives
+  nothing:** airgrip.in has NS pixel/byte.dns-parking.com but is not added in AirGrip's Hostinger account and has no
+  email plan (Ketan). Forwarders sales@/inquiry@airgrip.co.in: owner said not now. No Bing (owner's decision).
+- **GA4:** receiving visits. rfq_submit / contact_submit become starrable as key events after the first request sent
+  with analytics consent.
