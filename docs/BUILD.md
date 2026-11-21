@@ -63,14 +63,23 @@ VITE_GA_ID=G-XXXXXXXXXX     # GA4; empty = no analytics at all
   confirm who owns that Google account. Consent Mode v2 is wired: nothing loads until a visitor accepts analytics.
   Events: `rfq_submit`, `contact_submit`, `basket_add`, `tel_click`, `mailto_click`, `whatsapp_click`, `pdf_download`.
 
-## Deploy (Hostinger, once the plan is known)
-1. In hPanel: create the mailbox `website@airgrip.co.in` (the forms send from it). PHP 8.1 or newer.
-2. `cd site && npm ci && npm run build && node scripts/check-dist.mjs --launch`
-3. Upload the **contents** of `site/dist/` (including the hidden `.htaccess` files and `api/`) to `public_html/`.
-4. `node tools/server-check.mjs https://airgrip.co.in` must pass.
-5. Send one real quote request with a small drawing and one contact message; check both arrive at sales@airgrip.in
-   and the buyer copy arrives (also check its spam folder: if it lands there, add SPF/DKIM for airgrip.co.in in hPanel).
-6. Search Console: add the property, submit `https://airgrip.co.in/sitemap.xml`.
+## Deploy (Hostinger: live since 2026-11-21)
+The site runs on AirGrip's Hostinger Business plan (website airgrip.co.in, PHP 8.3, SSL and CDN on).
+- **Update the live site:** `cd site && ./scripts/deploy.sh`. It builds, runs the launch gate, backs up the current
+  `public_html` on the server (`~/backups/`, last 5 kept), uploads with rsync over SSH and runs
+  `tools/server-check.mjs https://airgrip.co.in`. It needs the SSH alias `airgrip-hostinger` in `~/.ssh/config` on
+  the deploying Mac (key `~/.ssh/airgrip_hostinger`, added in hPanel › airgrip.co.in › Advanced › SSH Access). The
+  host and user are deliberately not in this public repo.
+- **Form requests kept on the server:** every request (text + attached drawings) is also saved in
+  `domains/airgrip.co.in/airgrip-forms/requests/` (outside the web root, deleted after 60 days), so none is lost if
+  the sales mailbox can't receive. List them: `ssh airgrip-hostinger 'ls domains/airgrip.co.in/airgrip-forms/requests'`.
+  Log: `airgrip-forms/log.txt`.
+- **Email (open on 2026-11-21):** sales@airgrip.in receives nothing until airgrip.in's nameservers at Netandhost are
+  `hermes.dns-parking.com` / `artemis.dns-parking.com` and the inbox exists (call sheet 30). The forms send from
+  website@airgrip.co.in: create that mailbox on the airgrip.co.in email plan (its MX/SPF are live).
+- **After email works:** send one real quote request with a small drawing and check it reaches sales@airgrip.in and
+  the buyer copy arrives (check spam; DKIM is set by Hostinger email). Then Search Console: add the property,
+  submit `https://airgrip.co.in/sitemap.xml`.
 
 ## Where the build deliberately differs from the design files
 - **Real behaviour instead of mock-ups:** forms send to the endpoint; the thank-you page shows the reference that was

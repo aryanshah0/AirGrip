@@ -127,8 +127,8 @@ The user wants this to END with a locked site that needs no further review or te
   sheet 27–29); Ketan's gland data and drawings (~1 month), ISO certificate copy, privacy legal advice.
 - Post-launch (P3) list: `docs/DESIGN-LOCK.md`, bottom.
 
-## 8. Status: LOCKED (2026-11-15)
-The attack round, fixes and verification round are complete; all six reviewers confirmed lockable. See
-`docs/SITE-LOCK.md` (what was reviewed, results, tests, honest limits, post-launch list). Next: Hostinger DNS/email
-(urgent, call sheet 30), then deploy per `docs/BUILD.md`, `tools/server-check.mjs https://airgrip.co.in` and one real
-test request. After the lock only Ketan's facts, live defects or buyer feedback change the site.
+## 8. Status: LIVE on airgrip.co.in (2026-11-21)
+Locked site deployed (Ketan's go-ahead, email still pending). Live checks: 283 server checks, 52 buyer flows,
+test request end to end (kept on the server, mail accepted). Open: sales@airgrip.in email (Netandhost nameservers),
+website@airgrip.co.in mailbox, Search Console + sitemap, Google Business Profile, Ketan's call sheet 30–44.
+brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deploy/update: docs/BUILD.md › Deploy.

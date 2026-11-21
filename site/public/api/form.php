@@ -90,8 +90,8 @@ if (count($hits) >= $C['per_hour']) answer(429, 'too many requests');
 $hits[] = $now;
 @file_put_contents($rateFile, implode(',', $hits), LOCK_EX);
 
-// Remove saved drawings older than keep_days, and stale rate files.
-foreach (glob($C['data_dir'] . '/files/*', GLOB_ONLYDIR) ?: [] as $d) {
+// Remove saved drawings and kept requests older than keep_days, and stale rate files.
+foreach (array_merge(glob($C['data_dir'] . '/files/*', GLOB_ONLYDIR) ?: [], glob($C['data_dir'] . '/requests/*', GLOB_ONLYDIR) ?: []) as $d) {
     if (filemtime($d) < $now - $C['keep_days'] * 86400) rrmdir($d);
 }
 foreach (glob($C['data_dir'] . '/rate-*') ?: [] as $f) { if (filemtime($f) < $now - 7200) @unlink($f); }
@@ -197,6 +197,13 @@ elseif ($attach) $lines[] = "\n" . count($attach) . ' drawing(s) attached.';
 if ($skipped) $lines = array_merge($lines, ['', 'Not received:'], $skipped);
 $lines[] = "\nThe buyer agreed to the privacy policy. " . ($asciiEmail ? 'Reply to this email to answer them.'
     : 'Their address has non-ASCII characters, so replying to this email does not reach them: write to ' . $v['email'] . ' directly.');
+// Keep a copy of every request on the server (outside public_html), so none is lost if the sales mailbox can't
+// receive; deleted after keep_days, like saved drawings.
+$arch = $C['data_dir'] . '/requests/' . gmdate('Ymd-His') . '-' . ($form !== 'contact' ? $v['ref'] : 'contact-' . bin2hex(random_bytes(3)));
+if (@mkdir($arch, 0700, true)) {
+    @file_put_contents("$arch/request.txt", "To: {$C['to']}\nSubject: $subject\nReply to: {$v['email']}\n\n" . implode("\n", $lines) . "\n");
+    foreach ($attach as $n => $f) @copy($f['path'], sprintf('%s/%02d-%s', $arch, $n + 1, $f['name']));
+}
 if (!send_mail($C, $C['to'], $subject, implode("\n", $lines), $asciiEmail ? $v['email'] : $C['to'], $attach)) {
     logline($C, "$form\t" . ($v['ref'] ?? '') . "\tFAILED to send to sales");
     answer(502, 'mail');
