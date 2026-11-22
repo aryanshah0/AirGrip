@@ -12,7 +12,7 @@ export default function About() {
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>{" "}
       <div className="ahero">{" "}
       <div><h1>Brass parts from Jamnagar since 1988</h1><p className="lead">AirGrip makes brass parts to customer drawings, from turned components and forgings to fittings, inserts, terminals, fasteners and stampings, and a standard range of brass cable glands and accessories. We supply OEMs in India and more than 40 countries.</p></div>{" "}
-      <div className="photo"><img src="/img/03-Machining-Service-We-Provide.webp" alt="Brass hose nozzle being turned on a CNC lathe" loading="lazy" /></div>{" "}
+      <div className="photo"><img src="/img/cnc-turning-brass-nozzle.webp" alt="Brass hose nozzle being turned on a CNC lathe" loading="lazy" /></div>{" "}
       </div>{" "}
       <dl className="strip" style={{"marginTop": "var(--s-7)"}}>{" "}
       <div><dt>Founded</dt><dd>1988<small>Jamnagar, Gujarat</small></dd></div>{" "}
@@ -33,7 +33,7 @@ export default function About() {
       </div>{" "}
       <aside>{" "}
       <dl className="kv">{" "}
-      <dt>Exports</dt><dd>25 % of output, 40+ countries ·{" "}<a className="link" href="/exports/">Ordering &amp; shipping</a></dd>{" "}
+      <dt>Buying from us</dt><dd>Incoterms, shipping and documents:{" "}<a className="link" href="/exports/">Ordering &amp; shipping</a></dd>{" "}
       </dl>{" "}
       <p className="small muted" style={{"marginTop": "var(--s-4)"}}>Quotes, invoices and certificates are issued by AirGrip.</p>{" "}
       <p style={{"marginTop": "var(--s-5)"}}><a className="more" href="/capabilities/">Capabilities{" "}<span aria-hidden="true">→</span></a></p>{" "}

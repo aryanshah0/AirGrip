@@ -30,9 +30,10 @@ await ev("btn('Essential only').click(); true");
 check("Essential only closes it and stores the choice", await ev("$('.consent').hidden && localStorage.getItem('ag-consent') === 'essential'"));
 await go("/");
 check("banner stays closed on the next page", await ev("$('.consent').hidden"));
-await ev("$('[data-cookie-settings]').click(); true");
+await ev("$('[data-cookie-settings]').focus(); $('[data-cookie-settings]').click(); true");
 check("footer Cookie settings reopens it", await ev("!$('.consent').hidden"));
 await ev("btn('Essential only').click(); true");
+check("after a choice, focus goes back to the Cookie settings link", await ev("document.activeElement === $('[data-cookie-settings]')"));
 
 // --- header
 await ev("$('.nav button').click(); true");

@@ -68,3 +68,9 @@ Applied (summary):
 - Accessory drawings keep illustrative numbers (captioned "Illustrative drawing, not to size").
 - From the build review (2026-11-15, P3): mega menu links come after the rest of the header in keyboard order, and the menu stays open when focus leaves it; focus after choosing a cookie option; LocalBusiness `geo`; per-template share images; titles over 60 characters (12 pages) and "manufacturer" in the turned-components title; more internal links from accessory pages to thread charts and grades; decide whether old `/wp-content/uploads/` files (PDFs, images) with backlinks should 301 instead of 410.
 - From the v1.2 sign-off (P3): "Used with" caption pattern; one CTA label on made-to-drawing pages; RFQ thank-you copy for catalogue-only requests; terminals "Where they are used" band; catalogue items without sample approval in the order flow; packing and labelling options for the whole standard range; home machines tile wording; "samples free" on the RFQ page; About export figure repeated; Contact names Shree Shah twice.
+- **Done 2026-11-22:** titles ≤ 60 characters on every page; per-page share images (`tools/make-og.mjs`); LocalBusiness
+  `geo`/`hasMap` + Organization `sameAs`; focus returns after a cookie choice; accessory thread standards link to the
+  charts, lead-free notes to the guide; footer links the buyer guides; NPT 3/8 and 2 inch pipe OD rounded half-up
+  (17.15, 60.33); Contact names Shree Shah once; About export figure no longer repeated; unused images removed and
+  photos given descriptive file names. Already done earlier: mega-menu keyboard order and close on focus leave,
+  mobile-nav Escape, aria-current. Checked and left: the 3 pages with lab CLS 0.06–0.09 measure ≈0 on repeat runs.

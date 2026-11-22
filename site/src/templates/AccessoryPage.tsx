@@ -12,10 +12,13 @@ import { P } from "../site";
 function Compliance({ a }: { a: Accessory }) {
   return a.material === "strip"
     ? <p className="tbl-note">EN 10204 3.1 mill certificate with every batch. Strip grade and RoHS / REACH status with your quote.</p>
-    : <p className="tbl-note">Leaded brass (CW614N) contains lead above 0.1 % (REACH candidate list; Article 33 statement on request) and is covered by RoHS Annex III exemption 6(c), currently valid until 30 June 2027 (Delegated Directive (EU) 2025/2364); lead-free CW724R on request. EN 10204 3.1 mill certificate with every batch.</p>;
+    : <p className="tbl-note">Leaded brass (CW614N) contains lead above 0.1 % (REACH candidate list; Article 33 statement on request) and is covered by RoHS Annex III exemption 6(c), currently valid until 30 June 2027 (Delegated Directive (EU) 2025/2364); <a className="link" href={P.guideLeadFree}>lead-free</a> CW724R on request. EN 10204 3.1 mill certificate with every batch.</p>;
 }
 
-const NOTE = "Thread standards: PG DIN 40430\u00a0· metric EN 60423\u00a0· BSP ISO 228-1\u00a0· NPT ASME B1.20.1.";
+/** Thread standards under the size lists, each linked to its chart. */
+function ThreadStd({ all }: { all: boolean }) {
+  return <>Thread standards: <a className="link" href={P.pg}>PG DIN 40430</a>&nbsp;· <a className="link" href={P.metric}>metric EN 60423</a>{all && <>&nbsp;· <a className="link" href={P.bsp}>BSP ISO 228-1</a>&nbsp;· <a className="link" href={P.npt}>NPT ASME B1.20.1</a></>}.</>;
+}
 
 /** Same layout as the gland pages: the drawing as a key on the left, every thread system side by side on the right. */
 function TabsSizes({ a }: { a: TabsAccessory }) {
@@ -31,7 +34,7 @@ function TabsSizes({ a }: { a: TabsAccessory }) {
         <div>
           {a.family && <div className="seg-row"><span className="seg-k">{a.family.label}</span><FamilySwitch id={a.family.id} /></div>}
           <SizeGrid code={a.code} name={a.item} systems={a.systems} col={a.col} caption={a.name} />
-          <p className="tbl-note" style={{ marginTop: "var(--s-5)" }}>{used.length > 2 ? NOTE : "Thread standards: PG DIN 40430\u00a0· metric EN 60423."}</p>
+          <p className="tbl-note" style={{ marginTop: "var(--s-5)" }}><ThreadStd all={used.length > 2} /></p>
           <Compliance a={a} />
         </div>
       </div>

@@ -117,7 +117,7 @@ GROUPS = [
          ("Documents", DOCS), ("Volumes", VOL)],
   types=["Pipe fittings: adaptors, nipples, couplings, tees, elbows", "Hose-barb fittings", "Compression fittings",
          "Pneumatic and airline fittings", "Hydraulic fittings", "Automotive fittings"],
-  photos=[("Brass-Fittings.webp", "Brass fittings")],
+  photos=[("brass-fittings-range.webp", "Brass fittings")],
   spec_title="How fittings are made",
   spec=[("Forged, then machined", "Bodies with side branches (tees, elbows, crosses) are hot-forged near net shape, then drilled and threaded: less material and fewer operations than bar."),
         ("Turned from bar", "Straight connectors, adaptors, nipples and hose barbs are turned on CNC lathes or cam automats.")],
@@ -161,7 +161,7 @@ GROUPS = [
          ("Finish", PLATED2),
          ("Documents", DOCS), ("Volumes", VOL)],
   types=["Mould-in threaded inserts", "Press-in inserts", "Flanged inserts", "Insulator inserts", "Inserts for electrofusion couplings", "Inserts for PE and PP pipe fittings"],
-  photos=[("Injection-moulding-inserts.webp", "Brass moulding inserts")],
+  photos=[("brass-moulding-inserts.webp", "Brass moulding inserts")],
   spec_title="Design features",
   spec=[("Pull-out resistance", "A deep groove between knurls locks the insert into the plastic."),
         ("No flash", "The bore after the thread is held to close tolerance so molten plastic can't enter the thread."),
@@ -204,8 +204,8 @@ GROUPS = [
          ("Material", 'Brass <span class="mono">CW614N</span>; others on request'),
          ("Finish", PLATED), ("Documents", DOCS), ("Volumes", VOL)],
   types=["Automotive battery-terminal fasteners and kits", "Machine screws", "Hex bolts", "Brass anchors", "Studs", "Nuts", "Washers"],
-  photos=[("Automotive-Battery-Fasteners.webp", "Automotive battery fasteners"), ("Brass-Anchore.webp", "Brass anchors"),
-          ("Nut-Fasteners.webp", "Nuts")],
+  photos=[("brass-battery-terminal-fasteners.webp", "Automotive battery fasteners"), ("brass-anchors.webp", "Brass anchors"),
+          ("brass-nuts.webp", "Nuts")],
   spec_title="", spec=[],
   faq=[("Do you make battery-terminal kits?", "Yes: battery-terminal fasteners in brass, to your drawing, packed as kits if required."),
        ("Do you make standard screws and bolts?", "Yes, in brass, to your drawing or sample, with the head and drive you need. For off-the-shelf sizes a catalogue supplier is usually cheaper.")],
@@ -347,7 +347,7 @@ gland_page("clamping-jaw.html", "AG-CJ", "Clamping-jaw cable gland",
   [(m,"","","") for m in ["M12×1.5","M16×1.5","M20×1.5","M25×1.5","M32×1.5","M40×1.5","M50×1.5","M63×1.5","M80"]],
   "",
   "",
-  "01-Cable-Gland-With-Clamping-Jaw.webp", "A2", "Clamping-jaw gland in half-section, with end view.",
+  "brass-cable-gland-clamping-jaw.webp", "A2", "Clamping-jaw gland in half-section, with end view.",
   '<span class="mono">L</span> overall length · <span class="mono">GL</span> thread length · <span class="mono">D</span> cable passage · <span class="mono">T</span> entry thread', art="gland-cj")
 gland_page("favorit.html", "AG-SR", "Strain-relief cable gland",
   "A cable gland with bending protection, giving strain and traction relief for flexible cables.",
@@ -359,7 +359,7 @@ gland_page("favorit.html", "AG-SR", "Strain-relief cable gland",
    ("M40×1.5","","","",""),("M50×1.5","","","",""),("M63×1.5","","","",""),("M80","","","","")],
   "",
   "",
-  "strain-relief-cable-gland.webp", "A4", "Strain-relief gland in half-section, with end view.",
+  "brass-strain-relief-cable-gland.webp", "A4", "Strain-relief gland in half-section, with end view.",
   '<span class="mono">L</span> overall length · <span class="mono">GL</span> thread length · <span class="mono">D1, D2</span> cable passage · <span class="mono">T</span> entry thread', art="gland-sr")
 
 # =====================================================================================
@@ -433,13 +433,13 @@ def simple_acc(file, title, desc, name, code, img, photo, lead, systems, extra_f
 
 simple_acc("stop-plugs.html", "Brass Stop Plugs for Cable Glands: PG, Metric, BSP &amp; NPT | AirGrip",
   "Brass stop (blanking) plugs to close unused cable entries in enclosures, PG, metric, BSP and NPT, natural or plated in our plant.",
-  "Stop plugs", "AG-SP", "stopplug", "04-Stop-Plug-01.webp",
+  "Stop plugs", "AG-SP", "stopplug", "brass-stop-plug.webp",
   "Stop plugs (blanking plugs) close unused cable entries in enclosures, temporarily or permanently.",
   [("PG", PG), ("Metric", MM), ("BSP", G), ("NPT", N)],
   [("Head", "Slotted dome or hex head")], h1="Brass stop plugs for cable glands", shot="A7", heads=[("Slotted dome", "AG-SP"), ("Hex head", "AG-SH")])
 simple_acc("earth-tags.html", "Brass Earth Tags for Cable Glands: PG &amp; Metric | AirGrip",
   "Brass earth tags for cable glands, PG and metric sizes, natural or plated in our plant.",
-  "Earth tags", "AG-ET", "earthtag", "12-Earthing-Tag.webp",
+  "Earth tags", "AG-ET", "earthtag", "brass-earth-tag.webp",
   'Stamped from brass strip and sized to the gland thread: PG 7–48 and M12–M80.',
   [("PG", PG), ("Metric", MM)], [("Process", 'Stamped from brass strip · <a class="link" href="stamping.html">metal stamping</a>')], h1="Brass earth tags for cable glands", shot="A9",
   mat="Brass strip", rohs=False, col="For gland thread", tlabel="For gland thread")
@@ -479,9 +479,9 @@ PAIR_JS = """<script>
 """
 ta_main = ('<section class="band" id="sizes"><div class="wrap">'
   '<div class="open"><div><h2>Three ways to change an entry thread</h2></div><p>Each part joins two threads: the enclosure entry and the gland. Pick both; the part code records the pair.</p></div>'
-  + part("reducers", "Reducers", "05-Reducer.webp", "Step a larger enclosure entry down to a smaller gland thread, without re-machining the enclosure.") + addline("AG-RD", "Reducer", "PG 21", "PG 16")
-  + part("enlargers", "Enlargers", "07-Enlarger-01.webp", "Take a smaller enclosure entry up to a larger gland thread.") + addline("AG-EN", "Enlarger", "PG 16", "PG 21")
-  + part("adapters", "Adapters", "06-Adapter.webp", "Convert an entry from one thread system to another, e.g. PG to metric, or NPT to metric.") + addline("AG-AD", "Adapter", "PG 16", "M20×1.5")
+  + part("reducers", "Reducers", "brass-cable-gland-reducer.webp", "Step a larger enclosure entry down to a smaller gland thread, without re-machining the enclosure.") + addline("AG-RD", "Reducer", "PG 21", "PG 16")
+  + part("enlargers", "Enlargers", "brass-cable-gland-enlarger.webp", "Take a smaller enclosure entry up to a larger gland thread.") + addline("AG-EN", "Enlarger", "PG 16", "PG 21")
+  + part("adapters", "Adapters", "brass-cable-gland-adapter.webp", "Convert an entry from one thread system to another, e.g. PG to metric, or NPT to metric.") + addline("AG-AD", "Adapter", "PG 16", "M20×1.5")
   + '<p class="tbl-note" style="margin-top:var(--s-8)">Any conversion within the accessory range on request.</p>'
   '<p class="tbl-note">Thread data: <a class="link" href="resource.html">PG</a> · <a class="link" href="metric-chart.html">metric</a> · <a class="link" href="bsp-chart.html">BSP</a> · <a class="link" href="npt-chart.html">NPT</a> charts.</p>'
   '</div></section>')
@@ -494,15 +494,15 @@ acc_shell("thread-adapters.html", "Brass Cable Gland Reducers, Enlargers &amp; A
 
 cp_main = ('<section class="band" id="sizes"><div class="wrap">'
   '<div class="open"><div><h2>Sizes and part codes</h2></div><p>Add sizes to your quote; finish is chosen in the quote form.</p></div><div class="parts2">'
-  + part("male-bush", "Male bushes", "09-Brass-Male-Bush.webp", 'Protect the cable from sharp edges where it enters trunking, panels, machines or housings, indoors or outdoors. For unarmoured cable.')
+  + part("male-bush", "Male bushes", "brass-male-bush.webp", 'Protect the cable from sharp edges where it enters trunking, panels, machines or housings, indoors or outdoors. For unarmoured cable.')
   + size_tabs("b", "AG-MB", "Male bush", [("PG", PG), ("Metric", MM)]) + '</div>'
-  + part("conduit-nut", "Conduit gland nuts", "11-Conduit-Gland-Nut-01.webp", 'Brass nuts for conduit glands, PG 7–48 and M12–M80.')
+  + part("conduit-nut", "Conduit gland nuts", "brass-conduit-gland-nut.webp", 'Brass nuts for conduit glands, PG 7–48 and M12–M80.')
   + size_tabs("c", "AG-CN", "Conduit gland nut", [("PG", PG), ("Metric", MM)]) + '</div></div>'
   + f'<p class="tbl-note" style="margin-top:var(--s-6)">Dimensions with your quote.</p>{SIZES_NOTE}'
   '</div></section>')
 acc_shell("conduit-parts.html", "Brass Conduit Gland Parts: Male Bushes &amp; Conduit Nuts | AirGrip",
   "Brass male bushes and conduit gland nuts, PG and metric, natural or plated in our plant.",
-  "Conduit gland parts", "AG-MB · AG-CN", "malebush", "09-Brass-Male-Bush.webp",
+  "Conduit gland parts", "AG-MB · AG-CN", "malebush", "brass-male-bush.webp",
   "Male bushes and conduit gland nuts for cable and conduit entries into enclosures.",
   [("Threads", '<span class="mono">PG 7–48 · M12–M80</span>'), ("Material", MAT), ("Finish", FIN), ("Part code", '<span class="mono">AG-MB-[size]-[finish]</span> · <span class="mono">AG-CN-[size]-[finish]</span>')],
   cp_main, rel_except("conduit-parts.html"), h1="Brass conduit gland parts", shot="A8")

@@ -107,7 +107,7 @@ Until answered, the site uses safe interim wording (docs/attack-round/FINDINGS.m
 35. How long is a quote valid, and how are brass/copper price changes handled in annual orders?
 36. Google Business Profile: the public share link, and the exact name, address and phone on it.
 37. Typical parts per industry (the Industries page shows only confirmed ones); are seal inserts sold as spares?
-38. Are the parts in the photos `02-Product-We-Manufactur.webp` and `Brass-Precision-turned-Parts-2.webp` AirGrip's own?
+38. Are the parts in the photos `02-Product-We-Manufactur.webp` (now `brass-turned-parts.webp`) and `Brass-Precision-turned-Parts-2.webp` (removed, unused) AirGrip's own?
 39. OK to say "GST and PAN on request" and "completed supplier questionnaire on request"?
 40. Sea transit time to Hamburg / Rotterdam; HS codes per product group.
 

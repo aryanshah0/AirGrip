@@ -64,7 +64,7 @@ function jsonLd(route, html) {
     const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/s), when = html.match(/<time[^>]*dateTime="([^"]+)"/i) || html.match(/<time[^>]*datetime="([^"]+)"/i);
     graph.push({
       "@type": "TechArticle", headline: text(h1 ? h1[1] : route.title), description: route.description, url, mainEntityOfPage: url,
-      inLanguage: "en", datePublished: when?.[1], dateModified: when?.[1], image: ORIGIN + "/og.png",
+      inLanguage: "en", datePublished: when?.[1], dateModified: when?.[1], image: ORIGIN + ogImage(route),
       author: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/" },
       publisher: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/", logo: { "@type": "ImageObject", url: ORIGIN + "/img/logo.svg" } },
     });
@@ -88,6 +88,9 @@ function jsonLd(route, html) {
   return graph.length ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c")}</script>` : "";
 }
 
+// per-page share image from tools/make-og.mjs (public/og/<name>.png or .jpg), else the site-wide /og.png
+const ogImage = (route) => [".png", ".jpg"].map((x) => `/og/${route.name}${x}`).find((f) => fs.existsSync(path.join(dist, f))) || "/og.png";
+
 function head(route, html) {
   const url = ORIGIN + route.path;
   const { css, js } = assetsFor(route.file);
@@ -97,7 +100,7 @@ function head(route, html) {
     route.noindex ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
     `<meta property="og:type" content="website">`, `<meta property="og:site_name" content="AirGrip">`, `<meta property="og:locale" content="en_IN">`,
     `<meta property="og:title" content="${esc(route.title)}">`, `<meta property="og:description" content="${esc(route.description)}">`,
-    `<meta property="og:url" content="${url}">`, `<meta property="og:image" content="${ORIGIN}/og.png">`, `<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`,
+    `<meta property="og:url" content="${url}">`, `<meta property="og:image" content="${ORIGIN}${ogImage(route)}">`, `<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     font ? `<link rel="preload" href="/${font}" as="font" type="font/woff2" crossorigin>` : "",
     ...ordered(css).map((c) => `<link rel="stylesheet" href="/${c}">`),

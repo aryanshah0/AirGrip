@@ -8,13 +8,20 @@ export function ConsentBanner({ autoOpen }: { autoOpen: boolean }) {
   const [open, setOpen] = useState(false);
   const [analytics, setAnalytics] = useState(false);
   const box = useRef<HTMLElement>(null);
+  // where focus was before the banner opened (e.g. the footer "Cookie settings" link); it goes back there after a choice
+  const back = useRef<HTMLElement | null>(null);
 
-  const show = () => { setAnalytics(getConsent() === "analytics"); setOpen(true); };
+  const show = () => {
+    const a = document.activeElement as HTMLElement | null;
+    back.current = a && a !== document.body ? a : null;
+    setAnalytics(getConsent() === "analytics"); setOpen(true);
+  };
   const choose = (v: Consent) => {
     try { localStorage.setItem(CONSENT_KEY, v); } catch { /* blocked storage: choice lasts for this page */ }
     applyConsent(v);
     document.dispatchEvent(new CustomEvent("agconsent", { detail: v }));
     setOpen(false);
+    back.current?.focus();
   };
 
   useEffect(() => {

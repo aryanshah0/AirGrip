@@ -86,7 +86,7 @@ export const GROUPS = {
     typesH2: "Fittings we make",
     types: ["Pipe fittings: adapters, nipples, couplings, tees, elbows", "Hose-barb fittings", "Compression fittings",
       "Pneumatic and airline fittings", "Hydraulic fittings", "Automotive fittings"],
-    photos: [["Brass-Fittings.webp", "Brass fittings"]],
+    photos: [["brass-fittings-range.webp", "Brass fittings"]],
     specTitle: "How fittings are made",
     spec: [
       ["Forged, then machined", "Bodies with side branches (tees, elbows, crosses) are hot-forged near-net shape, then drilled and threaded: less material and fewer operations than bar."],
@@ -141,7 +141,7 @@ export const GROUPS = {
     ],
     typesH2: "Insert types",
     types: ["Mould-in threaded inserts", "Press-in inserts", "Flanged inserts", "Insulator inserts", "Inserts for electrofusion couplings", "Inserts for PE and PP pipe fittings"],
-    photos: [["Injection-moulding-inserts.webp", "Brass moulding inserts"]],
+    photos: [["brass-moulding-inserts.webp", "Brass moulding inserts"]],
     specTitle: "Design features",
     spec: [
       ["Pull-out resistance", "A deep groove between knurls locks the insert into the plastic."],
@@ -199,7 +199,7 @@ export const GROUPS = {
     ],
     typesH2: "Fasteners we make",
     types: ["Automotive battery-terminal fasteners and kits", "Machine screws", "Hex bolts", "Brass anchors", "Studs", "Nuts", "Washers"],
-    photos: [["Automotive-Battery-Fasteners.webp", "Automotive battery fasteners"], ["Brass-Anchore.webp", "Brass anchors"], ["Nut-Fasteners.webp", "Nuts"]],
+    photos: [["brass-battery-terminal-fasteners.webp", "Automotive battery fasteners"], ["brass-anchors.webp", "Brass anchors"], ["brass-nuts.webp", "Nuts"]],
     faqH2: "Buying special fasteners from AirGrip",
     faq: [
       ["Do you make battery-terminal kits?", "Yes: battery-terminal fasteners in brass, to your drawing, packed as kits if required."],
@@ -267,7 +267,7 @@ export const GLANDS = {
     crumb: "Clamping-jaw cable gland", item: "Clamping-jaw cable gland", h1: "Clamping-jaw brass cable gland", code: "AG-CJ",
     lead: "A brass cable gland whose clamping jaws grip the cable centrally and hold it against pull-out.",
     facts: GLAND_FACTS("Distribution boxes and control cabinets, moving machine parts, automation and plant engineering, where the cable must be held against pull-out."),
-    art: "gland-cj", photo: "01-Cable-Gland-With-Clamping-Jaw.webp", figNote: "Clamping-jaw gland in half-section, with end view.",
+    art: "gland-cj", photo: "brass-cable-gland-clamping-jaw.webp", figNote: "Clamping-jaw gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D</M> cable passage&nbsp;· <M>T</M> entry thread</>,
     cols: ["L", "GL", "D"],
     pg: [["15.0", "5.5", "8.0"], ["16.0", "6.0", "10.5"], ["17.5", "6.0", "12.0"], ["19.0", "7.5", "14.5"], ["19.0", "7.5", "17.5"],
@@ -279,7 +279,7 @@ export const GLANDS = {
     crumb: "Strain-relief cable gland", item: "Strain-relief cable gland", h1: "Strain-relief brass cable gland", code: "AG-SR",
     lead: "A brass cable gland for flexible cables: it holds the cable against pull-out and protects it from bending where it enters.",
     facts: GLAND_FACTS("Flexible cables on moving machine parts, automation and control cabinets, where the cable needs bending protection at the entry."),
-    art: "gland-sr", photo: "strain-relief-cable-gland.webp", figNote: "Strain-relief gland in half-section, with end view.",
+    art: "gland-sr", photo: "brass-strain-relief-cable-gland.webp", figNote: "Strain-relief gland in half-section, with end view.",
     key: <><M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D1, D2</M> cable passage&nbsp;· <M>T</M> entry thread</>,
     cols: ["L", "GL", "D1", "D2"],
     pg: [["", "", "", ""], ["21.5", "6.0", "12.5", "10.0"], ["22.5", "6.0", "15.0", "11.6"], ["24.0", "6.5", "17.0", "13.6"], ["24.0", "6.5", "18.5", "15.6"],
@@ -291,7 +291,7 @@ export const GLANDS = {
     crumb: "Pressure screws", item: "Pressure screw", h1: "Brass pressure screws for cable glands", code: "AG-PS",
     lead: "The pressure screw is the part of a cable gland that is screwed to the gland body: it compresses the seal around the cable and holds it against pull-out.",
     facts: [["Thread", <><M>PG 7–48</M> (DIN 40430)&nbsp;· <M>M12–M80</M> (EN 60423)</>], ["Material", GLAND_BRASS], ["Finish", FINISH]],
-    art: "pscrew", photo: "pressure-screw.webp", figNote: "Pressure screw in half-section, with end view.",
+    art: "pscrew", photo: "brass-pressure-screw-cable-gland.webp", figNote: "Pressure screw in half-section, with end view.",
     key: <><M>T</M> thread (PG or metric)&nbsp;· <M>AF</M> across flats&nbsp;· <M>L</M> overall length&nbsp;· <M>GL</M> thread length&nbsp;· <M>D</M> cable passage</>,
     cols: ["AF", "L", "GL", "D"],
     pg: [["", "", "", ""], ["17.0", "17.0", "6.0", "10.0"], ["20.0", "18.0", "6.0", "11.6"], ["22.0", "19.0", "6.0", "13.6"], ["24.0", "19.0", "6.0", "15.6"],
@@ -341,7 +341,7 @@ const INCH = "BSP and NPT 3/8 to 1 1/2 inch";
 export const ACCESSORIES = {
   lockNuts: {
     kind: "tabs", family: { id: "accessory", label: "Type" }, name: "Lock nuts", item: "Lock nut", h1: "Brass lock nuts for cable glands", code: "AG-LN", eyebrow: "AG-LN\u00a0· AG-LE", img: "locknut",
-    photos: [["08-Brass-Lock-Nut.webp", "Brass lock nuts"], ["08-EMC-Lock-Nut.webp", "EMC lock nut"]],
+    photos: [["brass-lock-nut.webp", "Brass lock nuts"], ["brass-emc-lock-nut.webp", "EMC lock nut"]],
     lead: "Lock nuts fasten cable glands and accessories to an enclosure wall, gland plate or equipment housing. Available as standard brass lock nuts and as EMC lock nuts.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],
@@ -357,7 +357,7 @@ export const ACCESSORIES = {
     related: accRelated(P.lockNuts),
   },
   stopPlugs: {
-    kind: "tabs", family: { id: "stop-plugs", label: "Head" }, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", eyebrow: "AG-SP\u00a0· AG-SH", img: "stopplug", photos: [["04-Stop-Plug-01.webp", "Stop plugs, photo"]],
+    kind: "tabs", family: { id: "stop-plugs", label: "Head" }, name: "Stop plugs", item: "Stop plug", h1: "Brass stop plugs for cable glands", code: "AG-SP", eyebrow: "AG-SP\u00a0· AG-SH", img: "stopplug", photos: [["brass-stop-plug.webp", "Stop plugs, photo"]],
     lead: "Stop plugs (blanking plugs) close unused cable entries in enclosures, temporarily or permanently.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],
@@ -369,7 +369,7 @@ export const ACCESSORIES = {
     related: accRelated(P.stopPlugs),
   },
   earthTags: {
-    kind: "tabs", material: "strip", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photos: [["12-Earthing-Tag.webp", "Earth tags, photo"]],
+    kind: "tabs", material: "strip", name: "Earth tags", item: "Earth tag", h1: "Brass earth tags for cable glands", code: "AG-ET", img: "earthtag", photos: [["brass-earth-tag.webp", "Earth tags, photo"]],
     lead: "Stamped from brass strip and sized to the gland thread: PG 7–48 and M12–M80.",
     facts: [
       ["For gland thread", <M>{RANGE}</M>],
@@ -391,16 +391,16 @@ export const ACCESSORIES = {
     h2: "Three ways to change an entry thread",
     intro: "Each part joins two threads: the enclosure entry and the gland. Pick both; the part code records the pair.",
     parts: [
-      { id: "reducers", title: "Reducers", photo: "05-Reducer.webp", text: "Step a larger enclosure entry down to a smaller gland thread, without re-machining the enclosure.",
+      { id: "reducers", title: "Reducers", photo: "brass-cable-gland-reducer.webp", text: "Step a larger enclosure entry down to a smaller gland thread, without re-machining the enclosure.",
         pair: { code: "AG-RD", what: "Reducer", entry: "PG21", gland: "PG16" } },
-      { id: "enlargers", title: "Enlargers", photo: "07-Enlarger-01.webp", text: "Take a smaller enclosure entry up to a larger gland thread.",
+      { id: "enlargers", title: "Enlargers", photo: "brass-cable-gland-enlarger.webp", text: "Take a smaller enclosure entry up to a larger gland thread.",
         pair: { code: "AG-EN", what: "Enlarger", entry: "PG16", gland: "PG21" } },
-      { id: "adapters", title: "Adapters", photo: "06-Adapter.webp", text: "Convert an entry from one thread system to another, e.g. PG to metric, or NPT to metric.",
+      { id: "adapters", title: "Adapters", photo: "brass-cable-gland-adapter.webp", text: "Convert an entry from one thread system to another, e.g. PG to metric, or NPT to metric.",
         pair: { code: "AG-AD", what: "Adapter", entry: "PG16", gland: "M20" } },
     ],
     notes: <>
       <p className="tbl-note" style={{ marginTop: "var(--s-8)" }}>Any conversion within the accessory range on request.</p>
-      <p className="tbl-note">Thread data: <a className="link" href={P.pg}>PG</a>&nbsp;· <a className="link" href={P.metric}>metric</a>&nbsp;· <a className="link" href={P.bsp}>BSP</a>&nbsp;· <a className="link" href={P.npt}>NPT</a> charts.</p>
+      <p className="tbl-note">Thread data: <a className="link" href={P.pg}>PG</a>&nbsp;· <a className="link" href={P.metric}>metric</a>&nbsp;· <a className="link" href={P.bsp}>BSP</a>&nbsp;· <a className="link" href={P.npt}>NPT</a> charts. Guides: <a className="link" href={P.guideBspNpt}>BSP vs NPT threads</a>&nbsp;· <a className="link" href={P.guideGlands}>how to select a cable gland</a>.</p>
     </>,
     related: accRelated(P.adapters),
   },
@@ -415,12 +415,12 @@ export const ACCESSORIES = {
     h2: "Sizes and part codes",
     intro: "Add sizes to your quote; finish is chosen in the quote form.",
     parts: [
-      { id: "male-bush", title: "Male bushes", photo: "09-Brass-Male-Bush.webp", text: "Protect the cable from sharp edges where it enters trunking, panels, machines or housings, indoors or outdoors. For unarmoured cable.",
+      { id: "male-bush", title: "Male bushes", photo: "brass-male-bush.webp", text: "Protect the cable from sharp edges where it enters trunking, panels, machines or housings, indoors or outdoors. For unarmoured cable.",
         sizes: { code: "AG-MB", item: "Male bush", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
-      { id: "conduit-nut", title: "Conduit gland nuts", photo: "11-Conduit-Gland-Nut-01.webp", text: "Brass nuts for conduit glands, PG 7–48 and M12–M80.",
+      { id: "conduit-nut", title: "Conduit gland nuts", photo: "brass-conduit-gland-nut.webp", text: "Brass nuts for conduit glands, PG 7–48 and M12–M80.",
         sizes: { code: "AG-CN", item: "Conduit gland nut", systems: [{ tab: "PG", sizes: PG }, { tab: "Metric", sizes: METRIC }] } },
     ],
-    notes: <p className="tbl-note" style={{ marginTop: "var(--s-6)" }}>Thread standards: PG DIN 40430&nbsp;· metric EN 60423. Dimensions come with your quote, on a dimensioned drawing.</p>,
+    notes: <p className="tbl-note" style={{ marginTop: "var(--s-6)" }}>Thread standards: <a className="link" href={P.pg}>PG DIN 40430</a>&nbsp;· <a className="link" href={P.metric}>metric EN 60423</a>. Dimensions come with your quote, on a dimensioned drawing.</p>,
     related: accRelated(P.conduit),
   },
 } satisfies Record<string, Accessory>;
@@ -478,10 +478,10 @@ export const CHARTS = {
     headers: ["Size", "Threads / inch", "Pitch P", "Pipe OD", "Pitch Ø E0", "Hand-tight L1", "Effective L2"], kinds: "snnnnnn",
     rows: [
       ["1/8 NPT", "27", "0.941", "10.29", "9.23", "4.10", "6.70"], ["1/4 NPT", "18", "1.411", "13.72", "12.13", "5.79", "10.21"],
-      ["3/8 NPT", "18", "1.411", "17.14", "15.55", "6.10", "10.36"], ["1/2 NPT", "14", "1.814", "21.34", "19.26", "8.13", "13.56"],
+      ["3/8 NPT", "18", "1.411", "17.15", "15.55", "6.10", "10.36"], ["1/2 NPT", "14", "1.814", "21.34", "19.26", "8.13", "13.56"],
       ["3/4 NPT", "14", "1.814", "26.67", "24.58", "8.61", "13.86"], ["1 NPT", "11.5", "2.209", "33.40", "30.83", "10.16", "17.34"],
       ["1 1/4 NPT", "11.5", "2.209", "42.16", "39.55", "10.67", "17.95"], ["1 1/2 NPT", "11.5", "2.209", "48.26", "45.62", "10.67", "18.38"],
-      ["2 NPT", "11.5", "2.209", "60.32", "57.63", "11.07", "19.22"],
+      ["2 NPT", "11.5", "2.209", "60.33", "57.63", "11.07", "19.22"],
     ],
     note: <p className="tbl-note">All values in mm, converted from ASME B1.20.1 (inch). E0 = pitch diameter at the small end of the external thread. BSP or NPT? <a className="link" href={P.guideBspNpt}>BSP vs NPT threads</a>.</p>,
     cta: ["NPT fittings and accessories", "Fittings and gland accessories in NPT, 3/8 to 1 1/2 inch.", P.fittings, "See brass fittings"],

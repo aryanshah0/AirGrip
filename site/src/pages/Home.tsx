@@ -135,7 +135,7 @@ export default function Home() {
       </dl>{" "}
       <div className="plant">{" "}
       <div className="plant__media">{" "}
-      <div className="photo"><img src="/img/01-Airgrip-Group-01.webp" alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
+      <div className="photo"><img src="/img/airgrip-plant-jamnagar.webp" alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
       </div>{" "}
       <div className="plant__txt">{" "}
       <p><b>ISO 9001:2015 certified.</b>{" "}The rod's heat number is carried on every inspection record and carton label, so each part traces back to the bar it was cut from.</p>{" "}

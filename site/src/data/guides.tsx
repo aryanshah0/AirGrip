@@ -184,10 +184,10 @@ export const GUIDES = {
       </> },
       { id: "by-size", h2: "Size by size", sub: "Threads per inch and outside diameters in mm.", body: <>
         <T head={["Size", "BSP TPI", "NPT TPI", "BSP major Ø", "NPT pipe OD", "Same pitch?"]} kinds="snnnnt" rows={[
-          ["1/8", "28", "27", "9.728", "10.29", "No"], ["1/4", "19", "18", "13.157", "13.72", "No"], ["3/8", "19", "18", "16.662", "17.14", "No"],
+          ["1/8", "28", "27", "9.728", "10.29", "No"], ["1/4", "19", "18", "13.157", "13.72", "No"], ["3/8", "19", "18", "16.662", "17.15", "No"],
           ["1/2", "14", "14", "20.955", "21.34", "Yes, angle differs"], ["3/4", "14", "14", "26.441", "26.67", "Yes, angle differs"],
           ["1", "11", "11.5", "33.249", "33.40", "No"], ["1 1/4", "11", "11.5", "41.910", "42.16", "No"],
-          ["1 1/2", "11", "11.5", "47.803", "48.26", "No"], ["2", "11", "11.5", "59.614", "60.32", "No"],
+          ["1 1/2", "11", "11.5", "47.803", "48.26", "No"], ["2", "11", "11.5", "59.614", "60.33", "No"],
         ]} />
         <p className="tbl-note">BSP major Ø to ISO 228-1; NPT pipe OD to ASME B1.20.1 (converted from inch). Full data: <L href={P.bsp}>BSP thread chart</L> · <L href={P.npt}>NPT thread chart</L>.</p>
       </> },

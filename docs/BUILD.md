@@ -33,6 +33,7 @@ npm run build  ->  dist/  one index.html per URL, sitemap.xml, robots.txt, .htac
 | `node tools/visual-check.mjs [site] [reference] [--pixels]` | every page vs an earlier build (serve it on another port): text, console errors, 390 px overflow, pixel diff at 1440 and 390 |
 | `node tools/flow-check.mjs [site]` | 44 buyer flows end to end, incl. failed sends and retry (`npm run preview` answers the form with a mock). `BROWSER=safari` runs them in real Safari (Safari > Settings > Developer > Allow remote automation) |
 | `node tools/a11y-check.mjs` | axe-core WCAG 2.2 A/AA scan of every page, desktop and phone |
+| `node tools/make-og.mjs` | share images (og:image) per page from the built H1 + drawing/photo → `public/og/`; rerun after an H1 or route change, then rebuild |
 | `node tools/server-check.mjs [https://airgrip.co.in]` | the deployed server: https, www, 33 old-URL 301s, 410s, 404, headers, caching, every sitemap URL, PHP runs. Sends no form, safe on the live site |
 | `node scripts/check-dist.mjs --launch` | launch gate: also fails without the form sender |
 
