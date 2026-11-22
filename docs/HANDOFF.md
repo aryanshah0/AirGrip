@@ -155,3 +155,10 @@ brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deplo
   with analytics consent.
 - **Buyer guides (2026-11-22):** 4 guides live under /resources/guides/ (see SEO-PLAN §6), indexing requested.
   brasscomponent.com stays untouched: Ketan's decision, do not propose redirecting it again.
+- **Existing listings (checked 2026-11-22):** a Google Business Profile exists ("Air Grip Group of Companies", 4.4★, 7
+  reviews, correct address, website airgrip.co.in) but shows the **old phone 079900 38395** and PIN 361012 (site:
+  361004). The site now ties to it: the Contact "Open in Google Maps" link points to the profile (maps?cid=…), and the
+  LocalBusiness data has hasMap + geo, the Organization sameAs Facebook (airgrip02) and LinkedIn (in/airgrip-group).
+  IndiaMART has "Airgrip Industries" (proprietor Deepak Hasmukh Shah, since 2017), not under the AirGrip name; Justdial,
+  Kompass and the old TradeIndia listing also exist. For Ketan: who manages the profile; fix its phone, add photos and
+  hours; is the IndiaMART listing still used and should it link to the site; update the old number on Justdial/Facebook.

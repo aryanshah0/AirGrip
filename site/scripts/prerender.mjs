@@ -44,10 +44,13 @@ const org = {
   email: "sales@airgrip.in", telephone: "+91-93166-15007", foundingDate: "1988",
   address: { "@type": "PostalAddress", streetAddress: "Plot No. 3966 & 3967, Road No. U, GIDC Phase-III, Dared", addressLocality: "Jamnagar", postalCode: "361004", addressRegion: "Gujarat", addressCountry: "IN" },
   subOrganization: GROUP.map((name) => ({ "@type": "Organization", name })),
+  sameAs: ["https://www.facebook.com/airgrip02/", "https://www.linkedin.com/in/airgrip-group/"],
 };
 const local = {
   "@type": "LocalBusiness", "@id": ORIGIN + "/#plant", name: "AirGrip", url: ORIGIN + "/", image: ORIGIN + "/img/logo.svg",
   telephone: "+91-93166-15007", email: "sales@airgrip.in", address: org.address, parentOrganization: { "@id": ORIGIN + "/#org" },
+  // the Google Business Profile ("Air Grip Group of Companies") and its pin, so Google ties the site to the map listing
+  hasMap: "https://www.google.com/maps?cid=1982484181116058778", geo: { "@type": "GeoCoordinates", latitude: 22.4152605, longitude: 70.050451 },
   openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"], opens: "09:30", closes: "18:30" }],
 };
 

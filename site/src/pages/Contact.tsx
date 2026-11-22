@@ -26,7 +26,7 @@ export default function Contact() {
       </div>{" "}
       <div className="ch" style={{"display": "grid", "gap": "var(--s-4)", "padding": "var(--s-4) 0", "borderBottom": "var(--hair)"}}><span className="k" style={{"fontSize": "var(--t-13)", "fontWeight": "600", "fontVariationSettings": "'wdth' 82", "letterSpacing": ".06em", "textTransform": "uppercase", "color": "var(--ink-3)"}}>Plant visits</span><span>Audits and visits welcome. Tell us your dates and we'll arrange the visit. Quality contact: Shree Shah, Marketing Director.</span></div>{" "}
       <div className="photo map"><img src="/img/01-Airgrip-Group-01.webp" alt="AirGrip plant, GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
-      <p style={{"marginTop": "var(--s-3)"}}><a className="link small" href="https://www.google.com/maps/search/?api=1&query=GIDC+Phase+3+Dared+Jamnagar+361004">Open in Google Maps</a></p>{" "}
+      <p style={{"marginTop": "var(--s-3)"}}><a className="link small" href="https://www.google.com/maps?cid=1982484181116058778">Open in Google Maps</a></p>{" "}
       </div>{" "}
       <div className="ct__r">{" "}
       <div className="person" style={{"marginBottom": "var(--s-5)"}}><div><b>Shree Shah</b><span>Marketing Director · quotes, samples, export orders and supplier audits</span></div></div>{" "}<ContactForm />{" "}</div>{" "}
