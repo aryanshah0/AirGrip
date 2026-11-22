@@ -153,3 +153,5 @@ brasscomponent.com (old WordPress site) stays live as is (owner's choice). Deplo
   email plan (Ketan). Forwarders sales@/inquiry@airgrip.co.in: owner said not now. No Bing (owner's decision).
 - **GA4:** receiving visits. rfq_submit / contact_submit become starrable as key events after the first request sent
   with analytics consent.
+- **Buyer guides (2026-11-22):** 4 guides live under /resources/guides/ (see SEO-PLAN §6), indexing requested.
+  brasscomponent.com stays untouched: Ketan's decision, do not propose redirecting it again.

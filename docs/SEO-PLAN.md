@@ -99,6 +99,18 @@ After launch, validate them with Google Search Console (actual queries) and Keyw
 | Old WordPress paths (`/wp-content/uploads/…` images, `/?p=…`, `/feed/`) | 410 Gone, or a 301 to the matching new image where one exists |
 
 ## 6. Content roadmap (after launch; guides are not in v1)
+**Live 2026-11-22** (`src/data/guides.tsx`, template `src/templates/GuidePage.tsx`, TechArticle + FAQPage data):
+`/resources/guides/cable-gland-selection/`, `/resources/guides/bsp-vs-npt/`, `/resources/guides/cw614n-vs-cw617n/`,
+`/resources/guides/lead-free-dzr-brass/`. Topics chosen from Google autocomplete demand (2026-11-22): "cable gland size
+chart / how to select cable gland size / pg vs metric", "bsp vs npt (difference, compatibility)", "cw614n vs cw617n",
+"lead free brass grade / dzr brass meaning / cw511l". The RFQ guide was dropped (no search demand). Next: add AirGrip's
+clamping ranges to the gland guide when Ketan's size table arrives; then decide further guides from Search Console queries.
+Baseline ranks (2026-11-22, Google India, pws=0): #1 for "airgrip" and "airgrip jamnagar"; not on page 1 for
+"brass turned components manufacturer india", "brass components manufacturer jamnagar", "brass cable glands manufacturer
+india", "brass cable gland manufacturer jamnagar", "brass electrical terminals manufacturer jamnagar", "brass moulding
+inserts manufacturer", "pg thread chart", "brass components supplier india" (from Germany). IndiaMART is #1 on four of them;
+Jamnagar searches show a map pack (Google Business Profile needed).
+
 1. Buyer guides: *Choosing a brass grade for turned parts* · *Cable gland selection: PG vs metric, IP ratings* ·
    *How to send an RFQ for turned parts (what we need)* · *Lead-free brass: CW511L vs CW724R*.
 2. A PG ↔ metric adapter guide (the metric, BSP and NPT charts already exist in v1).
