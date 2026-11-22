@@ -2,6 +2,7 @@
 
 import "./css/Home.css";
 import { QuickQuote } from "../components/QuickQuote";
+import { srcSet } from "../lib/img";
 
 export default function Home() {
   return (
@@ -135,7 +136,7 @@ export default function Home() {
       </dl>{" "}
       <div className="plant">{" "}
       <div className="plant__media">{" "}
-      <div className="photo"><img src="/img/airgrip-plant-jamnagar.webp" alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
+      <div className="photo"><img src="/img/airgrip-plant-jamnagar.webp" {...srcSet("airgrip-plant-jamnagar.webp")} alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
       </div>{" "}
       <div className="plant__txt">{" "}
       <p><b>ISO 9001:2015 certified.</b>{" "}The rod's heat number is carried on every inspection record and carton label, so each part traces back to the bar it was cut from.</p>{" "}

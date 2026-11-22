@@ -49,6 +49,10 @@ After launch, validate them with Google Search Console (actual queries) and Keyw
 - **Schema (JSON-LD):** `Organization` (logo, sameAs, subOrganization: group companies) · `LocalBusiness`/`Manufacturer`-style
   data (address, geo, phone, openingHours Sa–Th 09:30–18:30) · `Product` on item pages (name, sku = part code, material, brand) ·
   `BreadcrumbList` on every page · `FAQPage` where a visible FAQ exists · `Dataset` or a `Table` description on thread charts.
+- **Status 2026-11-22:** `Product` markup deliberately **not** added: Google's product snippets need `offers` (price),
+  `review` or `aggregateRating`, and AirGrip publishes none, so the markup would earn nothing and only show up as
+  invalid items in Search Console. Revisit if prices or reviews are ever published. Photos ≥ 1200 px have 800 px
+  copies (`src/lib/img.ts`, srcset); share images per page (`tools/make-og.mjs`).
 - `sitemap.xml` (auto-generated) and `robots.txt`. Custom 404 page with search and links.
 - **Core Web Vitals:** LCP < 2.0 s, CLS < 0.05, INP < 200 ms. Self-hosted subset woff2 fonts with preload. AVIF/WebP with `srcset`.
   No layout shift from fonts (`size-adjust` fallback).

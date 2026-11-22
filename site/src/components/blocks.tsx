@@ -3,6 +3,7 @@
 import { Fragment, type ReactNode } from "react";
 import { AddQ } from "./AddQ";
 import { PartCode } from "./Family";
+import { srcSet } from "../lib/img";
 
 /** The hero picture of a product page: the drawing, with a Drawing | Photo switch when photos exist. Photos are shown
  *  at the same size as the drawing, so every product page treats photos the same way. */
@@ -17,7 +18,7 @@ export function Plate({ drawing, photos }: { drawing: ReactNode; photos: [file: 
       <div role="tabpanel" id="v-dp" aria-labelledby="v-d">{drawing}</div>
       <div role="tabpanel" id="v-pp" aria-labelledby="v-p" hidden>
         <div className={"plate__ph" + (photos.length > 1 ? " is-many" : "")}>
-          {photos.map(([f, alt]) => <img key={f} src={`/img/${f}`} alt={alt} loading="lazy" />)}
+          {photos.map(([f, alt]) => <img key={f} src={`/img/${f}`} {...srcSet(f, photos.length > 1 ? "(max-width: 559px) 50vw, 300px" : "(max-width: 559px) 100vw, 600px")} alt={alt} loading="lazy" />)}
         </div>
       </div>
     </div>
