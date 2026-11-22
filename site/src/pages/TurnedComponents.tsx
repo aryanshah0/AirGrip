@@ -75,7 +75,7 @@ export default function TurnedComponents() {
       <tr><td className="stick mono" data-l="EN grade">CW724R</td><td className="mono" data-l="Designation">CuZn21Si3P</td><td data-l="Character">Lead-free, high strength</td><td data-l="Typical use">Lead-free turned parts</td><td data-l="Supply">On request</td></tr>
       </tbody>
       </table></div>{" "}
-      <p className="tbl-note">Indian, British and US equivalents:{" "}<a className="link" href="/resources/brass-grade-equivalents/">brass grade equivalents</a>.</p>{" "}
+      <p className="tbl-note">Indian, British and US equivalents:{" "}<a className="link" href="/resources/brass-grade-equivalents/">brass grade equivalents</a>. Which grade?{" "}<a className="link" href="/resources/guides/cw614n-vs-cw617n/">CW614N vs CW617N</a>.</p>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}

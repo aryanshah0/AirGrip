@@ -1,0 +1,14 @@
+/* Buyer guides: the "In short" box sits where chart pages put the thread drawing. */
+.rhead > .gshort { grid-column: 8 / span 5; background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-5); }
+.gshort h2 { margin-bottom: var(--s-3); }
+.gshort .bullets li { font-size: var(--t-14); line-height: 1.5; }
+.gmeta { margin-top: var(--s-4); font-size: var(--t-13); color: var(--ink-3); }
+.gbody > p, .gbody > ol, .gbody > ul { max-width: 72ch; }
+.gbody > * + * { margin-top: var(--s-4); }
+.gbody p { color: var(--ink-2); }
+.gbody ol { padding-left: 1.3em; color: var(--ink-2); } .gbody ol li + li { margin-top: .4em; } .gbody ol li::marker { color: var(--brass-deep); font-family: var(--font-mono); }
+.gpair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); align-items: start; }
+.gpair figure { margin: 0; background: var(--card); border: 1px solid var(--ink-line); padding: 10px; }
+.gpair figure .frame { border: var(--hair); padding: var(--s-3); }
+.gpair figcaption { margin-top: var(--s-3); font-size: var(--t-13); color: var(--ink-3); }
+@media (max-width: 559px) { .gpair:not(.gpair--keep) { grid-template-columns: 1fr; } .gpair--keep { gap: var(--s-3); } }

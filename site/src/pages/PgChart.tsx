@@ -93,7 +93,7 @@ export default function PgChart() {
       <section className="band">{" "}
       <div className="wrap side">{" "}
       <div className="sh"><h2 className="sub">More technical data</h2></div>{" "}
-      <div className="sb"><p className="muted"><a className="link" href="/resources/metric-cable-gland-thread-chart/">Metric thread chart</a>{" "}(EN 60423) ·{" "}<a className="link" href="/resources/bsp-thread-chart/">BSP thread chart</a>{" "}(ISO 228-1) ·{" "}<a className="link" href="/resources/npt-thread-chart/">NPT thread chart</a>{" "}(ASME B1.20.1) ·{" "}<a className="link" href="/resources/brass-grade-equivalents/">Brass grade equivalents</a></p></div>{" "}
+      <div className="sb"><p className="muted"><a className="link" href="/resources/metric-cable-gland-thread-chart/">Metric thread chart</a>{" "}(EN 60423) ·{" "}<a className="link" href="/resources/bsp-thread-chart/">BSP thread chart</a>{" "}(ISO 228-1) ·{" "}<a className="link" href="/resources/npt-thread-chart/">NPT thread chart</a>{" "}(ASME B1.20.1) ·{" "}<a className="link" href="/resources/brass-grade-equivalents/">Brass grade equivalents</a>{" "}·{" "}<a className="link" href="/resources/guides/cable-gland-selection/">How to select a cable gland</a></p></div>{" "}
       </div>{" "}
       </section>{" "}
       <section className="band band--sheet">{" "}

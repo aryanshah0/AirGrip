@@ -450,7 +450,7 @@ export const CHARTS = {
     facts: [["Pitch", <M>1.5 mm</M>], ["Flank angle", <M>60°</M>], ["Sizes", <M>M12–M63</M>]],
     headers: ["Size", "Outside Ø d", "Pitch P", "Tap drill Ø"], kinds: "snnn",
     rows: [12, 16, 20, 25, 32, 40, 50, 63].map((d) => [`M${d}×1.5`, d.toFixed(2), "1.5", (d - 1.5).toFixed(1)]),
-    note: <p className="tbl-note">Tap drill = d − P. AirGrip glands and accessories also come in M80.</p>,
+    note: <p className="tbl-note">Tap drill = d − P. AirGrip glands and accessories also come in M80. Choosing a gland: <a className="link" href={P.guideGlands}>how to select a cable gland</a>.</p>,
     cta: ["Metric glands and accessories", "Glands, lock nuts, stop plugs and adapters in metric threads.", P.glands, "See cable glands"],
   },
   bsp: {
@@ -468,7 +468,7 @@ export const CHARTS = {
       ["G 2 1/2", "11", "2.309", "75.184", "72.226", "75.7"], ["G 3", "11", "2.309", "87.884", "84.926", "88.4"],
       ["G 4", "11", "2.309", "113.030", "110.072", "113.7"], ["G 5", "11", "2.309", "138.430", "135.472", "139.1"],
     ],
-    note: <p className="tbl-note">Values to ISO 228-1. Through-hole: recommended clearance hole. G 4 and G 5 are reference only: above our Ø100 mm turning range.</p>,
+    note: <p className="tbl-note">Values to ISO 228-1. Through-hole: recommended clearance hole. G 4 and G 5 are reference only: above our Ø100 mm turning range. BSP or NPT? <a className="link" href={P.guideBspNpt}>BSP vs NPT threads</a>.</p>,
     cta: ["BSP fittings and accessories", "Fittings, inserts and gland accessories with BSP threads.", P.fittings, "See brass fittings"],
   },
   npt: {
@@ -483,7 +483,7 @@ export const CHARTS = {
       ["1 1/4 NPT", "11.5", "2.209", "42.16", "39.55", "10.67", "17.95"], ["1 1/2 NPT", "11.5", "2.209", "48.26", "45.62", "10.67", "18.38"],
       ["2 NPT", "11.5", "2.209", "60.32", "57.63", "11.07", "19.22"],
     ],
-    note: <p className="tbl-note">All values in mm, converted from ASME B1.20.1 (inch). E0 = pitch diameter at the small end of the external thread.</p>,
+    note: <p className="tbl-note">All values in mm, converted from ASME B1.20.1 (inch). E0 = pitch diameter at the small end of the external thread. BSP or NPT? <a className="link" href={P.guideBspNpt}>BSP vs NPT threads</a>.</p>,
     cta: ["NPT fittings and accessories", "Fittings and gland accessories in NPT, 3/8 to 1 1/2 inch.", P.fittings, "See brass fittings"],
   },
   grades: {
@@ -502,7 +502,7 @@ export const CHARTS = {
       ["CW509L", "CuZn40", "59.5–61.5", "≤ 0.3", "CZ109", "C28000", "—", "Low-lead hot forming", "—"],
       ["CW717R", "CuZn38Sn1As", "59.0–62.0", "≤ 0.2", "CZ112", "C46400", "—", "Naval brass: marine parts", "—"],
     ],
-    note: <p className="tbl-note">Nearest equivalents; always check the specification your drawing calls up. Cu and Pb are composition limits from EN 12164 / 12165 / 12163. "—" in the AirGrip column = ask us.</p>,
+    note: <p className="tbl-note">Nearest equivalents; always check the specification your drawing calls up. Cu and Pb are composition limits from EN 12164 / 12165 / 12163. "—" in the AirGrip column = ask us. Guides: <a className="link" href={P.guideGrades}>CW614N vs CW617N</a>&nbsp;· <a className="link" href={P.guideLeadFree}>lead-free and DZR brass</a>.</p>,
     cta: ["Need a specific grade?", "Tell us the grade on your drawing; we confirm availability with the quote.", P.rfq, "Request a quote"],
   },
 } satisfies Record<string, Chart>;

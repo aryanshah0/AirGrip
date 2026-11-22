@@ -65,5 +65,9 @@ export const P = {
   bsp: "/resources/bsp-thread-chart/",
   npt: "/resources/npt-thread-chart/",
   grades: "/resources/brass-grade-equivalents/",
+  guideGrades: "/resources/guides/cw614n-vs-cw617n/",
+  guideLeadFree: "/resources/guides/lead-free-dzr-brass/",
+  guideBspNpt: "/resources/guides/bsp-vs-npt/",
+  guideGlands: "/resources/guides/cable-gland-selection/",
   privacy: "/privacy-policy/",
 };

@@ -52,7 +52,7 @@ export default function Glands() {
       </section>{" "}
       <section className="band band--sheet">{" "}
       <div className="wrap side">{" "}
-      <div className="sh"><h2>PG or metric?</h2><p>PG is the older German conduit thread. Metric to EN 60423 is the default for new enclosures in Europe. Reducers and adapters connect the two.</p></div>{" "}
+      <div className="sh"><h2>PG or metric?</h2><p>PG is the older German conduit thread. Metric to EN 60423 is the default for new enclosures in Europe. Reducers and adapters connect the two.{" "}<a className="link" href="/resources/guides/cable-gland-selection/">How to select a cable gland</a></p></div>{" "}
       <div className="sb">{" "}
       <div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">Thread</th><th>Standard</th><th>Flank angle</th><th>Sizes</th><th>Chart</th></tr></thead>

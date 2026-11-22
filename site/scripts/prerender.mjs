@@ -56,6 +56,16 @@ function jsonLd(route, html) {
   const url = ORIGIN + route.path;
   if (["home", "about"].includes(route.name)) graph.push(org);
   if (["home", "contact"].includes(route.name)) graph.push(local);
+  // buyer guides: TechArticle with the H1 and the <time> in the page header (src/templates/GuidePage.tsx)
+  if (route.name.startsWith("guide-")) {
+    const h1 = html.match(/<h1[^>]*>(.*?)<\/h1>/s), when = html.match(/<time[^>]*dateTime="([^"]+)"/i) || html.match(/<time[^>]*datetime="([^"]+)"/i);
+    graph.push({
+      "@type": "TechArticle", headline: text(h1 ? h1[1] : route.title), description: route.description, url, mainEntityOfPage: url,
+      inLanguage: "en", datePublished: when?.[1], dateModified: when?.[1], image: ORIGIN + "/og.png",
+      author: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/" },
+      publisher: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/", logo: { "@type": "ImageObject", url: ORIGIN + "/img/logo.svg" } },
+    });
+  }
   const crumbs = html.match(/<ol class="crumbs"[^>]*>(.*?)<\/ol>/s);
   if (crumbs) {
     const items = [...crumbs[1].matchAll(/<li[^>]*>(.*?)<\/li>/gs)].map((m, i) => {
