@@ -5,7 +5,7 @@ import "./accessory.css";
 import { Arr, Code, Crumbs, Kv, Plate, Related, SizeGrid } from "../components/blocks";
 import { FamilyProvider, FamilySwitch } from "../components/Family";
 import { PairPicker } from "../components/PairPicker";
-import type { Accessory, PartsAccessory, TabsAccessory } from "../data/products";
+import { PHOTO_NOTE, type Accessory, type PartsAccessory, type TabsAccessory } from "../data/products";
 import { P } from "../site";
 
 /** Compliance under every accessory size list (the gland pages carry the same facts in their compliance block). */
@@ -84,8 +84,7 @@ export function AccessoryPage({ a }: { a: Accessory }) {
         <Crumbs items={[["Products", P.products], ["Brass cable glands", P.glands], [a.name]]} />
         <div className="prod" style={{ marginTop: "var(--s-5)" }}>
           <figure className="prod__fig" style={{ margin: "0" }}>
-            <Plate drawing={<div className="sheet"><div className="frame"><img src={`/img/la/l/${a.img}.svg`} alt={`${a.name} drawing`} style={{ width: "100%", height: "auto" }} /></div></div>} photos={a.photos} />
-            <p className="tbl-note">Illustrative drawing, not to size.</p>
+            <Plate drawing={<div className="sheet"><div className="frame"><img src={`/img/la/l/${a.img}.svg`} alt={`${a.name} drawing`} style={{ width: "100%", height: "auto" }} /></div></div>} photos={a.photos} first={a.photoFirst ? "photo" : "drawing"} notes={["Illustrative drawing, not to size.", PHOTO_NOTE]} />
           </figure>
           <div className="prod__info">
             <span className="eyebrow">Gland accessories&nbsp;· <span className="mono" style={{ letterSpacing: "0" }}>{a.eyebrow ?? a.code}</span></span>

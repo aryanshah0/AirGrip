@@ -23,7 +23,7 @@ const T = ({ head, rows, kinds = "", flat = false }: { head: string[]; rows: Rea
 /** Related card: the linked page's drawing where it has one, otherwise a title-block card with `txt`. */
 const DRAWING: Record<string, string> = {
   [P.category]: "turned", [P.forged]: "forgedtee", [P.fittings]: "elbow", [P.adapters]: "reducer", [P.glands]: "gland",
-  [P.metric]: "prof-metric", [P.bsp]: "prof-bsp", [P.npt]: "prof-npt",
+  [P.pg]: "prof-pg", [P.metric]: "prof-metric", [P.bsp]: "prof-bsp", [P.npt]: "prof-npt",
 };
 const card = (href: string, txt: string, name: string, sub: string): Card =>
   DRAWING[href] ? { href, img: DRAWING[href], name, sub } : { href, img: "", txt, name, sub };

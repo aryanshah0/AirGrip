@@ -65,7 +65,7 @@ Answers to everything above are in REQUIREMENTS §12. Still open, to send or con
 4. The 3 presses: forging or stamping? Number of forging presses · cam-automat bar range · bar ranges per machine
 5. Plating thickness ranges · earth-tag strip grade · metric through-hole values · pieces per pack · O-ring option · EMC lock-nut design
 6. Instruments in-house vs lab (hardness, coating, roughness, vision) · profile projector / CMM · taper thread gauges · AQL plan
-7. Fitting types (flare, air-brake, sweat, welding) · terminal rating 6–300 A · conduit-nut and earth-tag wording · photo origin
+7. Fitting types (flare, air-brake, sweat, welding) · terminal rating 6–300 A · conduit-nut and earth-tag wording · photo origin (answered 2026-11-22: product photos are AirGrip's own)
 8. FCA/CPT for air samples · certificate of origin · history milestones · plant-visit details
 9. Legal advice on the EU/UK privacy representative
 
@@ -108,6 +108,7 @@ Until answered, the site uses safe interim wording (docs/attack-round/FINDINGS.m
 36. Google Business Profile: the public share link, and the exact name, address and phone on it.
 37. Typical parts per industry (the Industries page shows only confirmed ones); are seal inserts sold as spares?
 38. Are the parts in the photos `02-Product-We-Manufactur.webp` (now `brass-turned-parts.webp`) and `Brass-Precision-turned-Parts-2.webp` (removed, unused) AirGrip's own?
+    **Answered 2026-11-22 (via the user): yes, the existing product photos (glands, accessories, turned parts, fittings, inserts, fasteners) show AirGrip's own parts.** The lathe photo on About was not part of the answer.
 39. OK to say "GST and PAN on request" and "completed supplier questionnaire on request"?
 40. Sea transit time to Hamburg / Rotterdam; HS codes per product group.
 

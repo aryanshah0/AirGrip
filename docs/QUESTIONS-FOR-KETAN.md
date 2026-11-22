@@ -131,7 +131,7 @@ C1. **B** Are "Kompakt" and the "dome cap nut" (Hutmutter) the same part? **→ 
    ☐ same part ☐ Kompakt is the gland body, the dome nut is a spare ☐ different products
 C2. **A** How are screws and bolts (machine screws, Phillips/Pozidriv heads, hex bolts) made? **→ made in-house (Ketan, 2026-11-14)**
    ☐ turned from bar ☐ cold-headed in-house ☐ bought in and traded ☐ we don't supply them, remove
-C3. **B** Where do the current fastener and fitting photos come from? **→ OPEN (Ketan, 2026-11-14)**
+C3. **B** Where do the current fastener and fitting photos come from? **→ ANSWERED 2026-11-22 (via the user): the existing product photos are AirGrip's own parts.** (Not covered: the lathe/nozzle process photo.)
    ☐ all our own parts ☐ some are stock photos, remove those ☐ not known, replace after the shoot
 C4. **A** Stamping as a business line: **→ regular line (Ketan, 2026-11-14)**
    ☐ real and current (materials beyond brass/copper: ____) ☐ occasional, show as a capability only ☐ stopped, remove

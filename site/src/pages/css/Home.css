@@ -8,6 +8,10 @@
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--s-3); }
   .cert-line { margin-top: var(--s-5); padding-top: var(--s-4); border-top: var(--hair); font-size: var(--t-14); color: var(--ink-2); display: grid; gap: 4px; }
   .cert-line b { font-weight: 600; color: var(--ink); }
+  .hero__part { display: grid; gap: var(--s-2); margin-top: var(--s-7); text-decoration: none; color: inherit; }
+  .hero__part .photo { aspect-ratio: 4 / 3; border: var(--hair); background: #fff; }
+  .hero__part:hover .tbl-note { color: var(--ink); }
+  @media (max-width: 1023px) { .hero__part { display: none; } }
   .hero__sheet { grid-column: 6 / span 7; background: var(--card); border: 1px solid var(--ink-line); padding: 10px 10px 10px 22px; position: relative; }
   .hero__sheet .frame { border: var(--hair); padding: var(--s-3); }
   .hero__sheet .zone { position: absolute; font: 600 11px var(--font-sans); color: var(--ink-3); }
@@ -46,6 +50,8 @@
   .plant__media { grid-column: 1 / span 7; display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-2); }
   .plant__media > * { aspect-ratio: 4 / 3; }
   .plant__media > :first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+  .plant__media > a.photo { border: var(--hair); background: #fff; }
+  .plant__media > .plant__cap { grid-column: 1 / -1; aspect-ratio: auto; margin: var(--s-1) 0 0; }
   .plant__txt { grid-column: 9 / span 4; }
   .plant__txt h2 { margin-block: var(--s-3) var(--s-4); }
   .plant__txt .kv { margin-top: var(--s-5); }

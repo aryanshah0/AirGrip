@@ -6,20 +6,22 @@ import { PartCode } from "./Family";
 import { srcSet } from "../lib/img";
 
 /** The hero picture of a product page: the drawing, with a Drawing | Photo switch when photos exist. Photos are shown
- *  at the same size as the drawing, so every product page treats photos the same way. */
-export function Plate({ drawing, photos }: { drawing: ReactNode; photos: [file: string, alt: string][] }) {
-  if (!photos.length) return <>{drawing}</>;
+ *  at the same size as the drawing, so every product page treats photos the same way. `first="photo"` opens on the
+ *  photo (standard-range parts, which buyers recognise by look); `notes` puts a caption under each view. */
+export function Plate({ drawing, photos, first = "drawing", notes }: { drawing: ReactNode; photos: [file: string, alt: string][]; first?: "drawing" | "photo"; notes?: [drawing: ReactNode, photo: ReactNode] }) {
+  if (!photos.length) return <>{drawing}{notes?.[0] && <p className="tbl-note">{notes[0]}</p>}</>;
+  const ph = first === "photo";
+  const dTab = <button key="d" role="tab" id="v-d" aria-selected={!ph} aria-controls="v-dp" tabIndex={ph ? -1 : undefined}>Drawing</button>;
+  const pTab = <button key="p" role="tab" id="v-p" aria-selected={ph} aria-controls="v-pp" tabIndex={ph ? undefined : -1}>Photo{photos.length > 1 ? "s" : ""}</button>;
   return (
     <div className="plate">
-      <div className="seg plate__sw" role="tablist" aria-label="View">
-        <button role="tab" id="v-d" aria-selected="true" aria-controls="v-dp">Drawing</button>
-        <button role="tab" id="v-p" aria-selected="false" aria-controls="v-pp" tabIndex={-1}>Photo{photos.length > 1 ? "s" : ""}</button>
-      </div>
-      <div role="tabpanel" id="v-dp" aria-labelledby="v-d">{drawing}</div>
-      <div role="tabpanel" id="v-pp" aria-labelledby="v-p" hidden>
+      <div className="seg plate__sw" role="tablist" aria-label="View">{ph ? [pTab, dTab] : [dTab, pTab]}</div>
+      <div role="tabpanel" id="v-dp" aria-labelledby="v-d" hidden={ph || undefined}>{drawing}{notes?.[0] && <p className="tbl-note">{notes[0]}</p>}</div>
+      <div role="tabpanel" id="v-pp" aria-labelledby="v-p" hidden={!ph || undefined}>
         <div className={"plate__ph" + (photos.length > 1 ? " is-many" : "")}>
-          {photos.map(([f, alt]) => <img key={f} src={`/img/${f}`} {...srcSet(f, photos.length > 1 ? "(max-width: 559px) 50vw, 300px" : "(max-width: 559px) 100vw, 600px")} alt={alt} loading="lazy" />)}
+          {photos.map(([f, alt], i) => <img key={f} src={`/img/${f}`} {...srcSet(f, photos.length > 1 ? "(max-width: 559px) 50vw, 300px" : "(max-width: 559px) 100vw, 600px")} alt={alt} {...(ph && i === 0 ? { fetchPriority: "high" as const } : { loading: "lazy" as const })} />)}
         </div>
+        {notes?.[1] && <p className="tbl-note">{notes[1]}</p>}
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import "../styles/pages.css";
 import "./css/Products.css";
+import { srcSet } from "../lib/img";
 
 export default function Products() {
   return (
@@ -12,7 +13,7 @@ export default function Products() {
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Products</li></ol>{" "}
       <div className="phead__row">{" "}
       <div><h1>Brass components, made to drawing or from standard ranges</h1><p className="lead">Seven groups are made to customer drawings. Cable glands and their accessories are standard ranges with dimension tables and part codes.</p></div>{" "}
-      <div></div>{" "}
+      <figure className="phero"><div className="photo"><img src="/img/brass-turned-parts.webp" {...srcSet("brass-turned-parts.webp", "(max-width: 959px) 100vw, 560px")} alt="Brass turned parts made by AirGrip: connector bodies, bushes, pins and fittings" fetchPriority="high" /></div><figcaption className="tbl-note">Turned parts made in our plant.</figcaption></figure>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}

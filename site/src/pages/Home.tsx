@@ -23,6 +23,7 @@ export default function Home() {
       <div className="cert-line">{" "}
       <span><b>ISO 9001:2015</b>{" "}· PPAP Level 3 on request · 3.1 mill certificates</span>{" "}
       </div>{" "}
+      <a className="hero__part" href="/products/brass-turned-components/"><span className="photo"><img src="/img/brass-turned-parts.webp" {...srcSet("brass-turned-parts.webp", "400px")} alt="Brass turned parts made in our plant" loading="lazy" /></span><span className="tbl-note">From drawing to part: turned components made in our plant{" "}<span aria-hidden="true">→</span></span></a>{" "}
       </div>{" "}
       <figure className="hero__sheet" style={{"margin": "0"}}>{" "}
       <span className="zone" style={{"top": "0", "left": "30%"}}>1</span><span className="zone" style={{"top": "0", "left": "55%"}}>2</span><span className="zone" style={{"top": "0", "left": "80%"}}>3</span>{" "}
@@ -137,6 +138,9 @@ export default function Home() {
       <div className="plant">{" "}
       <div className="plant__media">{" "}
       <div className="photo"><img src="/img/airgrip-plant-jamnagar.webp" {...srcSet("airgrip-plant-jamnagar.webp")} alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" loading="lazy" /></div>{" "}
+      <a className="photo" href="/products/brass-fittings/"><img src="/img/brass-fittings-range.webp" {...srcSet("brass-fittings-range.webp", "(max-width: 959px) 50vw, 380px")} alt="Brass fittings made in our plant, laid out beside a steel rule" loading="lazy" /></a>{" "}
+      <a className="photo" href="/products/brass-moulding-inserts/"><img src="/img/brass-moulding-inserts.webp" {...srcSet("brass-moulding-inserts.webp", "(max-width: 959px) 50vw, 380px")} alt="Brass moulding inserts made in our plant" loading="lazy" /></a>{" "}
+      <p className="tbl-note plant__cap">The plant at GIDC Phase-III, Dared, and parts made there: fittings and moulding inserts.</p>{" "}
       </div>{" "}
       <div className="plant__txt">{" "}
       <p><b>ISO 9001:2015 certified.</b>{" "}The rod's heat number is carried on every inspection record and carton label, so each part traces back to the bar it was cut from.</p>{" "}

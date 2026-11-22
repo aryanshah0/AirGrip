@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Brass anchor: knurled sleeve with internal thread, in section">
+<title>Brass anchor: knurled sleeve with internal thread, in section</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M15.0 40.9 L18.8 37.0 L30.3 37.0 L34.1 40.9 L34.1 39.9 L186.8 39.9 L186.8 49.8 L190.9 45.6 L220.9 45.6 L225.0 49.8 L225.0 56.1 L15.0 56.1Z" fill="#F1E4C6" stroke="none"/><path d="M15.0 40.9 L18.8 37.0 L30.3 37.0 L34.1 40.9 L34.1 39.9 L186.8 39.9 L186.8 49.8 L190.9 45.6 L220.9 45.6 L225.0 49.8 L225.0 56.1 L15.0 56.1Z" fill="url(#h)" stroke="none"/><path d="M15.0 40.9 L18.8 37.0 L30.3 37.0 L34.1 40.9 L34.1 39.9 L186.8 39.9 L186.8 49.8 L190.9 45.6 L220.9 45.6 L225.0 49.8 L225.0 56.1 L225.0 56.1 L15.0 56.1 L15.0 40.9" stroke="#262B33" stroke-width="1.2"/>
+<path d="M15.0 80.0 L15.0 119.1 L18.8 123.0 L30.3 123.0 L34.1 119.1 L34.1 120.1 L186.8 120.1 L186.8 110.2 L190.9 114.4 L220.9 114.4 L225.0 110.2 L225.0 80.0" stroke="#262B33" stroke-width="1.2"/>
+<path d="M18.8 80.0V123.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M30.3 80.0V123.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M34.1 80.0V123.0" stroke="#262B33" stroke-width="0.9"/>
+<path d="M186.8 80.0V120.1" stroke="#262B33" stroke-width="0.9"/>
+<path d="M190.9 80.0V114.4" stroke="#262B33" stroke-width="0.9"/>
+<path d="M220.9 80.0V114.4" stroke="#262B33" stroke-width="0.9"/>
+<rect x="34.1" y="80.0" width="152.7" height="40.1" fill="url(#k)" stroke="none"/>
+<path d="M15.0 103.9H225.0" stroke="#262B33" stroke-width=".6" stroke-dasharray="3 2"/>
+<path d="M16.0 53.3H224.0" stroke="#262B33" stroke-width=".6"/>
+<path d="M8.0 80.0H232.0" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+</g></svg>

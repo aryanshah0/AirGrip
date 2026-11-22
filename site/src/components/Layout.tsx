@@ -151,7 +151,20 @@ function Header({ nav }: { nav: string }) {
   );
 }
 
+/** Footer. On phones the four link groups fold (they are about 800 px of links); the address, phone and email stay
+ *  open. They are rendered open, so crawlers and wide screens get every link; a phone-width check folds them. */
 function Footer() {
+  useEffect(() => {
+    const cols = [...document.querySelectorAll<HTMLDetailsElement>(".ftr details.fcol")];
+    const mq = matchMedia("(max-width: 559px)");
+    const set = () => cols.forEach((d) => { d.open = !mq.matches; });
+    set();
+    mq.addEventListener("change", set);
+    // on wide screens the groups are plain columns: the heading does not fold them
+    const stop = (e: Event) => { if (!mq.matches) e.preventDefault(); };
+    cols.forEach((d) => d.querySelector("summary")?.addEventListener("click", stop));
+    return () => { mq.removeEventListener("change", set); cols.forEach((d) => d.querySelector("summary")?.removeEventListener("click", stop)); };
+  }, []);
   return (
     <footer className="ftr">
       <div className="wrap">
@@ -162,10 +175,10 @@ function Footer() {
               <a className="mono" href={SITE.phoneHref}>{SITE.phone}</a> · <a href={"mailto:" + SITE.email}>{SITE.email}</a><br />
               <span className="muted">{SITE.hours}</span></address>
           </div>
-          <div><p className="fh">Products</p><ul><li><a href={P.category}>Brass turned components</a></li><li><a href={P.fittings}>Brass fittings</a></li><li><a href={P.forged}>Forged brass components</a></li><li><a href={P.inserts}>Moulding inserts</a></li><li><a href={P.terminals}>Electrical terminals &amp; connectors</a></li><li><a href={P.fasteners}>Special fasteners</a></li><li><a href={P.stamping}>Metal stamping parts</a></li><li><a href={P.glands}>Brass cable glands &amp; accessories</a></li></ul></div>
-          <div><p className="fh">Capabilities</p><ul><li><a href={P.capabilities}>Processes &amp; machines</a></li><li><a href={P.capabilities + "#range"}>Range &amp; accuracy</a></li><li><a href={P.capabilities + "#finishing"}>Plating &amp; finishing</a></li><li><a href={P.quality}>Quality</a></li></ul></div>
-          <div><p className="fh">Resources</p><ul><li><a href={P.resources}>All resources</a></li><li><a href={P.pg}>PG thread chart</a></li><li><a href={P.metric}>Metric thread chart</a></li><li><a href={P.bsp}>BSP thread chart</a></li><li><a href={P.npt}>NPT thread chart</a></li><li><a href={P.grades}>Brass grade equivalents</a></li><li><a href={P.resources + "#guides"}>Buyer guides</a></li></ul></div>
-          <div><p className="fh">Company</p><ul><li><a href={P.about}>About AirGrip</a></li><li><a href={P.industries}>Industries</a></li><li><a href={P.exports}>Ordering &amp; shipping</a></li><li><a href={P.contact}>Contact</a></li><li><a href={P.rfq}>Request a quote</a></li></ul></div>
+          <details className="fcol" open><summary className="fh">Products</summary><ul><li><a href={P.category}>Brass turned components</a></li><li><a href={P.fittings}>Brass fittings</a></li><li><a href={P.forged}>Forged brass components</a></li><li><a href={P.inserts}>Moulding inserts</a></li><li><a href={P.terminals}>Electrical terminals &amp; connectors</a></li><li><a href={P.fasteners}>Special fasteners</a></li><li><a href={P.stamping}>Metal stamping parts</a></li><li><a href={P.glands}>Brass cable glands &amp; accessories</a></li></ul></details>
+          <details className="fcol" open><summary className="fh">Capabilities</summary><ul><li><a href={P.capabilities}>Processes &amp; machines</a></li><li><a href={P.capabilities + "#range"}>Range &amp; accuracy</a></li><li><a href={P.capabilities + "#finishing"}>Plating &amp; finishing</a></li><li><a href={P.quality}>Quality</a></li></ul></details>
+          <details className="fcol" open><summary className="fh">Resources</summary><ul><li><a href={P.resources}>All resources</a></li><li><a href={P.pg}>PG thread chart</a></li><li><a href={P.metric}>Metric thread chart</a></li><li><a href={P.bsp}>BSP thread chart</a></li><li><a href={P.npt}>NPT thread chart</a></li><li><a href={P.grades}>Brass grade equivalents</a></li><li><a href={P.resources + "#guides"}>Buyer guides</a></li></ul></details>
+          <details className="fcol" open><summary className="fh">Company</summary><ul><li><a href={P.about}>About AirGrip</a></li><li><a href={P.industries}>Industries</a></li><li><a href={P.exports}>Ordering &amp; shipping</a></li><li><a href={P.contact}>Contact</a></li><li><a href={P.rfq}>Request a quote</a></li></ul></details>
         </div>
         <div className="ftr__base">
           <span>© 2026 AirGrip</span>

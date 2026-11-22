@@ -85,7 +85,7 @@
 
 /* ---- Product hub cards (list rows with spec) ------------------------- */
 .hub { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--s-7) var(--gutter); }
-.hub a { display: grid; gap: var(--s-3); text-decoration: none; }
+.hub a { display: grid; gap: var(--s-3); text-decoration: none; align-content: start; }
 .hub .photo, .hub .ph { aspect-ratio: 4 / 3; border: var(--hair); }
 .hub .no { font-family: var(--font-mono); font-size: var(--t-13); color: var(--brass-deep); }
 .hub h3 { font-size: var(--t-20); }

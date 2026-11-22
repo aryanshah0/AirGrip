@@ -119,3 +119,52 @@ mail yet. Form requests are safe on the server; NDA emails are not. This is alre
   - Facts are not repeated from Quality; About already links to it.
 - Open for a second round: A5, A7, A8, A9, A10. B items wait on the owner. B8 (logo) only as a thought for Ketan.
 - Not committed: `docs/fresh-review/bench-*.jpg` (competitor screenshots stay out of the public repo).
+
+## Round 2, the final round (2026-11-22)
+User decisions: About opens with the plant photo; the existing product photos are AirGrip's own parts (C3 answered via
+the user, recorded in the call sheet and QUESTIONS-FOR-KETAN); do all remaining code items.
+
+Done (built and tested locally: 53/53 flows, axe clean on 40 pages, visual check shows only the intended changes):
+- **Photos:**
+  - About opens with the plant photo; the lathe photo is off the page.
+  - Home: a turned-parts photo fills the gap under the hero buttons (A10); the plant section adds fittings and
+    moulding-insert photos.
+  - Products: turned-parts photo in the empty hero column.
+  - Gland hub cards show the gland photos.
+  - Clamping-jaw, strain-relief, pressure-screw and lock-nut pages open on the photo, with "Photo: parts made in our
+    plant." Stop plugs and earth tags keep the drawing first: their photos are about 300 px and look like
+    placeholders when they lead.
+- **A5:** "Typical …" drawing galleries on fittings (6), forgings (4), inserts (6), terminals (4), fasteners (6) and
+  stampings (4). There are 19 new drawings from `design/tools/lineart.py`, only of types each page lists, captioned as
+  representative shapes.
+- **A6 follow-up:** a PG thread-profile drawing (`prof-pg`) on the PG chart's related card.
+- **A7:** from 1024 px, label/value rows and list rows at 16 px; tables and secondary descriptions at 15 px.
+- **A8:** footer link groups fold on phones (home page about 490 px shorter); address, phone and email stay open.
+- **A9:**
+  - Germany & EU: "What we make" became 4 cards (3 drawings, 1 gland photo); materials and ordering sit side by side.
+  - Ordering & shipping: the numbered quote-to-delivery steps come first; India and export terms sit side by side.
+  - Both pages have one band fewer.
+- **Fix found on the way:** hub cards are top-aligned, so headings line up when the card texts differ in length.
+
+### Scores after round 2 (honest)
+| Area | Before | Now | Why |
+|---|---|---|---|
+| Visual identity | 8 | 8.5 | Drawing system extended to every group; real photos used deliberately. The logo is still the dated element. |
+| Consistency | 9 | 9 | |
+| Layout and rhythm | 6.5 | 8 | Group pages at parity; Germany and Ordering pages no longer walls of rows; hero gap filled. |
+| Typography | 7.5 | 8.5 | 16 px reading size on desktop. |
+| Hierarchy | 7.5 | 8 | |
+| Mobile | 8 | 9 | Short cookie bar, folded form section, folded footer, compact cards. |
+| Path to a quote request | 8 | 8.5 | Shorter form. (Mail to sales@airgrip.in is still Ketan's open item.) |
+| Trust signals | 5 | 6.5 | Real parts on Home, Products, glands and About. Still missing: ISO certificate details, people, customer examples. |
+| Selling the products | 5.5 | 7 | Photo-first glands, drawing galleries. Still missing: clamping ranges and datasheets. |
+| **Overall** | **7** | **8** | |
+
+**What reaches 9** (all owner material, nothing left in code):
+- the ISO certificate scan;
+- Ketan's and Shree's bios and photos;
+- gland clamping ranges, which allow a datasheet PDF per gland;
+- the photo shoot;
+- a few anonymised customer examples.
+
+With the first three, about 8.5. With the shoot as well, 9.

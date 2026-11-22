@@ -5,7 +5,7 @@ import "./datasheet.css";
 import { AddQ } from "../components/AddQ";
 import { Arr, Code, Crumbs, Faq, Kv, M, Plate, Related } from "../components/blocks";
 import { PartCode } from "../components/Family";
-import { METRIC, PG, type Gland, type Thread } from "../data/products";
+import { METRIC, PG, PHOTO_NOTE, type Gland, type Thread } from "../data/products";
 import { P } from "../site";
 
 const RELATED = [
@@ -46,8 +46,7 @@ export function GlandPage({ g }: { g: Gland }) {
           <div className="prod" style={{ marginTop: "var(--s-5)" }}>
             <figure className="prod__fig" style={{ margin: "0" }}>
               <Plate drawing={<div className="sheet"><div className="frame"><img src={`/img/la/l/${g.art}.svg`} alt={`${g.item}: half-section and end view`} style={{ width: "100%", height: "auto" }} /></div></div>}
-                photos={[[g.photo, `${g.item}, photo`]]} />
-              <p className="tbl-note">{g.figNote}</p>
+                photos={[[g.photo, `${g.item}, photo`]]} first="photo" notes={[g.figNote, PHOTO_NOTE]} />
             </figure>
             <div className="prod__info">
               <span className="eyebrow">Brass cable glands&nbsp;· <span className="mono" style={{ letterSpacing: "0" }}>{g.code}</span></span>

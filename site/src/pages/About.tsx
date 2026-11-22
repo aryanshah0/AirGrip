@@ -13,7 +13,7 @@ export default function About() {
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">About</li></ol>{" "}
       <div className="ahero">{" "}
       <div><h1>Brass parts from Jamnagar since 1988</h1><p className="lead">AirGrip makes brass parts to customer drawings, from turned components and forgings to fittings, inserts, terminals, fasteners and stampings, and a standard range of brass cable glands and accessories. We supply OEMs in India and more than 40 countries.</p></div>{" "}
-      <div className="photo"><img src="/img/cnc-turning-brass-nozzle.webp" {...srcSet("cnc-turning-brass-nozzle.webp")} alt="Brass hose nozzle being turned on a lathe" fetchPriority="high" /></div>{" "}
+      <div className="photo"><img src="/img/airgrip-plant-jamnagar.webp" {...srcSet("airgrip-plant-jamnagar.webp")} alt="AirGrip plant at GIDC Phase-III, Dared, Jamnagar" fetchPriority="high" /></div>{" "}
       </div>{" "}
       <dl className="strip" style={{"marginTop": "var(--s-7)"}}>{" "}
       <div><dt>Founded</dt><dd>1988<small>Jamnagar, Gujarat</small></dd></div>{" "}

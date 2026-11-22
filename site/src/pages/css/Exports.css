@@ -12,3 +12,22 @@
   .route-line b { display: block; font-weight: 600; margin-top: 4px; }
   .route-line p { font-size: var(--t-14); color: var(--ink-2); margin-top: 4px; }
   @media (max-width: 959px) { .route-line { grid-template-columns: 1fr; } .route-line > div { border-right: 0; border-bottom: var(--hair); } }
+
+/* fresh UX review A9: fewer stacked row bands. Drawing cards for what we make; two term lists side by side. */
+.hub--eu { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.hub--eu .photo { background: #fff; }
+.hub--eu .photo img { object-fit: contain; }
+.hub--eu a > .photo:has(> img) img { object-fit: cover; }
+@media (max-width: 959px) { .hub--eu { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 559px) {
+  .hub--eu { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--ink-line); }
+  .hub--eu a { grid-template-columns: 96px 1fr; gap: 4px var(--s-4); padding: 12px 0; border-bottom: var(--hair); }
+  .hub--eu a .photo { grid-row: span 2; width: 96px; height: 72px; aspect-ratio: auto; }
+  .hub--eu a h3 { font-size: var(--t-18); }
+  .hub--eu a p { font-size: var(--t-14); }
+}
+.cols2 { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: var(--s-8) var(--gutter); align-items: start; }
+.cols2 h2.sub { margin: 0; }
+.cols2__i { color: var(--ink-2); margin: var(--s-2) 0 var(--s-5); }
+@media (max-width: 959px) { .cols2 { grid-template-columns: 1fr; } }
+.route-line .mono { display: block; }

@@ -434,6 +434,19 @@ write("prof-bsp", "BSP Whitworth thread profile: 55 degree flanks, rounded crest
       + f'<path d="M58.2 84.6A30 30 0 0 1 85.8 84.6" stroke="{INK3}" stroke-width=".5"/>' + TXT(72, 79, "55°")
       + LEAD("M168 60L182 40H202") + TXT(186, 37, "d", anchor="start")
       + LEAD("M136 101L150 120H154") + TXT(158, 123, "d1", anchor="start", bg=True), bsp_body)
+# PG (DIN 40430) 80°, shallow: depth about 0.48 P; P = 64 px, crest and root flats 6.5 px
+pts = []
+for k in range(4):
+    x0 = 8 + 64 * k
+    pts += [(x0, 64), (x0 + 6.5, 64), (x0 + 32, 94.4), (x0 + 38.5, 94.4)]
+pts = [(x, y) for x, y in pts if x <= 232]
+pgp = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + " L232 64"
+pg_body = prof_fill(pgp) + C("M4 146H236")
+write("prof-pg", "PG thread profile to DIN 40430: 80 degree flanks, shallow depth, pitch P, outside diameter d, core diameter d1", pg_body
+      + DIM("M12 60V28M76 60V28") + DL("M12 32H76") + TXT(44, 29, "P", bg=True)
+      + f'<path d="M58 84A30 30 0 0 1 98 84" stroke="{INK3}" stroke-width=".5"/>' + TXT(78, 79, "80°")
+      + LEAD("M140 64L156 42H178") + TXT(160, 39, "d", anchor="start")
+      + LEAD("M174 94.4L186 116H190") + TXT(194, 119, "d1", anchor="start", bg=True), pg_body)
 # NPT 60°, taper (exaggerated here) rising to the right; P = 56 px, depth 0.8P
 t = lambda x: -(x - 8) * 0.10
 Cy, Ry = 58, 58 + 44.8
@@ -448,5 +461,75 @@ write("prof-npt", "NPT taper pipe thread profile: 60 degree flanks, pitch P, tap
       + DIM(f"M36 {Cy+t(36)-4:.1f}V22M92 {Cy+t(92)-4:.1f}V22") + DL("M36 26H92") + TXT(64, 23, "P", bg=True)
       + f'<path d="M50 {100.8-24.2+t(64):.1f}A28 28 0 0 1 78 {100.8-24.2+t(64):.1f}" stroke="{INK3}" stroke-width=".5"/>' + TXT(64, 70 + t(64), "60°")
       + DIM(f"M176 {Cy+t(176):.1f}H232") + LEAD(f"M214 {Cy+t(214)+.5:.1f}L206 20H180") + TXT(150, 17, "taper 1:16", anchor="start"), npt_body)
+
+# ---- typical-part galleries for the made-to-drawing group pages (fresh UX review A5, 2026-11-22) ----------------
+# Representative shapes of the part types each page already lists; not customer parts, not to a common scale.
+# fittings
+turned("hosebarb", "Hose-barb fitting: male thread, hex and three barbs, in section", [(10, 10.5, {"thread":1,"cham":1}), (7, 13, H_), (6, 5, {"barb":1}), (6, 5, {"barb":1}), (6, 5, {"barb":1})], bore=[(0, 35, 3.2, {})], len_label="35", dia=False, threads=[(0, "G 1/2")])
+turned("socket", "Female socket: hex body, threaded both ends, with end view", [(26, 13, H_)], bore=[(0, 10, 10, {"thread":1}), (10, 16, 8, {}), (16, 26, 10, {"thread":1})], len_label="26", end=True)
+turned("compression", "Compression fitting body: male thread, hex and compression thread, in section", [(10, 10.5, {"thread":1,"cham":1}), (7, 13, H_), (11, 9, {"thread":1,"cham":1})], bore=[(0, 18, 4, {}), (18, 28, 6, {})], len_label="28", dia=False, threads=[(0, "G 1/2"), (2, "M16×1.5")])
+# forgings
+turned("flanged", "Forged flanged body, machined: flange, neck, threaded spigot and through bore, in section", [(5, 17, {"cham":1}), (4, 13, {}), (16, 11, {"thread":1,"cham":1})], bore=[(0, 25, 7, {})], len_label="25", dia=(0, "Ø34"), threads=[(2, "G 3/4")])
+vb_out = "M40 64H76V54H100L104 24H136L140 54H164V64H200V100H164V110H76V100H40Z"
+vb_in = "M40 74H99.5A22 22 0 0 1 116 60.4V24H124V60.4A22 22 0 0 1 140.5 74H200V90H140.5A22 22 0 0 1 99.5 90H40Z"
+vb_body = (f'<path fill-rule="evenodd" d="{vb_out} {vb_in}" fill="{TINT}" stroke="none"/><path fill-rule="evenodd" d="{vb_out} {vb_in}" fill="url(#h)" stroke="none"/>'
+    + O("M40 74V64H76V54H100L104 24H116M124 24H136L140 54H164V64H200V74M200 90V100H164V110H76V100H40V90")
+    + O("M40 74H99.5A22 22 0 0 1 116 60.4V24M124 24V60.4A22 22 0 0 1 140.5 74H200M200 90H140.5A22 22 0 0 1 99.5 90H40")
+    + T("M40 70H62M40 94H62M178 70H200M178 94H200M76 59H100M140 59H164M76 105H164")
+    + C("M30 82H210M120 14V118"))
+write("valvebody", "Forged brass ball-valve body in section: two threaded ports, ball chamber and stem bore", vb_body
+      + DIM("M40 104V128M200 104V128") + DL("M40 124H200") + TXT(120, 121, "L", bg=True)
+      + LEAD("M190 72L200 50H222") + TXT(204, 47, "G 1/2", anchor="start"), vb_body)
+mf_out = "M36 50H204V110H36Z"
+mf_in = "M36 74H70V50H86V74H112V50H128V74H154V50H170V74H184L190 82L184 90H36Z"
+mf_body = (f'<path fill-rule="evenodd" d="{mf_out} {mf_in}" fill="{TINT}" stroke="none"/><path fill-rule="evenodd" d="{mf_out} {mf_in}" fill="url(#h)" stroke="none"/>'
+    + O("M36 74V50H70M86 50H112M128 50H154M170 50H204V110H36V90")
+    + O("M36 74H70V50M86 50V74H112V50M128 50V74H154V50M170 50V74H184L190 82L184 90H36")
+    + T("M36 70H54M36 94H54M66 50V64M90 50V64M108 50V64M132 50V64M150 50V64M174 50V64")
+    + C("M28 82H198M78 40V100M120 40V100M162 40V100"))
+write("manifold", "Forged brass manifold in section: blind inlet bore and three threaded outlets", mf_body
+      + DIM("M36 114V134M204 114V134") + DL("M36 130H204") + TXT(120, 127, "L", bg=True)
+      + LEAD("M88 54L100 30H128") + TXT(104, 27, "3 × G 1/4", anchor="start"), mf_body)
+# moulding inserts
+turned("pressinsert", "Press-in insert: straight knurl, lead-in chamfer, threaded bore, in section", [(2, 3.6, {"cham":1}), (12, 4.2, {"knurl":1,"cham":1})], bore=[(0, 14, 1.7, {"thread":1})], len_label="14", dia=(1, "Ø8.4"))
+turned("flangedinsert", "Flanged moulding insert: flange and knurled body, threaded bore, in section", [(2, 6, {"cham":1}), (10, 4.2, {"knurl":1,"cham":1})], bore=[(0, 12, 1.7, {"thread":1})], len_label="12", dia=(0, "Ø12"))
+turned("hexinsert", "Hexagonal moulding insert with a pull-out groove, with end view", [(5, 5.2, H_), (2.5, 4, {}), (5, 5.2, H_)], bore=[(0, 12.5, 2, {"thread":1})], len_label="12.5", end=True)
+turned("efinsert", "Terminal insert for electrofusion couplings: pin and knurled anchor, in section", [(10, 2.4, {"cham":1}), (8, 4.5, {"knurl":1,"cham":1}), (4, 3, {"cham":1})], len_label="22", dia=(1, "Ø9"))
+turned("pipeinsert", "Female threaded insert for PE and PP pipe fittings: knurled body, internal thread, in section", [(2, 14, {"cham":1}), (18, 13, {"knurl":1,"cham":1})], bore=[(0, 20, 9.5, {"thread":1})], len_label="20", dia=(0, "Ø28"))
+# electrical
+nl_body = (f'<rect x="30" y="66" width="180" height="28" fill="{TINT}" stroke="{INK}" stroke-width="1.2"/>'
+    + "".join(f'<circle cx="{x}" cy="80" r="7" fill="#fff" stroke="{INK}" stroke-width="1.2"/>' + T(f"M{x-5} 80H{x+5}") for x in (48, 77, 106, 135, 164, 193))
+    + C("M22 80H218"))
+write("neutrallink", "Brass neutral link, plan view: bar with six clamping screws", nl_body
+      + DIM("M30 98V120M210 98V120") + DL("M30 116H210") + TXT(120, 113, "L", bg=True)
+      + LEAD("M82 74L96 46H124") + TXT(100, 43, "6 × M4", anchor="start"), nl_body)
+eb_body = (f'<rect x="50" y="60" width="140" height="44" fill="{TINT}" stroke="{INK}" stroke-width="1.2"/>'
+    + HID("M50 76H190M50 90H190M114 60V104M126 60V104")
+    + "".join(f'<path d="M{x-8} 60V54Q{x-8} 48 {x-2} 48H{x+2}Q{x+8} 48 {x+8} 54V60Z" fill="#fff" stroke="{INK}" stroke-width="1.2"/>' + T(f"M{x-3} 48V52H{x+3}V48") for x in (80, 160))
+    + C("M42 83H198M120 40V112M80 40V70M160 40V70"))
+write("earthblock", "Brass earth block, front view: cable bore, two clamping screws and a mounting hole", eb_body
+      + DIM("M50 108V128M190 108V128") + DL("M50 124H190") + TXT(120, 121, "L", bg=True)
+      + LEAD("M168 52L180 32H206") + TXT(184, 29, "2 × M5", anchor="start"), eb_body)
+# fasteners
+def _slot(X, cy, sc):
+    return O(f"M{X(0):.1f} {cy - .5*sc:.1f}H{X(1.4):.1f}V{cy + .5*sc:.1f}H{X(0):.1f}", .9)
+turned("screw", "Slotted cheese-head machine screw, exterior view", [(4, 4.2, {"cham":1}), (18, 2.5, {"thread":1,"cham":1})], len_label="22", dia=False, threads=[(1, "M5")], section=False, extra=_slot)
+turned("hexnut", "Brass hex nut, section and end view", [(6.5, 6.9, H_)], bore=[(0, 6.5, 4, {"thread":1})], len_label="6.5", end=True)
+turned("washer", "Plain brass washer, section and plan view", [(2, 8, {})], bore=[(0, 2, 4.2, {})], len_label="2", end=True)
+turned("anchor", "Brass anchor: knurled sleeve with internal thread, in section", [(2, 4.5, {"cham":1}), (16, 4.2, {"knurl":1}), (4, 3.6, {"cham":1})], bore=[(0, 22, 2.5, {"thread":1})], len_label="22", dia=(0, "Ø9"))
+# stampings
+fc_path = "M92 58L74 66V102H166V66L148 58"
+fc_body = (f'<path d="{fc_path}" stroke="{INK}" stroke-width="6" fill="none"/><path d="{fc_path}" stroke="{TINT}" stroke-width="3.6" fill="none"/>'
+    + C("M120 44V116"))
+write("fuseclip", "Stamped brass fuse clip, side view: base and two spring arms", fc_body
+      + DIM("M74 108V128M166 108V128") + DL("M74 124H166") + TXT(120, 121, "W", bg=True)
+      + LEAD("M163 82L184 70H206") + TXT(188, 67, "t 0.5", anchor="start"), fc_body)
+cp_body = (f'<path d="M40 72H130V92H40Z" fill="{TINT}" stroke="none"/>' + O("M40 72H130V92H40Z")
+    + T("M40 82H112") + O("M130 76H142V70H196V94H142V88H130", .9)
+    + f'<path d="M142 70H196V94H142Z" fill="{TINT}" stroke="none"/>' + O("M142 70H196V94H142Z")
+    + T("M152 70V94M162 70V94M172 70V94M182 70V94") + C("M30 82H206"))
+write("crimppin", "Stamped and rolled female crimp pin, side view: contact tube and crimp barrel", cp_body
+      + DIM("M40 96V122M196 98V122") + DL("M40 118H196") + TXT(118, 115, "L", bg=True)
+      + LEAD("M60 74L70 52H96") + TXT(74, 49, "slotted contact", anchor="start"), cp_body)
 
 print("written", len(os.listdir(BASE)) - 1, "drawings + thumbnails")

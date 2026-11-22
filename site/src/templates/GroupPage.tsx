@@ -2,7 +2,7 @@
 // Content: GROUPS in src/data/products.tsx.
 import "../styles/pages.css";
 import "./datasheet.css";
-import { Arr, Bands, Crumbs, Faq, Kv, Plate, Related } from "../components/blocks";
+import { Arr, Bands, Crumbs, Faq, Kv, Pic, Plate, Related } from "../components/blocks";
 import type { Group } from "../data/products";
 import { P } from "../site";
 
@@ -24,6 +24,12 @@ export function GroupPage({ g }: { g: Group }) {
         </div>
       </section>
       <Bands sections={[
+        <div className="wrap">
+          <div className="open"><div><h2>{g.galleryH2}</h2></div><p>Representative shapes, drawn as half-sections or exterior views (not to a common scale).</p></div>
+          <div className={"gal" + (g.gallery.length % 3 === 0 ? " gal--3" : "")}>
+            {g.gallery.map(([img, name, spec]) => <figure key={img}><div className="photo"><Pic name={img} alt={`${name} drawing`} /></div><figcaption>{name}<span className="mono">{spec}</span></figcaption></figure>)}
+          </div>
+        </div>,
         <div className="wrap side">
           <div className="sh">
             <h2>{g.typesH2}</h2>

@@ -22,32 +22,33 @@ export default function Exports() {
       </dl>{" "}
       </div>{" "}
       </section>{" "}
+      <section className="band band--sheet" id="route">{" "}
+      <div className="wrap">{" "}
+      <div className="open"><div><h2>From quote to delivery</h2></div><p>A typical first order, in India or abroad.</p></div>{" "}
+      <div className="route-line">{" "}
+      <div><span className="mono">01</span><b>Quote</b><p>Price per Incoterm, MOQ and lead time. NDA first if you need one.</p></div>{" "}
+      <div><span className="mono">02</span><b>Samples</b><p>Free samples, typically in 2–3 weeks, with an inspection report; you pay the courier. PPAP on request.</p></div>{" "}
+      <div><span className="mono">03</span><b>Production</b><p>4–6 weeks typical after sample approval, inspected per the route card.</p></div>{" "}
+      <div><span className="mono">04</span><b>Packing</b><p>Cartons with traceable labels (label contents:{" "}<a className="link" href="/quality/#checks">see Quality</a>).</p></div>{" "}
+      <div><span className="mono">05</span><b>Shipping</b><p>Booked per your Incoterm: road within India, sea or air for export.</p></div>{" "}
+      </div>{" "}
+      </div>{" "}
+      </section>{" "}
       <section className="band" id="india">{" "}
-      <div className="wrap side">{" "}
-      <div className="sh"><h2>Buying within India</h2><p>For buyers in India, the domestic terms.</p></div>{" "}
-      <div className="sb"><dl className="kv">{" "}
+      <div className="wrap">{" "}
+      <div className="cols2">{" "}
+      <div>{" "}
+      <h2 className="sub">Buying within India</h2><p className="cols2__i">For buyers in India, the domestic terms.</p>{" "}
+      <dl className="kv">{" "}
       <dt>Invoicing</dt><dd>GST invoice</dd>{" "}
       <dt>Delivery</dt><dd>Road transport across India; freight agreed in the quote</dd>{" "}
       <dt>Payment</dt><dd>Agreed per order in the quote</dd>{" "}
       <dt>MSME / Udyam</dt><dd>Registered under MSME (Udyam)</dd>{" "}
       <dt>Vendor registration</dt><dd>GST, PAN, MSME certificate and bank details sent on request ·{" "}<a className="link" href="/downloads/airgrip-company-profile.pdf">company profile (PDF, 2 pages)</a></dd>{" "}
-      </dl></div>{" "}
+      </dl>{" "}
       </div>{" "}
-      </section>{" "}
-      <section className="band band--sheet">{" "}
-      <div className="wrap">{" "}
-      <div className="open"><div><h2>From quote to delivery</h2></div><p>A typical first order, in India or abroad.</p></div>{" "}
-      <div className="route-line">{" "}
-      <div><b>Quote</b><p>Price per Incoterm, MOQ and lead time. NDA first if you need one.</p></div>{" "}
-      <div><b>Samples</b><p>Free samples, typically in 2–3 weeks, with an inspection report; you pay the courier. PPAP on request.</p></div>{" "}
-      <div><b>Production</b><p>4–6 weeks typical after sample approval, inspected per the route card.</p></div>{" "}
-      <div><b>Packing</b><p>Cartons with traceable labels (label contents:{" "}<a className="link" href="/quality/#checks">see Quality</a>).</p></div>{" "}
-      <div><b>Shipping</b><p>Booked per your Incoterm: road within India, sea or air for export.</p></div>{" "}
-      </div>{" "}
-      </div>{" "}
-      <div className="wrap side" style={{"marginTop": "var(--s-9)"}}>{" "}
-      <div className="sh"><h2>Export details</h2><p>Answers to the usual vendor-onboarding questions.</p></div>{" "}
-      <div className="sb">{" "}
+      <div id="export">{" "}
+      <h2 className="sub">Export details</h2><p className="cols2__i">Answers to the usual vendor-onboarding questions.</p>{" "}
       <dl className="kv">{" "}
       <dt>Regions</dt><dd>Europe (Germany, France and other EU markets), the UK, North America (USA, Canada), the Middle East, Africa and Asia-Pacific</dd>{" "}
       <dt>Incoterms</dt><dd>EXW Jamnagar · FOB / CFR / CIF via Mundra or Nhava Sheva · air for samples</dd>{" "}
@@ -58,8 +59,9 @@ export default function Exports() {
       </dl>{" "}
       </div>{" "}
       </div>{" "}
+      </div>{" "}
       </section>{" "}
-      <section className="band" id="faq">{" "}
+      <section className="band band--sheet" id="faq">{" "}
       <div className="wrap side">{" "}
       <div className="sh"><h2>Ordering questions</h2><p>For every product group and the gland range.</p></div>{" "}
       <div className="sb"><div className="faq">{" "}
@@ -71,7 +73,7 @@ export default function Exports() {
       </div></div>{" "}
       </div>{" "}
       </section>{" "}
-      <section className="band band--sheet">{" "}
+      <section className="band">{" "}
       <div className="wrap"><div className="cta"><div><h2>Sourcing brass parts from India?</h2><p>Send a drawing with quantities, your Incoterm and the destination port.</p></div><div className="acts"><a className="btn" href="/rfq/">Request a quote{" "}<span className="arr" aria-hidden="true">→</span></a><a className="btn btn--ghost" href="/contact/">Contact</a></div></div></div>{" "}
       </section>{" "}
       </main>

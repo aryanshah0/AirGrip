@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" role="img" aria-label="Brass anchor: knurled sleeve with internal thread, in section">
+<title>Brass anchor: knurled sleeve with internal thread, in section</title>
+<defs>
+<pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="h2" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#B8862F" stroke-width=".8"/></pattern>
+<pattern id="k" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><path d="M0 0V5M0 0H5" stroke="#262B33" stroke-width=".45" fill="none"/></pattern>
+<pattern id="s" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="4" stroke="#5F656E" stroke-width=".5"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 1.5L10 5L0 8.5z" fill="#5F656E"/></marker>
+</defs>
+<rect width="240" height="160" fill="#fff"/>
+<g fill="none" stroke-linejoin="round" stroke-linecap="round">
+<path d="M28.0 50.7 L31.1 47.6 L40.2 47.6 L43.3 50.7 L43.3 49.9 L165.5 49.9 L165.5 57.8 L168.8 54.5 L192.7 54.5 L196.0 57.8 L196.0 62.9 L28.0 62.9Z" fill="#F1E4C6" stroke="none"/><path d="M28.0 50.7 L31.1 47.6 L40.2 47.6 L43.3 50.7 L43.3 49.9 L165.5 49.9 L165.5 57.8 L168.8 54.5 L192.7 54.5 L196.0 57.8 L196.0 62.9 L28.0 62.9Z" fill="url(#h)" stroke="none"/><path d="M28.0 50.7 L31.1 47.6 L40.2 47.6 L43.3 50.7 L43.3 49.9 L165.5 49.9 L165.5 57.8 L168.8 54.5 L192.7 54.5 L196.0 57.8 L196.0 62.9 L196.0 62.9 L28.0 62.9 L28.0 50.7" stroke="#262B33" stroke-width="1.2"/>
+<path d="M28.0 82.0 L28.0 113.3 L31.1 116.4 L40.2 116.4 L43.3 113.3 L43.3 114.1 L165.5 114.1 L165.5 106.2 L168.8 109.5 L192.7 109.5 L196.0 106.2 L196.0 82.0" stroke="#262B33" stroke-width="1.2"/>
+<path d="M31.1 82.0V116.4" stroke="#262B33" stroke-width="0.9"/>
+<path d="M40.2 82.0V116.4" stroke="#262B33" stroke-width="0.9"/>
+<path d="M43.3 82.0V116.4" stroke="#262B33" stroke-width="0.9"/>
+<path d="M165.5 82.0V114.1" stroke="#262B33" stroke-width="0.9"/>
+<path d="M168.8 82.0V109.5" stroke="#262B33" stroke-width="0.9"/>
+<path d="M192.7 82.0V109.5" stroke="#262B33" stroke-width="0.9"/>
+<rect x="43.3" y="82.0" width="122.2" height="32.1" fill="url(#k)" stroke="none"/>
+<path d="M28.0 101.1H196.0" stroke="#262B33" stroke-width=".6" stroke-dasharray="3 2"/>
+<path d="M29.0 60.6H195.0" stroke="#262B33" stroke-width=".6"/>
+<path d="M21.0 82.0H203.0" stroke="#B8862F" stroke-width=".7" stroke-dasharray="10 2 1.5 2"/>
+<path d="M28.0 118.4V134.4M196.0 111.5V134.4" stroke="#5F656E" stroke-width=".5"/>
+<path d="M28.0 130.4H196.0" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<rect x="104.1" y="119.4" width="15.8" height="10" fill="#fff" stroke="none"/><text x="112.0" y="127.4" text-anchor="middle" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">22</text>
+<path d="M44.8 47.6H212.0M44.8 116.4H212.0" stroke="#5F656E" stroke-width=".5"/>
+<path d="M208.0 47.6V116.4" stroke="#5F656E" stroke-width=".5" marker-start="url(#a)" marker-end="url(#a)"/>
+<text x="218.0" y="82.0" text-anchor="middle" transform="rotate(-90 218.0 82.0)" font-family="IBM Plex Mono, ui-monospace, monospace" font-size="9.5" fill="#262B33" stroke="none">Ø9</text>
+</g></svg>

@@ -30,6 +30,8 @@ const VOL = "From a few thousand pieces to millions a year";
 export const FINISH = "Natural, or plated in our plant: nickel, tin or zinc";
 const PLATED = FINISH + "; silver or chrome on request";
 const PLATED_NI_SN = "Natural, or plated in our plant: nickel or tin; silver or chrome on request";
+/** Caption under product photos (owner confirmed 2026-11-22 that the current photos show AirGrip's own parts). */
+export const PHOTO_NOTE = "Photo: parts made in our plant.";
 export const GLAND_BRASS = <>Brass CuZn39Pb3 (<M>CW614N</M>); lead-free on request</>;
 
 // Related cards
@@ -62,6 +64,8 @@ export interface Group {
   typesH2: string;
   types: string[];
   photos: [file: string, caption: string][];   // shown in the hero, behind a Drawing | Photo switch
+  galleryH2: string;
+  gallery: [img: string, name: string, spec: string][];   // representative shapes of the listed types (line drawings)
   specTitle?: string;
   spec?: KvRow[];
   also?: { h2: string; rows: KvRow[] };   // optional band after the spec: related things we make
@@ -83,6 +87,8 @@ export const GROUPS = {
       ["Material", <><M>CW617N</M> (forging), <M>CW614N</M>; DZR and lead-free on request</>],
       ["Finish", PLATED], ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical fittings",
+    gallery: [["adaptor", "Hex nipple", "G 1/2 · male both ends · hex"], ["elbow", "Elbow", "G 1/2 · two threaded ports"], ["tee", "Tee", "G 1/2 · three threaded ports"], ["hosebarb", "Hose-barb fitting", "G 1/2 · hex · three barbs"], ["socket", "Female socket", "hex · threaded both ends"], ["compression", "Compression body", "G 1/2 · hex · M16×1.5"]],
     typesH2: "Fittings we make",
     types: ["Pipe fittings: adapters, nipples, couplings, tees, elbows", "Hose-barb fittings", "Compression fittings",
       "Pneumatic and airline fittings", "Hydraulic fittings", "Automotive fittings"],
@@ -113,6 +119,8 @@ export const GROUPS = {
       ["Finish", "Shot-blasted, natural or bright; or plated in our plant: nickel, tin or zinc; silver or chrome on request"],
       ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical forgings",
+    gallery: [["forgedtee", "Forged tee", "hex body · three ports · drafted boss"], ["valvebody", "Valve body", "ball chamber · stem bore · two ports"], ["manifold", "Manifold", "blind inlet · three outlets"], ["flanged", "Flanged body", "Ø34 flange · G 3/4 spigot"]],
     typesH2: "Forged parts we make",
     types: ["Valve and fitting bodies", "Tees, elbows and manifolds", "Forged automotive components", "Flanged and branched bodies, machined to drawing"],
     photos: [],
@@ -139,6 +147,8 @@ export const GROUPS = {
       ["Material", <>Free-cutting brass <M>CW614N</M> (IS 319 Type I)</>],
       ["Finish", PLATED_NI_SN], ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical inserts",
+    gallery: [["insert", "Mould-in insert", "two knurls · pull-out groove"], ["pressinsert", "Press-in insert", "straight knurl · lead-in"], ["flangedinsert", "Flanged insert", "Ø12 flange · knurled body"], ["hexinsert", "Hexagonal insert", "hex · pull-out groove"], ["efinsert", "Electrofusion terminal insert", "pin · knurled anchor"], ["pipeinsert", "Insert for PE / PP fittings", "internal thread · knurled"]],
     typesH2: "Insert types",
     types: ["Mould-in threaded inserts", "Press-in inserts", "Flanged inserts", "Insulator inserts", "Inserts for electrofusion couplings", "Inserts for PE and PP pipe fittings"],
     photos: [["brass-moulding-inserts.webp", "Brass moulding inserts"]],
@@ -169,6 +179,8 @@ export const GROUPS = {
       ["Material", <>Brass <M>CW614N</M> (IS 319 Type I)</>],
       ["Finish", PLATED_NI_SN], ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical terminal parts",
+    gallery: [["terminal", "Terminal block", "conductor bore · 2 × M5"], ["neutrallink", "Neutral link", "bar · 6 × M4"], ["earthblock", "Earth block", "2 × M5 · mounting hole"], ["pin", "Terminal pin", "Ø4 · M6"]],
     typesH2: "Terminal parts we make",
     types: ["Terminal blocks", "Terminal connectors", "Earth blocks", "Neutral links", "Switchgear components", "MCB and RCD terminals"],
     photos: [],
@@ -195,6 +207,8 @@ export const GROUPS = {
       ["Material", <>Brass <M>CW614N</M>; others on request</>],
       ["Finish", PLATED], ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical fasteners",
+    gallery: [["hexbolt", "Hex bolt", "M8 · plain shank"], ["fastener", "Stud", "M8 · threaded both ends"], ["screw", "Machine screw", "M5 · slotted cheese head"], ["hexnut", "Hex nut", "AF 12"], ["washer", "Washer", "Ø16 · t 2"], ["anchor", "Anchor", "knurled sleeve · internal thread"]],
     typesH2: "Fasteners we make",
     types: ["Automotive battery-terminal fasteners and kits", "Machine screws", "Hex bolts", "Brass anchors", "Studs", "Nuts", "Washers"],
     photos: [["brass-battery-terminal-fasteners.webp", "Automotive battery fasteners"], ["brass-anchors.webp", "Brass anchors"], ["brass-nuts.webp", "Nuts"]],
@@ -217,6 +231,8 @@ export const GROUPS = {
       ["Material", "Brass · copper · steel"],
       ["Finish", PLATED_NI_SN], ["Documents", DOCS], ["Volumes", VOL],
     ],
+    galleryH2: "Typical stampings",
+    gallery: [["contact", "Contact", "Ø4.2 hole · forked end"], ["earthtag", "Earth tag", "for M20 · t 1.0"], ["fuseclip", "Fuse clip", "two spring arms"], ["crimppin", "Female crimp pin", "rolled · crimp barrel"]],
     typesH2: "Stampings we make",
     types: ["Electrical stamping parts", "Earth tags", "Fuse parts", "Switch parts", "Female crimp pins", "Washers"],
     photos: [],
@@ -312,6 +328,7 @@ interface AccessoryBase {
   code: string;             // part-code family, e.g. "AG-SP" (also the eyebrow unless `eyebrow` is set)
   eyebrow?: string;
   img: string;              // drawing in /img/la/l/
+  photoFirst?: boolean;   // open on the photo; only where the photo is large enough to lead (≥ 450 px)
   photos: [file: string, alt: string][];
   lead: string;
   facts: KvRow[];
@@ -339,7 +356,7 @@ const INCH = "BSP and NPT 3/8 to 1 1/2 inch";
 export const ACCESSORIES = {
   lockNuts: {
     kind: "tabs", family: { id: "accessory", label: "Type" }, name: "Lock nuts", item: "Lock nut", h1: "Brass lock nuts for cable glands", code: "AG-LN", eyebrow: "AG-LN\u00a0· AG-LE", img: "locknut",
-    photos: [["brass-lock-nut.webp", "Brass lock nuts"], ["brass-emc-lock-nut.webp", "EMC lock nut"]],
+    photos: [["brass-lock-nut.webp", "Brass lock nuts"], ["brass-emc-lock-nut.webp", "EMC lock nut"]], photoFirst: true,
     lead: "Lock nuts fasten cable glands and accessories to an enclosure wall, gland plate or equipment housing. Available as standard brass lock nuts and as EMC lock nuts.",
     facts: [
       ["Threads", <><M>{RANGE}</M>&nbsp;· <M>{INCH}</M></>],

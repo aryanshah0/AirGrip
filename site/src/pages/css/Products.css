@@ -33,3 +33,8 @@
   .sl a:hover b { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 4px; }
   @media (max-width: 959px) { .std-grid > * { grid-column: 1 / -1 !important; } }
   @media (max-width: 559px) { .acc .sl { grid-template-columns: 1fr; } }
+
+/* hero photo: real parts from the plant (owner confirmed 2026-11-22) */
+.phero { margin: 0; align-self: end; }
+.phero .photo { aspect-ratio: 4 / 3; border: var(--hair); background: #fff; }
+.phero figcaption { margin-top: var(--s-2); }
