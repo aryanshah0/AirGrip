@@ -7,3 +7,6 @@ share/
 .env
 .env.*
 !.env.example
+
+# competitor screenshots from reviews: local only, not for the public repo
+docs/fresh-review/bench-*
