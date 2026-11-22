@@ -133,6 +133,22 @@ export const routes = [
   "path": "/resources/brass-grade-equivalents/"
  },
  {
+  "name": "guide-grades",
+  "path": "/resources/guides/cw614n-vs-cw617n/"
+ },
+ {
+  "name": "guide-lead-free",
+  "path": "/resources/guides/lead-free-dzr-brass/"
+ },
+ {
+  "name": "guide-bsp-npt",
+  "path": "/resources/guides/bsp-vs-npt/"
+ },
+ {
+  "name": "guide-glands",
+  "path": "/resources/guides/cable-gland-selection/"
+ },
+ {
   "name": "privacy",
   "path": "/privacy-policy/"
  },
