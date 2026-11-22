@@ -29,11 +29,12 @@ export default function Resources() {
       <section className="band band--sheet" id="guides">{" "}
       <div className="wrap">{" "}
       <div className="open"><div><h2>Buyer guides</h2></div><p>Short answers to common buyer questions, with the data behind them.</p></div>{" "}
-      <div className="res res--4">{" "}
+      <div className="res">{" "}
       <a href="/resources/guides/cable-gland-selection/"><span className="mono">EN 60423 · IEC 60529</span><b>How to select a cable gland</b><p>Entry thread, hole size, cable diameter, IP rating and material, step by step.</p></a>{" "}
       <a href="/resources/guides/bsp-vs-npt/"><span className="mono">55° · 60°</span><b>BSP vs NPT threads</b><p>Angle, pitch, taper and sealing; why they don't mix and how to tell them apart.</p></a>{" "}
       <a href="/resources/guides/cw614n-vs-cw617n/"><span className="mono">CuZn39Pb3 · CuZn40Pb2</span><b>CW614N vs CW617N</b><p>Free-cutting or forging brass: composition, uses and equivalents.</p></a>{" "}
       <a href="/resources/guides/lead-free-dzr-brass/"><span className="mono">CW511L · CW724R</span><b>Lead-free and DZR brass</b><p>Dezincification, lead rules for drinking water and RoHS, and the grades that meet them.</p></a>{" "}
+      <a href="/resources/guides/en-10204-3-1-certificate/"><span className="mono">2.1 · 2.2 · 3.1 · 3.2</span><b>EN 10204 3.1 certificates</b><p>The four document types, 3.1 vs 3.2, how to read a mill certificate and what it covers for a finished part.</p></a>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}

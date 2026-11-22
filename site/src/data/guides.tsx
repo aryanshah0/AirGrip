@@ -27,6 +27,7 @@ export const G = {
   leadFree: "/resources/guides/lead-free-dzr-brass/",
   bspNpt: "/resources/guides/bsp-vs-npt/",
   glands: "/resources/guides/cable-gland-selection/",
+  cert: "/resources/guides/en-10204-3-1-certificate/",
 };
 
 export const GUIDES = {
@@ -79,7 +80,7 @@ export const GUIDES = {
       { id: "drawing", h2: "Writing it on the drawing", body: <>
         <p>A clear material callout saves a round of questions at quotation:</p>
         <p className="mono">Material: CW614N (CuZn39Pb3) to EN 12164, R430<br />Certificate: EN 10204 3.1</p>
-        <p>We run <M>CW614N</M> and <M>CW617N</M> as standard, and low-lead DZR <M>CW511L</M>, lead-free <M>CW724R</M> and DZR <M>CW602N</M> on request. An EN 10204 3.1 certificate comes with every batch.</p>
+        <p>We run <M>CW614N</M> and <M>CW617N</M> as standard, and low-lead DZR <M>CW511L</M>, lead-free <M>CW724R</M> and DZR <M>CW602N</M> on request. An <L href={G.cert}>EN 10204 3.1 certificate</L> comes with every batch.</p>
       </> },
     ],
     faq: [
@@ -296,5 +297,72 @@ export const GUIDES = {
       card(P.adapters, "PG → M", "Reducers and adapters", "Join different entries"),
     ],
     cta: ["Need glands or accessories?", "Tell us the entry thread and the cable outside diameter; we propose the size and send a quote.", P.rfq, "Request a quote"],
+  },
+  cert: {
+    crumb: "EN 10204 3.1 certificates", eyebrow: "Guide · EN 10204:2004", h1: "EN 10204 3.1 certificates, explained", updated: "2026-11-22",
+    lead: "Buyers of brass parts often ask for an “EN 10204 3.1” or a “3.1 MTC”. This is what the four document types in the standard mean, what a 3.1 for brass rod shows, and what it does and does not cover for a finished part.",
+    short: [
+      <>EN 10204 defines four inspection documents for metallic products: <M>2.1</M>, <M>2.2</M>, <M>3.1</M> and <M>3.2</M>. They differ in whether test results are given, and who validates them.</>,
+      <>A <b>3.1</b> gives results of specific inspection on the delivered product, validated by an inspector independent of the manufacturing department.</>,
+      <><b>3.1.B</b> is the old name from the 1991 edition. Since 2004 it is simply <M>3.1</M>.</>,
+      <>For a turned part, the rod mill's 3.1 covers the <b>material</b>. Dimensions, threads and plating are covered by the part maker's inspection report.</>,
+    ],
+    sections: [
+      { id: "types", h2: "The four document types", body: <>
+        <T head={["Type", "Document", "Test results", "Validated by"]} rows={[
+          [<M>2.1</M>, "Declaration of compliance with the order", "None", "The manufacturer"],
+          [<M>2.2</M>, "Test report", "From non-specific inspection", "The manufacturer"],
+          [<M>3.1</M>, "Inspection certificate 3.1", "From specific inspection", "The manufacturer's authorised inspection representative, independent of the manufacturing department"],
+          [<M>3.2</M>, "Inspection certificate 3.2", "From specific inspection", "The manufacturer's independent inspection representative and the purchaser's representative, or an inspector designated by regulations"],
+        ]} />
+        <p><b>Specific inspection</b> is done on the products to be supplied, or on test units of which they form part. <b>Non-specific inspection</b> is done on products of the same type made by the same process, not necessarily from your delivery. That is the difference between a 2.2 and a 3.1: the 3.1 reports tests on your material.</p>
+      </> },
+      { id: "old-names", h2: "3.1.B and the other 1991 names", sub: "EN 10204:1991 → EN 10204:2004", body: <>
+        <T flat head={["1991 edition", "2004 edition"]} rows={[
+          [<M>2.1</M>, <M>2.1</M>], [<M>2.2</M>, <M>2.2</M>], [<M>2.3</M>, "Withdrawn"],
+          [<M>3.1.A</M>, <M>3.2</M>], [<M>3.1.B</M>, <M>3.1</M>], [<M>3.1.C</M>, <M>3.2</M>], [<M>3.2</M>, <M>3.2</M>],
+        ]} />
+        <p>Drawings and purchase specifications written before 2004 often still say <M>3.1.B</M>. They mean what the current edition calls <M>3.1</M>.</p>
+      </> },
+      { id: "reading", h2: "What a 3.1 for brass rod shows", body: <>
+        <ul className="bullets">
+          <li><span>The material and its standard, for example <M>CW614N</M> to EN 12164, with the condition (such as <M>R430</M>) and the bar size.</span></li>
+          <li><span>The cast (heat) number, which ties the certificate to the bars delivered.</span></li>
+          <li><span>The chemical composition from the cast analysis.</span></li>
+          <li><span>Mechanical test results for the condition ordered: tensile strength, proof strength and elongation, or hardness.</span></li>
+          <li><span>A statement that the product complies with the order, signed by the authorised inspection representative.</span></li>
+        </ul>
+        <p>When you check one: every element should be inside the limits of the grade (for <M>CW614N</M> and <M>CW617N</M> see <L href={G.grades}>CW614N vs CW617N</L>), the condition should match the drawing, and the cast number should match the delivery.</p>
+      </> },
+      { id: "parts", h2: "What it covers for a finished part", body: <>
+        <p>The rod's 3.1 certifies the <b>material</b>. It says nothing about the dimensions, threads or plating of a part turned from that rod. Those are covered by the part maker's own documents: an inspection report against the drawing and a certificate of conformity. Traceability joins the two: the lot number of the parts should lead back to the cast number on the rod certificate.</p>
+        <p>What we send with brass parts:</p>
+        <T head={["Document", "When"]} rows={[
+          ["Mill test certificate (rod), EN 10204 3.1", "Each batch"], ["Final inspection report", "Each batch"], ["Certificate of conformity", "Each batch"],
+          ["Plating thickness report", "Plated batches"], ["Initial sample inspection report", "With samples"], ["PPAP submission, Level 3", "With samples, on request"],
+        ]} />
+        <p className="tbl-note">Our lot numbers are linked to the rod heat number on every record and label. More on how parts are checked: <L href={P.quality}>Quality</L>.</p>
+      </> },
+      { id: "ordering", h2: "How to ask for it", body: <>
+        <p>Put the certificate type on the drawing or the order, next to the material:</p>
+        <p className="mono">Material: CW614N (CuZn39Pb3) to EN 12164, R430<br />Certificate: EN 10204 3.1</p>
+        <p>If your specification needs a <M>3.2</M>, say so at enquiry: it needs a second inspector, from your side or a third party, to take part in the inspection.</p>
+      </> },
+    ],
+    faq: [
+      ["What is the difference between a 3.1 and a 3.2 certificate?", <>Both report results of specific inspection. A <M>3.1</M> is validated by the manufacturer's own inspection representative, independent of manufacturing. A <M>3.2</M> is validated by that representative and also by the purchaser's representative or an inspector designated by regulations.</>],
+      ["Is 3.1.B the same as 3.1?", <>Yes. <M>3.1.B</M> is the name used in EN 10204:1991; the 2004 edition calls the same document <M>3.1</M>.</>],
+      ["What is an MTC?", <>A mill test certificate: the inspection document the material mill issues for the bar or sheet it supplies, often to EN 10204 3.1.</>],
+      ["Does a 3.1 certificate prove the dimensions of my part?", <>No. A rod certificate covers the material. Dimensions are shown by the part maker's inspection report against your drawing.</>],
+      ["Who signs a 3.1 certificate?", <>The manufacturer's authorised inspection representative, who must be independent of the manufacturing department.</>],
+      ["Do you supply a 3.1 certificate with brass parts?", <>Yes. An EN 10204 3.1 mill test certificate for the rod comes with every batch, together with the final inspection report and a certificate of conformity.</>],
+    ],
+    related: [
+      card(P.quality, "ISO 9001:2015", "Quality", "Inspection and documents"),
+      card(G.grades, "CuZn39Pb3 · CuZn40Pb2", "CW614N vs CW617N", "Guide"),
+      card(P.grades, "EN · BS · UNS · IS", "Brass grade equivalents", "CW614N · CW617N · DZR"),
+      card(P.category, "CW614N", "Brass turned components", "Ø5–100 mm, ±0.05 mm"),
+    ],
+    cta: ["Need certificates with your parts?", "Tell us which documents your quality plan needs; we confirm them with the quote.", P.rfq, "Request a quote"],
   },
 } satisfies Record<string, Guide>;

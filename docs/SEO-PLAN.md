@@ -109,6 +109,11 @@ After launch, validate them with Google Search Console (actual queries) and Keyw
 chart / how to select cable gland size / pg vs metric", "bsp vs npt (difference, compatibility)", "cw614n vs cw617n",
 "lead free brass grade / dzr brass meaning / cw511l". The RFQ guide was dropped (no search demand). Next: add AirGrip's
 clamping ranges to the gland guide when Ketan's size table arrives; then decide further guides from Search Console queries.
+**Added 2026-11-22 (second round):** `/resources/guides/en-10204-3-1-certificate/` (autocomplete: "en 10204 3.1
+certificate", "3.1b", "3.1 mtc"); PG chart retitled for "pg to metric conversion chart" (its #pg-to-metric table already
+existed, so no separate page competes with it). Not written, on purpose: "cable gland types" (searchers mostly want
+armoured single/double-compression glands; AirGrip's range for those is call-sheet item 31, still open), heat-staking
+inserts (not known whether AirGrip makes them), HSN codes (call-sheet item 40 open).
 Baseline ranks (2026-11-22, Google India, pws=0): #1 for "airgrip" and "airgrip jamnagar"; not on page 1 for
 "brass turned components manufacturer india", "brass components manufacturer jamnagar", "brass cable glands manufacturer
 india", "brass cable gland manufacturer jamnagar", "brass electrical terminals manufacturer jamnagar", "brass moulding

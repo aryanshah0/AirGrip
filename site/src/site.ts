@@ -69,5 +69,6 @@ export const P = {
   guideLeadFree: "/resources/guides/lead-free-dzr-brass/",
   guideBspNpt: "/resources/guides/bsp-vs-npt/",
   guideGlands: "/resources/guides/cable-gland-selection/",
+  guideCert: "/resources/guides/en-10204-3-1-certificate/",
   privacy: "/privacy-policy/",
 };

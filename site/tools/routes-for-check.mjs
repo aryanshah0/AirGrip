@@ -149,6 +149,10 @@ export const routes = [
   "path": "/resources/guides/cable-gland-selection/"
  },
  {
+  "name": "guide-cert",
+  "path": "/resources/guides/en-10204-3-1-certificate/"
+ },
+ {
   "name": "privacy",
   "path": "/privacy-policy/"
  },

@@ -23,7 +23,7 @@ const ART = {
   germany: "airgrip-plant-jamnagar.webp", contact: "airgrip-plant-jamnagar.webp", rfq: "la/l/turned.svg",
   resources: "la/l/prof-metric.svg", resource: "la/l/prof-metric.svg", "metric-chart": "la/l/prof-metric.svg",
   "bsp-chart": "la/l/prof-bsp.svg", "npt-chart": "la/l/prof-npt.svg", grades: "la/l/turned.svg",
-  "guide-grades": "la/l/turned.svg", "guide-lead-free": "la/l/tee.svg", "guide-bsp-npt": "la/l/prof-bsp.svg", "guide-glands": "la/l/gland.svg",
+  "guide-grades": "la/l/turned.svg", "guide-lead-free": "la/l/tee.svg", "guide-bsp-npt": "la/l/prof-bsp.svg", "guide-glands": "la/l/gland.svg", "guide-cert": "brass-parts-inspection.webp",
 };
 
 const text = (s) => s.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&nbsp;/g, " ").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, " ").trim();

@@ -71,7 +71,7 @@ export default function PgChart() {
       </section>{" "}
       <section className="band band--sheet" id="pg-to-metric">{" "}
       <div className="wrap side">{" "}
-      <div className="sh"><h2>Replacing PG with metric</h2><p>Common metric replacements; where a PG size falls between two metric sizes, both are given. Always check the enclosure hole and the cable clamping range.</p></div>{" "}
+      <div className="sh"><h2>PG to metric conversion</h2><p>Common metric replacements; where a PG size falls between two metric sizes, both are given. Always check the enclosure hole and the cable clamping range.</p></div>{" "}
       <div className="sb"><div className="tbl"><table className="spec">
       <thead><tr><th className="stick">PG size</th><th className="n">PG outside Ø</th><th>Metric replacement (EN 60423)</th></tr></thead>
       <tbody>

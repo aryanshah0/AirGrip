@@ -137,7 +137,7 @@ export default function Quality() {
       <tbody>
       <tr><td className="stick" data-l="Document">Initial sample inspection report</td><td data-l="When">With samples</td></tr>
       <tr><td className="stick" data-l="Document">PPAP submission, Level 3</td><td data-l="When">With samples, on request</td></tr>
-      <tr><td className="stick" data-l="Document">Mill test certificate (rod), EN 10204 3.1</td><td data-l="When">Each batch</td></tr>
+      <tr><td className="stick" data-l="Document">Mill test certificate (rod),{" "}<a className="link" href="/resources/guides/en-10204-3-1-certificate/">EN 10204 3.1</a></td><td data-l="When">Each batch</td></tr>
       <tr><td className="stick" data-l="Document">Final inspection report</td><td data-l="When">Each batch</td></tr>
       <tr><td className="stick" data-l="Document">Plating thickness report</td><td data-l="When">Plated batches</td></tr>
       <tr><td className="stick" data-l="Document">Certificate of conformity</td><td data-l="When">Each batch</td></tr>
