@@ -7,11 +7,14 @@ import { CONSENT_KEY, applyConsent, getConsent, type Consent } from "../lib/anal
 export function ConsentBanner({ autoOpen }: { autoOpen: boolean }) {
   const [open, setOpen] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  // first-visit banner (compact on phones: two equal buttons) vs. settings opened from the footer (all options)
+  const [first, setFirst] = useState(false);
   const box = useRef<HTMLElement>(null);
   // where focus was before the banner opened (e.g. the footer "Cookie settings" link); it goes back there after a choice
   const back = useRef<HTMLElement | null>(null);
 
-  const show = () => {
+  const show = (isFirst = false) => {
+    setFirst(isFirst);
     const a = document.activeElement as HTMLElement | null;
     back.current = a && a !== document.body ? a : null;
     setAnalytics(getConsent() === "analytics"); setOpen(true);
@@ -26,7 +29,7 @@ export function ConsentBanner({ autoOpen }: { autoOpen: boolean }) {
 
   useEffect(() => {
     applyConsent(getConsent());
-    if (autoOpen && !getConsent()) show();
+    if (autoOpen && !getConsent()) show(true);
     const click = (e: MouseEvent) => {
       const l = (e.target as Element | null)?.closest?.("[data-cookie-settings]");
       if (l) { e.preventDefault(); show(); }
@@ -41,12 +44,12 @@ export function ConsentBanner({ autoOpen }: { autoOpen: boolean }) {
   }, [open]);
 
   return (
-    <section ref={box} className="consent" tabIndex={-1} aria-label="Cookie settings" hidden={!open}>
+    <section ref={box} className={"consent" + (first ? " consent--first" : "")} tabIndex={-1} aria-label="Cookie settings" hidden={!open}>
       <h2>Cookies on this site</h2>
       <p>We use essential storage to run the site and keep your quote list. With your consent we also use Google Analytics to see which pages buyers use. <a className="link" href={P.privacy + "#cookies"}>Privacy policy</a></p>
       <div className="opts"><label><input type="checkbox" checked disabled readOnly /> Essential: always on</label>
         <label><input type="checkbox" checked={analytics} onChange={(e) => setAnalytics(e.target.checked)} /> Analytics (Google Analytics 4)</label></div>
-      <div className="acts"><button type="button" className="btn btn--sm" onClick={() => choose("essential")}>Essential only</button><button type="button" className="btn btn--sm" onClick={() => choose("analytics")}>Accept analytics</button><button type="button" className="btn btn--sm btn--ghost" onClick={() => choose(analytics ? "analytics" : "essential")}>Save choice</button></div>
+      <div className="acts"><button type="button" className="btn btn--sm" onClick={() => choose("essential")}>Essential only</button><button type="button" className="btn btn--sm" onClick={() => choose("analytics")}>Accept analytics</button><button type="button" className="btn btn--sm btn--ghost save" onClick={() => choose(analytics ? "analytics" : "essential")}>Save choice</button></div>
     </section>
   );
 }

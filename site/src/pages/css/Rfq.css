@@ -74,3 +74,14 @@
     .check { min-height: 44px; align-items: center; }
     .check input { width: 22px; height: 22px; margin-top: 0; }
   }
+/* optional technical fields, folded under one line */
+.rq-more > summary { cursor: pointer; list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; padding: var(--s-3) 0; border-top: 1px solid var(--ink-line); border-bottom: 1px solid var(--ink-line); }
+.rq-more > summary::-webkit-details-marker { display: none; }
+.rq-more > summary .lg { font-size: var(--t-20); font-weight: 600; font-variation-settings: "wdth" 112; }
+.rq-more > summary .lg::before { content: "+ "; color: var(--brass-deep); font-family: var(--font-mono); }
+.rq-more[open] > summary .lg::before { content: "− "; }
+.rq-more > summary .muted { font-size: var(--t-14); }
+.rq-more[open] > summary { margin-bottom: var(--s-4); }
+/* touch devices can't drop files: say "choose" */
+.touch { display: none; }
+@media (hover: none) and (pointer: coarse) { .no-touch { display: none; } .touch { display: inline; } }

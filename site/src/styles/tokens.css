@@ -457,6 +457,15 @@ table.spec td.stick, table.spec th.stick { width: 1%; }
 @media (max-width: 559px) { .ftr__base { flex-direction: column; align-items: flex-start; gap: 4px; } }
 .consent { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 70; max-width: 560px; background: var(--card); border: 1px solid var(--ink-line); padding: var(--s-5); display: grid; gap: var(--s-3); }
 .consent[hidden] { display: none; }
+/* phones, first visit: a short bottom bar (about a quarter of the screen); the two choices stay equally prominent,
+   the per-category switches come with "Cookie settings" in the footer */
+@media (max-width: 559px) {
+  .consent.consent--first { left: 0; right: 0; bottom: 0; max-width: none; border-width: 1px 0 0; padding: var(--s-4); gap: var(--s-2); }
+  .consent.consent--first .opts, .consent.consent--first .save { display: none; }
+  .consent.consent--first p { font-size: var(--t-13); }
+  .consent.consent--first .acts { display: grid; grid-template-columns: 1fr 1fr; }
+  .consent.consent--first .acts .btn { justify-content: center; }
+}
 .consent h2 { font-size: var(--t-16); margin: 0; font-variation-settings: "wdth" 100; letter-spacing: 0; }
 .consent p { margin: 0; font-size: var(--t-14); color: var(--ink-2); }
 .consent .acts { display: flex; flex-wrap: wrap; gap: var(--s-3); align-items: center; }

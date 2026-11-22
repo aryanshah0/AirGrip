@@ -93,6 +93,9 @@ export function RfqForm() {
   };
 
   const f = (k: string) => (fields[k] as string) ?? "";
+  // the optional technical fields start folded; they open when one already holds a value (e.g. a restored draft)
+  const DEFAULTS = ["", "As per drawing / standard", "As per drawing", "Not sure"];
+  const reqUsed = ["mat", "fin", "tol", "pl", "due", "inc", "dest", "fpd"].some((k) => !DEFAULTS.includes(f(k)));
   const setF = (k: string, v: string | boolean) => setFields((x) => ({ ...x, [k]: v }));
   const nda = !!fields.nda;
   const okDraws = draws.filter((d) => !d.problem);
@@ -222,7 +225,7 @@ export function RfqForm() {
       <div className="sheet"><div className="frame">
         <label className="area" htmlFor="files">
           <input type="file" id="files" multiple accept=".pdf,.dwg,.dxf,.step,.stp,.igs,.iges,.jpg,.png" disabled={nda} onChange={(e) => { addFiles(e.target.files); e.target.value = ""; }} />
-          <span><span className="big">Drop drawings here, or choose files</span> <span className="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
+          <span><span className="big"><span className="no-touch">Drop drawings here, or choose files</span><span className="touch">Choose drawing files</span></span> <span className="hint">PDF · DWG · DXF · STEP · IGES · photos of samples · max&nbsp;20&nbsp;MB each</span></span>
         </label>
       </div></div>
       {draws.length > 0 && <p className="tbl-note" style={{ margin: "var(--s-3) 0 0" }}>Add quantities per drawing. We take the drawing number and revision from the file.</p>}
@@ -261,8 +264,10 @@ export function RfqForm() {
         <button type="button" className="btn btn--ghost btn--sm addpart" id="addpart" onClick={() => { const id = uid("p"); lastPart.current = id; setParts((ps) => [...ps, { id, name: "", qo: "", qy: "" }]); }}>+ another part</button>
       </fieldset>
 
+      <details className="rq-more" open={reqUsed || undefined}>
+        <summary><span className="lg">Technical details</span> <span className="muted">optional · material, finish, tolerance, plating, dates, Incoterm</span></summary>
       <fieldset>
-        <legend>Requirements</legend>
+        <legend className="sr-only">Technical details</legend>
         <div className="tbf">
           <div className="cell s2"><label htmlFor="mat">Material</label><select {...input("mat")} value={f("mat") || "As per drawing / standard"}><option>As per drawing / standard</option><option>CW614N · CuZn39Pb3 (free-cutting)</option><option>CW617N · CuZn40Pb2 (forging)</option><option>Low-lead / lead-free · CW511L / CW724R</option><option>DZR · CW602N</option><option>Other / not sure</option></select></div>
           <div className="cell dwg-only" hidden={catalogueOnly}><label htmlFor="fin">Finish for drawn parts</label><select {...input("fin")} value={f("fin") || "As per drawing"}><option>As per drawing</option><option>Natural</option><option>Nickel</option><option>Tin</option><option>Zinc</option><option>Silver (on request)</option><option>Chrome (on request)</option></select></div>
@@ -272,7 +277,14 @@ export function RfqForm() {
           <div className="cell s2"><label htmlFor="inc">Incoterm</label><select {...input("inc")} value={f("inc") || "Not sure"}><option>Not sure</option><option>EXW Jamnagar</option><option>FOB Indian port</option><option>CIF / CFR</option><option>Delivered (India)</option></select></div>
           <div className="cell s2"><label htmlFor="dest">Destination port or city</label><input {...input("dest")} placeholder="e.g. Hamburg, or Pune" /></div>
           <div className={"cell s2 fpd-cell" + (catalogueOnly ? " s4" : "")}><label htmlFor="fpd">First production delivery wanted</label><input {...input("fpd")} type="date" /></div>
-          <div className="cell s4"><label htmlFor="msg">Notes</label><textarea {...input("msg")} placeholder="Application, critical dimensions, packing, anything else we should know"></textarea></div>
+        </div>
+      </fieldset>
+      </details>
+
+      <fieldset>
+        <legend>Notes <span className="muted">optional</span></legend>
+        <div className="tbf">
+          <div className="cell s4"><label htmlFor="msg" className="sr-only">Notes</label><textarea {...input("msg")} placeholder="Application, critical dimensions, packing, anything else we should know"></textarea></div>
         </div>
       </fieldset>
 

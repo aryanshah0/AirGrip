@@ -12,7 +12,7 @@ export default function Glands() {
       <ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li><a href="/products/">Products</a></li><li aria-current="page">Brass cable glands</li></ol>{" "}
       <div className="phead__row">{" "}
       <div><h1>Brass cable glands &amp;&nbsp;accessories</h1><p className="lead">Two gland types in PG and metric threads, with pressure screws and accessories; lock nuts, stop plugs, reducers, enlargers and adapters also come in BSP and NPT. Every item has a part code you can add to a quote.</p></div>{" "}
-      <div><dl className="kv"><dt>Threads</dt><dd><span className="mono">PG</span>{" "}DIN 40430 ·{" "}<span className="mono">M</span>{" "}EN 60423</dd><dt>Material</dt><dd><span className="mono">CW614N</span>; lead-free on request</dd><dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc</dd></dl></div>{" "}
+      <div><dl className="kv"><dt>Sizes</dt><dd><span className="mono">PG 7–48</span>{" "}(DIN 40430) ·{" "}<span className="mono">M12–M80</span>{" "}(EN 60423)</dd><dt>Seal</dt><dd>EPDM, <span className="mono">IP54</span>; not for hazardous (Ex / ATEX) areas</dd><dt>Material</dt><dd><span className="mono">CW614N</span>; lead-free on request</dd><dt>Finish</dt><dd>Natural, or plated in our plant: nickel, tin or zinc</dd></dl></div>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}
@@ -46,7 +46,7 @@ export default function Glands() {
       <dt>Stock</dt><dd>Made to order; lead time in the quote</dd>{" "}
       <dt>Quoting</dt><dd>Add sizes with{" "}<b>+ Add</b>{" "}on each datasheet and send them in one request; finish is chosen per line</dd>{" "}
       <dt>Drawings</dt><dd>Dimensioned drawing with every quote</dd>{" "}
-      <dt>Seal &amp; compliance</dt><dd>EPDM seal, IP54 · not certified for hazardous (Ex / ATEX) areas · leaded brass (CW614N) under RoHS Annex III exemption 6(c), valid until 30 June 2027; lead-free CW724R on request · REACH: lead above 0.1 %, Article 33 statement on request</dd>{" "}
+      <dt>Compliance</dt><dd>Leaded brass (CW614N) under RoHS Annex III exemption 6(c), valid until 30 June 2027; lead-free CW724R on request · REACH: lead above 0.1 %, Article 33 statement on request</dd>{" "}
       </dl></div>{" "}
       </div>{" "}
       </section>{" "}

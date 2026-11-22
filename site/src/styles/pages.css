@@ -128,5 +128,11 @@ details.more-d[open] summary { margin-bottom: var(--s-3); }
 }
 
 /* related card for a page that is not a part: a short fact instead of a drawing */
-.rel .photo.txt { display: grid; place-items: center; background: var(--paper); }
-.rel .photo.txt span { font-family: var(--font-mono); font-size: var(--t-18); color: var(--ink-2); letter-spacing: .02em; }
+/* text-only related card: an empty drawing sheet (frame, centre lines) with the reference in its title block */
+.rel .photo.txt { position: relative; background: var(--card); overflow: hidden; }
+.rel .photo.txt::before { content: ""; position: absolute; inset: 8px; border: 1px solid var(--ink-line);
+  background: linear-gradient(color-mix(in srgb, var(--brass) 45%, transparent), color-mix(in srgb, var(--brass) 45%, transparent)) center / 60% 1px no-repeat,
+              linear-gradient(color-mix(in srgb, var(--brass) 45%, transparent), color-mix(in srgb, var(--brass) 45%, transparent)) center / 1px 50% no-repeat; }
+.rel .photo.txt span { position: absolute; right: 8px; bottom: 8px; padding: 6px 10px; border-top: 1px solid var(--ink-line);
+  border-left: 1px solid var(--ink-line); background: var(--card); font-family: var(--font-mono); font-size: var(--t-13);
+  color: var(--ink); letter-spacing: .02em; white-space: nowrap; }

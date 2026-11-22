@@ -20,7 +20,13 @@ const T = ({ head, rows, kinds = "", flat = false }: { head: string[]; rows: Rea
     <tbody>{rows.map((r, j) => <tr key={j}>{r.map((v, i) => <td key={i} className={i === 0 ? "stick" : kinds[i] === "n" ? "n" : undefined} data-l={head[i]}>{v}</td>)}</tr>)}</tbody>
   </table></div>
 );
-const card = (href: string, txt: string, name: string, sub: string): Card => ({ href, img: "", txt, name, sub });
+/** Related card: the linked page's drawing where it has one, otherwise a title-block card with `txt`. */
+const DRAWING: Record<string, string> = {
+  [P.category]: "turned", [P.forged]: "forgedtee", [P.fittings]: "elbow", [P.adapters]: "reducer", [P.glands]: "gland",
+  [P.metric]: "prof-metric", [P.bsp]: "prof-bsp", [P.npt]: "prof-npt",
+};
+const card = (href: string, txt: string, name: string, sub: string): Card =>
+  DRAWING[href] ? { href, img: DRAWING[href], name, sub } : { href, img: "", txt, name, sub };
 
 export const G = {
   grades: "/resources/guides/cw614n-vs-cw617n/",
