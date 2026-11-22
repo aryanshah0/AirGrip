@@ -49,18 +49,31 @@ export function applyConsent(c: Consent | null) {
   }
 }
 
-/** Conversion and interaction events (SEO-PLAN §3). Dropped silently without consent. */
-export function track(name: string, params: Record<string, unknown> = {}) {
-  if (typeof window === "undefined" || !CONFIG.gaId || getConsent() !== "analytics" || !window.gtag) return;
-  window.gtag("event", name, params);
+/** Conversion and interaction events (SEO-PLAN §3). Dropped silently without consent. GA4 batches events and sends
+ *  them a few seconds later, so before leaving the page (thank-you redirect) await the returned promise: it resolves
+ *  when GA confirms the event, or after `wait` ms at most. */
+export function track(name: string, params: Record<string, unknown> = {}, wait = 1000): Promise<void> {
+  if (typeof window === "undefined" || !CONFIG.gaId || getConsent() !== "analytics" || !window.gtag) return Promise.resolve();
+  const gtag = window.gtag;
+  return new Promise((done) => {
+    const t = setTimeout(done, wait);
+    gtag("event", name, { ...params, event_callback: () => { clearTimeout(t); done(); } });
+  });
 }
 
-/** Clicks on phone, WhatsApp, email and PDF links are tracked from one listener. */
+/** Clicks on phone, WhatsApp, email and PDF links are tracked from one listener. WhatsApp and PDF links would leave
+ *  the page before GA sends the batched event, so a plain click opens them in a new tab instead (the site stays open). */
 export function trackLinks() {
   document.addEventListener("click", (e) => {
     const a = (e.target as Element | null)?.closest?.("a");
     if (!a) return;
     const href = a.getAttribute("href") || "";
+    const leaves = href.includes("wa.me/") || /\.pdf($|\?)/i.test(href);
+    if (leaves && e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && a.target !== "_blank" && !e.defaultPrevented) {
+      e.preventDefault();
+      const w = window.open(a.href, "_blank");
+      if (w) w.opener = null; else location.href = a.href;   // popup blocked: open it here, as a plain link would
+    }
     if (href.startsWith("tel:")) track("tel_click");
     else if (href.startsWith("mailto:")) track("mailto_click");
     else if (href.includes("wa.me/")) track("whatsapp_click");

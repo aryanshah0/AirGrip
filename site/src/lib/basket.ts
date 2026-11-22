@@ -39,7 +39,7 @@ export const basket = {
   add(code: string, label: string) {
     if (basket.has(code)) return;
     write([...read(), { code, label }]);
-    track("basket_add", { item_id: code });
+    track("basket_add", { part_code: code });
   },
   remove(code: string) { write(read().filter((i) => i.code !== code)); },
   clear() { write([]); },

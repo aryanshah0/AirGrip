@@ -33,9 +33,10 @@ export function QuickQuote() {
       await sendForm("rfq-quick", { ref, name: v("n"), company: v("c"), email: v("e"), country: v("co"), phone: v("ph"), qty_order: v("qo"), qty_year: v("qy"), nda, consent: true }, send);
       const sent: SentSummary = { ref, items: [], files: send.map((f) => ({ name: f.name, qo: v("qo"), qy: v("qy") })), parts: [], nda, email: v("e"), quick: { qo: v("qo"), qy: v("qy") } };
       try { sessionStorage.setItem(SENT_KEY, JSON.stringify(sent)); } catch { /* thank-you page shows the generic text */ }
-      track("rfq_submit", { form: "home", files: send.length, nda });
+      await track("rfq_submit", { form: "home", files: send.length, nda });
       location.href = P.thanks;
     } catch (x) {
+      track("form_send_failed", { form: "home", reason: x instanceof SendError ? x.message.slice(0, 90) : "network" });
       setMsg(x instanceof SendError ? x.message : "Could not send. Please email sales@airgrip.in.");
       setBusy(false);
     }

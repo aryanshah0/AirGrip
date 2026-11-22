@@ -168,6 +168,7 @@ export function RfqForm() {
     try {
       await sendForm("rfq", payload, sendFiles.map((d) => d.file));
     } catch (x) {
+      track("form_send_failed", { form: "rfq", reason: x instanceof SendError ? x.message.slice(0, 90) : "network" });
       setSendMsg(x instanceof SendError ? x.message : "Could not send. Please email " + SITE.email + ".");
       setBusy(false);
       return;
@@ -176,7 +177,7 @@ export function RfqForm() {
       ref: ref.current, nda, email: f("em").trim(),
       items: sentItems, files: sendFiles.map((d) => ({ name: d.name, qo: d.qo, qy: d.qy })), parts: namedParts.map((x) => ({ name: x.name, qo: x.qo, qy: x.qy })),
     };
-    track("rfq_submit", { form: "rfq", items: sentItems.length, files: sendFiles.length, nda });
+    await track("rfq_submit", { form: "rfq", items: sentItems.length, files: sendFiles.length, nda });
     try { sessionStorage.setItem(SENT_KEY, JSON.stringify(sent)); sessionStorage.removeItem(SKEY); } catch { /* ignore */ }
     loaded.current = false;
     basket.clear();

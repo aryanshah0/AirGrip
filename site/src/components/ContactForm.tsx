@@ -44,6 +44,7 @@ export function ContactForm() {
       track("contact_submit", { topic: f.t });
       setDone(true);
     } catch (x) {
+      track("form_send_failed", { form: "contact", reason: x instanceof SendError ? x.message.slice(0, 90) : "network" });
       setSendMsg(x instanceof SendError ? x.message : "Could not send. Please email sales@airgrip.in.");
     } finally {
       setBusy(false);

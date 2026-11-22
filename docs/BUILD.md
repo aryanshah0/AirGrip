@@ -69,7 +69,7 @@ VITE_GA_ID=G-XXXXXXXXXX     # GA4; empty = no analytics at all
 - **Old GA4 (not reused):** the old site's Google Site Kit used property 336239038, measurement ID `G-BLFBKNQ02D` (an older stream
   "airgrip.co.in - GA4", `G-LY6PM6QR5B`, also appears). Reusing the property keeps the traffic history; Ketan must
   confirm who owns that Google account. Consent Mode v2 is wired: nothing loads until a visitor accepts analytics.
-  Events: `rfq_submit`, `contact_submit`, `basket_add`, `tel_click`, `mailto_click`, `whatsapp_click`, `pdf_download`.
+  Events: `rfq_submit` (form, items, files, nda), `contact_submit` (topic), `basket_add` (part_code), `tel_click`, `mailto_click`, `whatsapp_click`, `pdf_download` (file_name), `form_send_failed` (form, reason). Key events: rfq_submit (done); contact_submit, whatsapp_click, tel_click to star in Admin › Events once listed (one labelled test event each sent 2026-11-22; GA lists new events within ~24 h). WhatsApp and PDF links open in a new tab and the forms wait for GA (max 1 s) before the thank-you page, so batched events are not lost. GA drops headless-browser traffic as bots. Event data kept 14 months; form, topic, part_code, nda, reason registered as custom dimensions (2026-11-22).
 
 ## Deploy (Hostinger: live since 2026-11-21)
 The site runs on AirGrip's Hostinger Business plan (website airgrip.co.in, PHP 8.3, SSL and CDN on).
