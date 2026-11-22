@@ -10,3 +10,7 @@ share/
 
 # competitor screenshots from reviews: local only, not for the public repo
 docs/fresh-review/bench-*
+
+# stray screenshots from local checks
+site/*.jpg
+site/*.png

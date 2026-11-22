@@ -96,6 +96,9 @@ export function RfqForm() {
   // the optional technical fields start folded; they open when one already holds a value (e.g. a restored draft)
   const DEFAULTS = ["", "As per drawing / standard", "As per drawing", "Not sure"];
   const reqUsed = ["mat", "fin", "tol", "pl", "due", "inc", "dest", "fpd"].some((k) => !DEFAULTS.includes(f(k)));
+  // open it when a value appears; never close it in code (the buyer may have opened it by hand)
+  const reqBox = useRef<HTMLDetailsElement>(null);
+  useEffect(() => { if (reqUsed && reqBox.current && !reqBox.current.open) reqBox.current.open = true; }, [reqUsed]);
   const setF = (k: string, v: string | boolean) => setFields((x) => ({ ...x, [k]: v }));
   const nda = !!fields.nda;
   const okDraws = draws.filter((d) => !d.problem);
@@ -264,7 +267,7 @@ export function RfqForm() {
         <button type="button" className="btn btn--ghost btn--sm addpart" id="addpart" onClick={() => { const id = uid("p"); lastPart.current = id; setParts((ps) => [...ps, { id, name: "", qo: "", qy: "" }]); }}>+ another part</button>
       </fieldset>
 
-      <details className="rq-more" open={reqUsed || undefined}>
+      <details className="rq-more" ref={reqBox}>
         <summary><span className="lg">Technical details</span> <span className="muted">optional · material, finish, tolerance, plating, dates, Incoterm</span></summary>
       <fieldset>
         <legend className="sr-only">Technical details</legend>
