@@ -74,7 +74,7 @@ export function GlandPage({ g }: { g: Gland }) {
             </div>
             <div role="tabpanel" id="p-pg" aria-labelledby="t-pg"><SizeTable g={g} sizes={PG} values={g.pg} caption={`${g.crumb}, PG sizes`} /></div>
             <div role="tabpanel" id="p-m" aria-labelledby="t-m" hidden><SizeTable g={g} sizes={METRIC} values={g.metric} caption={`${g.crumb}, metric sizes`} /></div>
-            <p className="tbl-note">Values are for reference; the dimensioned drawing sent with your quote governs. Sizes marked —{g.clamping ? " and cable clamping ranges" : ""} come with that drawing. Finish suffix: <M>-N</M> natural, <M>-NI</M> nickel, <M>-SN</M> tin, <M>-ZN</M> zinc. Thread data: <a className="link" href={P.pg}>PG chart</a>, <a className="link" href={P.metric}>metric chart</a>.</p>
+            <p className="tbl-note">Values are for reference; the dimensioned drawing sent with your quote governs. Sizes marked —{g.clamping ? " and cable clamping ranges" : ""} come with that drawing. Finish suffix: <M>-N</M> natural, <M>-NI</M> nickel, <M>-SN</M> tin, <M>-ZN</M> zinc. Thread data: <a className="link" href={P.pg}>PG chart</a>, <a className="link" href={P.metric}>metric chart</a>. Choosing a size: <a className="link" href={P.guideGlands}>how to select a cable gland</a>.</p>
           </div>
         </div>
       </div></section>

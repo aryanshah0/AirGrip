@@ -94,8 +94,8 @@ export const GROUPS = {
     ],
     faqH2: "Buying brass fittings from AirGrip",
     faq: [
-      ["Can you make fittings for drinking water?", "Yes, in dezincification-resistant (DZR) or lead-free brass on request. Approvals such as WRAS, DVGW or NSF/ANSI 61 belong to your finished product; tell us which your drawing calls up."],
-      ["Which threads can you cut?", <>BSP parallel and taper, NPT, metric and UNC/UNF; parallel threads gauged GO / NO-GO. See the <a className="link" href={P.bsp}>BSP</a> and <a className="link" href={P.npt}>NPT</a> charts.</>],
+      ["Can you make fittings for drinking water?", <>Yes, in dezincification-resistant (DZR) or lead-free brass on request. Approvals such as WRAS, DVGW or NSF/ANSI 61 belong to your finished product; tell us which your drawing calls up. Grades and rules: <a className="link" href={P.guideLeadFree}>lead-free and DZR brass</a>.</>],
+      ["Which threads can you cut?", <>BSP parallel and taper, NPT, metric and UNC/UNF; parallel threads gauged GO / NO-GO. See the <a className="link" href={P.bsp}>BSP</a> and <a className="link" href={P.npt}>NPT</a> charts, or <a className="link" href={P.guideBspNpt}>BSP vs NPT</a>.</>],
     ],
     related: [C.forged, C.turned, C.bspChart, C.nptChart],
     cta: ["Send a fitting drawing or sample", "Include the thread standard, material (DZR or lead-free if needed) and any pressure-test requirement."],
@@ -109,7 +109,7 @@ export const GROUPS = {
       ["Weight range", <M>25&nbsp;g&nbsp;–&nbsp;1.0&nbsp;kg</M>],
       ["Tolerance", <>{TOL} on machined features</>],
       ["Threads", <M>M&nbsp;· BSP/BSPT&nbsp;· NPT&nbsp;· UNC/UNF</M>],
-      ["Material", <><M>CW617N</M> (CuZn40Pb2, forging brass); DZR on request</>],
+      ["Material", <><M>CW617N</M> (CuZn40Pb2, forging brass); DZR on request · <a className="link" href={P.guideGrades}>CW614N or CW617N?</a></>],
       ["Finish", "Shot-blasted, natural or bright; or plated in our plant: nickel, tin or zinc; silver or chrome on request"],
       ["Documents", DOCS], ["Volumes", VOL],
     ],
@@ -123,7 +123,7 @@ export const GROUPS = {
     ],
     faqH2: "Buying forgings from AirGrip",
     faq: [["Is a forged part cheaper than one machined from bar?", "Forging adds a die but cuts material and machining time, so for branched or flanged parts in volume it is usually cheaper. If both routes make sense, the quote shows both."]],
-    related: [C.fittings, C.turned, C.capabilities, { href: P.grades, img: "", txt: "EN · BS · UNS · IS", name: "Brass grade equivalents", sub: "CW617N · CZ122" }],
+    related: [C.fittings, C.turned, C.capabilities, { href: P.guideGrades, img: "", txt: "CuZn39Pb3 · CuZn40Pb2", name: "CW614N vs CW617N", sub: "Machining or forging brass" }],
     cta: ["Send the drawing of your forged part", "Include the annual volume: it decides whether a forging die pays off."],
   },
 
@@ -160,7 +160,7 @@ export const GROUPS = {
 
   terminals: {
     crumb: "Electrical terminals & connectors", h1: "Brass electrical parts: terminals, neutral links & connectors", img: "terminal",
-    lead: "Terminal blocks, connectors, earth blocks and neutral links for wiring and panel boards, made to your drawing for switchgear, MCB and RCD makers.",
+    lead: "Terminal blocks, connectors, earth blocks and neutral links for wiring and panel boards, made to your drawing for makers of switchgear, circuit breakers, MCBs and RCDs.",
     facts: [
       ["Process", "Cut from extruded brass profile, then milled, drilled and tapped"],
       ["Size range", <>From <M>M2</M> thread; current rating to your drawing</>],
@@ -172,8 +172,6 @@ export const GROUPS = {
     typesH2: "Terminal parts we make",
     types: ["Terminal blocks", "Terminal connectors", "Earth blocks", "Neutral links", "Switchgear components", "MCB and RCD terminals"],
     photos: [],
-    specTitle: "Where they are used",
-    spec: [["Equipment", "Wiring and panel boards; miniature circuit breakers (MCB), residual-current devices (RCD), circuit breakers and switchgear."]],
     also: { h2: "Other electrical parts we make", rows: [
       ["Stamped parts", <>Electrical stampings, fuse and switch parts, female crimp pins: <a className="link" href={P.stamping}>metal stamping parts</a></>],
       ["Earthing", <>Brass earth tags sized to the gland thread: <a className="link" href={P.earthTags}>earth tags</a></>],
@@ -448,9 +446,9 @@ export const CHARTS = {
     h1: "Metric cable gland thread chart", std: "EN 60423", fig: "prof-metric", tableH2: "Metric thread sizes",
     lead: "Metric threads with 1.5 mm pitch are the default for new cable entries in Europe, for glands, accessories and many turned parts.",
     facts: [["Pitch", <M>1.5 mm</M>], ["Flank angle", <M>60°</M>], ["Sizes", <M>M12–M63</M>]],
-    headers: ["Size", "Outside Ø d", "Pitch P", "Tap drill Ø"], kinds: "snnn",
-    rows: [12, 16, 20, 25, 32, 40, 50, 63].map((d) => [`M${d}×1.5`, d.toFixed(2), "1.5", (d - 1.5).toFixed(1)]),
-    note: <p className="tbl-note">Tap drill = d − P. AirGrip glands and accessories also come in M80. Choosing a gland: <a className="link" href={P.guideGlands}>how to select a cable gland</a>.</p>,
+    headers: ["Size", "Outside Ø d", "Pitch P", "Tap drill Ø", "Clearance hole Ø"], kinds: "snnnn",
+    rows: [12, 16, 20, 25, 32, 40, 50, 63].map((d) => [`M${d}×1.5`, d.toFixed(2), "1.5", (d - 1.5).toFixed(1), (d + 0.5).toFixed(1)]),
+    note: <p className="tbl-note">Tap drill = d − P, for a tapped wall. Clearance hole for a gland held by a lock nut, as tabulated in EN 50262 (tolerance +0.2 / −0.4 mm). AirGrip glands and accessories also come in M80. Choosing a gland: <a className="link" href={P.guideGlands}>how to select a cable gland</a>.</p>,
     cta: ["Metric glands and accessories", "Glands, lock nuts, stop plugs and adapters in metric threads.", P.glands, "See cable glands"],
   },
   bsp: {

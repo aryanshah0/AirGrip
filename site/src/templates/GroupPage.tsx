@@ -17,7 +17,7 @@ export function GroupPage({ g }: { g: Group }) {
               <h1>{g.h1}</h1>
               <p className="lead">{g.lead}</p>
               <div className="prod__cta"><a className="btn" href={P.rfq}>Send a drawing <Arr /></a></div>
-              <div style={{ marginTop: "var(--s-6)" }}><Plate drawing={<div className="sheet1" style={{ marginTop: 0 }}><div><img src={`/img/la/l/${g.img}.svg`} alt="Drawing of a typical part" /></div></div>} photos={g.photos} /></div>
+              <div style={{ marginTop: "var(--s-6)" }}><Plate drawing={<div className="sheet1" style={{ marginTop: 0 }}><div><img src={`/img/la/l/${g.img}.svg`} alt={`Drawing of a typical part: ${g.crumb.toLowerCase()}`} /></div></div>} photos={g.photos} /></div>
             </div>
             <Kv rows={g.facts} />
           </div>

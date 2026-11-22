@@ -9,7 +9,7 @@ export default function Privacy() {
       <section className="phead"><div className="wrap"><ol className="crumbs" aria-label="Breadcrumb"><li><a href="/">Home</a></li><li aria-current="page">Privacy policy</li></ol><h1>Privacy policy</h1><p className="lead">How AirGrip handles the details and files you send us.</p></div></section>{" "}
       <section className="band"><div className="wrap">{" "}
       <div className="prose">{" "}
-      <p className="muted">Last updated 14 November 2026</p>{" "}
+      <p className="muted">Last updated 22 November 2026</p>{" "}
       <h2>1. Who is responsible</h2><p>AirGrip ("AirGrip", "we"), Plot No. 3966 &amp; 3967, Road No. U, GIDC Phase-III, Dared, Jamnagar 361004, Gujarat, India, is responsible for the personal data collected on this website. Contact:{" "}<a className="link" href="mailto:sales@airgrip.in">sales@airgrip.in</a>, +91 93166 15007.</p>{" "}
       <h2>2. What we collect</h2>{" "}
       <ul className="bullets">{" "}
@@ -29,8 +29,8 @@ export default function Privacy() {
       <h2>5. Who processes data for us</h2>{" "}
       <p>We use service providers who process data on our instructions:</p>{" "}
       <ul className="bullets">{" "}
-      <li><span>Website hosting: Hostinger</span></li>{" "}
-      <li><span>Email: the mail service that hosts sales@airgrip.in</span></li>{" "}
+      <li><span>Website hosting, and sending the form emails: Hostinger</span></li>{" "}
+      <li><span>Receiving email: the mail service that hosts sales@airgrip.in</span></li>{" "}
       <li><span>Analytics: Google Analytics 4 (Google), only with consent</span></li>{" "}
       <li><span>Messaging: WhatsApp (Meta), only if you contact us there</span></li>{" "}
       <li><span>Maps: Google Maps, only if you open the map link on the contact page</span></li>{" "}
@@ -38,7 +38,7 @@ export default function Privacy() {
       <h2>6. Where your data is processed</h2><p>AirGrip is based in India, and the details and files you send us are processed in India. Where our service providers (section 5) handle data in other countries, they do so under their own published terms and safeguards.</p>{" "}
       <h2>7. How long we keep it</h2>{" "}
       <ul className="bullets">{" "}
-      <li><span>Enquiries and uploaded files that do not lead to an order: kept only as long as needed to answer and follow up, then deleted.</span></li>{" "}
+      <li><span>Enquiries and uploaded files that do not lead to an order: kept only as long as needed to answer and follow up, then deleted. The copy of each form request and its files kept on our web server is deleted automatically after 60 days.</span></li>{" "}
       <li><span>Customer, order and invoice records: as long as Indian tax and company law requires.</span></li>{" "}
       <li><span>Analytics data: kept according to our Google Analytics retention setting.</span></li>{" "}
       </ul>{" "}

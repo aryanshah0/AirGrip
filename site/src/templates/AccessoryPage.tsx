@@ -102,7 +102,7 @@ export function AccessoryPage({ a }: { a: Accessory }) {
         <div className="open"><div><h2 className="sub">Used with</h2></div></div>
         <Related items={a.related} />
         <div className="cta" style={{ marginTop: "var(--s-8)" }}>
-          <div><h2>Need a size or conversion that isn't listed?</h2><p>Ask us: other sizes on request.</p></div>
+          <div><h2>{a.code.includes("AG-AD") ? "Need a size or conversion that isn't listed?" : "Need a size that isn't listed?"}</h2><p>{a.code.includes("AG-AD") ? "Any conversion within the accessory range on request." : "Other sizes on request; send the thread and quantity."}</p></div>
           <div className="acts"><a className="btn" href={P.rfq}>Request a quote <Arr /></a></div>
         </div>
       </div></section>

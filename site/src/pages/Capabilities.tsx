@@ -73,11 +73,11 @@ export default function Capabilities() {
       <div className="tbl"><table className="spec stack-m">
       <thead><tr><th className="stick">System</th><th>Standard</th><th>Typical use</th><th>Chart</th></tr></thead>
       <tbody>
-      <tr><td className="stick mono" data-l="System">M</td><td data-l="Standard">ISO 261 · EN 60423 (glands)</td><td data-l="Typical use">Turned parts, metric cable glands</td><td data-l="Chart"><a className="link small" href="/resources/metric-cable-gland-thread-chart/">Chart</a></td></tr>
-      <tr><td className="stick mono" data-l="System">PG</td><td data-l="Standard">DIN 40430</td><td data-l="Typical use">Cable glands and accessories</td><td data-l="Chart"><a className="link small" href="/resources/pg-thread-chart/">Chart</a></td></tr>
-      <tr><td className="stick mono" data-l="System">G (BSP)</td><td data-l="Standard">ISO 228-1</td><td data-l="Typical use">Fittings, gland accessories, inserts</td><td data-l="Chart"><a className="link small" href="/resources/bsp-thread-chart/">Chart</a></td></tr>
+      <tr><td className="stick mono" data-l="System">M</td><td data-l="Standard">ISO 261 · EN 60423 (glands)</td><td data-l="Typical use">Turned parts, metric cable glands</td><td data-l="Chart"><a className="link small" href="/resources/metric-cable-gland-thread-chart/">Metric chart</a></td></tr>
+      <tr><td className="stick mono" data-l="System">PG</td><td data-l="Standard">DIN 40430</td><td data-l="Typical use">Cable glands and accessories</td><td data-l="Chart"><a className="link small" href="/resources/pg-thread-chart/">PG chart</a></td></tr>
+      <tr><td className="stick mono" data-l="System">G (BSP)</td><td data-l="Standard">ISO 228-1</td><td data-l="Typical use">Fittings, gland accessories, inserts</td><td data-l="Chart"><a className="link small" href="/resources/bsp-thread-chart/">BSP chart</a></td></tr>
       <tr><td className="stick mono" data-l="System">R / Rc (BSPT)</td><td data-l="Standard">ISO 7-1</td><td data-l="Typical use">Tapered pipe fittings</td><td className="ondata" data-l="Chart">—</td></tr>
-      <tr><td className="stick mono" data-l="System">NPT</td><td data-l="Standard">ASME B1.20.1</td><td data-l="Typical use">Fittings for North America</td><td data-l="Chart"><a className="link small" href="/resources/npt-thread-chart/">Chart</a></td></tr>
+      <tr><td className="stick mono" data-l="System">NPT</td><td data-l="Standard">ASME B1.20.1</td><td data-l="Typical use">Fittings for North America</td><td data-l="Chart"><a className="link small" href="/resources/npt-thread-chart/">NPT chart</a></td></tr>
       <tr><td className="stick mono" data-l="System">UNC / UNF</td><td data-l="Standard">ASME B1.1</td><td data-l="Typical use">Inch fasteners and turned parts</td><td className="ondata" data-l="Chart">—</td></tr>
       <tr><td className="stick mono" data-l="System">BA / BSW</td><td data-l="Standard">BS 57 / BS 84</td><td data-l="Typical use">Older British equipment</td><td className="ondata" data-l="Chart">—</td></tr>
       </tbody>

@@ -85,7 +85,9 @@ export default function TurnedComponents() {
       <div className="sb faq">{" "}
       <details open><summary>What do you need for a quote?</summary><div>A drawing (PDF is fine; STEP helps), the material, finish, quantity per order and expected annual volume. If you only have a sample, send it and we'll work from it.</div></details>{" "}
       <details><summary>Which documents come with a batch?</summary><div>EN 10204 3.1 mill certificate, certificate of conformity and final inspection report with every batch; PPAP Level 3 on request. Full list:{" "}<a className="link" href="/quality/#documents">Quality</a>.</div></details>{" "}
-      <p className="tbl-note">Samples, lead times, NDA and delivery terms:{" "}<a className="link" href="/exports/">Ordering &amp; shipping</a>.</p>{" "}
+      <details><summary>Samples, minimum order and lead time?</summary><div>Samples are free; you pay the courier. Typical lead time is 2–3 weeks for samples and 4–6 weeks for production after sample approval. The minimum order is set per part and stated in the quote.</div></details>{" "}
+      <details><summary>Will you sign our NDA?</summary><div>Yes. Tick "Sign my NDA" on the quote form and we sign yours before you share drawings.</div></details>{" "}
+      <p className="tbl-note">Delivery terms, Incoterms and shipping:{" "}<a className="link" href="/exports/">Ordering &amp; shipping</a>.</p>{" "}
       </div>{" "}
       </div>{" "}
       </section>{" "}
