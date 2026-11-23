@@ -40,14 +40,16 @@ const tplBase = tpl.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.c
 const font = Object.values(manifest).flatMap((m) => m.assets || []).find((a) => /archivo-latin-wdth-normal.*\.woff2$/.test(a));
 
 const org = {
-  "@type": "Organization", "@id": ORIGIN + "/#org", name: "AirGrip", url: ORIGIN + "/", logo: ORIGIN + "/img/logo.svg",
+  "@type": "Organization", "@id": ORIGIN + "/#org", name: "AirGrip", url: ORIGIN + "/",
+  // square raster logo: Google crops wide logos into a square thumbnail and prefers PNG/JPEG for logos
+  logo: { "@type": "ImageObject", url: ORIGIN + "/img/logo-square.png", width: 600, height: 600 },
   email: "sales@airgrip.in", telephone: "+91-93166-15007", foundingDate: "1988",
   address: { "@type": "PostalAddress", streetAddress: "Plot No. 3966 & 3967, Road No. U, GIDC Phase-III, Dared", addressLocality: "Jamnagar", postalCode: "361004", addressRegion: "Gujarat", addressCountry: "IN" },
   subOrganization: GROUP.map((name) => ({ "@type": "Organization", name })),
   sameAs: ["https://www.facebook.com/airgrip02/", "https://www.linkedin.com/in/airgrip-group/"],
 };
 const local = {
-  "@type": "LocalBusiness", "@id": ORIGIN + "/#plant", name: "AirGrip", url: ORIGIN + "/", image: ORIGIN + "/img/logo.svg",
+  "@type": "LocalBusiness", "@id": ORIGIN + "/#plant", name: "AirGrip", url: ORIGIN + "/", image: [ORIGIN + "/img/logo-square.png", ORIGIN + "/img/airgrip-plant-jamnagar.webp"],
   telephone: "+91-93166-15007", email: "sales@airgrip.in", address: org.address, parentOrganization: { "@id": ORIGIN + "/#org" },
   // the Google Business Profile ("Air Grip Group of Companies") and its pin, so Google ties the site to the map listing
   hasMap: "https://www.google.com/maps?cid=1982484181116058778", geo: { "@type": "GeoCoordinates", latitude: 22.4152605, longitude: 70.050451 },
@@ -66,7 +68,7 @@ function jsonLd(route, html) {
       "@type": "TechArticle", headline: text(h1 ? h1[1] : route.title), description: route.description, url, mainEntityOfPage: url,
       inLanguage: "en", datePublished: when?.[1], dateModified: when?.[1], image: ORIGIN + ogImage(route),
       author: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/" },
-      publisher: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/", logo: { "@type": "ImageObject", url: ORIGIN + "/img/logo.svg" } },
+      publisher: { "@type": "Organization", name: "AirGrip", url: ORIGIN + "/", logo: { "@type": "ImageObject", url: ORIGIN + "/img/logo-square.png", width: 600, height: 600 } },
     });
   }
   const crumbs = html.match(/<ol class="crumbs"[^>]*>(.*?)<\/ol>/s);
