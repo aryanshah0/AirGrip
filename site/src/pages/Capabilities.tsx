@@ -1,4 +1,3 @@
-// Page markup, first converted from design/capabilities.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/Capabilities.css";

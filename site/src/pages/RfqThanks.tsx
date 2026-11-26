@@ -1,4 +1,3 @@
-// Page markup, first converted from design/rfq-thanks.html (frozen); edit here.
 
 import "../styles/pages.css";
 import { ThanksDetails } from "../components/ThanksDetails";

@@ -29,7 +29,7 @@ title block, borrowed from technical drawing conventions (ISO 128 line types, IS
 Signature moment: the **route card**, one example batch traced from OP 10 (contract review) to OP 80 (labelled carton),
 with a sticky section drawing that changes state. (The v0.1 "melt to part" idea was dropped: AirGrip buys rod from mills.)
 
-## 3. Design system (tokens live in `design/tokens.css`)
+## 3. Design system (tokens live in `site/src/styles/tokens.css`)
 - **Colour:** warm drafting-paper neutrals plus graphite ink plus one brass accent. **No corporate blue.** A deep "blueprint
   ink" (#0F1B2D) is used only for the one dark band (RFQ) and the footer.
   Brass #B8862F is decorative and large-text only. Brass text uses #7E5A19 (AA on paper and sheet).

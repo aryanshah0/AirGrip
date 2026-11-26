@@ -1,4 +1,3 @@
-// Page markup, first converted from design/home.html (frozen); edit here.
 
 import "./css/Home.css";
 import { QuickQuote } from "../components/QuickQuote";

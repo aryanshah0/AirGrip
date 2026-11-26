@@ -7,7 +7,7 @@ Ketan's answers (facts), Shree/Ketan's read of Home and About (voice), or real b
 - Factual B2B English for engineers and buyers in India and Europe. Short sentences; numbers, standards and grades over adjectives.
 - British spelling (moulding, colour, centre). "We" for AirGrip in running text; "AirGrip" in leads and legal text.
 - No marketing filler: no "world-class", "solutions", "seamless", "plainly", "under one roof". No "family-run".
-- Claim only what is in docs/CLAIMS.md. Anything unconfirmed is a TBC chip, a .vfy underline or a review note, never plain text.
+- Claim only what is in the confirmed-claims list (docs/CLAIMS.md, internal: kept off the public repo). Anything unconfirmed is a TBC chip, a .vfy underline or a review note, never plain text.
 
 ## Fixed wordings (use exactly)
 - Plating: "plated in our plant". Finish rows: "Natural, or plated in our plant: nickel, tin or zinc; silver or chrome on request" (or "nickel or tin; …" where zinc isn't offered). Gland and accessory pages: nickel, tin or zinc only.
@@ -24,7 +24,7 @@ Ketan's answers (facts), Shree/Ketan's read of Home and About (voice), or real b
 
 ## Never visible to buyers
 - References to the old site ("previous catalogue/site/datasheet/Technical Library"), question numbers, photo-shoot notes, "size list being confirmed". These belong in review notes only.
-- Guard: `python3 design/tools/check_launch.py` lists every review note, TBC, .vfy, photo placeholder, old-site reference and question number. The build must report zero before launch.
+- Guard: `python3 site/tools/check_launch.py site/dist` (part of `npm run build`) lists every review note, TBC, .vfy, photo placeholder, old-site reference and question number. The build must report zero before launch.
 
 ## Numbers and ranges (added 2026-11-15, attack round)
 - En dash without spaces when the unit appears once: `Ø5–100 mm`, `PG 7–48`, `57.0–59.0 %`.

@@ -1,6 +1,7 @@
 node_modules/
 dist/
 dist-ssr/
+dist-dev/
 .DS_Store
 share/
 *.log
@@ -14,3 +15,11 @@ docs/fresh-review/bench-*
 # stray screenshots from local checks
 site/*.jpg
 site/*.png
+
+# docs: internal working notes (owner questions, reviews, handoff, status) stay on this Mac only.
+# Only these docs are public; a new doc is private unless added here.
+docs/*
+!docs/BUILD.md
+!docs/DESIGN.md
+!docs/COPY-STYLE.md
+!docs/SEO-PLAN.md

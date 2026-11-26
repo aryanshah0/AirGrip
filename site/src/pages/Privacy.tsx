@@ -1,4 +1,3 @@
-// Page markup, first converted from design/privacy.html (frozen); edit here.
 
 import "../styles/pages.css";
 

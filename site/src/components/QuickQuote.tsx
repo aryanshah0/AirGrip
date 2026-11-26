@@ -1,4 +1,4 @@
-// Home page quick quote (markup from design/home.html). Required fields use the browser's own validation, as in
+// Home page quick quote. Required fields use the browser's own validation, as in
 // the design. "Sign my NDA first" switches the upload off. Sends to the form endpoint, then opens the thank-you page.
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { P } from "../site";
@@ -34,7 +34,7 @@ export function QuickQuote() {
       const sent: SentSummary = { ref, items: [], files: send.map((f) => ({ name: f.name, qo: v("qo"), qy: v("qy") })), parts: [], nda, email: v("e"), quick: { qo: v("qo"), qy: v("qy") } };
       try { sessionStorage.setItem(SENT_KEY, JSON.stringify(sent)); } catch { /* thank-you page shows the generic text */ }
       await track("rfq_submit", { form: "home", files: send.length, nda });
-      location.href = P.thanks;
+      location.href = import.meta.env.BASE_URL + P.thanks.slice(1);
     } catch (x) {
       track("form_send_failed", { form: "home", reason: x instanceof SendError ? x.message.slice(0, 90) : "network" });
       setMsg(x instanceof SendError ? x.message : "Could not send. Please email sales@airgrip.in.");

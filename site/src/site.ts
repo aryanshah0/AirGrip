@@ -24,6 +24,7 @@ export const SITE = {
  *  - VITE_GA_ID: GA4 measurement ID. Empty = no analytics script at all.
  *  - VITE_FORM_ENDPOINT: URL the quote and contact forms POST to (multipart). Default: /api/form.php, the PHP
  *    sender shipped in public/api/ (the dev and preview servers answer it with a local mock instead).
+ *    "none" (the dev copy on GitHub Pages): nothing is sent; the form goes straight to its thank-you step.
  */
 export const CONFIG = {
   gaId: (import.meta.env.VITE_GA_ID as string | undefined) || "",

@@ -1,4 +1,3 @@
-/* Page styles, first converted from design/resources.html */
 .res { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--gutter); }
   .res a { display: grid; gap: 6px; padding: var(--s-5); background: var(--card); border: 1px solid var(--rule-strong); text-decoration: none; align-content: start; }
   .res a:hover { border-color: var(--ink); }

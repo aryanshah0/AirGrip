@@ -1,4 +1,4 @@
-// Contact page form (markup from design/contact.html). Topic is preselected from links like /contact/?topic=audit.
+// Contact page form. Topic is preselected from links like /contact/?topic=audit.
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { P } from "../site";
 import { EMAIL_RE, SendError, sendForm } from "../lib/forms";

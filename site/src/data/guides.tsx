@@ -1,5 +1,5 @@
 // Buyer guides under /resources/guides/ (SEO plan §6, written 2026-11-22). Page layout: src/templates/GuidePage.tsx.
-// Rules as for every page: AirGrip facts only from docs/CLAIMS.md; general engineering data from the standards named
+// Rules as for every page: AirGrip facts only from the confirmed-claims list (internal notes, not in this repo); general engineering data from the standards named
 // in each guide and from mill datasheets; where sources disagree, no exact figure is given.
 import type { ReactNode } from "react";
 import { M, type Card, type FaqItem } from "../components/blocks";

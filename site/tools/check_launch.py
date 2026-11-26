@@ -3,13 +3,13 @@
 
 Blocks launch on: review notes (.rnote), TBC chips (.tbc), wording-to-confirm underlines (.vfy), photo placeholders (.ph),
 references to the old site, question numbers, and the words TBC / "to confirm" in visible text.
-Usage:  python3 tools/check_launch.py [dir]      (report, exit 1 if anything is found; default dir = design/;
-        the site build runs it on site/dist, every pre-rendered page)
+Usage:  python3 tools/check_launch.py [dir]      (report, exit 1 if anything is found; default dir = site/dist;
+        the site build runs it on every pre-rendered page)
 In the React build this runs on the pre-rendered HTML in CI; the build fails until the report is empty.
 """
 import glob, html, os, re, sys
 
-ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..")
+ROOT = sys.argv[1] if len(sys.argv) > 1 else os.path.join(os.path.dirname(__file__), "..", "dist")
 SKIP = {"review.html", "_la.html", "_frame.html"}
 CLASSES = {"rnote": "review note", "tbc": "TBC chip", "vfy": "wording to confirm", "ph": "photo placeholder"}
 TEXT = [

@@ -36,6 +36,7 @@ export class SendError extends Error {}
 
 export async function sendForm(form: string, fields: Record<string, string | boolean | undefined>, files: File[] = []): Promise<void> {
   if (!CONFIG.formEndpoint) throw new SendError("The form is not connected yet. Please email sales@airgrip.in.");
+  if (CONFIG.formEndpoint === "none") return; // dev copy on GitHub Pages: nothing is sent, the flow goes on to the thank-you page
   const fd = new FormData();
   fd.append("form", form);
   fd.append("page", location.pathname);

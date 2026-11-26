@@ -1,5 +1,4 @@
 // Shared header (Products mega menu, mobile nav), footer, WhatsApp button, sticky quote bar and cookie banner.
-// Markup and behaviour are ported 1:1 from design/partials.js.
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from "react";
 import { P, SITE } from "../site";
 import { basket, useBasket } from "../lib/basket";

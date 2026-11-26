@@ -1,4 +1,3 @@
-// Page markup, first converted from design/contact.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/Contact.css";

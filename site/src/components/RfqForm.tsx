@@ -1,4 +1,4 @@
-// Full quote form (markup and behaviour from design/rfq.html), plus the build requirements in docs/DESIGN-LOCK.md:
+// Full quote form:
 //  - one part code can be quoted in several finishes ("+ another finish" adds a line for the same code)
 //  - drawings are checked per file (type, 20 MB) and a rejected file says why on its own row
 // Catalogue lines, quantities, parts and text fields are kept in sessionStorage while the visitor browses.
@@ -187,7 +187,7 @@ export function RfqForm() {
     try { sessionStorage.setItem(SENT_KEY, JSON.stringify(sent)); sessionStorage.removeItem(SKEY); } catch { /* ignore */ }
     loaded.current = false;
     basket.clear();
-    location.href = P.thanks;
+    location.href = import.meta.env.BASE_URL + P.thanks.slice(1);
   }
 
   const input = (id: string, extra: Record<string, unknown> = {}) => ({

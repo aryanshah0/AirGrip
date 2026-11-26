@@ -7,7 +7,8 @@ import { routes } from "./routes";
 
 export function findRoute(pathname: string) {
   // /rfq/index.html is the same page as /rfq/ (the server 301s it, but never show the 404 page for it)
-  const q = pathname.replace(/\/index\.html$/, "/");
+  // (the dev copy on GitHub Pages lives in a sub-folder: drop it, routes are root paths)
+  const q = ("/" + pathname.slice(import.meta.env.BASE_URL.length)).replace(/\/index\.html$/, "/");
   const p = q.endsWith("/") || q.endsWith(".html") ? q : q + "/";
   return routes.find((r) => r.path === p) ?? routes.find((r) => r.name === "404")!;
 }

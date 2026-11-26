@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build --outDir dist && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && python3 ../design/tools/check_launch.py dist && node scripts/check-dist.mjs",
+    "build": "tsc --noEmit && vite build --outDir dist && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && python3 tools/check_launch.py dist && node scripts/check-dist.mjs",
+    "build:dev": "tsc --noEmit && export AG_BASE=/AirGrip/ AG_OUT=dist-dev VITE_FORM_ENDPOINT=none && vite build --mode devcopy --outDir dist-dev && vite build --mode devcopy --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && python3 tools/check_launch.py dist-dev",
     "preview": "vite preview --outDir dist --port 4173",
     "typecheck": "tsc --noEmit"
   },

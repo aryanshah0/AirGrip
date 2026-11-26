@@ -1,5 +1,6 @@
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "node:path";
 
 // Local stand-in for the form endpoint (dev server and `npm run preview` only, never deployed): accepts the multipart POST and answers OK, so the quote and contact
 // forms can be tried end to end locally. Production uses VITE_FORM_ENDPOINT (see docs/BUILD.md).
@@ -23,8 +24,20 @@ function mockForm(): Plugin {
   }
 }
 
+// Dev copy on GitHub Pages (npm run build:dev): the site is served from a sub-folder (AG_BASE=/AirGrip/), so every
+// root-relative href/src in the JSX gets that prefix (src/lib/jsx-base.ts). The production build (AG_BASE unset) uses
+// React's own JSX runtime and is unchanged.
+const BASE = process.env.AG_BASE || "/";
+
 export default defineConfig({
-  plugins: [react(), mockForm()],
+  base: BASE,
+  plugins: [react(BASE === "/" ? {} : { jsxImportSource: "ag-base" }), mockForm()],
+  resolve: BASE === "/" ? {} : {
+    alias: {
+      "ag-base/jsx-runtime": path.resolve(__dirname, "src/lib/jsx-base.ts"),
+      "ag-base/jsx-dev-runtime": path.resolve(__dirname, "src/lib/jsx-base.ts"),
+    },
+  },
   build: { manifest: true, sourcemap: false, cssCodeSplit: true },
   server: { port: 5175, host: "127.0.0.1" },
 });

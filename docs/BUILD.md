@@ -1,8 +1,17 @@
 # Building and launching airgrip.co.in
 
 The live site is `site/`: React 19 + Vite 8 + TypeScript. Every page is pre-rendered to static HTML, so it runs on any
-Hostinger plan, and React only adds the interactive parts. **The built site is the source of truth** (since 2026-11-15);
-`design/` is frozen history.
+Hostinger plan, and React only adds the interactive parts. **The built site is the source of truth** (since 2026-11-15;
+the earlier static design mock-ups are in the git history before 2026-11-26).
+
+## Environments
+| | URL | Updated by | Notes |
+|---|---|---|---|
+| **Dev** | https://aryanshah0.github.io/AirGrip/ | GitHub Actions, on every push to `main` (`.github/workflows/build.yml`) | `npm run build:dev` → `dist-dev/`. Served from a sub-folder (`AG_BASE=/AirGrip/`; `src/lib/jsx-base.ts` prefixes every root path in the JSX). Every page `noindex, nofollow`, a "dev copy" bar on top, no analytics, forms send nothing (`VITE_FORM_ENDPOINT=none`, they go straight to the thank-you step), no `.htaccess`, PHP or sitemap. |
+| **Prod** | https://airgrip.co.in | `cd site && ./scripts/deploy.sh`, by hand, after checking dev | `npm run build` → `dist/`. Unchanged by the dev switch (React's own JSX runtime, root paths). |
+
+Flow: change → push to `main` (CI runs the full production build and checks, then refreshes dev) → check dev →
+`./scripts/deploy.sh` for prod.
 
 ## How it fits together
 ```
@@ -89,8 +98,8 @@ The site runs on AirGrip's Hostinger Business plan (website airgrip.co.in, PHP 8
   back to PHP mail(), which Hostinger sends from noreply@srv…main-hosting.eu (DMARC fails, Gmail shows "via").
   Tested 2026-11-22: buyer copy in the Gmail inbox, SPF, DKIM (airgrip.co.in) and DMARC all PASS.
 - **After email works:** send one real quote request with a small drawing and check it reaches sales@airgrip.in and
-  the buyer copy arrives (check spam; DKIM is set by Hostinger email). Then Search Console: add the property,
-  submit `https://airgrip.co.in/sitemap.xml`.
+  the buyer copy arrives (check spam; DKIM is set by Hostinger email). Search Console is set up (domain property,
+  sitemap submitted, 2026-11-21).
 
 ## Where the build deliberately differs from the design files
 - **Real behaviour instead of mock-ups:** forms send to the endpoint; the thank-you page shows the reference that was
@@ -145,8 +154,6 @@ The site runs on AirGrip's Hostinger Business plan (website airgrip.co.in, PHP 8
 - 37 flow checks pass: cookie banner, mega menu, mobile nav, + Add, head and EMC switches, pair picker, quote form
   (second finish, typed codes, file checks, validation, send, thank-you), NDA path, contact form, home quick quote.
 
-## Still open (blocks launch)
-See `docs/FINAL-STATUS.md` and `docs/CALL-SHEET-KETAN.md`: Ketan's gland drawings and data, ISO certificate copy,
-privacy legal advice, plus the Hostinger plan and login, the GA4 owner, and the `website@airgrip.co.in` mailbox
-(call sheet 27–29). Not yet tested: real Safari flows (needs "Allow remote automation"), real phones (Ketan: Android +
-Windows; Aryan: iPhone), and the real Hostinger server (`tools/server-check.mjs` once deployed).
+## Still open
+Owner items (gland drawings and clamping ranges, ISO certificate copy, the sales@airgrip.in mailbox, Google Business
+Profile details) are tracked in the internal notes, which are kept off this public repo.

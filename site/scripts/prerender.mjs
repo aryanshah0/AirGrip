@@ -5,8 +5,13 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const dist = path.join(root, "dist");
+const dist = path.join(root, process.env.AG_OUT || "dist"); // dist-dev for the dev copy
 const ORIGIN = "https://airgrip.co.in";
+// AG_BASE set = the dev copy on GitHub Pages (npm run build:dev): served from that sub-folder, kept out of search
+// engines (noindex on every page, no sitemap), with a bar saying it is the dev copy. Unset = production.
+const BASE = process.env.AG_BASE || "/";
+const DEV = BASE !== "/";
+const DEV_BAR = `<div role="note" style="background:#7a2e0e;color:#fff;font:600 13px/1.4 system-ui,sans-serif;padding:6px 16px;text-align:center">Dev copy for checking changes. Forms do not send anything. The live site is <a href="${ORIGIN}/" style="color:#fff">airgrip.co.in</a>.</div>`;
 const GROUP = ["AirGrip International", "AirGrip Industrie", "Asian Brass Technocrats", "Copper Alloy Component Solutions", "Devi Metals"];
 
 const tpl = fs.readFileSync(path.join(dist, "index.html"), "utf8");
@@ -36,7 +41,7 @@ const entryCss = new Set(entry.css || []);
 const usedBy = {};
 Object.values(manifest).forEach((m) => (m.css || []).forEach((c) => { usedBy[c] = (usedBy[c] || 0) + 1; }));
 const ordered = (list) => [...entryCss, ...list.filter((c) => !entryCss.has(c)).sort((a, b) => usedBy[b] - usedBy[a])];
-const tplBase = tpl.replace(/<link rel="stylesheet"[^>]*href="\/assets\/[^"]+\.css"[^>]*>\n?/g, "");
+const tplBase = tpl.replace(new RegExp(`<link rel="stylesheet"[^>]*href="${BASE}assets/[^"]+\\.css"[^>]*>\\n?`, "g"), "");
 const font = Object.values(manifest).flatMap((m) => m.assets || []).find((a) => /archivo-latin-wdth-normal.*\.woff2$/.test(a));
 
 const org = {
@@ -99,14 +104,14 @@ function head(route, html) {
   const t = [
     `<title>${esc(route.title)}</title>`,
     `<meta name="description" content="${esc(route.description)}">`,
-    route.noindex ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
+    DEV ? `<meta name="robots" content="noindex, nofollow">` : route.noindex ? `<meta name="robots" content="noindex, follow">` : `<link rel="canonical" href="${url}">`,
     `<meta property="og:type" content="website">`, `<meta property="og:site_name" content="AirGrip">`, `<meta property="og:locale" content="en_IN">`,
     `<meta property="og:title" content="${esc(route.title)}">`, `<meta property="og:description" content="${esc(route.description)}">`,
     `<meta property="og:url" content="${url}">`, `<meta property="og:image" content="${ORIGIN}${ogImage(route)}">`, `<meta property="og:image:width" content="1200">`, `<meta property="og:image:height" content="630">`,
     `<meta name="twitter:card" content="summary_large_image">`,
-    font ? `<link rel="preload" href="/${font}" as="font" type="font/woff2" crossorigin>` : "",
-    ...ordered(css).map((c) => `<link rel="stylesheet" href="/${c}">`),
-    ...js.map((j) => `<link rel="modulepreload" href="/${j}">`),
+    font ? `<link rel="preload" href="${BASE}${font}" as="font" type="font/woff2" crossorigin>` : "",
+    ...ordered(css).map((c) => `<link rel="stylesheet" href="${BASE}${c}">`),
+    ...js.map((j) => `<link rel="modulepreload" href="${BASE}${j}">`),
     jsonLd(route, html),
   ];
   return t.filter(Boolean).join("\n");
@@ -117,7 +122,7 @@ for (const route of routes) {
   const html = await render(route.path);
   const page = tplBase
     .replace("<!--head-->", head(route, html))
-    .replace("<body data-bc>", route.bodyClass ? `<body class="${route.bodyClass}">` : "<body>")
+    .replace("<body data-bc>", (route.bodyClass ? `<body class="${route.bodyClass}">` : "<body>") + (DEV ? "\n" + DEV_BAR : ""))
     .replace("<!--app-->", html);
   const out = route.name === "404" ? path.join(dist, "404.html") : path.join(dist, route.path, "index.html");
   fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -145,7 +150,7 @@ const MAP = [
   [["custom-metal-stamping-parts"], R.stamping], [["electrical-terminal-blocks-connectors"], R.terminals],
   [["brass-forged-machined-components"], R.forged], [["technical-library"], R.resources], [["enquiry"], R.rfq],
 ];
-// older static site (2009–2021, *.html); exact case, from archived crawls (docs/attack-round/seo.md, SEO-04)
+// older static site (2009–2021, *.html); exact case, from archived crawls
 const LEGACY = [
   [["products/brass-turned-parts.html", "Brass-Turned-Parts-Components.html", "cnc-turned-components-blog"], R.category],
   [["products/brass-fittings.html", "Brass-Fittings.html"], R.fittings],
@@ -228,8 +233,14 @@ Header set Cache-Control "public, max-age=604800"
 AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml text/javascript application/javascript application/json application/xml image/svg+xml
 </IfModule>
 `;
+if (DEV) {
+  // GitHub Pages: no Apache, no PHP; nothing to index
+  for (const f of ["sitemap.xml", ".htaccess", "api"]) fs.rmSync(path.join(dist, f), { recursive: true, force: true });
+  fs.writeFileSync(path.join(dist, "robots.txt"), "User-agent: *\nDisallow: /\n");
+} else {
 fs.writeFileSync(path.join(dist, ".htaccess"), htaccess);
 fs.writeFileSync(path.join(dist, "assets", ".htaccess"), `# hashed file names: cache for a year\n<IfModule mod_headers.c>\nHeader set Cache-Control "public, max-age=31536000, immutable"\n</IfModule>\n`);
+}
 fs.rmSync(path.join(dist, "index.html.tpl"), { force: true });
 // route list for the browser test tools (tools/*.mjs)
 fs.writeFileSync(path.join(root, "tools", "routes-for-check.mjs"), "// Written by scripts/prerender.mjs from src/routes.ts\nexport const routes = " + JSON.stringify(routes.map((r) => ({ name: r.name, path: r.path })), null, 1) + ";\n");

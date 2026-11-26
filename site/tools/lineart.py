@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate AirGrip line-art part drawings (half-section, ISO 128 conventions) as standalone SVGs.
 
-Interim imagery until the photo shoot. Run:  python3 tools/lineart.py
+Interim imagery until the photo shoot. Run from site/:  python3 tools/lineart.py   (writes public/img/la/)
   img/la/<name>.svg    full drawing with dimensions (use at >= 220 px wide)
   img/la/t/<name>.svg  thumbnail: same geometry, no lettering (use below 220 px)
 
@@ -16,7 +16,7 @@ import math, os
 
 INK, INK3, BRASS, TINT = "#262B33", "#5F656E", "#B8862F", "#F1E4C6"
 W, H = 240, 160
-BASE = os.path.join(os.path.dirname(__file__), "..", "img", "la")
+BASE = os.path.join(os.path.dirname(__file__), "..", "public", "img", "la")
 os.makedirs(os.path.join(BASE, "t"), exist_ok=True)
 
 def head(title):

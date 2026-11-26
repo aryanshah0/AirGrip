@@ -1,4 +1,3 @@
-// Page markup, first converted from design/products.html (frozen); edit here.
 
 import "../styles/pages.css";
 import "./css/Products.css";
