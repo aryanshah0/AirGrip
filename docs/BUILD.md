@@ -4,14 +4,26 @@ The live site is `site/`: React 19 + Vite 8 + TypeScript. Every page is pre-rend
 Hostinger plan, and React only adds the interactive parts. **The built site is the source of truth** (since 2026-11-15;
 the earlier static design mock-ups are in the git history before 2026-11-26).
 
-## Environments
-| | URL | Updated by | Notes |
+## Branches and environments
+| Branch | Environment | URL | What happens on push or merge |
 |---|---|---|---|
-| **Dev** | https://aryanshah0.github.io/AirGrip/ | GitHub Actions, on every push to `main` (`.github/workflows/build.yml`) | `npm run build:dev` → `dist-dev/`. Served from a sub-folder (`AG_BASE=/AirGrip/`; `src/lib/jsx-base.ts` prefixes every root path in the JSX). Every page `noindex, nofollow`, a "dev copy" bar on top, no analytics, forms send nothing (`VITE_FORM_ENDPOINT=none`, they go straight to the thank-you step), no `.htaccess`, PHP or sitemap. |
-| **Prod** | https://airgrip.co.in | `cd site && ./scripts/deploy.sh`, by hand, after checking dev | `npm run build` → `dist/`. Unchanged by the dev switch (React's own JSX runtime, root paths). |
+| `develop` | **Dev** | https://aryanshah0.github.io/AirGrip/ | CI runs the production build and all checks, then deploys the dev copy (`npm run build:dev` → `dist-dev/`) to GitHub Pages. |
+| `main` | **Prod** | https://airgrip.co.in | CI runs the same checks, then waits for a reviewer to approve the `production` environment in GitHub, then runs `scripts/deploy.sh` (backup on the server, upload, 299 live checks). |
 
-Flow: change → push to `main` (CI runs the full production build and checks, then refreshes dev) → check dev →
-`./scripts/deploy.sh` for prod.
+Rules:
+- Work lands on `develop` (the default branch) directly or through pull requests. Check it on dev.
+- `main` only accepts commits that already passed the `site` check (branch protection), so a release is
+  `develop` merged or fast-forwarded into `main` (pull request `develop → main`, or `git push origin develop:main`).
+- No force-push or deletion of `main` or `develop`.
+- The dev copy: served from a sub-folder (`AG_BASE=/AirGrip/`; `src/lib/jsx-base.ts` prefixes every root path in the
+  JSX), `noindex, nofollow` on every page, a "dev copy" bar, no analytics, forms send nothing
+  (`VITE_FORM_ENDPOINT=none`, straight to the thank-you step), no `.htaccess`, PHP or sitemap. The production build is
+  unchanged by this switch.
+- Prod secrets: the `production` environment (only `main` may use it) holds `DEPLOY_SSH_KEY` (a key used only by CI,
+  restricted on the server: no port forwarding, no terminal), `DEPLOY_HOST`, `DEPLOY_PORT`, `DEPLOY_USER`,
+  `DEPLOY_KNOWN_HOSTS`, and the variable `VITE_GA_ID`. To revoke CI access, delete the
+  `github-actions-airgrip-deploy` line from `~/.ssh/authorized_keys` on the server.
+- Emergency deploy from a Mac with the `airgrip-hostinger` SSH alias: `cd site && ./scripts/deploy.sh` (same script).
 
 ## How it fits together
 ```

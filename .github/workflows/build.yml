@@ -1,22 +1,25 @@
 name: build
 
-# Every push and pull request: the production build with all its checks (type-check, pre-render, launch guard,
-# dist check). Any problem fails.
-# Every push to main: also rebuilds the dev copy on GitHub Pages (https://aryanshah0.github.io/AirGrip/): noindex,
-# no analytics, forms send nothing. Production (airgrip.co.in) is only changed by site/scripts/deploy.sh.
+# Branches and environments (docs/BUILD.md › Environments):
+#   any push or pull request → "site": the production build with every check (type-check, pre-render, launch guard,
+#                              dist check). main only accepts commits that passed it (branch protection).
+#   push to develop          → "dev":  the dev copy on GitHub Pages, https://aryanshah0.github.io/AirGrip/
+#                              (noindex, no analytics, forms send nothing).
+#   push to main             → "prod": airgrip.co.in via scripts/deploy.sh (backup on the server, upload, live checks),
+#                              after a reviewer approves the "production" environment. Its SSH key, host, port, user
+#                              and known_hosts are encrypted secrets of that environment; only main can use it.
 on:
   push:
-    branches: [main]
+    branches: [main, develop]
   pull_request:
   workflow_dispatch:
-
-concurrency:
-  group: build-${{ github.ref }}
-  cancel-in-progress: true
 
 jobs:
   site:
     runs-on: ubuntu-latest
+    concurrency:
+      group: site-${{ github.ref }}
+      cancel-in-progress: true
     defaults:
       run:
         working-directory: site
@@ -32,17 +35,20 @@ jobs:
           python-version: "3.12"
       - run: npm ci
       - run: npm run build
-      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         run: npm run build:dev
-      - if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist-dev
 
   dev:
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
     needs: site
     runs-on: ubuntu-latest
+    concurrency:
+      group: dev
+      cancel-in-progress: true
     permissions:
       pages: write
       id-token: write
@@ -52,3 +58,42 @@ jobs:
     steps:
       - id: deploy
         uses: actions/deploy-pages@v4
+
+  prod:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: site
+    runs-on: ubuntu-latest
+    concurrency:
+      group: prod
+      cancel-in-progress: false   # never stop an upload half-way
+    environment:
+      name: production
+      url: https://airgrip.co.in
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: SSH alias airgrip-hostinger (as on the deploying Mac)
+        env:
+          KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          KNOWN: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          HOST: ${{ secrets.DEPLOY_HOST }}
+          PORT: ${{ secrets.DEPLOY_PORT }}
+          USER_: ${{ secrets.DEPLOY_USER }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/airgrip_deploy && chmod 600 ~/.ssh/airgrip_deploy
+          printf '%s\n' "$KNOWN" > ~/.ssh/known_hosts
+          printf 'Host airgrip-hostinger\n  HostName %s\n  Port %s\n  User %s\n  IdentityFile ~/.ssh/airgrip_deploy\n  IdentitiesOnly yes\n  StrictHostKeyChecking yes\n' "$HOST" "$PORT" "$USER_" > ~/.ssh/config
+      - name: Analytics ID for the production build
+        run: printf 'VITE_GA_ID=%s\n' "${{ vars.VITE_GA_ID }}" > .env.production
+      - run: ./scripts/deploy.sh
