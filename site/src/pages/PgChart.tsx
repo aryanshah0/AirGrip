@@ -1,6 +1,7 @@
 
 import "../styles/pages.css";
 import "./css/PgChart.css";
+import { Faq, M } from "../components/blocks";
 
 export default function PgChart() {
   return (
@@ -53,16 +54,16 @@ export default function PgChart() {
       <div className="tbl"><table className="spec">
       <thead><tr><th className="stick">Size</th><th className="n">Outside Ø{" "}<span className="s">d</span></th><th className="n">Core Ø{" "}<span className="s">d1</span></th><th className="n">Pitch{" "}<span className="s">P</span></th><th className="n">Threads / inch</th><th className="n">Through-hole</th></tr></thead>
       <tbody>
-      <tr><td className="stick mono">PG 7</td><td className="n">12.50</td><td className="n">11.28</td><td className="n">1.270</td><td className="n">20</td><td className="n">12.7</td></tr>
-      <tr><td className="stick mono">PG 9</td><td className="n">15.20</td><td className="n">13.86</td><td className="n">1.411</td><td className="n">18</td><td className="n">15.4</td></tr>
-      <tr><td className="stick mono">PG 11</td><td className="n">18.60</td><td className="n">17.26</td><td className="n">1.411</td><td className="n">18</td><td className="n">18.8</td></tr>
-      <tr><td className="stick mono">PG 13.5</td><td className="n">20.40</td><td className="n">19.06</td><td className="n">1.411</td><td className="n">18</td><td className="n">20.7</td></tr>
-      <tr><td className="stick mono">PG 16</td><td className="n">22.50</td><td className="n">21.16</td><td className="n">1.411</td><td className="n">18</td><td className="n">22.8</td></tr>
-      <tr><td className="stick mono">PG 21</td><td className="n">28.30</td><td className="n">26.78</td><td className="n">1.588</td><td className="n">16</td><td className="n">28.6</td></tr>
-      <tr><td className="stick mono">PG 29</td><td className="n">37.00</td><td className="n">35.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">37.4</td></tr>
-      <tr><td className="stick mono">PG 36</td><td className="n">47.00</td><td className="n">45.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">47.5</td></tr>
-      <tr><td className="stick mono">PG 42</td><td className="n">54.00</td><td className="n">52.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">54.5</td></tr>
-      <tr><td className="stick mono">PG 48</td><td className="n">59.30</td><td className="n">57.78</td><td className="n">1.588</td><td className="n">16</td><td className="n">59.8</td></tr>
+      <tr id="pg-7"><td className="stick mono">PG 7</td><td className="n">12.50</td><td className="n">11.28</td><td className="n">1.270</td><td className="n">20</td><td className="n">12.7</td></tr>
+      <tr id="pg-9"><td className="stick mono">PG 9</td><td className="n">15.20</td><td className="n">13.86</td><td className="n">1.411</td><td className="n">18</td><td className="n">15.4</td></tr>
+      <tr id="pg-11"><td className="stick mono">PG 11</td><td className="n">18.60</td><td className="n">17.26</td><td className="n">1.411</td><td className="n">18</td><td className="n">18.8</td></tr>
+      <tr id="pg-13-5"><td className="stick mono">PG 13.5</td><td className="n">20.40</td><td className="n">19.06</td><td className="n">1.411</td><td className="n">18</td><td className="n">20.7</td></tr>
+      <tr id="pg-16"><td className="stick mono">PG 16</td><td className="n">22.50</td><td className="n">21.16</td><td className="n">1.411</td><td className="n">18</td><td className="n">22.8</td></tr>
+      <tr id="pg-21"><td className="stick mono">PG 21</td><td className="n">28.30</td><td className="n">26.78</td><td className="n">1.588</td><td className="n">16</td><td className="n">28.6</td></tr>
+      <tr id="pg-29"><td className="stick mono">PG 29</td><td className="n">37.00</td><td className="n">35.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">37.4</td></tr>
+      <tr id="pg-36"><td className="stick mono">PG 36</td><td className="n">47.00</td><td className="n">45.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">47.5</td></tr>
+      <tr id="pg-42"><td className="stick mono">PG 42</td><td className="n">54.00</td><td className="n">52.48</td><td className="n">1.588</td><td className="n">16</td><td className="n">54.5</td></tr>
+      <tr id="pg-48"><td className="stick mono">PG 48</td><td className="n">59.30</td><td className="n">57.78</td><td className="n">1.588</td><td className="n">16</td><td className="n">59.8</td></tr>
       </tbody>
       </table></div>{" "}
       <p className="tbl-note">Values to DIN 40430. Through-hole values are recommendations for the enclosure wall.{" "}</p>{" "}
@@ -90,6 +91,15 @@ export default function PgChart() {
       </div>{" "}
       </section>{" "}
       <section className="band">{" "}
+      <div className="wrap side" style={{"marginBottom": "var(--s-8)"}}>
+      <div className="sh"><h2>Questions</h2></div>
+      <div className="sb"><Faq items={[
+        ["What are the dimensions of a PG 21 thread?", <>To DIN 40430: outside Ø <M>28.30 mm</M>, core Ø <M>26.78 mm</M>, pitch <M>1.588 mm</M> (16 threads per inch). Recommended through-hole in the enclosure wall: <M>28.6 mm</M>. The usual metric replacement is <M>M25×1.5</M> or <M>M32×1.5</M>, depending on the hole and the cable.</>],
+        ["What are the dimensions of a PG 13.5 thread?", <>Outside Ø <M>20.40 mm</M>, core Ø <M>19.06 mm</M>, pitch <M>1.411 mm</M> (18 threads per inch), through-hole <M>20.7 mm</M>. The metric replacement is <M>M20×1.5</M>.</>],
+        ["What does PG stand for?", <>Panzergewinde, the German steel-conduit thread to DIN 40430. It has an 80° flank angle and a shallow, rounded profile.</>],
+        ["Is a PG thread the same as a metric thread?", <>No. PG has an 80° flank angle and pitches of <M>1.270</M>, <M>1.411</M> or <M>1.588 mm</M>; metric cable gland threads to EN 60423 have a 60° flank angle and a <M>1.5 mm</M> pitch. A PG gland does not screw into a metric hole: use the conversion table above or an <a className="link" href="/products/brass-cable-glands/thread-adapters/">adapter</a>.</>],
+      ]} /></div>
+      </div>{" "}
       <div className="wrap side">{" "}
       <div className="sh"><h2 className="sub">More technical data</h2></div>{" "}
       <div className="sb"><p className="muted"><a className="link" href="/resources/metric-cable-gland-thread-chart/">Metric thread chart</a>{" "}(EN 60423) ·{" "}<a className="link" href="/resources/bsp-thread-chart/">BSP thread chart</a>{" "}(ISO 228-1) ·{" "}<a className="link" href="/resources/npt-thread-chart/">NPT thread chart</a>{" "}(ASME B1.20.1) ·{" "}<a className="link" href="/resources/brass-grade-equivalents/">Brass grade equivalents</a>{" "}·{" "}<a className="link" href="/resources/guides/cable-gland-selection/">How to select a cable gland</a></p></div>{" "}

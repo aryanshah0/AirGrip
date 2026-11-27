@@ -2,7 +2,7 @@
 // On phones the table stacks into cards; each cell carries its column name in data-l.
 import "../styles/pages.css";
 import "./chart.css";
-import { Arr, Crumbs, Kv } from "../components/blocks";
+import { Arr, Crumbs, Faq, Kv } from "../components/blocks";
 import type { Chart } from "../data/products";
 import { P } from "../site";
 
@@ -35,7 +35,11 @@ export function ChartPage({ c }: { c: Chart }) {
         </table></div>
         {c.note}
       </div></section>
-      <section className="band band--sheet"><div className="wrap"><div className="cta">
+      {c.faq && <section className="band band--sheet"><div className="wrap side">
+        <div className="sh"><h2>Questions</h2></div>
+        <div className="sb"><Faq items={c.faq} /></div>
+      </div></section>}
+      <section className={c.faq ? "band" : "band band--sheet"}><div className="wrap"><div className="cta">
         <div><h2>{c.cta[0]}</h2><p>{c.cta[1]}</p></div>
         <div className="acts"><a className="btn" href={c.cta[2]}>{c.cta[3]} <Arr /></a></div>
       </div></div></section>

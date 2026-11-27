@@ -19,7 +19,7 @@ const manifest = JSON.parse(fs.readFileSync(path.join(dist, ".vite", "manifest.j
 const { render, routes } = await import(pathToFileURL(path.join(root, "dist-ssr", "entry-server.js")).href);
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-const text = (h) => h.replace(/<!-- -->/g, "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/\s+/g, " ").trim();
+const text = (h) => h.replace(/<!-- -->/g, "").replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#x27;/g, "'").replace(/\s+/g, " ").replace(/ ([,.;:)])/g, "$1").trim();
 
 // CSS and JS a page module needs (its own chunk plus static imports), from the Vite manifest
 function assetsFor(file) {

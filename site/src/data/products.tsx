@@ -455,6 +455,7 @@ export interface Chart {
   kinds: string;
   rows: string[][];
   note: ReactNode;
+  faq?: FaqItem[];          // optional "Questions" band (→ FAQPage data)
   cta: [title: string, text: string, href: string, button: string];
 }
 
@@ -518,6 +519,12 @@ export const CHARTS = {
       ["CW717R", "CuZn38Sn1As", "59.0–62.0", "≤ 0.2", "CZ112", "C46400", "—", "Naval brass: marine parts", "—"],
     ],
     note: <p className="tbl-note">Nearest equivalents; always check the specification your drawing calls up. Cu and Pb are composition limits from EN 12164 / 12165 / 12163. "—" in the AirGrip column = ask us. Guides: <a className="link" href={P.guideGrades}>CW614N vs CW617N</a>&nbsp;· <a className="link" href={P.guideLeadFree}>lead-free and DZR brass</a>.</p>,
+    faq: [
+      ["What is the equivalent of CZ121?", <>CZ121 is the former British designation for free-cutting brass CuZn39Pb3 (written <M>CZ121Pb3</M>). The European equivalent is <M>CW614N</M>, the nearest American grade is <M>C38500</M> and the Indian one is IS 319 Type I. It is the grade AirGrip runs as standard for turned parts.</>],
+      ["What is the equivalent of CZ122?", <>CZ122 is CuZn40Pb2, the hot-forging brass. The European equivalent is <M>CW617N</M> and the nearest American grade is <M>C37700</M>. It is AirGrip's standard grade for forged parts.</>],
+      ["What is CW614N in American and Indian standards?", <>The nearest American (UNS) grade is <M>C38500</M>; in India it is IS 319 Type I. Older British drawings call it <M>CZ121Pb3</M>.</>],
+      ["Which brass grades does AirGrip use?", <><M>CW614N</M> for turned parts and <M>CW617N</M> for forgings as standard; DZR and lead-free grades (<M>CW602N</M>, <M>CW511L</M>, <M>CW724R</M>) on request. Tell us the grade on your drawing and we confirm it with the quote.</>],
+    ],
     cta: ["Need a specific grade?", "Tell us the grade on your drawing; we confirm availability with the quote.", P.rfq, "Request a quote"],
   },
 } satisfies Record<string, Chart>;
